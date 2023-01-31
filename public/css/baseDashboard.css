@@ -892,6 +892,21 @@ div.logo-details {
     border-radius: 35px;
 }
 
+.container .mainDataCenterRow{
+    display:flex;
+}
+
+.container .leftCol{
+    margin-top:100px;
+    width: 50%;
+    background-color: red;
+}
+
+.container .rightCol{
+    width: 50%;
+    background-color: green;
+}
+
 /*row showallusers*/
 
 .mainData .row {
