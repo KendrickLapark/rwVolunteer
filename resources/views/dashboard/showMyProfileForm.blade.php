@@ -321,9 +321,10 @@
                             </p>
                         </div>
                     </div>
-                    <div class="eachCreateInfoExtraElement">
-                        <button type="submit" id="updateMyProfile" class="botonesControl">Actualizar</button>
-                    </div>
+                    
+                </div>
+                <div class="eachCreateInfoExtraElement">
+                    <button type="submit" id="updateMyProfile" class="botonesControl">Actualizar</button>
                 </div>
             </div>
         </form>

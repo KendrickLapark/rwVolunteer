@@ -894,17 +894,29 @@ div.logo-details {
 
 .container .mainDataCenterRow{
     display:flex;
+    border-radius: 25px;
+    margin-inline: 100px;
 }
 
 .container .leftCol{
-    margin-top:100px;
     width: 50%;
-    background-color: red;
+    text-align: center;
+    transform:translate(20%, 0%);
 }
 
 .container .rightCol{
     width: 50%;
-    background-color: green;
+    text-align: center;
+    transform:translate(-20%, 0%);
+}
+
+#updateMyProfile{
+
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 1000%);
 }
 
 /*row showallusers*/
