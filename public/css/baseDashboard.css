@@ -892,32 +892,7 @@ div.logo-details {
     border-radius: 35px;
 }
 
-.container .mainDataCenterRow{
-    display:flex;
-    border-radius: 25px;
-    margin-inline: 100px;
-}
 
-.container .leftCol{
-    width: 50%;
-    text-align: center;
-    transform:translate(20%, 0%);
-}
-
-.container .rightCol{
-    width: 50%;
-    text-align: center;
-    transform:translate(-20%, 0%);
-}
-
-#updateMyProfile{
-
-    margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 1000%);
-}
 
 /*row showallusers*/
 
@@ -1081,11 +1056,8 @@ select.small {
 /*css para el modal generado tras clickar en el fullcalendar de la vista showAllActivitiesLogged.blade pepe */
 
 #fullcalendarModal .modal-dialog{ 
-    position: fixed;
-    top:10%;
-    left:25%;
+    position: flex;
     min-width: 50%;
-    height: 1200px;
 }
 
 .modal-content{

@@ -18,8 +18,8 @@
         <form method="POST" action="{{ route('dashboard.updateProfile') }}" id="editMyProfile">
             @csrf
             <div class="container">
-                <div class="mainDataCenterRow">
-                    <div class="leftCol">
+                <div class="mainData center row">
+                    <div class="left col">
                         <div class="eachCreateInfoExtraElement">
                             <p>
                                 <label id="labelShirtSizeVol" class="formSections form-label" for="shirtSizeVol"><strong>Talla de
@@ -152,7 +152,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="rightCol">
+                    <div class="right col">
                         <div class="eachCreateInfoExtraElement">
                             <p>
                                 <label id="labeltypeViaVol" class="formSections" for="typeViaVol"><strong>Tipo de Vía:
@@ -321,10 +321,9 @@
                             </p>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="eachCreateInfoExtraElement">
-                    <button type="submit" id="updateMyProfile" class="botonesControl">Actualizar</button>
+                    <div class="eachCreateInfoExtraElement">
+                        <button type="submit" id="updateMyProfile" class="botonesControl">Actualizar</button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -336,8 +335,8 @@
 @section('headlibraries')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::asset('js/codPos.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    
-@endsection
