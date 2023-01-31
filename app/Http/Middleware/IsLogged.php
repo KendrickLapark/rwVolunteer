@@ -21,6 +21,6 @@ class IsLogged
             return $next($request);
         }
 
-        return redirect('home')->with('error','You have not user access');
+        return redirect('home')->with('error','No tienes la condición de usuario.');
     }
 }

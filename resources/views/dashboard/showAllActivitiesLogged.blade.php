@@ -75,59 +75,37 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-
-                          <!-- boton a desarrollar para cerrar el modal by pepe--> 
-                          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
                         </div>
-                        <div class="modal-body">
-                             @foreach ($activities as $activity) 
-
+                        <script>
+                            console.log($('#exampleModalLabel').text());
+                        </script> 
+                        <div class="modal-body" id="prueba">
+                             @foreach ($activities as $activity)
                              
-                             {{-- <div class="modal-activity-title">
-                              Fecha señalada  {{date('d-m-Y')}}
-                            </div>
-
-                            <div class="modal-activity-title">
-                                Fecha señalada  {{date('d-m-Y')}} 
-                              </div> --}}
-
-                           {{--  <div class="modal-activity-title">
-                               Fecha actividad {{date('d-m-Y', strtotime($activity->dateAct))}}
-                            </div> --}}                        
-
-                             @if(strtotime(date('d-m-Y', strtotime($activity->dateAct))) == strtotime(date('d-m-Y')))
-                             
-                          <div class="modal-activity">
+                                <div class="modal-activity">
                                     <div class="modal-activity-title">
-                                        {{-- <li>{{$activity->nameAct}}</li> --}}
-                                        <li>Titulo actividad </li>
+                                        {{$activity->nameAct}}
+                                        
                                     </div>
                                     <div class="modal-activity-description">
-                                        Descripcion actividad
-{{--                                         <li>{{$activity->descAct}}</li>
- --}}                               </div>
+                                        {{$activity->descAct}}
+
+                                    </div>
                                     <div class="modal-activity-horary">
-                                        Hora actividad
-{{--                                         <li>{{$activity->timeAct}}</li>
- --}}                               </div>                       
+                                        {{$activity->dateAct}}
+                                     </div>                       
                                 </div>
                                     <br>
-
-                            @endif
+                           
                              @endforeach 
  
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                          <button type="button" class="btn btn-primary">Aceptar</button>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                <!--genially add pepe-->
-                <!--<div class="container-wrapper-genially" style="position: relative; min-height: 400px; max-width: 100%;"><video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted" style="position: absolute;top: 45%;left: 50%;transform: translate(-50%, -50%);width: 80px;height: 80px;margin-bottom: 10%"><source src="https://static.genial.ly/resources/loader-default.mp4" type="video/mp4" />Your browser does not support the video tag.</video><div id="63a40fe6936a640013b9b793" class="genially-embed" style="margin: 0px auto; position: relative; height: auto; width: 100%;"></div></div><script>(function (d) { var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0]; if (d.getElementById(id)) { return; } js = d.createElement("script"); js.id = id; js.async = true; js.src = "https://view.genial.ly/static/embed/embed.js"; ref.parentNode.insertBefore(js, ref); }(document));</script>
-                -->
             </div>
 
         </div>
@@ -148,6 +126,8 @@
             </div>
         </div>
     </div>
+
+            
     
     <script>
         $(document).ready(function() {
@@ -158,9 +138,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-            });
-
-            
+            });           
 
             var calendar = $('#calendar').fullCalendar({
                 dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
@@ -224,33 +202,30 @@
 
                 dayClick: function( date, jsEvent, view){               
 
-                    console.log(moment(date).format('YYYY-MM-DD'));
+                    date=moment(date).format("dddd DD [de] MMMM");  
+                    
+                    //$request->session()->flash('FechaSeleccionada', date);
 
-                    date = moment(date).format('YYYY-MM-DD');
+                    $('#fullcalendarModal .modal-title').text(date); 
 
-                    location.href = 'dashboard-showAllActivitiesLogged/' + date;
+                    $('#fullcalendarModal').modal('show');  
 
-                   /*  $('#fullcalendarModal').modal('show');
+                   /*  @foreach($activities as $activity){                       
 
-                    date=moment(date).format("dddd DD [de] MMMM");
-              
-                    $('#fullcalendarModal .modal-title').text(date);
+                        @if(strtotime(date('d-m-Y', strtotime($activity->dateAct))) == strtotime(date('d-m-Y')))                    
 
-                    @foreach($activities as $activity){
-                        
-                        
-                       // console.log(strtotime(date('d-m-Y', strtotime({{$activity->dateAct}}))));
-
-                        //@if(strtotime(date('d-m-Y', strtotime($activity->dateAct))) == strtotime(date('d-m-Y')))
-
-                            $('#fullcalendarModal .modal-activity-title').text('{{$activity->nameAct}}');
+                            /$('#fullcalendarModal .modal-activity-title').text('{{$activity->nameAct}}');
                             $('#fullcalendarModal .modal-activity-description').text('{{$activity->descAct}}');
-                           $('#fullcalendarModal .modal-activity-horary').text('{{$activity->timeAct}}');
-                        //@endif
+                            $('#fullcalendarModal .modal-activity-horary').text('{{$activity->timeAct}}'); 
+
+                            
+
+                            $('#fullcalendarModal').modal('show');  
+
+                        @endif
                        
                     }
-                    @endforeach */
-
+                    @endforeach  */                              
                                         
                 },
 
@@ -266,4 +241,5 @@
             toastr.success(message, 'Event');
         }
     </script>
+
 @endsection

@@ -19,7 +19,7 @@
 
                 <div class="eachCreateInfoExtraElement">
                     <p>
-                        <input type="file" name="infoExtra" accept="pdf|jpg|image/*|media_type|application/pdf" required>
+                        <input type="file" name="infoExtra" accept=".pdf" required>
                     </p>
                 </div>
                 <div class="eachCreateInfoExtraElement">

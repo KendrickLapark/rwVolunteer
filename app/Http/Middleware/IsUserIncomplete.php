@@ -27,6 +27,6 @@ class IsUserIncomplete
             return $next($request);
         }
 
-        return redirect('home')->with('error','You have not user access');
+        return redirect('home')->with('error','Tu perfil no está completo.');
     }
 }

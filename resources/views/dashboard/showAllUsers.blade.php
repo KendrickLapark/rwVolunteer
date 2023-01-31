@@ -221,7 +221,7 @@
                     </div>
                     <div class="eachRow">
                         <div class="controlButton lessDetails">
-                            <i class='bx bxs-up-arrow'></i>
+                            <i class='bx bxs-up-arrow' ></i>
                         </div>
                     </div>
                 </div>

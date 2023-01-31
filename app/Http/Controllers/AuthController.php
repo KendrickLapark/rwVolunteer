@@ -47,13 +47,13 @@ class AuthController extends Controller
         try {
             $volunteer = Volunteer::select('isLoggeable')->where('numDocVol', $request['numDocVol'])->firstOrFail();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return Redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. Intentelo de nuevo más tarde');
+            return Redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. El DNI o NIE es incorrecto');
         }
 
         if (Auth::attempt($credentials)) {
             return $this->checkRole();
         } else
-            return Redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. Intentelo de nuevo más tarde');
+            return Redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. La contraseña es incorrecta');
     }
     /* End Login */
 

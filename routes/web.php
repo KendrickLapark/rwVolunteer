@@ -170,9 +170,7 @@ Route::middleware(['isLogged'])->group(function () {
     /* Filtramos calendario por categorias */
     Route::get('/showFilterByTypeAct/{id}', [ActivityController::class, 'showFilterByTypeAct'])
         ->name('dashboard.showFilterByTypeAct');
-    /* Filtramos las actividades por fecha pepe */
-    Route::get('/showActivitiesByDate/{date}', [ActivityController::class, 'showActivitiesByDate'])
-        ->name('dashboard.showActivitiesByDate');
+
 });
 
 Route::middleware(['isAdmin'])->group(function () {

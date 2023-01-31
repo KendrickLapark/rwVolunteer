@@ -174,13 +174,13 @@ class ActivityController extends Controller
 
     public function showAllActivitiesLogged(Request $request)
     {
-
         $activities = Activity::select('activities.activity_id','activities.nameAct','activities.descAct','activities.dateAct','activities.timeAct','activities.isNulledAct')
                                 ->where('activities.isVisible', 1)
                                 ->get();
         $activityTypes = TypeActivity::all();
         return view('dashboard.showAllActivitiesLogged', compact("activities","activityTypes"));
     }
+
 
     public static function quotaCalculator($quota,$activity_id)
     {
@@ -207,17 +207,6 @@ class ActivityController extends Controller
                             ->first();
         $activityTypes = TypeActivity::all();
         return view('dashboard.showThatActivity', compact("activity","activityTypes"));
-    }
-
-    /* metodo añadido por pepe */
-
-    public function showActivitiesByDate($dateAct){
-
-        $activities = Activity::select('activities.activity_id','activities.nameAct','activities.descAct','activities.dateAct','activities.timeAct','activities.isNulledAct')
-                                ->where('dateAct', '==',  $dateAct)
-                                ->get();
-            return redirect()->route('dashboard.showAllActivitiesLogged', compact('activities'));
-
     }
 
     public function showFilterByTypeAct($id)

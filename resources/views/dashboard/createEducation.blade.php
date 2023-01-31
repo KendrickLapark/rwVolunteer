@@ -55,7 +55,7 @@
                 </div>
                 <div class="eachCreateEducationElement">
                     <p>
-                        <input type="file" name="file" accept="pdf|application/pdf" required>
+                        <input type="file" name="file" accept=".pdf" required>
                     </p>
                 </div>
                 <div class="eachCreateEducationElement">
