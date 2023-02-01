@@ -78,20 +78,15 @@
 
         @foreach ($activities as $activity)
             <div class="mainActivity">
-                @if (strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y'))))
-                    <div class="row">
-                @elseif (!$activity->isNulledAct)
-                    <div class="row">
-                @else
-                    <div class="row" style="background-color:#8A8A8A">
-                @endif
+                <div class="row">
+
                     @if(strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y')))) 
                         <div class="divTime" style="background-color:#DDBFC8;">               
-                     @elseif(!$activity->isNulledAct)
-                            <div class="divTime" style="background-color: #406cbc;">                               
-                     @else
-                            <div class="divTime" style="background-color:#8A8A8A";>
-                     @endif                               
+                    @elseif(!$activity->isNulledAct)
+                        <div class="divTime" style="background-color: #406cbc;">                               
+                    @else
+                        <div class="divTime" style="background-color:#8A8A8A";>
+                    @endif                               
                             <div class="dateDiv"> {{ date('d-m-Y', strtotime($activity->dateAct)) }}</div>
                             <div class="hourDiv"> {{ date('h:i', strtotime($activity->timeAct)) }}</div> 
                         </div>
@@ -143,11 +138,9 @@
                             
                         </div>
 
-                        
-
             </div>
                         
-            <div class="hidden">
+            <div class="hiddenActDet">
                 <div class="eachRow">
                     <div>
                         <strong>Descripcion: </strong>
@@ -287,7 +280,7 @@
 
     <script>
         $(() => {
-            $(".hidden").hide();
+            $(".hiddenActDet").hide();
             $(".row").on("click", function() {
                 if ($(this).siblings().is(':visible'))
                     $(this).siblings().hide('slow');    

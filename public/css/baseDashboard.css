@@ -905,11 +905,6 @@ div.logo-details {
     width: 20%;
 }
 
-.mainActivity .row .divTime .dateDiv{
-
-
-}
-
 .mainActivity .row .divTime .hourDiv{
     font-weight: bold;
     font-size: 24px;
@@ -960,6 +955,16 @@ div.logo-details {
 
 .mainActivity .row .controlButton-moreDetails{
     color: black;
+}
+
+
+.mainActivity .hiddenActDet{
+    background-color: violet;
+    border-radius: 25px;
+    margin: 10px; 
+    display:flex;
+    align-items: center;
+    width: 100%;
 }
 
 .avatarInShowAllUsers {
