@@ -56,7 +56,7 @@
 
         <div id="calendarCaption">
             <div class="eachCalendarCaption">
-                <div class="eachColor" style="background-color:#000000;">
+                <div class="eachColor" style="background-color:#DDBFC8;">
                     &nbsp;
                 </div>
                 Pasada
@@ -69,7 +69,7 @@
             </div>
 
             <div class="eachCalendarCaption">
-                <div class="eachColor" style="background-color:#01b6ed;">
+                <div class="eachColor" style="background-color:#406cbc;">
                     &nbsp;
                 </div>
                 Cita Normal
@@ -85,11 +85,17 @@
                 @else
                     <div class="row" style="background-color:#8A8A8A">
                 @endif
-                        <div class="divTime">                           
+                    @if(strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y')))) 
+                        <div class="divTime" style="background-color:#DDBFC8;">               
+                     @elseif(!$activity->isNulledAct)
+                            <div class="divTime" style="background-color: #406cbc;">                               
+                     @else
+                            <div class="divTime" style="background-color:#8A8A8A";>
+                     @endif                               
                             <div class="dateDiv"> {{ date('d-m-Y', strtotime($activity->dateAct)) }}</div>
-                            <div class="hourDiv"> {{ date('h:i', strtotime($activity->timeAct)) }}</div>
-                            {{-- <div><strong>Hora Fin: </strong>{{ $activity->endTimeAct }}</div> --}}
+                            <div class="hourDiv"> {{ date('h:i', strtotime($activity->timeAct)) }}</div> 
                         </div>
+                        
                         <div class="divMainDesc">
                             <div class="nameDiv">
                                 <strong> {{ $activity->nameAct }} </strong>
