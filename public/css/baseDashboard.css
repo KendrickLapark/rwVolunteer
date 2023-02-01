@@ -883,16 +883,66 @@ div.logo-details {
 
 .mainActivity {
     background-color: #ffffff;
-    width: 90%;
+    width: 60%;
     margin: auto;
+}
+
+.mainActivity .row{
+    background-color: #e8f1fa;
+    border-radius: 25px;
+    margin: 10px; 
+    display:flex;
+    align-items: center;
+}
+.mainActivity .row .divTime{
+    background-color: rgb(221, 191, 200);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    line-height: 1.5em; 
+    max-width: 30%;
+}
+
+.mainActivity .row .divTime .dateDiv{
+
+    
+
+}
+
+.mainActivity .row .divTime .hourDiv{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.mainActivity .row .divMainDesc{
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    justify-content: center;
+    width: 50%;
+}
+
+.mainActivity .row .divMainDesc .nameDiv{
+    font-size: 20px;
+}
+
+.mainActivity .row .visDate{
+}
+
+.mainActivity .row .visDate .botonesControl{
+    border-radius: 25%;
+    padding: 0%;
+}
+
+.mainActivity .row .controlButton-moreDetails{
+    color: blue;
 }
 
 .avatarInShowAllUsers {
     width: 64px;
     border-radius: 35px;
 }
-
-
 
 /*row showallusers*/
 

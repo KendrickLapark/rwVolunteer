@@ -202,7 +202,7 @@
 
                 dayClick: function( date, jsEvent, view){               
 
-                    date=moment(date).format("dddd DD [de] MMMM");  
+                    //date=moment(date).format("dddd DD [de] MMMM");  
                     
                     //$request->session()->flash('FechaSeleccionada', date);
 
@@ -210,7 +210,10 @@
 
                     $('#fullcalendarModal').modal('show');  
 
-                   /*  @foreach($activities as $activity){                       
+                    
+
+
+                    /* @foreach($activities as $activity){                       
 
                         @if(strtotime(date('d-m-Y', strtotime($activity->dateAct))) == strtotime(date('d-m-Y')))                    
 
@@ -225,7 +228,7 @@
                         @endif
                        
                     }
-                    @endforeach  */                              
+                    @endforeach        */                        
                                         
                 },
 

@@ -181,6 +181,17 @@ class ActivityController extends Controller
         return view('dashboard.showAllActivitiesLogged', compact("activities","activityTypes"));
     }
 
+    /* Metodo para filtrar por fecha pepe */
+
+    public static function showActivitiesByDate($dateActivity)
+    {
+
+        $activities = Activity::where('activities.dateAct', $dateActivity)
+                                ->get();
+        return redirect()->route('dashboard.showAllActivitiesLogged');
+
+    }
+
 
     public static function quotaCalculator($quota,$activity_id)
     {

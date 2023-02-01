@@ -79,32 +79,70 @@
         @foreach ($activities as $activity)
             <div class="mainActivity">
                 @if (strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y'))))
-                    <div class="row" style="background-color:#000000;color:#ffffff;border:1px solid #ffffff;">
+                    <div class="row">
                 @elseif (!$activity->isNulledAct)
                     <div class="row">
                 @else
                     <div class="row" style="background-color:#8A8A8A">
                 @endif
+                        <div class="divTime">                           
+                            <div class="dateDiv"> {{ date('d-m-Y', strtotime($activity->dateAct)) }}</div>
+                            <div class="hourDiv"> {{ date('h:i', strtotime($activity->timeAct)) }}</div>
+                            {{-- <div><strong>Hora Fin: </strong>{{ $activity->endTimeAct }}</div> --}}
+                        </div>
+                        <div class="divMainDesc">
+                            <div class="nameDiv">
+                                <strong> {{ $activity->nameAct }} </strong>
+                            </div>
+                            <div class="descDiv">
+                                {{$activity->descAct}}
+                            </div>
+                            <div>
+                                <strong>Cupo: </strong>
+                                {{ App\Http\Controllers\ActivityController::quotaCalculator($activity->quotasAct, $activity->activity_id) }}
+                                /
+                                {{ $activity->quotasAct }}
+                                Libres
+                            </div>
+                        </div>    
+                        
+                        <div class="visDate">
+                            @if ($activity->isVisible == 0)
+                                <form method="POST" action="{{ route('dashboard.visibleActivity') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                    <button type="submit" class="botonesControl"
+                                        onclick="return confirm('¿Estas seguro/a?')">
+                                        PUBLICAR
+                                        <br />
+                                        <i class='bx bx-show' style="font-size:25px;"></i>
+                                    </button>
+                                </form>
+                            @else
+                                <form method="POST" action="{{ route('dashboard.invisibleActivity') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                    <button type="submit" class="botonesControl"
+                                        onclick="return confirm('¿Estas seguro/a?')">
+                                        DESPUBLICAR
+                                        <br />
+                                        <i class='bx bxs-low-vision'></i>
+                                    </button>
+                                </form>
+                            @endif
+                            <div class="controlButton-moreDetails">
+                                <i class='bx bxs-down-arrow'></i>
+                            </div>
+                            
+                        </div>
 
-                <div>
-                    <strong>Nombre: </strong>{{ $activity->nameAct }}
-                </div>
-                <div>
-                    <strong>Cupo: </strong>
-                    {{ App\Http\Controllers\ActivityController::quotaCalculator($activity->quotasAct, $activity->activity_id) }}
-                    /
-                    {{ $activity->quotasAct }}
-                    Libres
-                </div>
-                <div><strong>Hora de inicio: </strong>{{ $activity->timeAct }}</div>
-                <div><strong>Hora Fin: </strong>{{ $activity->endTimeAct }}</div>
-
-                <div><strong>Fecha: </strong>{{ date('d-m-Y', strtotime($activity->dateAct)) }}</div>
-
-                <div class="controlButton moreDetails">
-                    <i class='bx bxs-down-arrow'></i>
-                </div>
+                        
+                  
+                            
+                    
+           
             </div>
+                        
             <div class="hidden">
                 <div class="eachRow">
                     <div>
@@ -234,6 +272,8 @@
                 </div>
             </div>
     </div>
+    
+    
     @endforeach
     </div>
 @endsection
