@@ -906,7 +906,6 @@ div.logo-details {
 
 .mainActivity .row .divTime .dateDiv{
 
-    
 
 }
 
@@ -920,7 +919,7 @@ div.logo-details {
     padding: 10px;
     margin: 10px;
     justify-content: center;
-    width: 50%;
+    max-width: 60%;
 }
 
 .mainActivity .row .divMainDesc .nameDiv{
@@ -928,15 +927,26 @@ div.logo-details {
 }
 
 .mainActivity .row .visDate{
+
+
 }
 
-.mainActivity .row .visDate .botonesControl{
-    border-radius: 25%;
-    padding: 0%;
+.mainActivity .row .visDate .botonVis{
+    border-color: white;
+    border-radius: 5%;
+    background: #004a98;
+    color: #ffffff;
+    min-width: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .mainActivity .row .controlButton-moreDetails{
-    color: blue;
+    color: black;
 }
 
 .avatarInShowAllUsers {

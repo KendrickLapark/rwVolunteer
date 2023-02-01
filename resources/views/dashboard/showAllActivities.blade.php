@@ -111,7 +111,7 @@
                                 <form method="POST" action="{{ route('dashboard.visibleActivity') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonesControl"
+                                    <button type="submit" class="botonVis"
                                         onclick="return confirm('¿Estas seguro/a?')">
                                         PUBLICAR
                                         <br />
@@ -122,7 +122,7 @@
                                 <form method="POST" action="{{ route('dashboard.invisibleActivity') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonesControl"
+                                    <button type="submit" class="botonVis"
                                         onclick="return confirm('¿Estas seguro/a?')">
                                         DESPUBLICAR
                                         <br />
@@ -130,17 +130,14 @@
                                     </button>
                                 </form>
                             @endif
-                            <div class="controlButton-moreDetails">
-                                <i class='bx bxs-down-arrow'></i>
-                            </div>
+                            
                             
                         </div>
 
-                        
-                  
-                            
-                    
-           
+                        <div class="controlButton-moreDetails">
+                            <i class='bx bxs-down-arrow'></i>
+                        </div>
+
             </div>
                         
             <div class="hidden">
@@ -272,7 +269,6 @@
                 </div>
             </div>
     </div>
-    
     
     @endforeach
     </div>
