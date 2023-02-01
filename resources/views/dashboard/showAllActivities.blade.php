@@ -115,7 +115,7 @@
                                         onclick="return confirm('¿Estas seguro/a?')">
                                         PUBLICAR
                                         <br />
-                                        <i class='bx bx-show' style="font-size:25px;"></i>
+                                        <i class='bx bx-show'></i>
                                     </button>
                                 </form>
                             @else
@@ -131,12 +131,13 @@
                                 </form>
                             @endif
                             
+                            <div class="controlButton-moreDetails">
+                                <i class='bx bxs-down-arrow'></i>
+                            </div>
                             
                         </div>
 
-                        <div class="controlButton-moreDetails">
-                            <i class='bx bxs-down-arrow'></i>
-                        </div>
+                        
 
             </div>
                         

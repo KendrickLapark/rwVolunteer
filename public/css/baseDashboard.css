@@ -883,7 +883,7 @@ div.logo-details {
 
 .mainActivity {
     background-color: #ffffff;
-    width: 60%;
+    width: 70%;
     margin: auto;
 }
 
@@ -893,6 +893,7 @@ div.logo-details {
     margin: 10px; 
     display:flex;
     align-items: center;
+    width: 100%;
 }
 .mainActivity .row .divTime{
     background-color: rgb(221, 191, 200);
@@ -901,7 +902,7 @@ div.logo-details {
     margin: 20px;
     text-align: center;
     line-height: 1.5em; 
-    max-width: 30%;
+    width: 20%;
 }
 
 .mainActivity .row .divTime .dateDiv{
@@ -918,22 +919,27 @@ div.logo-details {
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    justify-content: center;
-    max-width: 60%;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .mainActivity .row .divMainDesc .nameDiv{
     font-size: 20px;
+    height: 20%;
+}
+
+.mainActivity .row .divMainDesc .descDiv{
 }
 
 .mainActivity .row .visDate{
-
-
+    text-align: center;
+    width:20%;
 }
 
 .mainActivity .row .visDate .botonVis{
-    border-color: white;
-    border-radius: 5%;
+    border: none;
+    border-radius: 10px;
     background: #004a98;
     color: #ffffff;
     min-width: 100px;
@@ -943,6 +949,8 @@ div.logo-details {
     margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
+    width: 70%;
+    font-size: 14px;
 }
 
 .mainActivity .row .controlButton-moreDetails{
