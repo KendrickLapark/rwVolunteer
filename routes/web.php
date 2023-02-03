@@ -170,11 +170,17 @@ Route::middleware(['isLogged'])->group(function () {
     /* Filtramos calendario por categorias */
     Route::get('/showFilterByTypeAct/{id}', [ActivityController::class, 'showFilterByTypeAct'])
         ->name('dashboard.showFilterByTypeAct');
+        /**/ 
 
 });
 
 Route::middleware(['isAdmin'])->group(function () {
     /* RUTAS ADMIN */
+
+    /*pepe*/
+    // Búsqueda de usuarios en showAllActivities .
+    Route::get("search",[UsersController::class,'search']);
+
     Route::get('/dashboard-admin',[AuthController::class, 'adminDashboard'])
             ->name('dashboard.admin');
     /* Mostramos dashboard de notificaciones Admin */
@@ -189,6 +195,9 @@ Route::middleware(['isAdmin'])->group(function () {
     /* Mostrar todos los usuarios */
     Route::get('/dashboard-showAllUsers',[UsersController::class, 'showAllUsers'])
         ->name('dashboard.showAllUsers');
+    /*Buscar usuarios por nombre o apellidos pepe*/
+    Route::get('/dashboard-showAllUsers/{search}', [UsersController::class, 'searchVolunteerByNameSurname'])
+        ->name('dashboard.searchVolunteerByNameSurname'); 
     /* Bloquear usuario */
     Route::post('/dashboard-banUser', [UsersController::class, 'banUser'])
         ->name('dashboard.banUser');
