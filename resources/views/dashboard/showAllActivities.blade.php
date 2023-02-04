@@ -6,9 +6,10 @@
 
 @section('content')
     <div class="mainTray">
-        <div class="sectionTitle">
+        <div class="sectionTitleSearch">
             MUESTRA TODAS LAS ACTIVIDADES
         </div>
+
         @if (session()->has('sucessActivityCreated'))
             <div class="formSubmitSuccess center">
                 {{ session('sucessActivityCreated') }}
@@ -45,6 +46,19 @@
                 {{ session('nullActivity') }}
             </div>
         @endif
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <input type="text" name="search" id="search" placeholder="Buscar actividades..." class="form-control" onfocus="this.value=''">
+                    </div>
+                    <div id="search_list"></div>
+                </div>
+                    <div class="col-lg-3"></div>
+            </div>
+        </div>
 
         <div class="addNew">
             <form method="get" action="{{ route('dashboard.formCreateActivity') }}" accept-charset="UTF-8"
