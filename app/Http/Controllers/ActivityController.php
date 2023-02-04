@@ -220,6 +220,102 @@ class ActivityController extends Controller
         return view('dashboard.showThatActivity', compact("activity","activityTypes"));
     }
 
+    /* Método para buscar actividades pepe */
+
+    public function searchActivity(Request $request){
+
+        if($request->ajax()){
+    
+            $data=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
+            ->orwhere('nameAct','like','%'.$request->searchActivity.'%')
+            ->orderBy('dateAct')->get();
+
+            $output = '';
+
+            if(count($data)>0){
+
+                $output ='';
+
+                foreach($data as $row){
+
+                    $output .='
+
+                    <div class="row" style="baseDashboard.css">';
+                        if(strtotime(date("d-m-Y", strtotime($row->dateAct)))<(strtotime(date("d-m-Y")))){
+                            $output .= '<div class="divTime" style="background-color:#DDBFC8;">  ';
+                        }elseif(!$row->isNulledAct){
+                            $output .= '<div class="divTime" style="background-color: #406cbc;"> ';
+                        }else{
+                            $output .= '<div class="divTime" style="background-color:#8A8A8A";>';
+                        } 
+                            $output .= '<div class="dateDiv"> '.date("d-m-Y", strtotime($row->dateAct)) .'</div>
+                            <div class="hourDiv"> '. date("h:i", strtotime($row->timeAct)) .'</div> 
+     
+                        </div>
+                        
+                        <div class="divMainDesc">
+                            <div class="nameDiv">
+                                <strong> '.$row->nameAct.'  </strong>
+                            </div>
+                            <div class="descDiv">
+                                '.$row->descAct.'
+                            </div>
+                            <div class="cupoDiv">
+                                <strong>Cupo: </strong>
+                                '. ActivityController::quotaCalculator($row->quotasAct, $row->activity_id).'
+                                /
+                                '. $row->quotasAct .'
+                                Libres
+                            </div>
+                        </div>    
+                        
+                        <div class="visDate">';
+                            if ($row->isVisible == 0){
+                                $output .= '<form method="POST" action="{{ route("dashboard.visibleActivity") }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <button type="submit" class="botonVis"
+                                    onclick="return confirm("¿Estas seguro/a?")">
+                                    PUBLICAR
+                                    <br />
+                                    <i class="bx bx-show"></i>
+                                </button>
+                            </form>';
+                            }else{
+                                $output .= '<form method="POST" action="{{ route("dashboard.invisibleActivity") }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <button type="submit" class="botonVis"
+                                    onclick="return confirm("¿Estas seguro/a?")">
+                                    DESPUBLICAR
+                                    <br />
+                                    <i class="bx bxs-low-vision"></i>
+                                </button>
+                            </form>';
+                            }
+                                
+                            $output .= '<div class="controlButton-moreDetails">
+                            <i class="bx bxs-down-arrow"></i>
+                        </div>
+                        
+                    </div>
+
+                </div>';
+
+                }
+
+            }else{
+
+                $output .= "No se han encontrado actividades";
+
+            }
+
+            return $output;
+
+        }
+
+    }
+
     public function showFilterByTypeAct($id)
     {
         $typeAct = TypeActivity::where('typeAct_id',$id)->first();

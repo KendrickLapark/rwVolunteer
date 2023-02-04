@@ -209,7 +209,7 @@ class UsersController extends Controller
                 $output ='
 
                 ';
-                $caca;
+
                 foreach($data as $row){
 
                 $output .='
@@ -241,8 +241,7 @@ class UsersController extends Controller
                 {
                     $output .='
                         SIN Empresa Asociada';
-                }
-                                
+                }                               
                 else
                 {
                     $output .=''.$row->organiVol.'';

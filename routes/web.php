@@ -178,8 +178,12 @@ Route::middleware(['isAdmin'])->group(function () {
     /* RUTAS ADMIN */
 
     /*pepe*/
-    // Búsqueda de usuarios en showAllActivities .
+    // Búsqueda de usuarios en showAllUsers .
     Route::get("search",[UsersController::class,'search']);
+
+    /*pepe*/
+    // Búsqueda de actividades en showAllActivities
+    Route::get("searchActivity",[ActivityController::class,'searchActivity']);
 
     Route::get('/dashboard-admin',[AuthController::class, 'adminDashboard'])
             ->name('dashboard.admin');
