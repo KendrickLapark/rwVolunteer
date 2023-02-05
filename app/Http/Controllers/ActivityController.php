@@ -273,7 +273,7 @@ class ActivityController extends Controller
                             if ($row->isVisible == 0){
                                 $output .= '<form method="POST" action="{{ route("dashboard.visibleActivity") }}">
                                 @csrf
-                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <input type="hidden" name="id" value="'.$row->activity_id .'">
                                 <button type="submit" class="botonVis"
                                     onclick="return confirm("¿Estas seguro/a?")">
                                     PUBLICAR
@@ -284,7 +284,7 @@ class ActivityController extends Controller
                             }else{
                                 $output .= '<form method="POST" action="{{ route("dashboard.invisibleActivity") }}">
                                 @csrf
-                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <input type="hidden" name="id" value="'.$row->activity_id .'">
                                 <button type="submit" class="botonVis"
                                     onclick="return confirm("¿Estas seguro/a?")">
                                     DESPUBLICAR
@@ -299,8 +299,151 @@ class ActivityController extends Controller
                         </div>
                         
                     </div>
+                            </div>
+                ';
 
-                </div>';
+                $output .='
+                
+                <div class="hidden">
+                    <div class="eachRow">
+                        <div>
+                            <strong>Descripcion: </strong>
+                            '. $row->descAct .'
+                        </div>
+                        <div>
+                            <strong>Entidad: </strong>
+                            '. $row->entityAct .'
+                        </div>
+                        <div>
+                            <strong>Dirección: </strong>
+                            '. $row->direAct .'
+                        </div>
+                        <div>
+                            <strong>Requisito Previo: </strong>
+                            '.  $row->requiPrevAct .'
+                        </div>
+                        <div>
+                            <strong>Formacion deseada: </strong>
+                            '. $row->formaAct .'
+                        </div>
+                        <div>
+                            <strong>Requisitos: </strong>
+                            '. $row->requiAct .'
+                        </div>
+                    </div>
+                <div class="eachRow">
+                    <div>
+                        <strong>Tipos de Actividad: </strong>';
+                        
+                            //arreglar pepe
+
+                       /*  foreach ($activityTypes as $activityType){
+                            foreach ($row->typeAct as $itemActivityType){
+                                if ($activityType->typeAct_id == $itemActivityType->typeAct_id){
+                                    $outpout .= '<p>'.$itemActivityType->nameTypeAct.'</p>';
+                                }
+                            }
+                        }     */                                                      
+
+                    $output .='</div>
+                    <div class="visDate">
+                        <strong>Visibilidad:</strong>';
+                        if ($row->isVisible == 0){
+                            $output .= '<i class="bx bxs-low-vision" style="font-size:25px;"></i>
+                            Actualmente Invisible / No publicado
+                            <form method="POST" action="{{ route("dashboard.visibleActivity") }}">
+                                @csrf
+                                <input type="hidden" name="id" value="'. $row->activity_id .'">
+                                <button type="submit" class="botonesControl"
+                                    onclick="return confirm(¿Estas seguro/a?)">
+                                    HACER VISIBLE / PUBLICAR
+                                    <br />
+                                    <i class="bx bx-show" style="font-size:25px;"></i>
+                                </button>
+                            </form>';
+                        }
+                        else{
+                        $output .= '
+                            <i class="bx bx-show" style="font-size:25px;"></i>
+                            Actualmente Visible / Publicado
+
+                            <form method="POST" action="{{ route("dashboard.invisibleActivity") }}">
+                                @csrf
+                                <input type="hidden" name="id" value="'.$row->activity_id .'">
+                                <button type="submit" class="botonesControl"
+                                    onclick="return confirm(¿Estas seguro/a?)">
+                                    HACER INVISIBLE / DESPUBLICAR
+                                    <br />
+                                    <i class="bx bxs-low-vision"></i>
+                                </button>
+                            </form>';
+                        }
+
+                    $output .='
+                    </div>
+                    <div>
+                        <strong>Información Extra: </strong>
+                        <form method="POST" action="{{ route("dashboard.showAllExtraActivity") }}">
+                            @csrf
+                            <input type="hidden" name="id" value="'. $row->activity_id .'">
+                            <button type="submit" class="botonesControl">
+                                INFORMACIÓN EXTRA
+                                <br />
+                                <i class="bx bx-folder-plus"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="eachRow">
+                    <div>
+                        <strong>Editar: </strong>
+
+                        <form method="POST" action="{{ route("dashboard.getActivityUpdateData") }}">
+                            @csrf
+                            <input type="hidden" name="id" value="'. $row->activity_id .'">
+                            <button type="submit" class="botonesControl">
+                                EDITAR
+                                <br />
+                                <i class="bx bxs-edit"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>';
+
+                        if (!$row->isNulledAct)
+                            $output .='<strong>ANULAR: </strong>
+
+                            <form method="POST" action="{{ route("dashboard.nullActivity") }}">
+                                @csrf
+                                <input type="hidden" name="id" value="'. $row->activity_id .'">
+                                <button type="submit" class="botonesControl"
+                                    onclick="return confirm(¿Estas seguro/a?)">
+                                    ANULAR
+                                    <br />
+                                    <i class="bx bxs-edit"></i>
+                                </button>
+                            </form>';
+                        else
+                            $output .='    <strong>Esta actividad se ha anulado</strong>';
+                        
+                    $output .='
+
+                    </div>
+
+                    <div>
+                        <strong>Eliminar: </strong>
+                        <form method="POST" action="{{ route("dashboard.deleteActivity") }}">
+                            @csrf
+                            <input type="hidden" name="id" value="'. $row->activity_id .'">
+                            <button type="submit" class="botonesControl"
+                                onclick="return confirm(¿Estas seguro/a?)"><i class="bx bx-trash"
+                                    style="font-size:25px;"></i></button>
+                        </form>
+                    </div>
+                </div>
+             </div>  
+                ';
 
                 }
 

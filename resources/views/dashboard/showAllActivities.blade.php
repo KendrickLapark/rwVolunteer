@@ -315,9 +315,11 @@
                     $(".hidden").hide();
                     $(".row").on("click", function() {
                         if ($(this).siblings().is(':visible'))
-                            $(this).siblings().hide('slow');    
-                        else
                             $(this).siblings().show('slow');
+                        else
+                            $(this).siblings().hidde('slow');
+
+                            /* $(this).siblings().show('slow'); */
             });
                 } 
             });
