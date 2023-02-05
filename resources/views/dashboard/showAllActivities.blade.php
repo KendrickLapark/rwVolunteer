@@ -313,13 +313,13 @@
                 success:function(data){
                     $('#search_listAct').html(data);
                     $(".hidden").hide();
-                    $(".row").on("click", function() {
-                        if ($(this).siblings().is(':visible'))
-                            $(this).siblings().show('slow');
-                        else
-                            $(this).siblings().hidde('slow');
+                    $(".row").on("click",  function(e) {
 
-                            /* $(this).siblings().show('slow'); */
+                        if($(this).next().is(':hidden'))
+                            $(this).next().show('slow');
+                        else{
+                            $(this).next().hide('slow');
+                        }
             });
                 } 
             });

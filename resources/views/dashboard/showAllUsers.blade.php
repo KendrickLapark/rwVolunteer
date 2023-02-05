@@ -50,8 +50,11 @@
 
                     $(".hidden").hide();
                         $(".row").on("click", function() {
-                            $(this).siblings().show('slow');
-                            if ($('#Div').is(':visible')) {}
+                            if($(this).next().is(':hidden'))
+                                $(this).next().show('slow');
+                            else{
+                                $(this).next().hide('slow');
+                        }
                         });
 
                         $(".lessDetails").on("click", function() {
