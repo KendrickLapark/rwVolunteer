@@ -80,23 +80,26 @@ class ActivityController extends Controller
        return redirect()->route('dashboard.showAllActivities');
     }
 
+    /**/
+
     public function doVisible(Request $request)
     {
-        try{
+        try{  
+
             $activity = Activity::where('activity_id',$request->id)
                                 ->update(['isVisible'=> true]);
         }catch(\Exception $e){
             return redirect()->route('dashboard.showAllActivities');
         }
-            
+        echo $request->id;
         session()->flash('sucessVisibleActivity', 'Se ha CAMBIADO A VISIBLE una ACTIVIDAD.');
         return redirect()->route('dashboard.showAllActivities');
     }
-
+    
     public function doInvisible(Request $request)
     {
         try{
-            $activity = Activity::where('activity_id',$request->id)
+            $activity = Activity::where('activity_id', $request->id)
                                 ->update(['isVisible'=> false]);
         }catch(\Exception $e){
             return redirect()->route('dashboard.showAllActivities');
@@ -110,7 +113,7 @@ class ActivityController extends Controller
     public function getActivityUpdateData(Request $request)
     {
         try{
-            $activity = Activity::where('activity_id',2)->first();
+            $activity = Activity::where('activity_id',$request->id)->first();
 
             $activityTypes = TypeActivity::all();
 
@@ -224,6 +227,8 @@ class ActivityController extends Controller
 
     public function searchActivity(Request $request){
 
+
+
         if($request->ajax()){
     
             $data=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
@@ -249,7 +254,7 @@ class ActivityController extends Controller
                             $output .= '<div class="divTime" style="background-color:#8A8A8A";>';
                         } 
                             $output .= '<div class="dateDiv"> '.date("d-m-Y", strtotime($row->dateAct)) .'</div>
-                            <div class="hourDiv"> '. date("h:i", strtotime($row->timeAct)) .'</div> 
+                            <div class="hourDiv"> '. date("H:i", strtotime($row->timeAct)) .'</div> 
      
                         </div>
                         
@@ -272,8 +277,8 @@ class ActivityController extends Controller
                         <div class="visDate">';
                             if ($row->isVisible == 0){
                                 $output .= '<form method="POST" action=" '.route("dashboard.visibleActivity").' ">';
-                                $output .= csrf_field('<input type="hidden" name="id" value="'.$row->activity_id .'">');
-                                $output .= '
+                                $output .= csrf_field();
+                                $output .= '<input type="hidden" name="id" value="'.$row->activity_id .'">
                                 <button type="submit" class="botonVis"
                                     onclick="return confirm("¿Estas seguro/a?")">
                                     PUBLICAR
@@ -283,8 +288,9 @@ class ActivityController extends Controller
                             </form>';
                             }else{
                                 $output .= '<form method="POST" action="'.route("dashboard.invisibleActivity").'">';
-                                $output .= csrf_field('<input type="hidden" name="id" value="'.$row->activity_id .'">');
-                                $output .= '<button type="submit" class="botonVis"
+                                $output .= csrf_field();
+                                $output .= ' <input type="hidden" name="id" value="'.$row->activity_id .'">
+                                <button type="submit" class="botonVis"
                                     onclick="return confirm("¿Estas seguro/a?")">
                                     DESPUBLICAR
                                     <br />
@@ -351,7 +357,8 @@ class ActivityController extends Controller
                             $output .= '<i class="bx bxs-low-vision" style="font-size:25px;"></i>
                             Actualmente Invisible / No publicado
                             <form method="POST" action="'.route("dashboard.visibleActivity").'">';
-                                $output .= csrf_field('<input type="hidden" name="id" value="'. $row->activity_id .'">');
+                                $output .= csrf_field();
+                                $output .= '<input type="hidden" name="id" value=" {{'. $row->activity_id .'}} ">';
                                 $output .= '
                                 <button type="submit" class="botonesControl"
                                     onclick="return confirm(¿Estas seguro/a?)">
@@ -367,7 +374,8 @@ class ActivityController extends Controller
                             Actualmente Visible / Publicado
 
                             <form method="POST" action="'. route("dashboard.invisibleActivity").'">';
-                            $output .= csrf_field('<input type="hidden" name="id" value="'.$row->activity_id .'">');
+                            $output .= csrf_field();
+                            $output .= '<input type="hidden" name="id" value="'.$row->activity_id .'">';
                             $output .='<button type="submit" class="botonesControl"
                                     onclick="return confirm(¿Estas seguro/a?)">
                                     HACER INVISIBLE / DESPUBLICAR
