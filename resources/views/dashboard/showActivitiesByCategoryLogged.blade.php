@@ -76,7 +76,7 @@
                 @foreach ($activityTypes as $type)
                     <div class="eachActivityType">
                         <a
-                            href="{{ route('dashboard.showFilterByTypeAct', ['id' => $type->typeAct_id]) }}">{{ $type->nameTypeAct }}</a>
+                            href="{{ route(dashboard.showFilterByTypeAct, ['id' => $type->typeAct_id]) }}">{{ $type->nameTypeAct }}</a>
                     </div>
                 @endforeach
             </div>
