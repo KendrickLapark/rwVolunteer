@@ -391,8 +391,9 @@ class ActivityController extends Controller
                         <strong>Información Extra: </strong>
                         <form method="POST" action="'. route("dashboard.showAllExtraActivity") .'">';
 
-                        $output .= csrf_field('<input type="hidden" name="id" value="'. $row->activity_id .'">');
-                        $output .= '<button type="submit" class="botonesControl">
+                        $output .= csrf_field();
+                        $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
+                                <button type="submit" class="botonesControl">
                                 INFORMACIÓN EXTRA
                                 <br />
                                 <i class="bx bx-folder-plus"></i>
@@ -405,8 +406,9 @@ class ActivityController extends Controller
                         <strong>Editar: </strong>
 
                         <form method="POST" action="'. route("dashboard.getActivityUpdateData").'">';
-                        $output .= csrf_field('<input type="hidden" name="id" value="'. $row->activity_id .'">');
-                            $output .= '<button type="submit" class="botonesControl">
+                        $output .= csrf_field();
+                            $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
+                                <button type="submit" class="botonesControl">
                                 EDITAR
                                 <br />
                                 <i class="bx bxs-edit"></i>
@@ -420,9 +422,10 @@ class ActivityController extends Controller
                             $output .='<strong>ANULAR: </strong>
 
                             <form method="POST" action="'. route("dashboard.nullActivity") .'">';
-                            $output .= csrf_field('<input type="hidden" name="id" value="'. $row->activity_id .'">');
+                            $output .= csrf_field();
 
-                            $output .= '<button type="submit" class="botonesControl"
+                            $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
+                                    <button type="submit" class="botonesControl"
                                     onclick="return confirm(¿Estas seguro/a?)">
                                     ANULAR
                                     <br />
@@ -441,8 +444,9 @@ class ActivityController extends Controller
                     <div>
                         <strong>Eliminar: </strong>
                         <form method="POST" action="'.route("dashboard.deleteActivity").'">';
-                            $output .= csrf_field('<input type="hidden" name="id" value="'. $row->activity_id .'">');
-                            $output .= '<button type="submit" class="botonesControl"
+                            $output .= csrf_field();
+                            $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
+                                <button type="submit" class="botonesControl"
                                 onclick="return confirm(¿Estas seguro/a?)"><i class="bx bx-trash"
                                     style="font-size:25px;"></i></button>
                         </form>
