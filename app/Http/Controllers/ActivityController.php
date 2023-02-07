@@ -274,7 +274,7 @@ class ActivityController extends Controller
                             </div>
                         </div>    
                         
-                        <div class="visDate">';
+                        <div class="divVis">';
                             if ($row->isVisible == 0){
                                 $output .= '<form method="POST" action=" '.route("dashboard.visibleActivity").' ">';
                                 $output .= csrf_field();

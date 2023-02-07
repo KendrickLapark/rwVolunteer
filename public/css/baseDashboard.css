@@ -948,12 +948,12 @@ div.logo-details {
     padding-top: 10px;
 }
 
-#search_listAct .row .visDate{
+#search_listAct .row .divVis{
     text-align: center;
     padding: 10px;
 }
 
-#search_listAct .row .visDate .botonVis{
+#search_listAct .row .divVis .botonVis{
     border: none;
     border-radius: 10px;
     background: #004a98;
