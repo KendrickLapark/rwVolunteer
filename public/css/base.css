@@ -238,8 +238,9 @@ div.titleFoot {
     }
 
     .rowDiv:nth-child(even) {
-        background-color: red;
+        background-color: #004a98;
         flex-direction: column-reverse;
+        color: white;
     }
 
     .eachCell {

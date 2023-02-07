@@ -39,32 +39,42 @@
 
     <script>
         $(document).ready(function(){
+
+            function ajaxCall(datos){
+
+                return $.ajax({
+                    url:"search",
+                    type:"GET",
+                    data:{'search':datos},
+                    success:function(data){
+                        $('#search_list').html(data);
+
+                        $(".hidden").hide();
+                            $(".row").on("click", function() {
+                                if($(this).next().is(':hidden'))
+                                    $(this).next().show('slow');
+                                else{
+                                    $(this).next().hide('slow');
+                            }
+                            });
+
+                            $(".lessDetails").on("click", function() {
+                                $(this).parent().parent().hide('slow');
+                            });
+                    }
+                })
+
+            }
+                
+            ajaxCall('');
+            
         $('#search').on('keyup',function(){
             var query= $(this).val();
-            $.ajax({
-                url:"search",
-                type:"GET",
-                data:{'search':query},
-                success:function(data){
-                    $('#search_list').html(data);
-
-                    $(".hidden").hide();
-                        $(".row").on("click", function() {
-                            if($(this).next().is(':hidden'))
-                                $(this).next().show('slow');
-                            else{
-                                $(this).next().hide('slow');
-                        }
-                        });
-
-                        $(".lessDetails").on("click", function() {
-                            $(this).parent().parent().hide('slow');
-                        });
-                }
-        });
+            ajaxCall(query);    
         //end of ajax call
         });
-    });
+
+        });
 
     </script>
 

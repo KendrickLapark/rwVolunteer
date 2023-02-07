@@ -227,13 +227,13 @@ class ActivityController extends Controller
 
     public function searchActivity(Request $request){
 
-
-
         if($request->ajax()){
     
             $data=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
             ->orwhere('nameAct','like','%'.$request->searchActivity.'%')
             ->orderBy('dateAct')->get();
+
+            $activityTypes = TypeActivity::all();
 
             $output = '';
 
@@ -260,7 +260,7 @@ class ActivityController extends Controller
                         
                         <div class="divMainDesc">
                             <div class="nameDiv">
-                                <strong> '.$row->nameAct.'  </strong>
+                                <strong> '.$request->searchActivity.'  </strong>
                             </div>
                             <div class="descDiv">
                                 '.$row->descAct.'
@@ -339,16 +339,14 @@ class ActivityController extends Controller
                 <div class="eachRow">
                     <div>
                         <strong>Tipos de Actividad: </strong>';
-                        
-                            //arreglar pepe
 
-                       /*  foreach ($activityTypes as $activityType){
+                          foreach ($activityTypes as $activityType){
                             foreach ($row->typeAct as $itemActivityType){
                                 if ($activityType->typeAct_id == $itemActivityType->typeAct_id){
-                                    $outpout .= '<p>'.$itemActivityType->nameTypeAct.'</p>';
+                                    $output .= '<p>'.$itemActivityType->nameTypeAct.'</p>';
                                 }
                             }
-                        }     */                                                      
+                        }                                                           
 
                     $output .='</div>
                     <div class="visDate">

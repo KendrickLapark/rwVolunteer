@@ -313,29 +313,36 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }); 
+          
+            function ajaxCall(datos){
+                return $.ajax({
+                    url:"searchActivity",
+                    type:"GET",
+                    data:{'searchActivity':datos},
+                    success:function(data){
+                        $('#search_listAct').html(data);
+                        $(".hidden").hide();
+                        $(".row").on("click",  function(e) {
+
+                            if($(this).next().is(':hidden'))
+                                $(this).next().show('slow');
+                            else{
+                                $(this).next().hide('slow');
+                            }
+                        });
+                    } 
+                });
+            }
+
+            ajaxCall('');
 
         $('#searchActivity').on('keyup',function(){
             var query= $(this).val();
-            $.ajax({
-                url:"searchActivity",
-                type:"GET",
-                data:{'searchActivity':query},
-                success:function(data){
-                    $('#search_listAct').html(data);
-                    $(".hidden").hide();
-                    $(".row").on("click",  function(e) {
-
-                        if($(this).next().is(':hidden'))
-                            $(this).next().show('slow');
-                        else{
-                            $(this).next().hide('slow');
-                        }
-            });
-                } 
-            });
-            //end of ajax call
+            ajaxCall(query);
         });
+
     });
+
 
     </script>
 
