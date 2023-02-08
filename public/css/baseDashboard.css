@@ -905,7 +905,7 @@ div.logo-details {
     flex-direction: column;
     text-align: center;
     line-height: 1.5em; 
-    width: 13%;
+    width: 12%;
 }
 
 #search_listAct .row{
@@ -924,14 +924,13 @@ div.logo-details {
     font-size: 24px;
 }
 
-#search_listAct #search_listAct.row .divMainDesc{
+#search_listAct .row .divMainDesc{
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    width: 80%;
+    width: 70%;
     text-align: left;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 #search_listAct .row .divMainDesc .nameDiv{
@@ -940,36 +939,34 @@ div.logo-details {
     padding-bottom: 10px;
 }
 
-#search_listAct .row .divMainDesc .descDiv{
-    padding-top: 10px;
-}
+
 
 #search_listAct .row .divMainDesc .cupoDiv{
     padding-top: 10px;
 }
 
 #search_listAct .row .divVis{
+    align-items: center;
     text-align: center;
+    justify-content: center;
     padding: 10px;
+    width: 18%;
+    
 }
 
 #search_listAct .row .divVis .botonVis{
     border: none;
     border-radius: 10px;
     background: #004a98;
+    text-align: center;
     color: #ffffff;
-    min-width: 100px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 70%;
+    padding-inline:10px;
+    padding-block: 5px;
+    width: fit-content;
     font-size: 14px;
 }
 
-.mainActivity .row .controlButton-moreDetails{
+#search_listAct .row .controlButton-moreDetails{
     color: black;
 }
 
@@ -988,16 +985,26 @@ div.logo-details {
 }
 
 @media only screen and (max-width: 1000px) {
-    .mainActivity .row {
+    #search_listAct .row {
         flex-direction: column;
         padding-left: 0;
-        padding-top: 30px;
-        padding-bottom: 30px;
     }
 
-    .mainActivity .row .divTime {
-        min-width: 40%;
+    #search_listAct .row .divTime {
+        width: auto;
     }
+
+    #search_listAct .row .divMainDesc {
+       text-align: center;
+       width: auto;
+
+    }
+
+    #search_listAct .row .divVis {
+        text-align: center;
+        align-items: center;
+        width: auto;
+     }
 
     .mainData .hiddenActDet .eachRow {
         flex-direction: column;

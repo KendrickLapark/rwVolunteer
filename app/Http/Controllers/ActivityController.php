@@ -260,7 +260,7 @@ class ActivityController extends Controller
                         
                         <div class="divMainDesc">
                             <div class="nameDiv">
-                                <strong> '.$request->searchActivity.'  </strong>
+                                <strong> '.$row->nameAct.'  </strong>
                             </div>
                             <div class="descDiv">
                                 '.$row->descAct.'
