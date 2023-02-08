@@ -309,6 +309,7 @@ class ActivityController extends Controller
 
                 $output .='
                 
+                
                 <div class="hidden">
                     <div class="eachRow">
                         <div>
@@ -335,9 +336,8 @@ class ActivityController extends Controller
                             <strong>Requisitos: </strong>
                             '. $row->requiAct .'
                         </div>
-                    </div>
-                <div class="eachRow">
-                    <div>
+
+                        <div>
                         <strong>Tipos de Actividad: </strong>';
 
                           foreach ($activityTypes as $activityType){
@@ -349,107 +349,75 @@ class ActivityController extends Controller
                         }                                                           
 
                     $output .='</div>
-                    <div class="visDate">
-                        <strong>Visibilidad:</strong>';
-                        if ($row->isVisible == 0){
-                            $output .= '<i class="bx bxs-low-vision""></i>
-                            Actualmente Invisible / No publicado
-                            <form method="POST" action="'.route("dashboard.visibleActivity").'">';
-                                $output .= csrf_field();
-                                $output .= '<input type="hidden" name="id" value=" {{'. $row->activity_id .'}} ">';
-                                $output .= '
-                                <button type="submit" class="botonesControl"
-                                    onclick="return confirm(¿Estas seguro/a?)">
-                                    PUBLICAR
-                                    <br />
-                                    <i class="bx bx-show""></i>
-                                </button>
-                            </form>';
-                        }
-                        else{
-                            $output .= '
-                            <i class="bx bx-show""></i>
-                            Actualmente Visible / Publicado
 
-                            <form method="POST" action="'. route("dashboard.invisibleActivity").'">';
-                            $output .= csrf_field();
-                            $output .= '<input type="hidden" name="id" value="'.$row->activity_id .'">';
-                            $output .='<button type="submit" class="botonesControl"
-                                    onclick="return confirm(¿Estas seguro/a?)">
-                                    DESPUBLICAR
-                                    <br />
-                                    <i class="bx bxs-low-vision"></i>
-                                </button>
-                            </form>';
-                        }
-
-                    $output .='
                     </div>
-                    <div>
+                    
+                    <div class="buttonsBar">
+
+                        <div>
                         <strong>Información Extra: </strong>
                         <form method="POST" action="'. route("dashboard.showAllExtraActivity") .'">';
 
                         $output .= csrf_field();
                         $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
                                 <button type="submit" class="botonesControl">
-                                INFORMACIÓN EXTRA
-                                <br />
-                                <i class="bx bx-folder-plus"></i>
+                                <i class="bx bx-folder-plus" style="font-size:25px;" ></i>
                             </button>
                         </form>
-                    </div>
+                        </div>
+
+                            <div>
+                                <strong>Editar: </strong>
+
+                                <form method="POST" action="'. route("dashboard.getActivityUpdateData").'">';
+                                $output .= csrf_field();
+                                    $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
+                                        <button type="submit" class="botonesControl">
+                                        <i class="bx bxs-edit" style="font-size:25px;"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div>';
+
+                                if (!$row->isNulledAct){
+                                    $output .='<strong>ANULAR: </strong>
+
+                                    <form method="POST" action="'. route("dashboard.nullActivity") .'">';
+                                    $output .= csrf_field();
+
+                                    $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
+                                            <button type="submit" class="botonesControl"
+                                            onclick="return confirm(¿Estas seguro/a?)">
+                                            <i class="bx bxs-x-square" style="font-size:25px;"></i>
+                                        </button>
+                                    </form>';
+                                }
+                                else{
+                                    $output .='    <strong>Esta actividad se ha anulado</strong>';
+                                }
+                                
+                            $output .='
+
+                            </div>
+
+                            <div>
+                                <strong>Eliminar: </strong>
+                                <form method="POST" action="'.route("dashboard.deleteActivity").'">';
+                                    $output .= csrf_field();
+                                    $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
+                                        <button type="submit" class="botonesControl"
+                                        onclick="return confirm(¿Estas seguro/a?)"><i class="bx bx-trash"
+                                            style="font-size:25px;"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                     
+                    
                 </div>
-                <div class="eachRow">
-                    <div>
-                        <strong>Editar: </strong>
 
-                        <form method="POST" action="'. route("dashboard.getActivityUpdateData").'">';
-                        $output .= csrf_field();
-                            $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
-                                <button type="submit" class="botonesControl">
-                                EDITAR
-                                <br />
-                                <i class="bx bxs-edit"></i>
-                            </button>
-                        </form>
-                    </div>
-
-                    <div>';
-
-                        if (!$row->isNulledAct){
-                            $output .='<strong>ANULAR: </strong>
-
-                            <form method="POST" action="'. route("dashboard.nullActivity") .'">';
-                            $output .= csrf_field();
-
-                            $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
-                                    <button type="submit" class="botonesControl"
-                                    onclick="return confirm(¿Estas seguro/a?)">
-                                    ANULAR
-                                    <br />
-                                    <i class="bx bxs-edit"></i>
-                                </button>
-                            </form>';
-                        }
-                        else{
-                            $output .='    <strong>Esta actividad se ha anulado</strong>';
-                        }
-                        
-                    $output .='
-
-                    </div>
-
-                    <div>
-                        <strong>Eliminar: </strong>
-                        <form method="POST" action="'.route("dashboard.deleteActivity").'">';
-                            $output .= csrf_field();
-                            $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
-                                <button type="submit" class="botonesControl"
-                                onclick="return confirm(¿Estas seguro/a?)"><i class="bx bx-trash""></i></button>
-                        </form>
-                    </div>
-                </div>
-             </div>  
+                    
+                
                 ';
 
                 }

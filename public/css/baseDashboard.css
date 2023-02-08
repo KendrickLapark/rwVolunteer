@@ -911,11 +911,12 @@ div.logo-details {
 #search_listAct .row{
     background-color: #e8f1fa;
     border-radius: 25px;
-    margin: 10px; 
+    margin-block: 10px; 
     display:flex;
     flex-direction: row;   
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #search_listAct .row .divTime .hourDiv{
@@ -975,10 +976,18 @@ div.logo-details {
 .mainActivityAct .hidden{
     background-color: #DAE9E5;
     border-radius: 25px;
-    margin: 10px; 
-    display:flex;
+    padding: 20px;
     align-items: center;
     width: 100%;
+}
+
+.mainActivityAct .hidden .buttonsBar{
+    background-color: #DAE9E5;
+    border-radius: 25px;
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
 }
 
 .mainActivityAct .hidden .botonesControl{
@@ -991,6 +1000,11 @@ div.logo-details {
     padding-block: 5px;
     width: fit-content;
     font-size: 14px;
+
+}
+
+.mainActivityAct .buttonsBar{
+    display:block;
 }
 
 .avatarInShowAllUsers {
