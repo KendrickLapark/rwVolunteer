@@ -352,7 +352,7 @@ class ActivityController extends Controller
                     <div class="visDate">
                         <strong>Visibilidad:</strong>';
                         if ($row->isVisible == 0){
-                            $output .= '<i class="bx bxs-low-vision" style="font-size:25px;"></i>
+                            $output .= '<i class="bx bxs-low-vision""></i>
                             Actualmente Invisible / No publicado
                             <form method="POST" action="'.route("dashboard.visibleActivity").'">';
                                 $output .= csrf_field();
@@ -360,15 +360,15 @@ class ActivityController extends Controller
                                 $output .= '
                                 <button type="submit" class="botonesControl"
                                     onclick="return confirm(¿Estas seguro/a?)">
-                                    HACER VISIBLE / PUBLICAR
+                                    PUBLICAR
                                     <br />
-                                    <i class="bx bx-show" style="font-size:25px;"></i>
+                                    <i class="bx bx-show""></i>
                                 </button>
                             </form>';
                         }
                         else{
                             $output .= '
-                            <i class="bx bx-show" style="font-size:25px;"></i>
+                            <i class="bx bx-show""></i>
                             Actualmente Visible / Publicado
 
                             <form method="POST" action="'. route("dashboard.invisibleActivity").'">';
@@ -376,7 +376,7 @@ class ActivityController extends Controller
                             $output .= '<input type="hidden" name="id" value="'.$row->activity_id .'">';
                             $output .='<button type="submit" class="botonesControl"
                                     onclick="return confirm(¿Estas seguro/a?)">
-                                    HACER INVISIBLE / DESPUBLICAR
+                                    DESPUBLICAR
                                     <br />
                                     <i class="bx bxs-low-vision"></i>
                                 </button>
@@ -445,8 +445,7 @@ class ActivityController extends Controller
                             $output .= csrf_field();
                             $output .= '<input type="hidden" name="id" value="'. $row->activity_id .'">
                                 <button type="submit" class="botonesControl"
-                                onclick="return confirm(¿Estas seguro/a?)"><i class="bx bx-trash"
-                                    style="font-size:25px;"></i></button>
+                                onclick="return confirm(¿Estas seguro/a?)"><i class="bx bx-trash""></i></button>
                         </form>
                     </div>
                 </div>

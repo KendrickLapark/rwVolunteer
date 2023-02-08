@@ -981,6 +981,18 @@ div.logo-details {
     width: 100%;
 }
 
+.mainActivityAct .hidden .botonesControl{
+    border: none;
+    border-radius: 10px;
+    background: #004a98;
+    text-align: center;
+    color: #ffffff;
+    padding-inline:10px;
+    padding-block: 5px;
+    width: fit-content;
+    font-size: 14px;
+}
+
 .avatarInShowAllUsers {
     width: 64px;
     border-radius: 35px;
