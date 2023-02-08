@@ -344,12 +344,13 @@ class UsersController extends Controller
                             }else{
                                 foreach ($row->education as $education){
                                    $output .= ' '.$education->titleEdu .'
-                                    <form method="POST" action="{{ route("dashboard.downloadThatEducation") }}"
-                                        accept-charset="UTF-8" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $education->education_id }}">
+                                    <form method="POST" action="'.route("dashboard.downloadThatEducation") .'"
+                                        accept-charset="UTF-8" enctype="multipart/form-data">';
+                                        $output .= csrf_field();
+                                        $output .= '
+                                        <input type="hidden" name="id" value="'.$education->education_id .'">
                                         <p><button type="submit" id="downloadEdu" class="botonesControl"><i
-                                                    class="bx bx-save"></i></button></p>
+                                                    class="bx bx-edit"></i></button></p>
                                     </form>';
                                 }
                             }
@@ -360,14 +361,15 @@ class UsersController extends Controller
                             <strong>Documentos: </strong> <br />';
 
                             if (count($row->documents) == 0){
-                                $output .= 'No tiene titulación registrada';
+                                $output .= 'No tiene documentación registrada';
                             }else{
                                 foreach ($row->documents as $document)
                                 $output .= '
                                     '.$document->titleDoc.' 
-                                    <form method="POST" action="{{ route("dashboard.showDocument") }}">
-                                        @csrf
-                                        <input type="hidden" name="doc" value="{{ $document->doc_id }}">
+                                    <form method="POST" action="'.route("dashboard.showDocument") .'">';
+                                        $output .= csrf_field();
+                                        $output .= '
+                                        <input type="hidden" name="doc" value="'.$document->doc_id .'">
                                         <button type="submit" {{--id="showDocDoc"--}} class="botonesControl"><i
                                                 class="bx bx-save"></i></button>
                                     </form>';
