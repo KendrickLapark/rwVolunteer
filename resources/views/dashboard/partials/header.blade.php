@@ -5,10 +5,21 @@
     <span class="dashboard" id="title">Dashboard</span>
 </div>
 @if (Auth::user()->isAdminVol)
-    <div class="profile-details">
-        <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
-        <span class="admin_name">{{ Auth::user()->nameVol }}</span>
-    </div>
+    
+        <div class="profile-details">       
+            <a href="{{ route('dashboard.changeAvatar') }}">
+                @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
+                    <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
+                @else
+                    <img src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
+                    alt="{{ Auth::user()->nameVol }}" id="avatarInTopBar" />
+                 @endif
+            </a>
+            <a href="{{ route('dashboard.showMyProfile') }}" style="text-decoration: none;">
+            <span class="admin_name">{{ Auth::user()->nameVol }}</span>
+            </a>
+        </div>
+    
 @elseif (Auth::user()->isIncomplete() || Auth::user()->isRegisterComplete == 0)
     <div class="profile-details">
         <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">

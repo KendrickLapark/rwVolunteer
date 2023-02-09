@@ -18,8 +18,11 @@
         <form method="POST" action="{{ route('dashboard.updateProfile') }}" id="editMyProfile">
             @csrf
             <div class="container">
-                <div class="mainData center row">
-                    <div class="left col">
+                <div class="mainDataCenterRow">
+                    <div class="leftCol">
+
+                        
+
                         <div class="eachCreateInfoExtraElement">
                             <p>
                                 <label id="labelShirtSizeVol" class="formSections form-label" for="shirtSizeVol"><strong>Talla de
@@ -152,7 +155,19 @@
                             </p>
                         </div>
                     </div>
-                    <div class="right col">
+
+                    <div class="contenedorImagen">
+                        <p>
+                            @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
+                                <img class="imgP" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
+                            @else
+                                <img class="imgP" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
+                                alt="{{ Auth::user()->nameVol }}" id="avatarInTopBar" />
+                            @endif
+                        </p>
+                    </div>
+
+                    <div class="rightCol">
                         <div class="eachCreateInfoExtraElement">
                             <p>
                                 <label id="labeltypeViaVol" class="formSections" for="typeViaVol"><strong>Tipo de Vía:
@@ -321,11 +336,14 @@
                             </p>
                         </div>
                     </div>
-                    <div class="eachCreateInfoExtraElement">
-                        <button type="submit" id="updateMyProfile" class="botonesControl">Actualizar</button>
-                    </div>
+                    
                 </div>
             </div>
+
+            <div class="divButtonMyProfileForm">
+                <button type="submit" id="updateMyProfile" class="botonesControl">Actualizar</button>
+            </div>
+
         </form>
 
     </div>

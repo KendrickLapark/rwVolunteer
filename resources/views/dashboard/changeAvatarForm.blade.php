@@ -15,7 +15,8 @@
             </div>
         @endif
 
-        <div class="mainData center">
+        <div class="mainDataCenter">
+            <div class="container">
 
             @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
                 <p>NO Tienes Avatar Actualmente</p>
@@ -31,6 +32,8 @@
                 <p><input type="file" name="file" accept="image/jpeg" required></p>
                 <p><button type="submit" id="registerSubmitButton" class="botonesControl">SUSTITUIR AVATAR</button></p>
             </form>
+
+            </div>
         </div>
     </div>
 @endsection
