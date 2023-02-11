@@ -104,7 +104,17 @@ class UsersController extends Controller
             ->first();
 
         $allDelegations = Delegation::all();
-        return view('dashboard.showMyProfileForm2', compact("volunteer", "allDelegations"));
+        return view('dashboard.showMyProfile', compact("volunteer", "allDelegations"));
+
+    }
+
+    public function showMyProfileForm()
+    {
+        $volunteer = Volunteer::where('id', Auth::user()->id)
+            ->first();
+
+        $allDelegations = Delegation::all();
+        return view('dashboard.showMyProfileForm', compact("volunteer", "allDelegations"));
 
     }
 
@@ -167,8 +177,10 @@ class UsersController extends Controller
             ],
         );
 
+        $allDelegations = Delegation::all();
+
         session()->flash('successUpdateUser', 'Se ha Actualizado el USUARIO.');
-        return redirect()->route('dashboard.showMyProfile');
+        return view('dashboard.showMyProfileForm');
     }
 
     public static function showEachInterest($activity)

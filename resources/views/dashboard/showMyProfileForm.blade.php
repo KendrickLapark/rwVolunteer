@@ -21,8 +21,6 @@
                 <div class="mainDataCenterRow">
                     <div class="leftCol">
 
-                        
-
                         <div class="eachCreateInfoExtraElement">
                             <p>
                                 <label id="labelShirtSizeVol" class="formSections form-label" for="shirtSizeVol"><strong>Talla de
@@ -302,7 +300,7 @@
                                         Adicional: </strong></label>
                                 <br />
                                 <input type="text" id="aditiInfoVol" name="aditiInfoVol"
-                                    value="{{ $volunteer->aditiInfoVol }}" required>
+                                    value="{{ $volunteer->aditiInfoVol }}" >
                             </p>
                         </div>
 
@@ -341,7 +339,7 @@
             </div>
 
             <div class="divButtonMyProfileForm">
-                <button type="submit" id="updateMyProfile" class="botonesControl">Actualizar</button>
+                <button class="botonesControl">Actualizar</button>
             </div>
 
         </form>

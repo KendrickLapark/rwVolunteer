@@ -122,9 +122,12 @@ Route::middleware(['isLogged'])->group(function () {
     /* CLIC Form Logged Change Avatar */
     Route::post('/uploadAvatar',[UsersController::class, 'uploadAvatar'])
     ->name('dashboard.uploadAvatar');  
-    /* Muestro Perfil Form */
+    /* Muestra perfil  */
     Route::get('/dashboard-showMyProfile',  [UsersController::class, 'showMyProfile'])
         ->name('dashboard.showMyProfile'); 
+    /* Muestra perfil para editar*/ 
+    Route::get('/dashboard-showMyProfileForm',  [UsersController::class, 'showMyProfileForm'])
+        ->name('dashboard.showMyProfileForm'); 
     /* CLIC Update Profile Form Logged  */
     Route::post('/updateProfile',[UsersController::class, 'updateProfile'])
         ->name('dashboard.updateProfile');   
