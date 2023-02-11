@@ -180,7 +180,7 @@ class UsersController extends Controller
         $allDelegations = Delegation::all();
 
         session()->flash('successUpdateUser', 'Se ha Actualizado el USUARIO.');
-        return view('dashboard.showMyProfileForm');
+        return view('dashboard.showMyProfile');
     }
 
     public static function showEachInterest($activity)

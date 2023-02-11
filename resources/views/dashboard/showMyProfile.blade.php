@@ -18,6 +18,9 @@
             <div class="container">
                 <div class="mainDataCenterRow">
                     <div class="leftCol">
+                        <div class="auxItem"><span></span></div>
+
+                        <div class="columnItem">
 
                         <ul class="contactVol">
 
@@ -69,6 +72,8 @@
                                 @endif                     
                             </li>
                         </ul>
+
+                        </div>
 
                     </div>
 
@@ -159,7 +164,11 @@
             </div>
 
             <div class="divButtonMyProfile">
-                <a href="{{ route('dashboard.showMyProfileForm') }}" class="botonesControl">Actualizar</a>
+                <form method="GET" action="{{ route('dashboard.showMyProfileForm') }}" accept-charset="UTF-8"
+                    enctype="multipart/form-data">
+                    @csrf
+                    <p><button type="submit" class="botonesControl">Editar</button></p>
+                </form>
             </div>
 
     </div>

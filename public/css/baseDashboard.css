@@ -1033,7 +1033,6 @@ div.logo-details {
     border-radius: 50%;
     transform: scale(0.5);
     object-fit: cover;
-    display: block;
 }
 
 .mainDataCenterRow{
@@ -1044,13 +1043,28 @@ div.logo-details {
     align-items: center;
     border: 1px grey solid;
     border-radius: 25px;
+    overflow: auto;
 
 }
 
 .leftCol{
-    min-width: 33%;
-    overflow: hidden;
-    overflow-wrap: break-word;
+    display: flex;
+    float:flex;
+    min-width: 33%; 
+}
+
+.leftColForm{
+    float:flex;
+    min-width: 33%; 
+    padding: 20px;
+}
+
+.auxItem{
+    width: 30%;
+}
+
+.columnItem{
+    width: 70%;
     float: flex;
 }
 
@@ -1068,14 +1082,19 @@ div.logo-details {
     vertical-align: middle;
     align-items: center;
     min-width: 33%;
-    border:1px grey solid;
 }
 
 .rightCol{
+    
     float:flex;
-    min-width: 33%;  
+    min-width: 33%; 
 }
 
+.rightColForm{
+    padding: 20px;
+    float:flex;
+    min-width: 33%; 
+}
 
 
 #labeltitleCol{

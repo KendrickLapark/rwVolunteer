@@ -19,7 +19,7 @@
             @csrf
             <div class="container">
                 <div class="mainDataCenterRow">
-                    <div class="leftCol">
+                    <div class="leftColForm">
 
                         <div class="eachCreateInfoExtraElement">
                             <p>
@@ -154,18 +154,18 @@
                         </div>
                     </div>
 
-                    <div class="contenedorImagen">
+                    <div class="centerCol">
                         <p>
                             @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
-                                <img class="imgP" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
+                                <img class="avatarMyProfile" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
                             @else
-                                <img class="imgP" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
+                                <img class="avatarMyProfile" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
                                 alt="{{ Auth::user()->nameVol }}" id="avatarInTopBar" />
                             @endif
                         </p>
                     </div>
 
-                    <div class="rightCol">
+                    <div class="rightColForm">
                         <div class="eachCreateInfoExtraElement">
                             <p>
                                 <label id="labeltypeViaVol" class="formSections" for="typeViaVol"><strong>Tipo de Vía:
@@ -338,8 +338,9 @@
                 </div>
             </div>
 
-            <div class="divButtonMyProfileForm">
-                <button class="botonesControl">Actualizar</button>
+            <div class="divButtonMyProfile">              
+                    <p><button type="submit" class="botonesControl">Editar</button></p>
+                
             </div>
 
         </form>
