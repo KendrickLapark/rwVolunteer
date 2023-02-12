@@ -274,6 +274,7 @@ Route::middleware(['isAdmin'])->group(function () {
     /* Borrar Actividad */
     Route::post('/dashboard-nullActivity',[ActivityController::class, 'nullActivity'])
         ->name('dashboard.nullActivity');
+        
 
 });
 

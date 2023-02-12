@@ -15,7 +15,8 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('dashboard.updateProfile') }}" id="editMyProfile">
+        <form method="POST" action="{{ route('dashboard.updateProfile') }}" id="editMyProfile" accept-charset="UTF-8"
+        enctype="multipart/form-data">
             @csrf
             <div class="container">
                 <div class="mainDataCenterRow">
@@ -300,7 +301,7 @@
                                         Adicional: </strong></label>
                                 <br />
                                 <input type="text" id="aditiInfoVol" name="aditiInfoVol"
-                                    value="{{ $volunteer->aditiInfoVol }}" >
+                                    value="{{ $volunteer->aditiInfoVol }}" required>
                             </p>
                         </div>
 
@@ -339,7 +340,7 @@
             </div>
 
             <div class="divButtonMyProfile">              
-                    <p><button type="submit" class="botonesControl">Editar</button></p>
+                    <p><button type="submit" class="botonesControl" id="updateMyProfile">Actualizar</button></p>
                 
             </div>
 

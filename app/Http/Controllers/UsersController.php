@@ -110,7 +110,37 @@ class UsersController extends Controller
 
     public function showMyProfileForm()
     {
-        $volunteer = Volunteer::where('id', Auth::user()->id)
+        $volunteer = Volunteer::select(
+            'id',
+            'nameVol',
+            'surnameVol',
+            'surname2Vol',
+            'birthDateVol',
+            'typeDocVol',
+            'numDocVol',
+            'telVol',
+            'sexVol',
+            'shirtSizeVol',
+            'persMailVol',
+            'corpMailVol',
+            'typeViaVol',
+            'direcVol',
+            'numVol',
+            'flatVol',
+            'aditiInfoVol',
+            'codPosVol',
+            'stateVol',
+            'townVol',
+            'imageVol',
+            'organiVol',
+            /********/
+            'isInternVol',
+            /********/
+            'nameAuthVol',
+            'tlfAuthVol',
+            'numDocAuthVol'
+        )
+            ->where('id', Auth::user()->id)
             ->first();
 
         $allDelegations = Delegation::all();
@@ -180,7 +210,7 @@ class UsersController extends Controller
         $allDelegations = Delegation::all();
 
         session()->flash('successUpdateUser', 'Se ha Actualizado el USUARIO.');
-        return view('dashboard.showMyProfile');
+        return redirect()->route('dashboard.showMyProfile');
     }
 
     public static function showEachInterest($activity)

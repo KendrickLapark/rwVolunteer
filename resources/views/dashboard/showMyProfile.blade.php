@@ -166,7 +166,6 @@
             <div class="divButtonMyProfile">
                 <form method="GET" action="{{ route('dashboard.showMyProfileForm') }}" accept-charset="UTF-8"
                     enctype="multipart/form-data">
-                    @csrf
                     <p><button type="submit" class="botonesControl">Editar</button></p>
                 </form>
             </div>
