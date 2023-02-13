@@ -225,7 +225,7 @@ class ActivityController extends Controller
 
     /* Método para buscar actividades pepe */
 
-    public function searchActivity(Request $request){
+    public function searchActivity1(Request $request){
 
         if($request->ajax()){
     
@@ -430,6 +430,39 @@ class ActivityController extends Controller
 
             return $output;
 
+        }
+
+    }
+
+    public function searchActivity(Request $request){
+
+        if($request->ajax()) {
+            $query = $request->get('searchActivity');
+            if(empty($query)) {
+                $activities=Activity::where('id','like','%'.$request->searchActivity.'%')
+                ->orwhere('nameVol','like','%'.$request->searchActivity.'%')
+                ->orwhere('surnameVol','like','%'.$request->searchActivity.'%')->get();
+            } else {
+                $activities=Activity::where('id','like','%'.$request->searchActivity.'%')
+                ->orwhere('nameVol','like','%'.$request->searchActivity.'%')
+                ->orwhere('surnameVol','like','%'.$request->searchActivity.'%')->get();
+            }
+            $total = $activities->count();
+        
+            $html = view('dashboard.partials.itemListActivity', [
+                'activities' => $activities,
+            ])->render();             
+        
+            return response()->json([
+                'success' => true,
+                'html' => $html,
+                'total' => $total,
+            ], 200);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => "Something went wrong!",
+            ], 403);
         }
 
     }

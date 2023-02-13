@@ -180,15 +180,11 @@ Route::middleware(['isLogged'])->group(function () {
 Route::middleware(['isAdmin'])->group(function () {
     /* RUTAS ADMIN */
 
-    /*pepe*/
-    // Búsqueda de usuarios en showAllUsers .
-    Route::get("search",[UsersController::class,'search']);
-
-    /*pepe*/
     // Búsqueda de actividades en showAllActivities
     Route::get("searchActivity",[ActivityController::class,'searchActivity']);
 
-    Route::get("obtenUsuario",[UsersController::class,'obtenUsuario']);
+    // Búsqueda de usuarios en bd.
+    Route::get("searchUser",[UsersController::class,'searchUser']);
 
     Route::get('/dashboard-admin',[AuthController::class, 'adminDashboard'])
             ->name('dashboard.admin');
@@ -204,9 +200,6 @@ Route::middleware(['isAdmin'])->group(function () {
     /* Mostrar todos los usuarios */
     Route::get('/dashboard-showAllUsers',[UsersController::class, 'showAllUsers'])
         ->name('dashboard.showAllUsers');
-    /*Buscar usuarios por nombre o apellidos pepe*/
-    Route::get('/dashboard-showAllUsers/{search}', [UsersController::class, 'searchVolunteerByNameSurname'])
-        ->name('dashboard.searchVolunteerByNameSurname'); 
     /* Bloquear usuario */
     Route::post('/dashboard-banUser', [UsersController::class, 'banUser'])
         ->name('dashboard.banUser');
