@@ -176,7 +176,7 @@ class UsersController extends Controller
             'typeViaVol' => 'required',
             'direcVol' => 'required',
             'numVol' => 'required',
-            'aditiInfoVol' => 'required',
+            //'aditiInfoVol' => 'required',
             'codPosVol' => 'required',
             'stateVol' => 'required',
             'townVol' => 'required',
@@ -532,15 +532,44 @@ class UsersController extends Controller
         }
     
         return $output;
-    
-        
 
         }
 
       }
 
+      /* metodo para devolver usuarios en showAllUsers */
       
+      public function obtenUsuario(Request $request){
 
-      
+            if($request->ajax()) {
+                $query = $request->get('obtenUsuario');
+                if(empty($query)) {
+                    $volunteers=Volunteer::where('id','like','%'.$request->obtenUsuario.'%')
+                    ->orwhere('nameVol','like','%'.$request->obtenUsuario.'%')
+                    ->orwhere('surnameVol','like','%'.$request->obtenUsuario.'%')->get();
+                } else {
+                    $volunteers=Volunteer::where('id','like','%'.$request->obtenUsuario.'%')
+                    ->orwhere('nameVol','like','%'.$request->obtenUsuario.'%')
+                    ->orwhere('surnameVol','like','%'.$request->obtenUsuario.'%')->get();
+                }
+                $total = $volunteers->count();
+            
+                $html = view('dashboard.partials.itemList2', [
+                    'volunteers' => $volunteers,
+                ])->render();             
+            
+                return response()->json([
+                    'success' => true,
+                    'html' => $html,
+                    'total' => $total,
+                ], 200);
+            }else{
+                return response()->json([
+                    'success' => false,
+                    'message' => "Something went wrong!",
+                ], 403);
+            }
+
+        }      
 
 }

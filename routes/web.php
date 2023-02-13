@@ -188,6 +188,8 @@ Route::middleware(['isAdmin'])->group(function () {
     // Búsqueda de actividades en showAllActivities
     Route::get("searchActivity",[ActivityController::class,'searchActivity']);
 
+    Route::get("obtenUsuario",[UsersController::class,'obtenUsuario']);
+
     Route::get('/dashboard-admin',[AuthController::class, 'adminDashboard'])
             ->name('dashboard.admin');
     /* Mostramos dashboard de notificaciones Admin */

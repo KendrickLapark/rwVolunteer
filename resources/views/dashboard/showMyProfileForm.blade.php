@@ -301,7 +301,7 @@
                                         Adicional: </strong></label>
                                 <br />
                                 <input type="text" id="aditiInfoVol" name="aditiInfoVol"
-                                    value="{{ $volunteer->aditiInfoVol }}" required>
+                                    value="{{ $volunteer->aditiInfoVol }}">
                             </p>
                         </div>
 
