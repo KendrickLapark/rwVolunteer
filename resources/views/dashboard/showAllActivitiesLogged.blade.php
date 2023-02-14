@@ -198,8 +198,6 @@
                 selectable: true,
                 selectHelper: true,               
 
-                //evento de fullcalendar cuando se hace click en una celda *pepe 26-01-23
-
                 dayClick: function( date, jsEvent, view){               
 
                     //date=moment(date).format("dddd DD [de] MMMM");  

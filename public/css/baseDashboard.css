@@ -960,7 +960,7 @@ div.logo-details {
     
 }
 
-#search_listAct .row .divVis .botonVis{
+.botonVis{
     border: none;
     border-radius: 10px;
     background: #004a98;
@@ -1004,10 +1004,6 @@ div.logo-details {
     width: fit-content;
     font-size: 14px;
 
-}
-
-.mainActivityAct .buttonsBar{
-    display:block;
 }
 
 .avatarInShowAllUsers {

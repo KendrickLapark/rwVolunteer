@@ -224,16 +224,6 @@ class UsersController extends Controller
         return array_unique($interest); 
     }
 
-    /* Método de búsqueda de usuarios según su nombre pepe*/ 
-
-    public function searchVolunteerByNameSurname($search){
-
-        $volunteers=Volunteer::where('nameVol', $search)->get();
-
-        return view('dashboard.showAllUsers', compact("volunteers"));
-        
-    }
-
       /* metodo para devolver usuarios en showAllUsers */
       
     public function searchUser(Request $request){

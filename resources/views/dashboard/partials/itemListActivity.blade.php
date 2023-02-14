@@ -62,7 +62,7 @@
 
             </div>
                         
-            <div class="hiddenActDet">
+            <div class="hidden">
                 <div class="eachRow">
                     <div>
                         <strong>Descripcion: </strong>
@@ -100,94 +100,62 @@
                             @endforeach
                         @endforeach
                     </div>
-                    <div class="visDate">
-                        <strong>Visibilidad:</strong>
-                        @if ($activity->isVisible == 0)
-                            <i class='bx bxs-low-vision' style="font-size:25px;"></i>
-                            Actualmente Invisible / No publicado
-                            <form method="POST" action="{{ route('dashboard.visibleActivity') }}">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                <button type="submit" class="botonesControl"
-                                    onclick="return confirm('¿Estas seguro/a?')">
-                                    HACER VISIBLE / PUBLICAR
-                                    <br />
-                                    <i class='bx bx-show' style="font-size:25px;"></i>
-                                </button>
-                            </form>
-                        @else
-                            <i class='bx bx-show' style="font-size:25px;"></i>
-                            Actualmente Visible / Publicado
-
-                            <form method="POST" action="{{ route('dashboard.invisibleActivity') }}">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                <button type="submit" class="botonesControl"
-                                    onclick="return confirm('¿Estas seguro/a?')">
-                                    HACER INVISIBLE / DESPUBLICAR
-                                    <br />
-                                    <i class='bx bxs-low-vision'></i>
-                                </button>
-                            </form>
-                        @endif
-                    </div>
-                    <div>
-                        <strong>Información Extra: </strong>
-                        <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                            <button type="submit" class="botonesControl">
-                                INFORMACIÓN EXTRA
-                                <br />
-                                <i class='bx bx-folder-plus'></i>
-                            </button>
-                        </form>
-                    </div>
                 </div>
-                <div class="eachRow">
-                    <div>
-                        <strong>Editar: </strong>
+                    
+                    <div class="buttonsBar">
 
-                        <form method="POST" action="{{ route('dashboard.getActivityUpdateData') }}">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                            <button type="submit" class="botonesControl">
-                                EDITAR
-                                <br />
-                                <i class='bx bxs-edit'></i>
-                            </button>
-                        </form>
-                    </div>
+                                <div>
+                                    <strong>Información Extra: </strong>
+                                    <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                        <button type="submit" class="botonesControl">
+                                            
+                                            <i class='bx bx-folder-plus' style="font-size:25px"></i>
+                                        </button>
+                                    </form>
+                                </div>
 
-                    <div>
-                        @if (!$activity->isNulledAct)
-                            <strong>ANULAR: </strong>
+                            <div>
+                                <strong>Editar: </strong>
 
-                            <form method="POST" action="{{ route('dashboard.nullActivity') }}">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                <button type="submit" class="botonesControl"
-                                    onclick="return confirm('¿Estas seguro/a?')">
-                                    ANULAR
-                                    <br />
-                                    <i class='bx bxs-edit'></i>
-                                </button>
-                            </form>
-                        @else
-                            <strong>Esta actividad se ha anulado</strong>
-                        @endif
-                    </div>
+                                <form method="POST" action="{{ route('dashboard.getActivityUpdateData') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                    <button type="submit" class="botonesControl">
+                                        <i class='bx bxs-edit' style="font-size:25px"></i>
+                                    </button>
+                                </form>
+                            </div>
 
-                    <div>
-                        <strong>Eliminar: </strong>
-                        <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                            <button type="submit" class="botonesControl"
-                                onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
-                                    style="font-size:25px;"></i></button>
-                        </form>
-                    </div>
+                            <div>
+                                @if (!$activity->isNulledAct)
+                                    <strong>ANULAR: </strong>
+
+                                    <form method="POST" action="{{ route('dashboard.nullActivity') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                        <button type="submit" class="botonesControl"
+                                            onclick="return confirm('¿Estas seguro/a?')">
+                                            <i class='bx bxs-edit' style="font-size:25px"></i>
+                                        </button>
+                                    </form>
+                                @else
+                                    <strong>Esta actividad se ha anulado</strong>
+                                @endif
+                            </div>
+
+                            <div>
+                                <strong>Eliminar: </strong>
+                                <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                    <button type="submit" class="botonesControl"
+                                        onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
+                                            style="font-size:25px;"></i></button>
+                                </form>
+                            </div>
+                    
                 </div>
             </div>
     </div>
