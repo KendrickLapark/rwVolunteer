@@ -111,6 +111,10 @@
         </div>
     </div>
 
+    <div class="iconGeniallyContainer ">
+        <a href="{{ route('dashboard.showActivitiesGenially')}}"><img src="<?php echo asset('images/icons/genially.png'); ?>" alt="Innovación Social" class="geniallyIcon"/></a>
+    </div>
+
     <div class="secondaryTray center ">
         <div class="mainData center">
             <div class="sectionTitle">

@@ -634,6 +634,61 @@ div.logo-details {
     color: #FFFFFF;
 }
 
+/*dashboard genially*/
+
+.titleGenially{
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: 24px;
+    color:#30a5e8;
+}
+
+.titleGenially .leftColumn{
+    width: 33%;
+}
+
+.titleGenially .centerColumn{
+    width: 33%;
+}
+
+.titleGenially .rightColumn{
+    width: 33%;
+}
+
+.sectionTitleGenially{
+    font-size: 44px;
+    text-align: center;
+    color:#30a5e8;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.secondTrayGenially{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+      
+}
+
+.secondTrayGenially .sectionGenially{ 
+    width:20%;
+    text-align: center;
+    display: block;
+}
+
+
+
+.geniallyItem{
+}
+
+.geniallyButton{
+    transform: scale(0.75);
+    margin-left: 110px;
+}
+
 /* Menu Administrador */
 
 .itemMenu {
@@ -1394,6 +1449,10 @@ select.small {
 .eachActivityType a:hover {
     color: #01b6ed;
     text-decoration: none;
+}
+
+.geniallyIcon{
+    transform: scale(0.25);
 }
 
 @media only screen and (max-width: 1000px) {

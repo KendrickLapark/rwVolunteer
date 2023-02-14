@@ -149,6 +149,9 @@ Route::middleware(['isLogged'])->group(function () {
     /* Muestra todas las actividades */
     Route::get('/dashboard-showAllActivitiesLogged',[ActivityController::class,'showAllActivitiesLogged'])
         ->name('dashboard.showAllActivitiesLogged');
+        /* Muestra las actividades en vista Genially */
+    Route::get('/dashboard-showActivitiesGenially', [ActivityController::class, 'showActivitiesGenially'])
+        ->name('dashboard.showActivitiesGenially');
     /* Mostrar MI InfoExtra de usuario */
     Route::post('/dashboard-showMyInfoExtra',  [ExtraActivityController::class, 'showMyInfoExtra'])
         ->name('dashboard.showMyInfoExtra');
