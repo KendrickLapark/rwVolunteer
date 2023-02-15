@@ -1,7 +1,7 @@
 @foreach ($volunteers as $volunteer)
             <div class="mainData">
                 <div class="row">
-                    <div>
+                    <div class="avatarUserRow">
                         @if ($volunteer->imageVol == 0 || $volunteer == null)
                             <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="No hay imagen" class="avatarInShowAllUsers">
                         @else
@@ -9,7 +9,7 @@
                                 class="avatarInShowAllUsers">
                         @endif
                     </div>
-                    <div>
+                    <div class="nameSurVol">
                         <strong>
                             {{ $volunteer->nameVol }}
                             {{ $volunteer->surnameVol }}
@@ -34,7 +34,7 @@
                         <i class='bx bxs-phone'></i>
                         <a href="tel:+34{{ $volunteer->telVol }}">{{ $volunteer->telVol }}</a>
                     </div>
-                    <div class="controlButton moreDetails">
+                    <div class="controlButtonMoreDetails">
                         <i class='bx bxs-down-arrow'></i>
                     </div>
                 </div>

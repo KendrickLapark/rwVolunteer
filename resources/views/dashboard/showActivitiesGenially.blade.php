@@ -26,10 +26,13 @@
     <div class="secondTrayGenially">
         <div class="sectionGenially ">
             <div class="subsectionGenially">
-                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton"/>              
+                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton1"/>              
             </div> 
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
+            </div>
+            <div class="subsectionGenially">
+                <p class="fechaGenially"> 30 enero - 5 febrero </p>
             </div> 
         </div>
         <div class="sectionGenially">
@@ -39,6 +42,9 @@
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
+            <div class="subsectionGenially">
+               <p class="fechaGenially"> 6 febrero - 12 febrero </p>
+            </div>
         </div>
         <div class="sectionGenially">            
             <div class="subsectionGenially">
@@ -47,6 +53,9 @@
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
+            <div class="subsectionGenially">
+                <p class="fechaGenially"> 13 febrero - 19 febrero </p>
+            </div>
         </div>
         <div class="sectionGenially">
             <div class="subsectionGenially">
@@ -55,6 +64,9 @@
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
+            <div class="subsectionGenially">
+                <p class="fechaGenially"> 20 febrero - 26 febrero </p>
+            </div>
         </div>    
         <div class="sectionGenially">
             <div class="subsectionGenially">
@@ -63,6 +75,9 @@
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
+            <div class="subsectionGenially">
+               <p class="fechaGenially"> 27 febrero - 5 marzo </p>
+            </div>
         </div>       
     </div>          
 
@@ -70,6 +85,7 @@
 
 @section('headlibraries')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/genially.js') }}"></script>
 
     <script>
         $(() => {
