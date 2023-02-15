@@ -72,6 +72,8 @@ $(()=>{
             current.setDate(current.getDate() +1);
         }
 
+        console.log(current);
+
         return current;
     }
 
@@ -126,13 +128,15 @@ $(()=>{
 
     }
 
+    /*Continuar este método, la idea es que itere entre las semanas que tiene un determinado mes para presentarlos de forma segmentada en el genially*/ 
+
     function avanzaMes(current){
 
         var ultimoDiaSemanal = lastDayOfWeekDate(current);
 
         for (var i = 0; i < 5; i++) {           
             ultimoDiaSemanal.setDate(ultimoDiaSemanal.getDate()+1);
-            console.log(startEndWeek(fecha));
+            lastDayOfWeekDate(ultimoDiaSemanal);
         }
 
     }
@@ -150,6 +154,8 @@ $(()=>{
         console.log(startEndWeek(new Date(new Date().getFullYear(), 1, 1)));
 
         console.log(lastDayOfWeekDate(new Date(new Date().getFullYear(), 1, 1)));
+
+        avanzaMes(new Date(new Date().getFullYear(), 1, 1));
 
     });
 
