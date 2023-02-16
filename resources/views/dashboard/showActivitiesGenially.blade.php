@@ -6,8 +6,6 @@
 
 @section('content')
     @if (App\Http\Controllers\NotifyController::notifyLoggedTrigger())
-        
-
 
             <div class="titleGenially">
                 <div class="leftColumn"> Voluntariado corporativo </div>
@@ -18,7 +16,7 @@
     @endif
     <div class="mainTray">
         <div class="sectionTitleGenially">
-            <p> FEBRERO 2023 </p>
+            <p class="tituloGenially" id="tituloGenially"> </p>
         </div>        
     </div>
 
@@ -32,7 +30,7 @@
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div>
             <div class="subsectionGenially">
-                <p class="fechaGenially"> 30 enero - 5 febrero </p>
+                <p class="fechaGenially"></p>
             </div> 
         </div>
         <div class="sectionGenially">
@@ -43,7 +41,7 @@
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
             <div class="subsectionGenially">
-               <p class="fechaGenially"> 6 febrero - 12 febrero </p>
+               <p class="fechaGenially"></p>
             </div>
         </div>
         <div class="sectionGenially">            
@@ -54,7 +52,7 @@
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
             <div class="subsectionGenially">
-                <p class="fechaGenially"> 13 febrero - 19 febrero </p>
+                <p class="fechaGenially"></p>
             </div>
         </div>
         <div class="sectionGenially">
@@ -65,7 +63,7 @@
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
             <div class="subsectionGenially">
-                <p class="fechaGenially"> 20 febrero - 26 febrero </p>
+                <p class="fechaGenially"></p>
             </div>
         </div>    
         <div class="sectionGenially">
@@ -76,7 +74,7 @@
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
             </div> 
             <div class="subsectionGenially">
-               <p class="fechaGenially"> 27 febrero - 5 marzo </p>
+               <p class="fechaGenially"></p>
             </div>
         </div>       
     </div>          

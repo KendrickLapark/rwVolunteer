@@ -1,15 +1,83 @@
 $(()=>{
 
-    
+    var dias = dates(new Date(new Date().getFullYear(), 1, 1))
+
+    var fechaActual = new Date();
+
+    $("#tituloGenially").text(getMesActual(fechaActual) + " " + getAñoActual(fechaActual))
+
+    seteaFecha(dias); 
 
     function seteaFecha(dias){
 
-        var fechasIniciales = firstDaysOfWeekText(dias);
+        var intervalos = weekIntervalText(dias);
 
-        for (var i = 0; i < fechasIniciales.length; i++) {
-            $('.fechaGenially').eq(i).text(fechasIniciales[i])
-            console.log(fechasIniciales[i])
+        for (var i = 0; i < intervalos.length; i++) {
+            $('.fechaGenially').eq(i).text(intervalos[i])
         }
+
+    }
+
+    function getMesActual(fecha){
+
+        var mesActualText = fechaActual.toLocaleDateString("es-Es", {month: 'long'});
+
+        var mesActualDef = mesActualText.charAt(0).toUpperCase() + mesActualText.slice(1); 
+
+        return mesActualDef;
+
+    }
+
+    function getAñoActual(fecha){
+
+        return fecha.getFullYear();
+
+    }
+
+    function getNumeroSemanaDelMes(){
+
+        var d = new Date();
+        var date = d.getDate();
+        var day = d.getDay();
+
+        var weekOfMonth = Math.ceil((date + 6 - day)/7);
+
+        console.log(" semana del mes " + weekOfMonth)
+
+    }
+
+    function fechaActual(){
+        
+        var fechaActual = new Date();
+
+        var diaActual = fechaActual.getDate();
+        var mesActual = fechaActual.getMonth() + 1;
+        var añoActual = fechaActual.getFullYear();
+
+        var mes = fechaActual.toLocaleDateString("es-Es", {month: 'long'});
+
+        var fechaConcatenada = diaActual + " " +mesActual + " " + añoActual;
+
+        console.log("fecha a dia de hoy " + fechaConcatenada);
+
+        console.log("mes actual " + mes);
+
+    }
+
+    function mesRepetido(dias){
+
+        var intervalos = weekIntervalText(dias);
+
+        var resultado = intervalos[0].includes("febrero")
+
+        console.log("intervalo"+intervalos[0])
+
+        console.log(resultado)
+
+        /* for (var i = 0; i < intervalos.length; i++){
+            var result = intervalos[i].search("febrero")
+            console.log(result)
+        } */
 
     }
 
@@ -189,9 +257,9 @@ $(()=>{
 
         for(var i = 0; i < (primeros.length * 2); i++){
 
-            intervalos.push( primeros[i])
+            var intervalo = primeros[i] + ' - ' + ultimos[i]
 
-            intervalos.push( ultimos[i])
+            intervalos.push(intervalo)
 
         }
 
@@ -232,6 +300,13 @@ $(()=>{
         seteaFecha(dates(new Date(new Date().getFullYear(), 1, 1)));
 
         weekIntervalText(dates(new Date(new Date().getFullYear(), 1, 1)));
+
+        mesRepetido(dates(new Date(new Date().getFullYear(), 1, 1)));
+
+        getNumeroSemanaDelMes();
+
+        fechaActual();
+
 
     });
 
