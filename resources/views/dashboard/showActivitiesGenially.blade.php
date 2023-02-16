@@ -5,21 +5,19 @@
 @endsection
 
 @section('content')
-    @if (App\Http\Controllers\NotifyController::notifyLoggedTrigger())
 
-            <div class="titleGenially">
-                <div class="leftColumn"> Voluntariado corporativo </div>
-                  <div class="centerColumn">  <p> Fundación Magtel </p> </div>
-                <div class="rightColumn"> Semanas (5-9) </div>
-            </div>
-        
-    @endif
+
+    <div class="titleGenially">
+        <div class="leftColumn"> Voluntariado corporativo </div>
+            <div class="centerColumn">  <p> Fundación Magtel </p> </div>
+        <div class="rightColumn"> Semanas (5-9) </div>
+    </div>     
+    
     <div class="mainTray">
         <div class="sectionTitleGenially">
             <p class="tituloGenially" id="tituloGenially"> </p>
         </div>        
     </div>
-
 
     <div class="secondTrayGenially">
         <div class="sectionGenially ">
