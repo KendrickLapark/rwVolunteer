@@ -1,32 +1,52 @@
 $(()=>{
 
+    
+
+    function seteaFecha(dias){
+
+        var fechasIniciales = firstDaysOfWeekText(dias);
+
+        for (var i = 0; i < fechasIniciales.length; i++) {
+            $('.fechaGenially').eq(i).text(fechasIniciales[i])
+            console.log(fechasIniciales[i])
+        }
+
+    }
+
     //devuelve los días de una determinada semana
 
     function dates(current) {
-        var week= new Array(); 
+         
         // Starting Monday not Sunday
 
-        current.setDate((current.getDate() - current.getDay() +1));
+        var week= new Array();
 
-        //devuelve el primer día de una semana determinada en current
+        //Iteramos 5 veces para avanzar 5 semanas desde la semana introducida
+        for(var j = 0; j < 5; j++){
+            current.setDate((current.getDate() - current.getDay() +1));
 
-        console.log("primer dia de la semana "+current);
+            //devuelve el primer día de una semana determinada en current
 
+            //console.log("primer dia de la semana "+current);
         
-        for (var i = 0; i < 7; i++) {
-            week.push(
-                new Date(current)
-            ); 
-            current.setDate(current.getDate() +1);
+            for (var i = 0; i < 7; i++) {
+                week.push(
+                    new Date(current)
+                ); 
+                current.setDate(current.getDate() +1);
+            }
+
+            current.setDate(current.getDate()-1);
+
+            //devuelve el último día de la semana
+
+            //console.log("último dia de la semana "+current);
+
+            current.setDate(current.getDate()+1);          
+
         }
 
-        current.setDate(current.getDate()-1);
-
-        //devuelve el último día de la semana
-
-        console.log("último dia de la semana "+current);
-
-        return week; 
+        return week;
     }
 
     //devuelve el primer día de la semana, formateado para que lo devuelva en forma de cadena de texto 
@@ -47,13 +67,7 @@ $(()=>{
 
     //devuelve el último día de la semana, formateado para que lo devuelva en forma de cadena de texto
 
-    function lastDayOfWeek(current){
-
-        current.setDate((current.getDate() - current.getDay() +1));
-
-        for (var i = 0; i < 6; i++) {           
-            current.setDate(current.getDate() +1);
-        }
+    function lastDayOfWeekText(current){    
 
         var dia = current.getDate();
 
@@ -65,28 +79,15 @@ $(()=>{
 
     }
 
-    function lastDayOfWeekDate(current){
-        current.setDate((current.getDate() - current.getDay() +1));
-
-        for (var i = 0; i < 6; i++) {           
-            current.setDate(current.getDate() +1);
-        }
-
-        console.log(current);
-
-        return current;
-    }
-
     function startEndWeek(current){
 
         var inicio = firstDayOfWeek(current);
 
-        var fin = lastDayOfWeek(current);
+        var fin = lastDayOfWeekText(current);
 
         var lapso = inicio + " - " + fin;
 
         return lapso;
-
 
     }
 
@@ -128,34 +129,109 @@ $(()=>{
 
     }
 
-    /*Continuar este método, la idea es que itere entre las semanas que tiene un determinado mes para presentarlos de forma segmentada en el genially*/ 
+    //obtiene los primeros días de las 5 semanas de la fecha indicada en formato fecha
 
-    function avanzaMes(current){
 
-        var ultimoDiaSemanal = lastDayOfWeekDate(current);
+    function firstDaysOfWeek(dias){       
 
-        for (var i = 0; i < 5; i++) {           
-            ultimoDiaSemanal.setDate(ultimoDiaSemanal.getDate()+1);
-            lastDayOfWeekDate(ultimoDiaSemanal);
+        var primerosDias = new Array();
+
+        for(var i = 0; i < dias.length; i+=7){
+
+            primerosDias.push(dias[i]);
+
         }
+
+        return primerosDias;
+
+    }
+
+    //devuelve en formato texto el primer día de la semana de las 5 semanas según la fecha indicada
+
+    function firstDaysOfWeekText(dias){
+
+        var primerosDias = firstDaysOfWeek(dias);
+
+        var primerosDiasTexto = new Array();
+
+        for(var i = 0; i < primerosDias.length; i++){
+
+            primerosDiasTexto.push( firstDayOfWeek(primerosDias[i]));
+            
+        }
+
+        return primerosDiasTexto;
+
+    }
+
+    //devuelve en formato texto el último día de la semana de las 5 semanas según la fecha indicada
+
+    function lastDaysOfWeekText(dias){
+
+        var ultimosDias = lastDaysOfWeek(dias);
+
+        var ultimosDiasTexto = new Array();
+
+        for(var i = 0; i < ultimosDias.length; i++){
+            ultimosDiasTexto.push(lastDayOfWeekText(ultimosDias[i]));
+        }
+
+        return ultimosDiasTexto;
+
+    }
+
+    function weekIntervalText(dias){
+
+        var primeros = firstDaysOfWeekText(dias);
+        var ultimos = lastDaysOfWeekText(dias);
+
+        var intervalos = new Array();
+
+        for(var i = 0; i < (primeros.length * 2); i++){
+
+            intervalos.push( primeros[i])
+
+            intervalos.push( ultimos[i])
+
+        }
+
+        for (var i = 0; i < intervalos.length; i++){
+            console.log(intervalos[i])
+        }
+
+        return intervalos;
+
+    }
+
+    //obtiene los últimos días de las 5 semanas de la fecha indicada en formato fecha
+
+    function lastDaysOfWeek(dias){
+
+        var ultimosDias = new Array();
+
+        for(var i = 6; i < dias.length; i+=7){
+
+            ultimosDias.push(dias[i]);
+
+        }
+
+        return ultimosDias;
 
     }
 
     $('#geniallyButton1').on("click", () => {
 
-        //hay que poner un mes menos, si aumento los días de 6 en 6 puedo iterar entre semanas
-        //console.log(dates(new Date(new Date().getFullYear(), 1, 1)));
+        /* var fecha = new Date(new Date().getFullYear(), 1, 1);
 
+        for (var i = 0; i < firstDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1))).length; i++){
+            console.log(firstDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1)))[i]);
+        } 
 
-        //prueba de métodos correcta
-        /*console.log(firstDayOfWeek(new Date(new Date().getFullYear(), 1, 1)));
-        console.log(lastDayOfWeek(new Date(new Date().getFullYear(), 1, 1))); */
+        lastDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1)));    */
 
-        console.log(startEndWeek(new Date(new Date().getFullYear(), 1, 1)));
+        seteaFecha(dates(new Date(new Date().getFullYear(), 1, 1)));
 
-        console.log(lastDayOfWeekDate(new Date(new Date().getFullYear(), 1, 1)));
-
-        avanzaMes(new Date(new Date().getFullYear(), 1, 1));
+        weekIntervalText(dates(new Date(new Date().getFullYear(), 1, 1)));
 
     });
 

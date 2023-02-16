@@ -225,7 +225,7 @@
                             <option value="Carril">Carril</option>
                             <option value="Ciclovia">Ciclovía</option>
                             <option value="Corredera">Corredera</option>
-                            <option value=">Costanilla">Costanilla</option>
+                            <option value="Costanilla">Costanilla</option>
                             <option value="Parque">Parque</option>
                             <option value="Pasadizo elevado">Pasadizo elevado</option>
                             <option value="Pasaje">Pasaje</option>
