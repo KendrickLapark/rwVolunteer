@@ -6,11 +6,10 @@
 
 @section('content')
 
-
     <div class="titleGenially">
         <div class="leftColumn"> Voluntariado corporativo </div>
             <div class="centerColumn">  <p> Fundación Magtel </p> </div>
-        <div class="rightColumn"> Semanas (5-9) </div>
+        <div class="rightColumn" id="weeksGenially">  </div>
     </div>     
     
     <div class="mainTray">

@@ -1,20 +1,34 @@
 $(()=>{
 
-    var dias = dates(new Date(new Date().getFullYear(), 1, 1))
+    var fecha = new Date (new Date().getFullYear(), 0, 31);
+
+    var semanas = new Array(5)
+
+    seteaSemanas(fecha);
+
+    var fechaIntervalo = dates(fecha);
 
     var fechaActual = new Date();
 
     $("#tituloGenially").text(getMesActual(fechaActual) + " " + getAñoActual(fechaActual))
 
-    seteaFecha(dias); 
+    seteaFecha(fechaIntervalo); 
 
-    function seteaFecha(dias){
+    function seteaFecha(fecha){
 
-        var intervalos = weekIntervalText(dias);
+        var intervalos = weekIntervalText(fecha);
 
         for (var i = 0; i < intervalos.length; i++) {
             $('.fechaGenially').eq(i).text(intervalos[i])
         }
+
+    }
+
+    function seteaSemanas(fecha){
+
+        var cadenaSemanas = "(" + numeroSemanaFecha(fecha) + "-" + (numeroSemanaFecha(fecha) + 4 + ")")
+
+        $('#weeksGenially').text("Semanas "+ cadenaSemanas);
 
     }
 
@@ -46,39 +60,20 @@ $(()=>{
 
     }
 
-    function fechaActual(){
+    function numeroSemanaFecha(fecha){
         
-        var fechaActual = new Date();
+        //currentDate = new Date();
+        startDate = new Date(fecha.getFullYear(), 0, 1);
+        var days = Math.floor((fecha - startDate) /
+        (24 * 60 * 60 * 1000));
+         
+        var weekNumber = Math.ceil(days / 7);
+     
+        // Display the calculated result      
+        console.log("Week number of " + fecha +
+            " is :   " + weekNumber);
 
-        var diaActual = fechaActual.getDate();
-        var mesActual = fechaActual.getMonth() + 1;
-        var añoActual = fechaActual.getFullYear();
-
-        var mes = fechaActual.toLocaleDateString("es-Es", {month: 'long'});
-
-        var fechaConcatenada = diaActual + " " +mesActual + " " + añoActual;
-
-        console.log("fecha a dia de hoy " + fechaConcatenada);
-
-        console.log("mes actual " + mes);
-
-    }
-
-    function mesRepetido(dias){
-
-        var intervalos = weekIntervalText(dias);
-
-        var resultado = intervalos[0].includes("febrero")
-
-        console.log("intervalo"+intervalos[0])
-
-        console.log(resultado)
-
-        /* for (var i = 0; i < intervalos.length; i++){
-            var result = intervalos[i].search("febrero")
-            console.log(result)
-        } */
-
+        return weekNumber    
     }
 
     //devuelve los días de una determinada semana
@@ -91,6 +86,7 @@ $(()=>{
 
         //Iteramos 5 veces para avanzar 5 semanas desde la semana introducida
         for(var j = 0; j < 5; j++){
+            
             current.setDate((current.getDate() - current.getDay() +1));
 
             //devuelve el primer día de una semana determinada en current
@@ -101,20 +97,52 @@ $(()=>{
                 week.push(
                     new Date(current)
                 ); 
+
                 current.setDate(current.getDate() +1);
+
+                console.log("dia actual "+current)
+
             }
 
-            current.setDate(current.getDate()-1);
+            //Esto para imprimir el último día de la semana
 
-            //devuelve el último día de la semana
+            /* current.setDate(current.getDate()-1); 
 
-            //console.log("último dia de la semana "+current);
+            console.log("último dia de la semana "+current);
 
-            current.setDate(current.getDate()+1);          
+            current.setDate(current.getDate()+1);     */      
 
         }
 
         return week;
+    }
+
+    function datesSemanas(current) {
+
+        var week= new Array();
+        var semanas = new Array();
+
+        for(var j = 0; j < 5; j++){
+            
+            current.setDate((current.getDate() - current.getDay() +1));
+
+        
+            var semana = new Array()
+
+            for (var i = 0; i < 7; i++) {
+                semana.push(
+                    new Date(current)
+                ); 
+
+                current.setDate(current.getDate() +1);
+
+            }
+
+            semanas.push( semana );     
+
+        }
+
+        return semanas;
     }
 
     //devuelve el primer día de la semana, formateado para que lo devuelva en forma de cadena de texto 
@@ -287,26 +315,46 @@ $(()=>{
 
     }
 
+    //segmentar los dias por semanas
+
+    function guardaSemanas(intervaloSemanas){
+
+        var fechasSemanas = new Array(5)
+        var semana = new Array(6)   
+
+        for(var i = 0; fechasSemanas.length; i++){
+
+            for(var j = 0; semana.length; j++){
+                for(var k = 0; intervalosSemanas.length; k++){
+                    semana[j].push(intervalosSemanas[k])
+                }
+            }
+
+        }
+
+    }
+
     $('#geniallyButton1').on("click", () => {
 
-        /* var fecha = new Date(new Date().getFullYear(), 1, 1);
+        //var fecha = new Date(new Date().getFullYear(), 1, 1);  
 
-        for (var i = 0; i < firstDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1))).length; i++){
-            console.log(firstDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1)))[i]);
-        } 
+        //lastDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1)));    
 
-        lastDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1)));    */
+        //seteaFecha(dates(new Date(new Date().getFullYear(), 1, 1)));
 
-        seteaFecha(dates(new Date(new Date().getFullYear(), 1, 1)));
+       // weekIntervalText(dates(new Date(new Date().getFullYear(), 1, 1)));
 
-        weekIntervalText(dates(new Date(new Date().getFullYear(), 1, 1)));
-
-        mesRepetido(dates(new Date(new Date().getFullYear(), 1, 1)));
+       // mesRepetido(dates(new Date(new Date().getFullYear(), 1, 1)));
 
         getNumeroSemanaDelMes();
 
-        fechaActual();
+        datesSemanas(fecha);
 
+
+
+        console.log("La fecha actual es "+fecha)
+
+        console.log("El número de la semana de la fecha actual es "+numeroSemanaFecha(fecha))
 
     });
 
