@@ -2,6 +2,10 @@ $(()=>{
 
     var fecha = new Date (new Date().getFullYear(), 0, 31);
 
+    const fecha2 = fecha;
+
+    console.log(" la fecha de seguridad es "+ fecha2)
+
     var semanas = new Array(5)
 
     seteaSemanas(fecha);
@@ -32,6 +36,8 @@ $(()=>{
 
     }
 
+    //devuelve el mes actual en formato texto y con la primera letra en mayúscula
+
     function getMesActual(fecha){
 
         var mesActualText = fechaActual.toLocaleDateString("es-Es", {month: 'long'});
@@ -41,6 +47,8 @@ $(()=>{
         return mesActualDef;
 
     }
+
+    //devuelve el año actual
 
     function getAñoActual(fecha){
 
@@ -110,25 +118,23 @@ $(()=>{
 
             console.log("último dia de la semana "+current);
 
-            current.setDate(current.getDate()+1);     */      
+            current.setDate(current.getDate()+1); */      
 
         }
 
         return week;
     }
 
-    function datesSemanas(current) {
-
-        var week= new Array();
-        var semanas = new Array();
+    function getWeeks(current) {   
+        
+        var semanas = new Array(5)
 
         for(var j = 0; j < 5; j++){
             
             current.setDate((current.getDate() - current.getDay() +1));
 
-        
-            var semana = new Array()
-
+            var semana = new Array(6)
+      
             for (var i = 0; i < 7; i++) {
                 semana.push(
                     new Date(current)
@@ -136,9 +142,9 @@ $(()=>{
 
                 current.setDate(current.getDate() +1);
 
-            }
+            }   
 
-            semanas.push( semana );     
+            semanas[j] = semana;
 
         }
 
@@ -336,23 +342,15 @@ $(()=>{
 
     $('#geniallyButton1').on("click", () => {
 
-        //var fecha = new Date(new Date().getFullYear(), 1, 1);  
+        console.log("La fecha2 es "+fecha2)
 
-        //lastDaysOfWeekText(dates(new Date(new Date().getFullYear(), 1, 1)));    
+        var semanasGuardadas = getWeeks( fecha2 )
 
-        //seteaFecha(dates(new Date(new Date().getFullYear(), 1, 1)));
-
-       // weekIntervalText(dates(new Date(new Date().getFullYear(), 1, 1)));
-
-       // mesRepetido(dates(new Date(new Date().getFullYear(), 1, 1)));
-
-        getNumeroSemanaDelMes();
-
-        datesSemanas(fecha);
-
-
-
-        console.log("La fecha actual es "+fecha)
+        for(var i = 0; i < semanasGuardadas.length; i++){
+            for(var j = 0; j < semanasGuardadas[i].length; j++){
+                console.log(semanasGuardadas[i][j]) 
+            }
+        }
 
         console.log("El número de la semana de la fecha actual es "+numeroSemanaFecha(fecha))
 
