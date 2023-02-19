@@ -10,7 +10,11 @@ $(()=>{
 
     seteaSemanas(fecha);
 
+    console.log(" Date ")
+
     var fechaIntervalo = dates(fecha);
+
+    console.log(" Fin date ")
 
     var fechaActual = new Date();
 
@@ -342,7 +346,7 @@ $(()=>{
 
     $('#geniallyButton1').on("click", () => {
 
-        console.log("La fecha2 es "+fecha2)
+       /*  console.log("La fecha2 es "+fecha2)
 
         var semanasGuardadas = getWeeks( fecha2 )
 
@@ -352,7 +356,7 @@ $(()=>{
             }
         }
 
-        console.log("El número de la semana de la fecha actual es "+numeroSemanaFecha(fecha))
+        console.log("El número de la semana de la fecha actual es "+numeroSemanaFecha(fecha)) */
 
     });
 
