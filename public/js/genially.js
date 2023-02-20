@@ -161,57 +161,29 @@ $(()=>{
 
     $('#geniallyButton1').on("click", () => {
 
-        var semana = $('#geniallyButton1').val()
+        var semana = $('#week1').val()
 
-        for( var i = 0; i < semana.length; i++ ){
+        /* for( var i = 0; i < semana.length; i++ ){
            console.log( semana[i] )
         }
 
-        console.log($('#geniallyButton1').val())
+        console.log($('#geniallyButton1').val()) */
     });
 
     $('#geniallyButton2').on("click", () => {
-
         var semana = $('#geniallyButton2').val()
-
-        for( var i = 0; i < semana.length; i++ ){
-           console.log( semana[i] )
-        }
-
-        console.log($('#geniallyButton2').val())
     });
 
     $('#geniallyButton3').on("click", () => {
-
         var semana = $('#geniallyButton3').val()
-
-        for( var i = 0; i < semana.length; i++ ){
-           console.log( semana[i] )
-        }
-
-        console.log($('#geniallyButton3').val())
     });
 
     $('#geniallyButton4').on("click", () => {
-
         var semana = $('#geniallyButton4').val()
-
-        for( var i = 0; i < semana.length; i++ ){
-           console.log( semana[i] )
-        }
-
-        console.log($('#geniallyButton4').val())
     });
 
     $('#geniallyButton5').on("click", () => {
-
         var semana = $('#geniallyButton5').val()
-
-        for( var i = 0; i < semana.length; i++ ){
-           console.log( semana[i] )
-        }
-
-        console.log($('#geniallyButton5').val())
     });
 
 })

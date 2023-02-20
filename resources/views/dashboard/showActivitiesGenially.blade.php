@@ -21,8 +21,13 @@
     <div class="secondTrayGenially">
         <div class="sectionGenially ">
             <div class="subsectionGenially">
+                <form method="post" action={{ route('dashboard.showWeekCalendarGenially')}} id="f">
+                    <input type="hidden" name="week1" id="week1">
+                    <button type="submit"> <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton1"/></button>
+                    <input type="image" src="images/login.jpg" alt="Submit Form" />
+                </form>
                 <a href="{{ route('dashboard.showWeekCalendarGenially')}}">
-                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton1"/>   
+                   
                 </a>           
             </div> 
             <div class="subsectionGenially">
@@ -86,6 +91,12 @@
 
     <script>
         $(() => {
+
+            $(".geniallyButton").on("click", function(){
+                console.log($(this).val())
+
+            });
+
             $(".card").on("click", function() {
                 if ($(this).siblings().is(':visible')) {
                     $(this).css("border-radius", "10px");

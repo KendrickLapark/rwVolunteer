@@ -13,7 +13,7 @@
         <div class= "geniallyButtonContainer">
 
             <div class = "geniallyWeekBackButton">
-                <button action="{{ route('dashboard.showActivitiesGenially') }}" class="backGeniallyButton">Volver</button>
+                <a href="{{ route('dashboard.showActivitiesGenially')}}" id="backGeniallyButton"> Volver </a>
             </div>
 
         </div>
@@ -154,7 +154,7 @@
 
 @section('headlibraries')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/genially.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/weekGenially.js') }}"></script>
 
     <script>
         $(() => {
@@ -168,6 +168,7 @@
                     $(this).siblings().show();
                 }
             });
+
         });
     </script>
 @endsection

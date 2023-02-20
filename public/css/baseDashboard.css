@@ -707,17 +707,19 @@ div.logo-details {
 
 .geniallyButtonContainer{
     text-align: right;
+    margin-bottom: 20px;
 
 }
 
-.backGeniallyButton{
+#backGeniallyButton{
     background: #004a98;
     border: 2px solid #ffffff;
     border-radius: 25px;
     color: #ffffff;
     padding-block: 10px;
-    max-width: 220px;
-    width: 100px;
+    padding-inline: 20px;
+    
+    width: 300px;
     margin-block: 10px;
     margin-inline: 30px;
 
