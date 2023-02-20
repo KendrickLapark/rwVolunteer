@@ -32,7 +32,7 @@
         </div>
         <div class="sectionGenially">
             <div class="subsectionGenially">
-                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton"/>              
+                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton2"/>              
             </div> 
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
@@ -43,7 +43,7 @@
         </div>
         <div class="sectionGenially">            
             <div class="subsectionGenially">
-                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton"/>              
+                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton3"/>              
             </div> 
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
@@ -54,7 +54,7 @@
         </div>
         <div class="sectionGenially">
             <div class="subsectionGenially">
-                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton"/>              
+                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton4"/>              
             </div> 
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
@@ -65,7 +65,7 @@
         </div>    
         <div class="sectionGenially">
             <div class="subsectionGenially">
-                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton"/>              
+                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton5"/>              
             </div> 
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
