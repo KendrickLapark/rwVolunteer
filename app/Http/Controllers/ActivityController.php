@@ -33,6 +33,13 @@ class ActivityController extends Controller
 
     }
 
+    public function showWeekCalendarGenially()
+    {
+
+        return view("dashboard.showWeekCalendarGenially");
+
+    }
+
     public function saveActivity(Request $request)
     {
         $request->validate([

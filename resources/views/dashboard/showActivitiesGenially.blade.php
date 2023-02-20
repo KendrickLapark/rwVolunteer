@@ -21,7 +21,9 @@
     <div class="secondTrayGenially">
         <div class="sectionGenially ">
             <div class="subsectionGenially">
-                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton1"/>              
+                <a href="{{ route('dashboard.showWeekCalendarGenially')}}">
+                <img src="<?php echo asset('images/genially/botonGenially.png'); ?>" class="geniallyButton" id="geniallyButton1"/>   
+                </a>           
             </div> 
             <div class="subsectionGenially">
                 <img src="<?php echo asset('images/genially/chicaGenially.png'); ?>" class="geniallyItem"/>
