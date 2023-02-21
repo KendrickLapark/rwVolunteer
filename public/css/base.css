@@ -148,6 +148,11 @@ div#mainMenu ul li {
     justify-content: space-between;
 }
 
+.eachHomeBoxImage{
+    max-width: 100px;
+    max-height: 100px;
+}
+
 .eachColFoot {
     width: 23%;
 }
@@ -193,35 +198,37 @@ div.titleFoot {
 
 /******************************************************************/
 #contentDiv {
+    display: flex;
+    width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
 .rowDiv {
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: center;
     column-gap: 2rem;
     margin-bottom: 10px;
+    width: 25%;
 
 }
 
 .eachCell {
-    width: 40%;
+    text-align: center;
+    justify-content: center;
+    margin-block: 20px;
 }
 
 .eachCell.withText {
-    padding-top: 100px !important;
-    padding-bottom: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
-
-    padding-top: 60px;
+    text-align: center;
 
 }
 
 .eachCell.withText .header {
-    font-size: 3rem;
+    color: #004a98;
+    font-size: 1.5rem;
+    
 }
 
 .eachCell.withText p {

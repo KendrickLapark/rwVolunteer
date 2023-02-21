@@ -25,7 +25,7 @@
             <p><a href="https://www.fundacionmagtel.es/aviso-legal/">Aviso Legal</a></p>
             <p><a href="https://www.fundacionmagtel.es/politica-de-proteccion-de-datos/">Protección de datos</a></p>
             <p><a href="https://www.fundacionmagtel.es/politica-de-cookies/">Política de cookies</a></p>
-            <p>© 2019 Fundación Magtel</p>
+            <p>© 2023 Fundación Magtel</p>
             <p><a href="https://magtel.es/">magtel.es</a></p>
         </div>
     </div>
