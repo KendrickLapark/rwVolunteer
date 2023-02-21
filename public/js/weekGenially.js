@@ -1,9 +1,8 @@
 $(()=>{
 
-    var frm = document.getElementById('f');
+    const queryString = window.location.search;
+    console.log(queryString);
 
-    
-
-    console.log("Llega "+frm)
+    console.log(queryString.length)
 
 });

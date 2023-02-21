@@ -152,7 +152,8 @@ Route::middleware(['isLogged'])->group(function () {
         /* Muestra las actividades en vista Genially */
     Route::get('/dashboard-showActivitiesGenially', [ActivityController::class, 'showActivitiesGenially'])
         ->name('dashboard.showActivitiesGenially');
-        Route::get('/dashboard-showWeekCalendarGenially', [ActivityController::class, 'showWeekCalendarGenially'])
+        /* Muestra las actividades semanales del Genially */
+    Route::get('/dashboard-showWeekCalendarGenially', [ActivityController::class, 'showWeekCalendarGenially'])
         ->name('dashboard.showWeekCalendarGenially');
     /* Mostrar MI InfoExtra de usuario */
     Route::post('/dashboard-showMyInfoExtra',  [ExtraActivityController::class, 'showMyInfoExtra'])

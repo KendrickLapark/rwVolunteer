@@ -153,21 +153,22 @@ $(()=>{
                 semana.push( current[i][j])
 
             }
-            $('.geniallyButton').eq(i).val(semana)
+
+             $('.week').eq(i).val(semana)           
             
         }
 
     }
 
     $('#geniallyButton1').on("click", () => {
+        var semana = $('#week1').val() 
+        
+        for (var i = 0; i < semana.length; i++){
 
-        var semana = $('#week1').val()
+            console.log("Día "+i+" "+semana[i])
 
-        /* for( var i = 0; i < semana.length; i++ ){
-           console.log( semana[i] )
         }
 
-        console.log($('#geniallyButton1').val()) */
     });
 
     $('#geniallyButton2').on("click", () => {
