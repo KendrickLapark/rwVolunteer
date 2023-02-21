@@ -31,9 +31,7 @@
                 <div class="auto-btn2"></div>
                 <div class="auto-btn3"></div>
                 <div class="auto-btn4"></div>
-            </div>        
-
-            
+            </div>              
 
         </div>
 
@@ -45,10 +43,7 @@
         </div>
         
     </div>
-
-    {{-- slider inicial --}}
-
-    {{-- <img src="<?php echo asset('images/mainSlider.jpg'); ?>" alt="slider" id="sliderHome" /> --}}
+    
     <div id="contentDiv">
         <div class="rowDiv">           
             <div class="eachCell">
@@ -92,4 +87,21 @@
             
         </div>
     </div>
+@endsection
+
+@section('library')
+
+    <script type="text/javascript">
+
+        var counter = 1;
+        setInterval(function() {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 4){
+                counter = 1;
+            }
+        }, 5000);
+
+    </script>
+
 @endsection
