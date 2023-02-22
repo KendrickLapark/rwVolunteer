@@ -146,9 +146,15 @@ Route::middleware(['isLogged'])->group(function () {
     /* Descarga mi educación */
     Route::post('/dashboard-downloadEducation',[EducationController::class, 'downloadEducation'])
         ->name('dashboard.downloadEducation');
+    /* Muestra la vista para filtrar actividades por fecha o por tipo */
+    Route::get('/dashboard-showActivitiesOptions', [ActivityController::class, 'showActivitiesOptions'])
+        ->name('dashboard.showActivitiesOptions');
     /* Muestra todas las actividades */
     Route::get('/dashboard-showAllActivitiesLogged',[ActivityController::class,'showAllActivitiesLogged'])
         ->name('dashboard.showAllActivitiesLogged');
+    /* Muestra las actividades según su categoría */
+    Route::get('/dashboard-showActivitiesByCategory', [ActivityController::class, 'showActivitiesByCategory'])
+        ->name('dashboard.showActivitiesByCategory');
         /* Muestra las actividades en vista Genially */
     Route::get('/dashboard-showActivitiesGenially', [ActivityController::class, 'showActivitiesGenially'])
         ->name('dashboard.showActivitiesGenially');

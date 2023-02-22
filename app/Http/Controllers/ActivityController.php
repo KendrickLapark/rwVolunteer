@@ -198,6 +198,15 @@ class ActivityController extends Controller
         return view('dashboard.showAllActivitiesLogged', compact("activities","activityTypes"));
     }
 
+    public function showActivitiesOptions(){
+        return view('dashboard.showActivitiesOptions');
+    }
+
+    public function showActivitiesByCategory(){
+        return view('dashboard.showActivitiesByCategory');
+
+    }
+
     public static function quotaCalculator($quota,$activity_id)
     {
         $inscription = Inscription::where('activity_id',$activity_id)

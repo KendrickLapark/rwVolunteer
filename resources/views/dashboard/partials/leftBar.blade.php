@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('dashboard.showAllActivitiesLogged') }}">
+                <a href="{{ route('dashboard.showActivitiesOptions') }}">
                     <i class='bx bxs-label'></i>
                     <span class="links_name">Actividades</span>
                 </a>
