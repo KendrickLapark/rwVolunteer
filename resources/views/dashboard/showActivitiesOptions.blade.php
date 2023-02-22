@@ -20,7 +20,9 @@
             <div class="mainData center">
     
                 <div class="columnRight">
+                    <a href="{{ route('dashboard.showActivitiesByDate')}}">
                     <img src="images/imgDashboard/frame2.png" alt="Por tipo de actividad">
+                    </a>
 
                 </div>
 

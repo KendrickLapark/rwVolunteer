@@ -155,6 +155,9 @@ Route::middleware(['isLogged'])->group(function () {
     /* Muestra las actividades según su categoría */
     Route::get('/dashboard-showActivitiesByCategory', [ActivityController::class, 'showActivitiesByCategory'])
         ->name('dashboard.showActivitiesByCategory');
+    /* Muestra las actividades en función de la fecha */
+    Route::get('/dashboard-showActivitiesByDate', [ActivityController::class, 'showActivitiesByDate'])
+        ->name('dashboard.showActivitiesByDate');
         /* Muestra las actividades en vista Genially */
     Route::get('/dashboard-showActivitiesGenially', [ActivityController::class, 'showActivitiesGenially'])
         ->name('dashboard.showActivitiesGenially');

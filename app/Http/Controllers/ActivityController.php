@@ -207,6 +207,10 @@ class ActivityController extends Controller
 
     }
 
+    public function showActivitiesByDate(){
+        return view('dashboard.showActivitiesByDate');
+    }
+
     public static function quotaCalculator($quota,$activity_id)
     {
         $inscription = Inscription::where('activity_id',$activity_id)
