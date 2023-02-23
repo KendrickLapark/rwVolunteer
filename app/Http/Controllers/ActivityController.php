@@ -299,4 +299,36 @@ class ActivityController extends Controller
         return redirect()->route('dashboard.showAllActivities');
     }
 
+    public function searchDayActivity(Request $request){
+
+        if($request->ajax()) {
+            $query = $request->get('searchDayActivity');
+            if(empty($query)) {
+                $activities=Activity::where('dateAct','like','%'.$request->searchDayActivity.'%')->orderBy('dateAct', 'asc')->get();
+                $activityTypes = TypeActivity::all();
+            } else {
+                $activities=Activity::where('dateAct','like','%'.$request->searchDayActivity.'%')->orderBy('dateAct', 'asc')->get();
+                $activityTypes = TypeActivity::all();
+            }
+            $total = $activities->count();
+        
+            $html = view('dashboard.partials.itemDayAct', [
+                'activities' => $activities,
+                'activityTypes' => $activityTypes,
+            ])->render();             
+        
+            return response()->json([
+                'success' => true,
+                'html' => $html,
+                'total' => $total,
+            ], 200);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => "Something went wrong!",
+            ], 403);
+        }
+
+    }
+
 }

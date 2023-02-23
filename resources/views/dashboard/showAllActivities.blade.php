@@ -116,32 +116,32 @@
 
         function ajaxCall(datos){
 
-                return $.ajax({
+            return $.ajax({
 
-                    url:"searchActivity",
-                    type:"GET",
-                    data:{'searchActivity':datos},
-                    success:function(data){
-                        $('#search_listAct').html(data.html);
+                url:"searchActivity",
+                type:"GET",
+                data:{'searchActivity':datos},
+                success:function(data){
+                    $('#search_listAct').html(data.html);
 
-                        $(".hidden").hide();
-                            $(".row").on("click", function() {
-                                if($(this).next().is(':hidden'))
-                                    $(this).next().show('slow');
-                                else{
-                                    $(this).next().hide('slow');
-                            }
-                            });
+                    $(".hidden").hide();
+                        $(".row").on("click", function() {
+                            if($(this).next().is(':hidden'))
+                                $(this).next().show('slow');
+                            else{
+                                $(this).next().hide('slow');
+                        }
+                        });
 
-                            $(".lessDetails").on("click", function() {
-                                $(this).parent().parent().hide('slow');
-                            });
+                        $(".lessDetails").on("click", function() {
+                            $(this).parent().parent().hide('slow');
+                        });
 
-                    }
+                }
 
-                })
+            })
 
-            }
+        }
 
             ajaxCall('');
 

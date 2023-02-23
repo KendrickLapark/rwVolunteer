@@ -44,10 +44,10 @@
                 Semana del X de X al X de X
             </div>
 
-            <div class="columnDaysAct">
+            <div class="searchDayActivity" id="searchDayActivity">
                 <div class="leftColumnDaysAct">
                     <div class="eachDayAct">
-                        <p class="eachDayAct title"> Día 1 </p>
+                        <p class="eachDayActTitle" id='eachDayActTitle'> carrera </p>
                         <select id="selectDayAct" name="cars" id="cars">
                             <option >Actividades disponibles</option>
                             <option >Saab</option>
@@ -56,17 +56,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="rightColumnDaysAct">
-                    <div class="eachDayAct">
-                        <p class="eachDayAct title"> Día 2 </p>
-                        <select id="selectDayAct" name="cars" id="cars">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                          </select>
-                    </div>
-                </div>
+                {{-- <div class="rightColumnDaysAct">
+                </div> --}}
             </div>   
         </div>
 
@@ -83,6 +74,22 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        function ajaxCall(datos){
+
+            return $.ajax({
+
+                url:"searchDayActivity",
+                type:"GET",
+                data:{'searchDayActivity':datos},
+                success:function(data){
+                    $('#searchDayActivity').html(data.html);
+
+                }
+
+            })
+
+        }
 
         var calendar = $('#calendario').fullCalendar({
             dayNamesShort: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
@@ -113,10 +120,18 @@
             selectHelper: true,
 
             select:function(start, end, allDays){
-                console.log(start.format())
-                console.log(end.format())
+                
+                alert(start.format())
+
+                $('#eachDayActTitle').text(start.format());
+
+                console.log($('#eachDayActTitle').text());
+
+                ajaxCall($('#eachDayActTitle').text());
 
             },
+
+
 
             /* dayClick: function(date, jsEvent, view) {
 

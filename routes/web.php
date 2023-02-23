@@ -104,6 +104,8 @@ Route::middleware(['isUserIncomplete'])->group(function () {
 });
 
 Route::middleware(['isLogged'])->group(function () {
+
+    Route::get("searchDayActivity",[ActivityController::class,'searchDayActivity']);
     /*RUTAS LOGGEADAS*/
     Route::get('/dashboard-logged',  [AuthController::class, 'loggedDashboard'])
             ->name('dashboard.logged');
