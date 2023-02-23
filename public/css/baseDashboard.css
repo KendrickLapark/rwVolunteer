@@ -1638,6 +1638,15 @@ div.logo-details {
 
 }
 
+.accordion2{
+    width:60%;
+    background-color: white;
+    color:#009fe3;
+    padding-block: 10px;
+    border:none;
+
+}
+
 #selectDayAct{
     width:90%;
     background-color: #009fe3;

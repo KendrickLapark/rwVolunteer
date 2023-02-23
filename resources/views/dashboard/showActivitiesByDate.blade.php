@@ -43,7 +43,6 @@
             <div class="titleDaysAct">
                 Semana del X de X al X de X
             </div>
-
             
                 <div class="leftColumnDaysAct">
                     <div class="searchDayActivity" id="searchDayActivity">
@@ -87,7 +86,8 @@
                 success:function(data){
                     $('#searchDayActivity').html(data.html);
 
-                    var acc = document.getElementsByClassName("accordion");
+                var acc = document.getElementsByClassName("accordion");
+
                 for (var i = 0; i < acc.length; i++) {
                 
                     acc[i].addEventListener("click", function() {
@@ -105,16 +105,16 @@
 
                 for (var i = 0; i < acc2.length; i++) {
                 
-                ac2[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.display === "block") {
-                        panel.style.display = "none";
-                    } else {
-                        panel.style.display = "block";
-                    }
-                });
-            }
+                    acc2[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var panel2 = this.nextElementSibling;
+                        if (panel2.style.display === "block") {
+                            panel2.style.display = "none";
+                        } else {
+                            panel2.style.display = "block";
+                        }
+                    });
+                }
 
                 }
 
@@ -162,8 +162,6 @@
 
             },
 
-
-
             /* dayClick: function(date, jsEvent, view) {
 
                 alert('Clicked on: ' + date.format());
@@ -180,20 +178,6 @@
         });
 
     });
-
-     /* var acc = document.getElementsByClassName("accordion");
-        for (var i = 0; i < acc.length; i++) {
-            
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }  */
 
     function displayMessage(message) {
         toastr.success(message, 'Event');
