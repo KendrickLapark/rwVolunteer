@@ -44,9 +44,10 @@
                 Semana del X de X al X de X
             </div>
 
-            <div class="searchDayActivity" id="searchDayActivity">
+            
                 <div class="leftColumnDaysAct">
-                    <div class="eachDayAct">
+                    <div class="searchDayActivity" id="searchDayActivity">
+                    {{-- <div class="eachDayAct">
                         <p class="eachDayActTitle" id='eachDayActTitle'> carrera </p>
                         <select id="selectDayAct" name="cars" id="cars">
                             <option >Actividades disponibles</option>
@@ -54,10 +55,11 @@
                             <option >Mercedes</option>
                             <option >Audi</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
-                {{-- <div class="rightColumnDaysAct">
-                </div> --}}
+                <div class="rightColumnDaysAct">
+                    
+                </div> 
             </div>   
         </div>
 
@@ -84,6 +86,35 @@
                 data:{'searchDayActivity':datos},
                 success:function(data){
                     $('#searchDayActivity').html(data.html);
+
+                    var acc = document.getElementsByClassName("accordion");
+                for (var i = 0; i < acc.length; i++) {
+                
+                    acc[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.display === "block") {
+                            panel.style.display = "none";
+                        } else {
+                            panel.style.display = "block";
+                        }
+                    });
+                }
+                
+                var acc2 = document.getElementsByClassName("accordion2");
+
+                for (var i = 0; i < acc2.length; i++) {
+                
+                ac2[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
 
                 }
 
@@ -127,7 +158,7 @@
 
                 console.log($('#eachDayActTitle').text());
 
-                ajaxCall($('#eachDayActTitle').text());
+                ajaxCall(start.format());
 
             },
 
@@ -149,6 +180,20 @@
         });
 
     });
+
+     /* var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }  */
 
     function displayMessage(message) {
         toastr.success(message, 'Event');

@@ -1607,24 +1607,15 @@ div.logo-details {
     width: 60%;
 }
 
-.columnDaysAct{
+.searchDayActivity{
     display: flex;
     flex-direction: row;
     width: 100%;
 
 }
 
-.leftColumnDaysAct{
-    width: 50%;
-
-}
-
-.rightColumnDaysAct{
-    width: 50%;
-}
-
 .eachDayAct{
-    width: auto;
+    width: 60%;
     text-align: center;
 
 }
@@ -1636,6 +1627,15 @@ div.logo-details {
     font-weight: bold;
     margin-left: 25px;
     margin-top: 20px;
+}
+
+.accordion{
+    width:60%;
+    background-color: #009fe3;
+    color:white;
+    padding-block: 10px;
+    border:none;
+
 }
 
 #selectDayAct{
@@ -1765,7 +1765,17 @@ div.logo-details {
 
 /* End Show All activities */
 
-/* Create Activiy */
+/* Create ActiviTy */
+
+.mainDataCenterCreateActivity{
+
+    display:flex;
+    flex-direction: column;
+    width:30%;
+    align-items: center;
+    text-align: center;
+
+}
 
 select.big {
     width: 100%;

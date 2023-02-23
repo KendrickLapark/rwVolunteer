@@ -11,7 +11,7 @@
         </div>
         <form method="POST" action="{{ route('dashboard.saveActivity') }}">
             @csrf
-            <div class="mainData center">
+            <div class="mainDataCenterCreateActivity">
 
                 <div class="eachCreateActivityElement">
                     <p>
