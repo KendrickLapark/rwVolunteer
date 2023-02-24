@@ -40,7 +40,7 @@
         </div>
 
         <div class="hiddenDaysActivities">
-            <div class="titleDaysAct">
+            <div class="titleDaysAct" id="titleDaysAct">
                 Semana del X de X al X de X
             </div>
             <div class="mainHiddenDaysActivities">
@@ -57,7 +57,7 @@
                         </div> --}}
                     </div>
                     <div class="rightColumnDaysAct">
-                        <div class="eachDayAct">
+                        {{-- <div class="eachDayAct">
                             <p class="eachDayAct title">tirulo</p>
                             <button class="accordion">Actividades disponibles <i class='bx bxs-chevron-down'></i> </button>
                                 <div class="panel">
@@ -66,7 +66,7 @@
                                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
                                         </div>
                                 </div>
-                        </div>                   
+                        </div>  --}}                  
                     </div> 
                 
             </div>   
@@ -160,30 +160,40 @@
             selectable: true,
             selectHelper: true,
 
-            select:function(start, end, allDays){
-                
-                alert(start.format())
+            select:function(start, end, allDays){           
+
+                var fechas = []
+                var cont = 0;
+                for(dt=new Date(start); dt<=new Date(end); dt.setDate(dt.getDate()+1)){
+                    if(cont==7){
+                        break;
+                    }
+                    console.log("Primer bucle " + dt)
+                    fechas.push(new Date(dt));
+                    cont+=1;
+                }
+
+                /* poner correctamente los meses */
+
+                dt1 = new Date(start);
+                dt2 = new Date(end);
+
+                var mes1 = dt1.toLocaleDateString("es-Es", {month: 'long'});
+                var mes2 = dt2.toLocaleDateString("es-Es", {month: 'long'});
+
+                //finally!
+
+                if(mes1!=mes2){
+                    $('#titleDaysAct').text("Semana del "+fechas[0].getDate()+" de "+ mes1 +" al "+fechas[fechas.length-1].getDate()+" de "+mes2);
+                }else{
+                    $('#titleDaysAct').text("Semana del "+fechas[0].getDate()+" al "+fechas[fechas.length-1].getDate()+" de "+mes2);
+                }
 
                 $('#eachDayActTitle').text(start.format());
-
-                console.log($('#eachDayActTitle').text());
 
                 ajaxCall(start.format());
 
             },
-
-            /* dayClick: function(date, jsEvent, view) {
-
-                alert('Clicked on: ' + date.format());
-
-                alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-                alert('Current view: ' + view.name);
-
-                // change the day's background color just for fun
-                $(this).css('background-color', 'red');
-
-            } */
 
         });
 

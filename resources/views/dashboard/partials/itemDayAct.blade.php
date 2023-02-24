@@ -1,5 +1,5 @@
 <div class="eachDayAct">
-    <p class="eachDayAct title">tirulo</p>
+    <p class="eachDayActTitle" id="eachDayActTitle"> {{date('d M', strtotime($query))}} </p>
     <button class="accordion">Actividades disponibles <i class='bx bxs-chevron-down'></i> </button>
         <div class="panel">
             @foreach($activities as $activity)

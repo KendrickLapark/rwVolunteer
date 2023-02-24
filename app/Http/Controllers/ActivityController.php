@@ -315,6 +315,7 @@ class ActivityController extends Controller
             $html = view('dashboard.partials.itemDayAct', [
                 'activities' => $activities,
                 'activityTypes' => $activityTypes,
+                'query' => $query,
             ])->render();             
         
             return response()->json([

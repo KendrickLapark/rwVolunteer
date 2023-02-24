@@ -1619,6 +1619,14 @@ div.logo-details {
 
 }
 
+.titleDaysAct{
+    text-align: left;
+    color: #014a99;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
 .leftColumnDaysAct{
     width: 50%;   
 
@@ -1635,7 +1643,7 @@ div.logo-details {
 
 }
 
-.eachDayAct.title{
+.eachDayActTitle{
     text-align: left;
     color: #014a99;
     font-size: 20px;
