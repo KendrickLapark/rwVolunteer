@@ -43,22 +43,32 @@
             <div class="titleDaysAct">
                 Semana del X de X al X de X
             </div>
-            
-                <div class="leftColumnDaysAct">
-                    <div class="searchDayActivity" id="searchDayActivity">
-                    {{-- <div class="eachDayAct">
-                        <p class="eachDayActTitle" id='eachDayActTitle'> carrera </p>
-                        <select id="selectDayAct" name="cars" id="cars">
-                            <option >Actividades disponibles</option>
-                            <option >Saab</option>
-                            <option >Mercedes</option>
-                            <option >Audi</option>
-                        </select>
-                    </div> --}}
-                </div>
-                <div class="rightColumnDaysAct">
-                    
-                </div> 
+            <div class="mainHiddenDaysActivities">
+                    <div class="leftColumnDaysAct">
+                        <div class="searchDayActivity" id="searchDayActivity"> </div>
+                        {{-- <div class="eachDayAct">
+                            <p class="eachDayActTitle" id='eachDayActTitle'> carrera </p>
+                            <select id="selectDayAct" name="cars" id="cars">
+                                <option >Actividades disponibles</option>
+                                <option >Saab</option>
+                                <option >Mercedes</option>
+                                <option >Audi</option>
+                            </select>
+                        </div> --}}
+                    </div>
+                    <div class="rightColumnDaysAct">
+                        <div class="eachDayAct">
+                            <p class="eachDayAct title">tirulo</p>
+                            <button class="accordion">Actividades disponibles <i class='bx bxs-chevron-down'></i> </button>
+                                <div class="panel">
+                                        <button class="accordion2">Actividad 1</button>
+                                        <div class="panel" style="display:none;">
+                                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
+                                        </div>
+                                </div>
+                        </div>                   
+                    </div> 
+                
             </div>   
         </div>
 

@@ -1610,12 +1610,27 @@ div.logo-details {
 .searchDayActivity{
     display: flex;
     flex-direction: row;
-    width: 100%;
+
+}
+
+.mainHiddenDaysActivities{
+    display:flex;
+    flex-direction: row;
+
+}
+
+.leftColumnDaysAct{
+    width: 50%;   
+
+}
+
+.rightColumnDaysAct{
+    width:50%;
 
 }
 
 .eachDayAct{
-    width: 60%;
+    width: 90%;
     text-align: center;
 
 }
@@ -1625,26 +1640,65 @@ div.logo-details {
     color: #014a99;
     font-size: 20px;
     font-weight: bold;
-    margin-left: 25px;
     margin-top: 20px;
 }
 
 .accordion{
-    width:60%;
+    width:100%;
     background-color: #009fe3;
+    text-align: left;
     color:white;
-    padding-block: 10px;
+    padding-block: 12px;
+    padding-left: 10px;
     border:none;
 
 }
 
 .accordion2{
-    width:60%;
+    width:100%;
     background-color: white;
-    color:#009fe3;
+    text-align: right;
+    color:#054d9b;
+    font-weight: bold;
     padding-block: 10px;
+    padding-right: 10px;
     border:none;
 
+}
+
+.ul-accordion2{
+    text-align: right;
+    width: 100%;
+}
+
+.ul-accordion2 li{
+    text-align: right;
+    padding-block: 2px;
+    list-style-position: inside;
+
+}
+
+#li-accordion2{
+    list-style-type: circle; 
+    display:flex; 
+    flex-direction:row;
+    justify-content: end;
+    column-gap: 2em;
+
+}
+
+.buttonSignUp{
+    width:30%;
+    background-color: #009fe3;
+    text-align: center;
+    color:white;
+    padding-block: 5px;
+    padding-inline: 20px;
+    border:none;
+}
+
+.spanTimeAct{
+    padding-top: 5px;
 }
 
 #selectDayAct{
@@ -1654,13 +1708,6 @@ div.logo-details {
     padding-block: 10px;
     border:none;
 }
-
-#selectDayAct option{
-    background-color: white;
-    color: #014a99;
-
-}
-
 
 /* End showActivitiesByDate */
 

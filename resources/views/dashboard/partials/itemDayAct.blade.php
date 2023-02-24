@@ -1,11 +1,18 @@
 <div class="eachDayAct">
     <p class="eachDayAct title">tirulo</p>
-    <button class="accordion">Actividades disponibles</button>
+    <button class="accordion">Actividades disponibles <i class='bx bxs-chevron-down'></i> </button>
         <div class="panel">
             @foreach($activities as $activity)
-                <button class="accordion2">{{$activity->entityAct}}</button>
+                <button class="accordion2">{{$activity->entityAct}} <i class='bx bxs-chevron-down' style="font-size=20px;"></i> </button>
                 <div class="panel" style="display:none;">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
+                    <ul class="ul-accordion2">
+                        <li> {{$activity->nameAct}} </li>
+                        <li> {{$activity->formaAct}} </li>
+                        <li id="li-accordion2"> 
+                            <span class="spanTimeAct"> {{date('H:i', strtotime($activity->timeAct)) ." - ".date('H:i', strtotime($activity->endTimeAct))}} horas </span>
+                            <button class="buttonSignUp">Me apunto</button> 
+                        </li>
+                    </ul>
                 </div>
             @endforeach
         </div>
