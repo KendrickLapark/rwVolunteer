@@ -181,17 +181,27 @@
                 var mes1 = dt1.toLocaleDateString("es-Es", {month: 'long'});
                 var mes2 = dt2.toLocaleDateString("es-Es", {month: 'long'});
 
-                //finally!
-
                 if(mes1!=mes2){
                     $('#titleDaysAct').text("Semana del "+fechas[0].getDate()+" de "+ mes1 +" al "+fechas[fechas.length-1].getDate()+" de "+mes2);
                 }else{
                     $('#titleDaysAct').text("Semana del "+fechas[0].getDate()+" al "+fechas[fechas.length-1].getDate()+" de "+mes2);
                 }
 
-                $('#eachDayActTitle').text(start.format());
+                //$('#eachDayActTitle').text(start.format());
 
-                ajaxCall(formateaFecha(dt1));
+                fechas.forEach(element => {
+                    alert(element);
+                });
+
+                fechas.forEach(element => {
+                    ajaxCall(formateaFecha(element))
+                });
+
+
+                //funcional
+
+                //ajaxCall(formateaFecha(new Date(dt1)));
+                //ajaxCall(formateaFecha(dt2));
 
             },
 
@@ -199,10 +209,12 @@
 
     });
 
+    //formatea la fecha dada para adaptarla a un formato que se ajuste al de bd
+
     function formateaFecha(fecha){
-        var year = dt1.toLocaleString("default", { year: "numeric" });
-        var month = dt1.toLocaleString("default", { month: "2-digit" });
-        var day = dt1.toLocaleString("default", { day: "2-digit" });
+        var year = fecha.toLocaleString("default", { year: "numeric" });
+        var month = fecha.toLocaleString("default", { month: "2-digit" });
+        var day = fecha.toLocaleString("default", { day: "2-digit" });
 
         var formattedDate = year + "-" + month + "-" + day;
 
