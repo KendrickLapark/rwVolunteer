@@ -191,13 +191,24 @@
 
                 $('#eachDayActTitle').text(start.format());
 
-                ajaxCall(start.format());
+                ajaxCall(formateaFecha(dt1));
 
             },
 
         });
 
     });
+
+    function formateaFecha(fecha){
+        var year = dt1.toLocaleString("default", { year: "numeric" });
+        var month = dt1.toLocaleString("default", { month: "2-digit" });
+        var day = dt1.toLocaleString("default", { day: "2-digit" });
+
+        var formattedDate = year + "-" + month + "-" + day;
+
+        return formattedDate;
+
+    }
 
     function displayMessage(message) {
         toastr.success(message, 'Event');
