@@ -41,10 +41,11 @@
 
         <div class="hiddenDaysActivities">
             <div class="titleDaysAct" id="titleDaysAct">
-                Semana del X de X al X de X
             </div>
             <div class="mainHiddenDaysActivities">
                     <div class="leftColumnDaysAct">
+                        <div class="searchDayActivity" id="searchDayActivity"> </div>
+                        <div class="searchDayActivity" id="searchDayActivity"> </div>
                         <div class="searchDayActivity" id="searchDayActivity"> </div>
                         {{-- <div class="eachDayAct">
                             <p class="eachDayActTitle" id='eachDayActTitle'> carrera </p>
@@ -57,16 +58,10 @@
                         </div> --}}
                     </div>
                     <div class="rightColumnDaysAct">
-                        {{-- <div class="eachDayAct">
-                            <p class="eachDayAct title">tirulo</p>
-                            <button class="accordion">Actividades disponibles <i class='bx bxs-chevron-down'></i> </button>
-                                <div class="panel">
-                                        <button class="accordion2">Actividad 1</button>
-                                        <div class="panel" style="display:none;">
-                                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
-                                        </div>
-                                </div>
-                        </div>  --}}                  
+                        <div class="searchDayActivity" id="searchDayActivity"> </div>
+                        <div class="searchDayActivity" id="searchDayActivity"> </div>
+                        <div class="searchDayActivity" id="searchDayActivity"> </div>
+                        <div class="searchDayActivity" id="searchDayActivity"> </div>                
                     </div> 
                 
             </div>   
@@ -86,7 +81,8 @@
             }
         });
 
-        function ajaxCall(datos){
+        function ajaxCall(datos, pos, longitud){
+
 
             return $.ajax({
 
@@ -94,7 +90,19 @@
                 type:"GET",
                 data:{'searchDayActivity':datos},
                 success:function(data){
-                    $('#searchDayActivity').html(data.html);
+
+                    console.log("longitud "+longitud)
+
+                    $( ".searchDayActivity" ).each(function( i ) {
+                    console.log(i);
+                    if(i>=longitud){
+                        $( ".searchDayActivity").eq(i).html("");
+                    }
+                    
+                    });
+
+                    $('.searchDayActivity').eq(pos).html(data.html);
+                    
 
                 var acc = document.getElementsByClassName("accordion");
 
@@ -168,12 +176,9 @@
                     if(cont==7){
                         break;
                     }
-                    console.log("Primer bucle " + dt)
                     fechas.push(new Date(dt));
                     cont+=1;
                 }
-
-                /* poner correctamente los meses */
 
                 dt1 = new Date(start);
                 dt2 = new Date(end);
@@ -187,21 +192,14 @@
                     $('#titleDaysAct').text("Semana del "+fechas[0].getDate()+" al "+fechas[fechas.length-1].getDate()+" de "+mes2);
                 }
 
-                //$('#eachDayActTitle').text(start.format());
+                 fechas.forEach(element => {
+                    console.log(element);
+                }); 
 
-                fechas.forEach(element => {
-                    alert(element);
-                });
+                for (var i = 0; i < fechas.length; i++){
+                    ajaxCall(formateaFecha(fechas[i]), i, fechas.length);
 
-                fechas.forEach(element => {
-                    ajaxCall(formateaFecha(element))
-                });
-
-
-                //funcional
-
-                //ajaxCall(formateaFecha(new Date(dt1)));
-                //ajaxCall(formateaFecha(dt2));
+                }
 
             },
 
