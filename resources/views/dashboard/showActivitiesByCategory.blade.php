@@ -75,7 +75,7 @@
                         <div class="imgContainerLeft">
                             <div class="imgColumn">
                                 <div class="imgContainerCell">
-                                    <img src="images/imgActivitiesCategories/Component1.png">
+                                    <img class="imgSrc" src="images/imgActivitiesCategories/Component1.png">
                                 </div>                                               
                                 <div class="imgContainerCell">
                                     <img src="images/imgActivitiesCategories/Component5.png">
@@ -123,7 +123,5 @@
         </div>
             
     </div>
-
-   
 
 @endsection

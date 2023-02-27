@@ -20,8 +20,6 @@
 
     <script src='https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'></script>
 
-
-
 @endsection
 
 @section('content')
@@ -83,7 +81,6 @@
 
         function ajaxCall(datos, pos, longitud){
 
-
             return $.ajax({
 
                 url:"searchDayActivity",
@@ -91,48 +88,23 @@
                 data:{'searchDayActivity':datos},
                 success:function(data){
 
-                    console.log("longitud "+longitud)
-
                     $( ".searchDayActivity" ).each(function( i ) {
-                    console.log(i);
-                    if(i>=longitud){
-                        $( ".searchDayActivity").eq(i).html("");
-                    }
+                        if(i>=longitud){
+                            $( ".searchDayActivity").eq(i).html("");
+                        }
                     
                     });
 
-                    $('.searchDayActivity').eq(pos).html(data.html);
+                    $('.searchDayActivity').eq(pos).html(data.html);  
                     
-
-                var acc = document.getElementsByClassName("accordion");
-
-                for (var i = 0; i < acc.length; i++) {
-                
-                    acc[i].addEventListener("click", function() {
-                        this.classList.toggle("active");
-                        var panel = this.nextElementSibling;
-                        if (panel.style.display === "block") {
-                            panel.style.display = "none";
-                        } else {
-                            panel.style.display = "block";
-                        }
+                    $('.panel').eq(pos).hide();
+                    $('.accordion').eq(pos).on("click", function(){
+                        if($(this).next().is(':hidden'))
+                            $(this).next().show('slow');
+                        else{
+                            $(this).next().hide('slow');
+                            }                        
                     });
-                }
-                
-                var acc2 = document.getElementsByClassName("accordion2");
-
-                for (var i = 0; i < acc2.length; i++) {
-                
-                    acc2[i].addEventListener("click", function() {
-                        this.classList.toggle("active");
-                        var panel2 = this.nextElementSibling;
-                        if (panel2.style.display === "block") {
-                            panel2.style.display = "none";
-                        } else {
-                            panel2.style.display = "block";
-                        }
-                    });
-                }
 
                 }
 
@@ -147,9 +119,9 @@
                 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
             ],
             header: {
-                left: 'title',
-                center: '',
-                right: '',
+                left: 'prev',
+                center: 'title,today',
+                right: 'next'
             },
             buttonText: {
                 today: 'HOY',
@@ -172,7 +144,7 @@
 
                 var fechas = []
                 var cont = 0;
-                for(dt=new Date(start); dt<=new Date(end); dt.setDate(dt.getDate()+1)){
+                for(dt=new Date(start); dt<new Date(end); dt.setDate(dt.getDate()+1)){
                     if(cont==7){
                         break;
                     }
@@ -191,10 +163,6 @@
                 }else{
                     $('#titleDaysAct').text("Semana del "+fechas[0].getDate()+" al "+fechas[fechas.length-1].getDate()+" de "+mes2);
                 }
-
-                 fechas.forEach(element => {
-                    console.log(element);
-                }); 
 
                 for (var i = 0; i < fechas.length; i++){
                     ajaxCall(formateaFecha(fechas[i]), i, fechas.length);
@@ -223,8 +191,9 @@
     function displayMessage(message) {
         toastr.success(message, 'Event');
     }
+    
+    
+    
 </script>
-
-
 
 @endsection

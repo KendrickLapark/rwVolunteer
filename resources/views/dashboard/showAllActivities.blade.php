@@ -130,7 +130,7 @@
                                 $(this).next().show('slow');
                             else{
                                 $(this).next().hide('slow');
-                        }
+                            }
                         });
 
                         $(".lessDetails").on("click", function() {

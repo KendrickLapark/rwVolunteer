@@ -1793,6 +1793,11 @@ div.logo-details {
     row-gap: 0.5rem;
 }
 
+.imgSrc:hover{
+    filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+
+}
+
 @media only screen and (max-width: 1000px) {
 
 .leftColumnCatAct{
