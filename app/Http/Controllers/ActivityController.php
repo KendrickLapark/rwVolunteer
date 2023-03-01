@@ -232,7 +232,6 @@ class ActivityController extends Controller
     public function showThatActivity ($activity_id)
     {
         $activity = Activity::where('activity_id',$activity_id)
-                            ->where('isVisible',true)
                             ->first();
         $activityTypes = TypeActivity::all();
         return view('dashboard.showThatActivity', compact("activity","activityTypes"));

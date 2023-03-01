@@ -11,32 +11,18 @@
                     </div>
                     <div class="nameSurVol">
                         <strong>
-                            {{ $volunteer->nameVol }}
-                            {{ $volunteer->surnameVol }}
-                            {{ $volunteer->surname2Vol }}
+                            <span> {{ $volunteer->nameVol }} </span>        
+                            <span> {{ $volunteer->surnameVol }} </span>
+                            <span> {{ $volunteer->surname2Vol }} </span>
                         </strong>
                         <br />
-                        @if ($volunteer->organiVol == false)
-                            SIN Empresa Asociada
-                        @else
-                            {{ $volunteer->organiVol }}
-                        @endif
+
                     </div>
-                    <div class="mailVol">
-                        <i class='bx bx-envelope'></i>
-                        <a href="mailto:{{ $volunteer->persMailVol }}">{{ $volunteer->persMailVol }}</a>
-                        @if ($volunteer->corpMailVol)
-                            (C)
-                            <a href="mailto:{{ $volunteer->corpMailVol }}">{{ $volunteer->corpMailVol }}</a>
-                        @endif
-                    </div>
-                    <div class="tlfVol">
-                        <i class='bx bxs-phone'></i>
-                        <a href="tel:+34{{ $volunteer->telVol }}">{{ $volunteer->telVol }}</a>
-                    </div>
+
                     <div class="controlButtonMoreDetails">
                         <i class='bx bxs-down-arrow'></i>
                     </div>
+                                       
                 </div>
                 <div class="hidden">
                     <div class="eachRow">
@@ -105,14 +91,16 @@
                                 No tiene titulación registrada
                             @else
                                 @foreach ($volunteer->education as $education)
-                                    {{ $education->titleEdu }}
+                                <button class="accordionUsers">{{ $education->titleEdu }} <i class='bx bxs-down-arrow' id='arrowDownload'></i> </button> 
+                                <div class="downloadPanel">                                   
                                     <form method="POST" action="{{ route('dashboard.downloadThatEducation') }}"
                                         accept-charset="UTF-8" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $education->education_id }}">
-                                        <p><button type="submit" id="downloadEdu" class="botonesControl"><i
+                                        <p><button type="submit" id="downloadEdu" class="downloadButton"><i
                                                     class='bx bx-save'></i></button></p>
                                     </form>
+                                </div>
                                 @endforeach
                             @endif
                         </div>
@@ -122,13 +110,15 @@
                                 No tiene titulación registrada
                             @else
                                 @foreach ($volunteer->documents as $document)
-                                    {{ $document->titleDoc }}
+                                <button class="accordionUsers">{{ $document->titleDoc }} <i class='bx bxs-down-arrow' id='arrowDownload'></i> </button>  
+                                <div class="downloadPanel">                                  
                                     <form method="POST" action="{{ route('dashboard.showDocument') }}">
                                         @csrf
                                         <input type="hidden" name="doc" value="{{ $document->doc_id }}">
-                                        <button type="submit" {{--id="showDocDoc"--}} class="botonesControl"><i
+                                        <button type="submit" {{--id="showDocDoc"--}} class="downloadButton"><i
                                                 class='bx bx-save'></i></button>
                                     </form>
+                                </div>
                                 @endforeach
                             @endif
                         </div>
@@ -155,10 +145,7 @@
 
                     <div class="eachRow">
                         <div>
-                            <div class="eachRow">
                                 <div><strong>Intereses:</strong></div>
-                            </div>
-                            <div class="eachRow">
                                 @if (count(App\Http\Controllers\UsersController::showEachInterest($volunteer->activities)) == 0)
                                     <div>Aun no tenemos suficientes datos para mostrar intereses 
                                     </div>
@@ -168,8 +155,7 @@
                                             <p>{{ $typeAct }}</p>
                                         @endforeach
                                     </div>
-                                @endif
-                            </div>
+                                @endif                           
                         </div>
                     </div>
                     <div class="eachRow">
@@ -209,7 +195,7 @@
                     </div>
                     <div class="eachRow">
                         <div class="controlButton lessDetails">
-                            <i class='bx bxs-up-arrow'></i>
+                            <i class='bx bxs-up-arrow' style="font-size:20px"></i>
                         </div>
                     </div>
                 </div>

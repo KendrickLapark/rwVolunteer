@@ -1381,25 +1381,25 @@ div.logo-details {
 
 #search {
     background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 2px -2px;
-    min-width: 500px;
+    width: 30%;
     border-radius: 25px;
     margin-inline: 30px;
     padding-left: 35px;
 
   }
 
-
-
 #search_list .row{
     padding-top: 15px;
     padding-bottom: 10px;
     padding-left: 30px;
     padding-right: 30px;
+    width:30%;
     display: flex;
     text-align: left;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #e8f1fa;
+    background-color: cornflowerblue;
+    color:#004a98;
     border-radius: 25px;
     margin: 20px;
     min-height: 100px;
@@ -1412,7 +1412,8 @@ div.logo-details {
 }
 
 #search_list .row .nameSurVol{
-    width: 30%;
+    width: 50%;
+    margin:auto;
     flex-shrink: 0;
 }
 
@@ -1429,24 +1430,52 @@ div.logo-details {
 }
 
 #search_list .row .controlButtonMoreDetails{
-    width: 1%;
+    width: 10%;
+    color: black;
+    margin:auto;
+    text-align: center;
     flex-shrink: 0;
 }
 
 #search_list .hidden{
-    background: radial-gradient(#e8f1fa, #3f6bbf);
+    display:flex;
+    flex-direction: column;
+    background-color: #004a98;
+    color:white;
     border-radius: 25px;
     margin: 20px;
     padding: 10px;
+    width: 40%;
 }
 
 #search_list .hidden .eachRow {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 
 }
+
+#search_list .hidden .downloadButton{
+    width:25%;
+
+}
+
+#search_list .hidden .accordionUsers{
+    width: fit-content;
+    text-align: left;
+    background-color:#004a98;
+    border:none;
+    color:white;
+    margin:auto;
+
+}
+
+#arrowDownload{
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+
 
 @media only screen and (max-width: 1000px) {
     #search_list .row {

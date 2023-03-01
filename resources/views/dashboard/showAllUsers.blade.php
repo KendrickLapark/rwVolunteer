@@ -64,6 +64,16 @@
                                 $(this).parent().parent().hide('slow');
                             });
 
+                            $(".downloadPanel").hide();
+                            $('.accordionUsers').on("click", function(){
+                            if($(this).next().is(':hidden')){
+                                $(this).next().show('slow');
+                            }    
+                            else{
+                                $(this).next().hide('slow');
+                            }                        
+                    });
+
                     }
 
                 })

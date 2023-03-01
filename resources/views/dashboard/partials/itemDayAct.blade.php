@@ -10,7 +10,8 @@
                         <li> {{$activity->formaAct}} </li>
                         <li id="li-accordion2"> 
                             <span class="spanTimeAct"> {{date('H:i', strtotime($activity->timeAct)) ." - ".date('H:i', strtotime($activity->endTimeAct))}} horas </span>
-                            <button class="buttonSignUp">Me apunto</button> 
+                            {{-- <button class="buttonSignUp">Me apunto</button>  --}}
+                            <a href={{ route('dashboard.showThatActivity', [$activity->activity_id])}} class="buttonSignUp"> Me apunto </a>
                         </li>
                     </ul>
                 </div>

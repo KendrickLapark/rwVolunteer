@@ -190,7 +190,7 @@ Route::middleware(['isLogged'])->group(function () {
     /* Filtramos calendario por categorias */
     Route::get('/showFilterByTypeAct/{id}', [ActivityController::class, 'showFilterByTypeAct'])
         ->name('dashboard.showFilterByTypeAct');
-        /**/ 
+    
 
 });
 
