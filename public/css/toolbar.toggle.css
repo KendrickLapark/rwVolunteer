@@ -13,6 +13,13 @@
 
 }
 
+#icon-toolbar{
+    color: white;
+    font-size: 28px;
+    margin-inline: 6px;
+
+}
+
 #check{
     width:64px;
     height: 128px;
@@ -86,6 +93,10 @@
     padding: 15px 10px;
     transition: 0.3s ease; 
     
+}
+
+.toolbar-item svg{
+    color: black;
 }
 
 .toolbar-title{
