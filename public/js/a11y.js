@@ -35,9 +35,9 @@ $(() => {
         var i_c = getComputedStyle(document.querySelector('i')).color;
     } 
 
-    if($('#spaceTopMenu')){
+    /* if($('#spaceTopMenu')){
         var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
-    }
+    } */
 
     if($('header')[0]){
         var header_bc = getComputedStyle(document.querySelector('header')).backgroundColor;
@@ -238,15 +238,12 @@ $(() => {
 
         $('#ti1').click(function(){
 
-           var fs =  window.getComputedStyle(document.getElementById('ti1')).fontSize;
+           var fs =  window.getComputedStyle(document.getElementById('ti1')).getPropertyValue('font-size');
 
-            if(resize<60){
-                resize+= 10;
-            }
-            
-            $('.sectionTitle').css('font-size', resize+"px");
-            $('.toolbar-item').css('font-size', resize+"px");
-            $('p').css('font-size', resize+"px");     
+           curSize = parseInt($('#ti1').css('font-size')) + 10;
+		    if (curSize <= 48){
+                $('.toolbar-item').css('font-size', curSize);
+            }		
 
         });
 
@@ -254,14 +251,13 @@ $(() => {
 
             var fs =  window.getComputedStyle(document.getElementById('ti1')).fontSize;
 
-            if(resize>20){
-                resize-= 10;
-            }
- 
-            $('.sectionTitle').css('font-size', resize+"px");
-            $('.toolbar-item').css('font-size', resize+"px");
-            $('p').css('font-size', resize+"px");
+            tamaño = parseInt($('#ti1').css('font-size'));
 
+            curSize = parseInt($('#ti1').css('font-size')) - 10;
+		    if (curSize >= 18){
+                $('.toolbar-item').css('font-size', curSize); 
+            }
+			    
         });
 
         var htmlElement = document.querySelector("html");           

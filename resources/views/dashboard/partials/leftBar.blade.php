@@ -14,19 +14,19 @@
     </div>
     <ul class="nav-links">
         @if (!Auth::user()->isIncomplete() && Auth::user()->isRegisterComplete)
-            <li>
+            <li title="Inscripciones">
                 <a href="{{ route('dashboard.logged') }}">
                     <i class='bx bxs-dashboard'></i>
-                    <span class="links_name">Dashboard</span>
+                    <span class="links_name">Inscripciones</span>
                 </a>
             </li>
-            <li>
+            <li title="Actividades">
                 <a href="{{ route('dashboard.showActivitiesOptions') }}">
                     <i class='bx bxs-label'></i>
                     <span class="links_name">Actividades</span>
                 </a>
             </li>
-            <li>
+            <li title="Mis estudios">
                 <a href="{{ route('dashboard.showMyEducation') }}">
                     <i class='bx bxs-graduation'></i>
                     <span class="links_name">Mis Estudios</span>
