@@ -172,6 +172,9 @@ Route::middleware(['isLogged'])->group(function () {
     /* CLIC en quiero inscribirme */
     Route::post('/dashboard-makeInscription',  [InscriptionController::class, 'doInscription'])
         ->name('dashboard.makeInscription');
+    /* Cancelar preinscripción */
+    Route::post('/dashboard-unDoInscription', [InscriptionController::class, 'unDoInscription'])
+        ->name('dashboard.unDoInscription');
     /* Mostramos dashboard de notificaciones Logged */
     Route::get('/dashboard-logged-showNotify',[NotifyController::class, 'loggedShowNotify'])
         ->name('dashboard.logged.showNotify');

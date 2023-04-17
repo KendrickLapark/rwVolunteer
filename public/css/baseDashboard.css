@@ -1590,7 +1590,7 @@ div.logo-details {
 
 .mainData.center{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     column-gap: 8rem;
     align-items: center;
 }

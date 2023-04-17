@@ -1,0 +1,113 @@
+.toolbar{
+    position: fixed;
+    right:-240px;
+    top:10em;
+    
+}
+
+.toggle-icon{
+    width: 34px;
+    margin: auto;
+    color:white;
+    cursor: pointer;
+
+}
+
+#check{
+    width:64px;
+    height: 128px;
+    position: absolute;
+    background-color: #004a98;
+    top: -2.6em;
+    left: -4em;
+    border: 1px solid #004a98;
+    transition: ease 0.3s;
+    display: none;
+    
+}
+
+.toggle-overlay{
+    transition: ease 0.3s;
+}
+
+#check:checked ~ .toolbar-overlay{
+    transform: translateX(-240px);
+}
+
+#check:checked{
+    transform: translateX(-240px);
+}
+
+#check:checked ~ .toggle-overlay{
+    transform: translateX(-240px);
+}
+
+.icon-overlay{
+    width:64px;
+    position: absolute;
+    padding-left: 15px;
+    padding-block: 15px;
+    background-color: #004a98;
+    top: 0em;
+    left: -4.2em;
+    border: 1px solid #004a98;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    cursor: pointer;
+    transition: ease 0.3s;
+    
+}
+
+.toolbar-overlay{
+    transition: ease 0.3s;
+}
+
+.toolbar-inner{
+    background-color: white;
+    right:0;
+    top:10em;
+    width: 15.5em;
+    border: 1px solid #004a98;
+    transition: 0.5s ease; 
+
+}
+
+.toolbar-inner p{
+    font-size: 18px;
+    padding: 15px 10px;
+    
+}
+
+.toolbar-item{
+    text-decoration: none;
+    row-gap: 3em;
+    color: #004a98;
+    font-size: 18px;
+    padding: 15px 10px;
+    transition: 0.3s ease; 
+    
+}
+
+.toolbar-title{
+    font-weight: bold;
+}
+
+.toolbar-text{
+    color: black;
+}
+
+.toolbar-icon{
+    width: 20px;
+}
+
+.toolbar-items li:hover{
+    background-color: #e8f1fa;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.toolbar-item li a{
+    display:block;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
