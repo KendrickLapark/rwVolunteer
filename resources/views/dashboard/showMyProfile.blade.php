@@ -18,7 +18,6 @@
             <div class="container">
                 <div class="mainDataCenterRow">
                     <div class="leftCol">
-                        <div class="auxItem"><span></span></div>
 
                         <div class="columnItem">
 

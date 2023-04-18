@@ -27,7 +27,7 @@
                     </li>
                     <li class="toolbar-item" id="ti3">
                         <a href="#/" style="text-decoration: none">
-                            <i class="fa-solid fa-barcode"></i><span class="toolbar-text" >  Escala de grises </span>
+                            <i class="fa-solid fa-barcode"></i><span class="toolbar-text" > Escala de grises </span>
                         </a>
                     </li>
                     <li class="toolbar-item" id="ti4">

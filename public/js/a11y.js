@@ -229,6 +229,11 @@ $(() => {
 
     }
 
+    var grayscale = false;
+    var high_contrast = false;
+    var negative_contrast = false;
+    var white_background = false;
+
     function disable_greyScale(){
         $(htmlElement).css('-moz-filter', 'grayscale(0%)');
         $(htmlElement).css('-webkit-filter', 'grayscale(0%)');
@@ -259,8 +264,6 @@ $(() => {
 
         var htmlElement = document.querySelector("html");           
 
-        var grayscale = false;
-
         $('#ti3').click(function(){
 
             if(!grayscale){
@@ -269,51 +272,69 @@ $(() => {
                 $(htmlElement).css('filter', 'grayscale(100%)');              
                 $(htmlElement).css('filter', 'gray');
                     grayscale = true;
+                    high_contrast = false;
+                    negative_contrast = false;
+                    white_background = false; 
             }else{
                 disable_greyScale();
             }
             
-        });
-
-        var high_contrast = false;           
+        });          
 
         $('#ti4').click(function(){
 
             if(high_contrast){
+                disable_greyScale();
+                negative_contrast = false;
+                white_background = false; 
                 high_contrast = false;
                 defaultColors();
             }else{
+                disable_greyScale();
+                negative_contrast = false;
+                white_background = false; 
                 high_contrast = true;
+                defaultColors();
                 $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', '#00FFFF');         
             }
 
         });
 
-        var negative_contrast = false;
-
         $('#ti5').click(function(){
 
             if(negative_contrast){
                 negative_contrast = false;
+                disable_greyScale();
+                high_contrast = false;
+                white_background = false; 
                 defaultColors();
             }else{
+                disable_greyScale();
+                high_contrast = false;
+                white_background = false; 
                 negative_contrast = true; 
+                defaultColors();
                 $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', 'yellow');         
             }
 
         });
 
-        var white_background = false;
-
         $('#ti6').click(function(){
 
             if(white_background){
+                disable_greyScale();
+                negative_contrast = false;
+                high_contrast = false; 
                 white_background = false;
                 defaultColors();
             }else{
+                disable_greyScale();
+                high_contrast = false;
+                negative_contrast = false;
                 white_background = true; 
+                defaultColors();
                 $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', 'black');         
             }
