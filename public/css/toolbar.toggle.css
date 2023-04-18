@@ -65,6 +65,10 @@
     
 }
 
+.toolbar label{
+    position: fixed;
+}
+
 .toolbar-overlay{
     transition: ease 0.3s;
 }
@@ -97,6 +101,10 @@
 
 .toolbar-item svg{
     color: black;
+}
+
+.toolbar-inner a{
+    text-decoration: none;
 }
 
 .toolbar-title{
