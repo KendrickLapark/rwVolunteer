@@ -981,7 +981,7 @@ div.logo-details {
 
 .notifyTray .sectionTitle a,
 .notifyTray .sectionTitle {
-    color: #01b6ed;
+    color: #004a98;
     padding-bottom: 0px;
 }
 
@@ -1397,7 +1397,6 @@ div.logo-details {
     text-align: left;
     flex-direction: row;
     justify-content: space-between;
-    background-color: cornflowerblue;
     color:#004a98;
     border-radius: 25px;
     margin: 20px;
