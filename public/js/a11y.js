@@ -27,7 +27,7 @@ $(() => {
         var i_c = getComputedStyle(document.querySelector('i')).color;
     } 
 
-    if($('#spaceTopMenu')){
+    if($('#spaceTopMenu')[0]){
         var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
     }
 
