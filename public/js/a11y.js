@@ -75,6 +75,10 @@ $(() => {
         var main_bc = getComputedStyle(document.querySelector('main')).backgroundColor;
     }
 
+    if($('.mainData')[0]){
+        var mainData_bc = getComputedStyle(document.querySelector('.mainData')).backgroundColor;
+    }
+
     if($('.profile-details')[0]){
         var profile_details_bc = getComputedStyle(document.querySelector('.profile-details')).backgroundColor; 
     }
@@ -111,6 +115,14 @@ $(() => {
         var toolbar_icons_c = getComputedStyle(document.querySelector('.toolbar-item svg')).color;
     }
 
+    if($('button')[0]){
+        var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
+    }
+
+    if($('.row')[0]){
+        var row_bc = getComputedStyle(document.querySelector('.row')).backgroundColor;
+    }
+
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
     var div_bc = getComputedStyle(document.querySelector('div')).backgroundColor;
 
@@ -121,10 +133,23 @@ $(() => {
         $('.toolbar-text').css('color', toolbar_text_color);
         $('p').css('color', p_color);
         $('div').css('color', div_color);
+        $('div').css('background', div_bc);
+
+        if($('.toolbar-item svg')[0]){
+            $('.toolbar-item svg').css('color', toolbar_icons_c);
+        }
 
         if($('i')[0]){
             $('i').css('color', i_c);
         } 
+
+        if($('button')[0]){
+            $('button').css('background', button_bc);
+        }
+
+        if($('.row')[0]){
+            $('.row').css('background', row_bc);
+        }
 
         if($('.sidebar')[0]){
             $('.sidebar').css('background', sidebar_bc);
@@ -144,6 +169,10 @@ $(() => {
 
         if($('main')[0]){
             $('main').css('background', main_bc);
+        }
+
+        if($('.mainData')[0]){
+            $('.mainData').css('background', mainData_bc);
         }
 
         if($('.home-content')[0]){
@@ -221,11 +250,18 @@ $(() => {
             $('.inner_hidden_msg_Inscription').css('background', inner_hidden_msg_Inscription_bc);
         }
 
-        if($('.toolbar-item svg')[0]){
-            $('.toolbar-item svg').css('color', toolbar_icons_c);
-        }
+        if($('.toolbar-inner')[0]){
+            $('.toolbar-inner').css('background', toolbar_inner_bc);      
+        }   
 
-        $('.toolbar-inner').css('background', toolbar_inner_bc);         
+    }
+
+    function restoreFontSize(){
+        $('p:not(.toolbar-title)').css('font-size', 18);
+        $('h1').css('font-size', 18);
+        $('button').css('font-size', 18);
+        $('label:not(#overlay1)').css('font-size', 18);
+        $('.toolbar-item').css('font-size', 18);
 
     }
 
@@ -246,6 +282,10 @@ $(() => {
 
            curSize = parseInt($('#ti1').css('font-size')) + 10;
 		    if (curSize <= 48){
+                $('p:not(.toolbar-title)').css('font-size', curSize);
+                $('h1').css('font-size', curSize);
+                $('button').css('font-size', curSize);
+                $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize);
             }		
 
@@ -257,6 +297,10 @@ $(() => {
 
             curSize = parseInt($('#ti1').css('font-size')) - 10;
 		    if (curSize >= 18){
+                $('p:not(.toolbar-title)').css('font-size', curSize);
+                $('h1').css('font-size', curSize);
+                $('button').css('font-size', curSize);
+                $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize); 
             }
 			    
@@ -315,7 +359,7 @@ $(() => {
                 white_background = false; 
                 negative_contrast = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, button, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', 'yellow');         
             }
 
@@ -338,6 +382,12 @@ $(() => {
                 $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', 'black');         
             }
+
+        });
+
+        $('#ti7').click(function(){
+            defaultColors();
+            restoreFontSize();
 
         });
 

@@ -7,7 +7,7 @@
 @section('content')
     @if (App\Http\Controllers\NotifyController::notifyTrigger())
         <div class="notifyTray">
-            <div class="sectionTitle">
+            <div class="sectionTitle" id="sectionTitleAdmin">
                 <a href="{{ route('dashboard.admin.showNotify') }}">
                     TIENE NOTIFICACIONES PENDIENTES
                 </a>
@@ -15,7 +15,7 @@
         </div>
     @else
         <div class="notifyTray">
-            <div class="sectionTitle">
+            <div class="sectionTitle" id="sectionTitleAdmin">
                     AHORA MISMO NO TIENES NOTIFICACIONES QUE ATENDER<br/>GRACIAS
             </div>
         </div>

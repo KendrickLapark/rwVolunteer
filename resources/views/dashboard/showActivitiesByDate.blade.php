@@ -28,7 +28,7 @@
     <div class="mainTrayDateActivities">
         <div class="columnDateActivities">
             <div class="titleDateActivites">
-                Selecciona una semana
+                <h1> Selecciona una semana </h1>
             </div>
 
             <div class="calendario" id="calendario">

@@ -985,6 +985,10 @@ div.logo-details {
     padding-bottom: 0px;
 }
 
+#sectionTitleAdmin a{
+    color: #FFFFFF;
+}
+
 /* End Notifications */
 
 .card__full {
