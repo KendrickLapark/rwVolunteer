@@ -117,10 +117,19 @@ $(() => {
 
     if($('button')[0]){
         var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
+        var button_c = getComputedStyle(document.querySelector('button')).color;
     }
 
     if($('.row')[0]){
         var row_bc = getComputedStyle(document.querySelector('.row')).backgroundColor;
+    }
+
+    if($('a')[0]){
+        var a_c = getComputedStyle(document.querySelector('a')).color;
+    }
+
+    if($('h1')[0]){
+        var h1_c = getComputedStyle(document.querySelector('h1')).color;
     }
 
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
@@ -132,8 +141,7 @@ $(() => {
         $('.toolbar-inner').css('color', toolbar_inner_color);
         $('.toolbar-text').css('color', toolbar_text_color);
         $('p').css('color', p_color);
-        $('div').css('color', div_color);
-        $('div').css('background', div_bc);
+        
 
         if($('.toolbar-item svg')[0]){
             $('.toolbar-item svg').css('color', toolbar_icons_c);
@@ -145,10 +153,12 @@ $(() => {
 
         if($('button')[0]){
             $('button').css('background', button_bc);
+            $('button').css('color', button_c);
         }
 
-        if($('.row')[0]){
-            $('.row').css('background', row_bc);
+        if($('div')[0]){
+            $('div').css('color', div_color);
+            $('div').css('background', div_bc);
         }
 
         if($('.sidebar')[0]){
@@ -191,6 +201,10 @@ $(() => {
             $('.home-section').css('background', home_section_bc);
         }
 
+        if($('.row')[0]){
+            $('.row').css('background', row_bc);
+        }
+
         if($('.sectionTitle')[0]){
             $('.sectionTitle').css('background', sectionTitle_bc);
         }
@@ -202,10 +216,6 @@ $(() => {
         if($('.dashboard')[0]){
             $('.dashboard').css('color', dashboard_c);
         }
-
-        if($('.toolbar_item svg')[0]){
-            $('.toolbar_item svg').css('background', toolbar_item_bc); 
-        }      
 
         if($('header')[0]){
             $('header').css('background', header_bc);
@@ -248,11 +258,29 @@ $(() => {
 
         if($('.inner_hidden_msg_Inscription')[0]){
             $('.inner_hidden_msg_Inscription').css('background', inner_hidden_msg_Inscription_bc);
-        }
+        } 
+
+        /* if($('.hidden_msg_Inscription')[0]){
+            $('.hidden_msg_Inscription').children().each( function(){
+                $(this).css('background', hidden_msg_Inscription_bc);
+            })
+        } */
 
         if($('.toolbar-inner')[0]){
             $('.toolbar-inner').css('background', toolbar_inner_bc);      
         }   
+
+        if($('a')[0]){
+            $('a').css('color', a_c);
+        }
+
+        if($('h1')[0]){
+            $('h1').css('color', h1_c);
+        }
+
+        /* if($('.toolbar_item svg')[0]){
+            $('.toolbar_item svg').css('background', toolbar_item_bc); 
+        } */
 
     }
 
@@ -340,7 +368,7 @@ $(() => {
                 high_contrast = true;
                 defaultColors();
                 $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', '#00FFFF');         
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');         
             }
 
         });
@@ -360,7 +388,7 @@ $(() => {
                 negative_contrast = true; 
                 defaultColors();
                 $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', 'yellow');         
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');         
             }
 
         });
@@ -380,7 +408,7 @@ $(() => {
                 white_background = true; 
                 defaultColors();
                 $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'white');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg').css('color', 'black');         
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'black');         
             }
 
         });
