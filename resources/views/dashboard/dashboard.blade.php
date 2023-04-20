@@ -12,8 +12,7 @@
                     <i class='bx bx-envelope'></i>
                     {{-- <span class="badge"> </span> --}}
                         <p> Tienes notificaciones </p>
-                    <i class='bx bx-caret-right' style="font-size: 20px"></i>
-                    
+                    <i class='bx bx-caret-right' style="font-size: 20px"></i>                
             </div>
         </div>
     @else
@@ -22,8 +21,7 @@
                     <i class='bx bx-envelope'></i>
                     {{-- <span class="badge"> </span> --}}
                       <p> No tienes notificaciones </p>
-                    <i class='bx bx-caret-right' tabindex="0"></i>
-                    
+                    <i class='bx bx-caret-right' tabindex="0"></i>                   
             </div>
         </div>
     @endif 
@@ -84,8 +82,7 @@
                                         <i class='bx bx-x-circle'></i>Cancelar preinscripción</button>
                                 </form>
                             </div>
-                        </div>
-                                                                                   
+                        </div>                                                                            
                     @endif
                 </div>                               
             @endforeach

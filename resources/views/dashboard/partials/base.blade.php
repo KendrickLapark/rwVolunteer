@@ -57,6 +57,14 @@
             }
         });
 
+        $('.toolbar-item').on('keypress', function (event) {
+
+            if(event.which === 13) {
+                $(this).find('a:first').trigger('click');
+            }
+
+        });
+
         sidebarBtn.onclick = function() {
             sidebar.classList.toggle("active");
             if (sidebar.classList.contains("active")) {

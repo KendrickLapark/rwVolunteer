@@ -1533,6 +1533,26 @@ div.logo-details {
 
 }
 
+@media only screen and (max-width: 480px) {
+
+    h1{
+        text-align: center;
+    }
+
+    img{
+        max-width: 300px;
+    }
+
+    .mainData.center{
+        flex-direction: column;
+    }
+
+    .titleActivitiesOptions{
+        text-align: center;
+    }
+
+}
+
 /* End showActivitiesOptions */
 
 /* showActivitiesByDate */
@@ -1842,7 +1862,6 @@ select.small {
 }
 
 #calendar .fc-today{
-
     background: #8BA8E2;
     border: 3px solid #2151B1;
     opacity: 1 !important;
