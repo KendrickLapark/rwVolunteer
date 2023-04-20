@@ -3,7 +3,7 @@
         <div class="toggle-overlay">
             
             <label for="check" id="overlay1">
-                <span class=icon-overlay> <i class="fa-solid fa-wheelchair" id="icon-toolbar"></i> </span>
+                <span class=icon-overlay tabindex="0"> <i class="fa-solid fa-wheelchair" id="icon-toolbar"></i> </span>
             </label>
         </div>
 

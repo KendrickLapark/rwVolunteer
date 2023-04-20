@@ -41,7 +41,7 @@
             @yield('content')
         </div>
 
-        @include('dashboard.partials.toolbar_toggle')
+            @include('dashboard.partials.toolbar_toggle')
         
     </section>
 
@@ -49,6 +49,13 @@
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".sidebarBtn");
         let img = document.getElementById("logoImg");
+
+        $('.icon-overlay').on('keypress', function (event) {
+        
+            if (event.which === 13) {
+                $('#check').prop('checked', !$('#check').prop('checked'));
+            }
+        });
 
         sidebarBtn.onclick = function() {
             sidebar.classList.toggle("active");
@@ -62,6 +69,9 @@
                 <?php session()->forget('status'); ?>
             }
         }
+
+        
+
     </script>
 
 </body>
