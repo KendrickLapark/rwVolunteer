@@ -278,9 +278,9 @@ $(() => {
             $('h1').css('color', h1_c);
         }
 
-        /* if($('.toolbar_item svg')[0]){
+         if($('.toolbar_item svg')[0]){
             $('.toolbar_item svg').css('background', toolbar_item_bc); 
-        } */
+        } 
 
     }
 
@@ -414,9 +414,24 @@ $(() => {
         });
 
         $('#ti7').click(function(){
+            disable_greyScale();
             defaultColors();
             restoreFontSize();
 
         });
+
+        $('#downArrow').click(function(){
+
+            var x = document.getElementById('#downArrow').getAttribute('aria-expanded');
+
+            if( x = true){
+                x = false;
+            } else {
+                x = true;
+            }
+
+            document.getElementById('#downArrow').setAttribute('aria-expanded', x);
+
+        })
 
 });

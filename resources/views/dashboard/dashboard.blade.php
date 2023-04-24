@@ -7,21 +7,21 @@
 @section('content')
 <div class="mainTrayDashboard">
     @if (App\Http\Controllers\NotifyController::notifyLoggedTrigger())
-        <div class="notifyTray">
+        <div class="notifyTrayIns">
             <div class="sectionTitle">
                     <i class='bx bx-envelope'></i>
                     {{-- <span class="badge"> </span> --}}
-                        <p> Tienes notificaciones </p>
-                    <i class='bx bx-caret-right' style="font-size: 20px"></i>                
+                        <p id="title-desc"> Tienes notificaciones </p>
+                    <i class='bx bx-caret-right' tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>                
             </div>
         </div>
     @else
-        <div class="notifyTray">
+        <div class="notifyTrayIns">
             <div class="sectionTitle">
                     <i class='bx bx-envelope'></i>
                     {{-- <span class="badge"> </span> --}}
-                      <p> No tienes notificaciones </p>
-                    <i class='bx bx-caret-right' tabindex="0"></i>                   
+                      <p class="title-desc"> No tienes notificaciones </p>
+                    <i class='bx bx-caret-right' tabindex="0" role="button" aria-describedby="title-desc"></i>                   
             </div>
         </div>
     @endif 
@@ -37,8 +37,8 @@
                         {{-- @include('dashboard.partials.itemListInscription') --}}
                     @elseif($inscription->filenameIns != null)
                         <div class="msg_Inscription">
-                           <p> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
-                            <i class='bx bx-caret-down' id="downArrow" tabindex="0"></i>
+                           <p id="title-inscription"> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
+                            <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
                         </div> 
                         <div class="hidden_msg_Inscription">
                             <div class="inner_hidden_msg_Inscription">

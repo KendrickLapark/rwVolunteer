@@ -1,3 +1,5 @@
+@import  "showActivitiesByDate.css";
+
 body {
     background-color: #ffffff;
     font-family: "Lato", Sans-serif;
@@ -994,126 +996,11 @@ div.logo-details {
     color: #FFFFFF;
 }
 
+
+
 /* End Notifications */
 
-.card__full {
-    width: 100%;
-    animation-duration: 0.5s;
-    animation-name: slidein;
-    animation-fill-mode: backwards;
-    display: grid;
-    border: 1px solid black;
-    border-radius: 0px 0px 10px 10px;
-    background-color: #FFFFFF;
-    border-style: solid;
-    border-width: 0px 1px 1px 1px;
-}
 
-.headerCard {
-    background: radial-gradient(#014a99, #3f6bbf);
-    display: grid;
-    height: 15%;
-    border-radius: 10px 10px 0px 0px;
-}
-
-.card {
-    padding: 20px;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    border-radius: 10px;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
-    transition: all 0.2s;
-    background: radial-gradient(#014a99, #3f6bbf);
-}
-
-.hidden i {
-    align-self: center;
-    justify-self: end;
-    font-size: 40px;
-}
-
-.card:hover {
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-    transform: scale(1.01);
-}
-
-.card__link,
-.card__exit,
-.card__icon {
-    position: relative;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-@keyframes slidein {
-    from {
-        position: absolute;
-        top: 50%;
-        left: 4%;
-        width: 0%;
-    }
-
-    to {
-        width: 92%;
-    }
-}
-
-.card__link::after {
-    position: absolute;
-    top: 25px;
-    left: 0;
-    content: "";
-    width: 0%;
-    height: 3px;
-    background-color: rgba(255, 255, 255, 0.6);
-    transition: all 0.5s;
-}
-
-.card__link:hover::after {
-    width: 100%;
-}
-
-.card__title {
-    grid-row: 1;
-    grid-column: 1;
-    font-size: 30px;
-    color: #ffffff;
-}
-
-.card__time {
-    grid-row: 2;
-    grid-column: 2;
-    font-size: 20px;
-    color: #ffffff;
-}
-
-.card__desc {
-    font-size: 20px;
-    color: #ffffff;
-}
-
-.card__date {
-    grid-row: 3;
-    grid-column: 2;
-    font-size: 20px;
-    color: #ffffff;
-}
-
-.card__status {
-    grid-row: 5;
-    grid-column: 3;
-    font-size: 30px;
-    color: #ffffff;
-}
-
-@media (max-width: 1600px) {
-    .cards {
-        justify-content: center;
-    }
-}
 
 .mainData {
     background-color: #ffffff;
@@ -1553,147 +1440,29 @@ div.logo-details {
 
 }
 
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+
+    h1{
+        text-align: center;
+    }
+
+    img{
+        max-width: 400px;
+    }
+
+    .mainData.center{
+        flex-direction: column;
+    }
+
+    .titleActivitiesOptions{
+        text-align: center;
+    }
+
+}
+
 /* End showActivitiesOptions */
 
-/* showActivitiesByDate */
 
-.mainTrayDateActivities{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.columnDateActivities{
-    width: 40%;
-    margin-inline: 40px;
-}
-
-.titleDateActivites{
-    font-size: 18px;
-    font-weight: bold;
-    color: #2b68a9;
-    margin-left: 0.5%;
-    margin-top: 1%;
-
-}
-
-.hiddenDaysActivities{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-}
-
-.searchDayActivity{
-    display: flex;
-    flex-direction: row;
-
-}
-
-.mainHiddenDaysActivities{
-    display:flex;
-    flex-direction: row;
-
-}
-
-.titleDaysAct{
-    text-align: left;
-    color: #014a99;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.leftColumnDaysAct{
-    width: 50%;   
-
-}
-
-.rightColumnDaysAct{
-    width:50%;
-
-}
-
-.eachDayAct{
-    width: 90%;
-    text-align: center;
-
-}
-
-.eachDayActTitle{
-    text-align: left;
-    color: #014a99;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.accordion{
-    width:100%;
-    background-color: #009fe3;
-    text-align: left;
-    color:white;
-    padding-block: 12px;
-    padding-left: 10px;
-    border:none;
-
-}
-
-.accordion2{
-    width:100%;
-    background-color: white;
-    text-align: right;
-    color:#054d9b;
-    font-weight: bold;
-    padding-block: 10px;
-    padding-right: 10px;
-    border:none;
-
-}
-
-.ul-accordion2{
-    text-align: right;
-    width: 100%;
-}
-
-.ul-accordion2 li{
-    text-align: right;
-    padding-block: 2px;
-    list-style-position: inside;
-
-}
-
-#li-accordion2{
-    list-style-type: circle; 
-    display:flex; 
-    flex-direction:row;
-    justify-content: end;
-    column-gap: 2em;
-
-}
-
-.buttonSignUp{
-    width:30%;
-    background-color: #009fe3;
-    text-align: center;
-    color:white;
-    padding-block: 5px;
-    padding-inline: 20px;
-    border:none;
-}
-
-.spanTimeAct{
-    padding-top: 5px;
-}
-
-#selectDayAct{
-    width:90%;
-    background-color: #009fe3;
-    color:white;
-    padding-block: 10px;
-    border:none;
-}
-
-/* End showActivitiesByDate */
 
 /* showActivitiesByCategory */
 
