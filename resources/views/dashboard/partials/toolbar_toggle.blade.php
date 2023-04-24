@@ -7,7 +7,7 @@
             </label>
         </div>
 
-    <div class="toolbar-overlay" >
+    <div class="toolbar-overlay">
 
         <div class="toolbar-inner">
 

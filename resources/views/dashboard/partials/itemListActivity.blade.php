@@ -104,17 +104,19 @@
                     
                     <div class="buttonsBar">
 
-                                <div>
-                                    <strong>Información Extra: </strong>
-                                    <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                        <button type="submit" class="botonesControl">
-                                            
-                                            <i class='bx bx-folder-plus' style="font-size:25px"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                        <div class="leftCol-buttonsBar">
+
+                            <div>
+                                <strong>Información Extra: </strong>
+                                <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                    <button type="submit" class="botonesControl">
+                                        
+                                        <i class='bx bx-folder-plus' style="font-size:25px"></i>
+                                    </button>
+                                </form>
+                            </div>
 
                             <div>
                                 <strong>Editar: </strong>
@@ -127,6 +129,10 @@
                                     </button>
                                 </form>
                             </div>
+
+                        </div>
+
+                        <div class="rightCol-buttonsBar">
 
                             <div>
                                 @if (!$activity->isNulledAct)
@@ -155,6 +161,8 @@
                                             style="font-size:25px;"></i></button>
                                 </form>
                             </div>
+
+                        </div>
                     
                 </div>
             </div>
