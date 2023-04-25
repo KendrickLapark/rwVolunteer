@@ -420,18 +420,20 @@ $(() => {
 
         });
 
-        $('#downArrow').click(function(){
+        /* Importarlo en dashboard.blade.php */
 
-            var x = document.getElementById('#downArrow').getAttribute('aria-expanded');
+        /* $('#desplegar').click(function(){
 
-            if( x = true){
-                x = false;
-            } else {
-                x = true;
-            }
+            var x = document.getElementById('#desplegar').getAttribute('aria-expanded');
 
-            document.getElementById('#downArrow').setAttribute('aria-expanded', x);
+                if( x = true){
+                    x = false;
+                } else {
+                    x = true;
+                }
 
-        })
+            document.getElementById('#desplegar').setAttribute('aria-expanded', x);
+
+        }); */
 
 });

@@ -12,7 +12,7 @@
                     <i class='bx bx-envelope'></i>
                     {{-- <span class="badge"> </span> --}}
                         <p id="title-desc"> Tienes notificaciones </p>
-                    <i class='bx bx-caret-right' tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>                
+                    <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>                
             </div>
         </div>
     @else
@@ -21,7 +21,7 @@
                     <i class='bx bx-envelope'></i>
                     {{-- <span class="badge"> </span> --}}
                       <p class="title-desc"> No tienes notificaciones </p>
-                    <i class='bx bx-caret-right' tabindex="0" role="button" aria-describedby="title-desc"></i>                   
+                    <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" role="button" aria-describedby="title-desc"></i>                   
             </div>
         </div>
     @endif 
@@ -43,23 +43,23 @@
                         <div class="hidden_msg_Inscription">
                             <div class="inner_hidden_msg_Inscription">
                                 <div class="descIns">
-                                  <p>  <strong> Descripción: </strong> 
+                                  <p tabindex="0">  <strong> Descripción: </strong> 
                                     {{$inscription->activity->descAct}} </p>
                                 </div>
                                 <div class="entityIns">
-                                  <p>  <strong> Entidad: </strong> 
+                                  <p tabindex="0">  <strong> Entidad: </strong> 
                                     {{$inscription->activity->entityAct}} </p>
                                 </div>
                                 <div class="direIns">
-                                  <p> <strong> Dirección: </strong> 
+                                  <p tabindex="0"> <strong> Dirección: </strong> 
                                     {{$inscription->activity->direAct}} </p>
                                 </div>
                                 <div class="dateIns">
-                                  <p>  <strong> Fecha: </strong> 
+                                  <p tabindex="0">  <strong> Fecha: </strong> 
                                     {{$inscription->activity->dateAct}} </p>
                                 </div>
                                 <div class="timeIns">
-                                   <p> <strong> Hora: </strong> 
+                                   <p tabindex="0"> <strong> Hora: </strong> 
                                     {{$inscription->activity->timeAct}} </p>
                                 </div>
                                 <div class="isCompletedIns">
@@ -89,14 +89,47 @@
         @endif
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $('#desplegar').click(function(){
+
+        var x = this.getAttribute('aria-expanded');
+
+            if(x == "true"){
+                x = "false";
+            }else{
+                x = "true";
+            }
+
+        this.setAttribute('aria-expanded', x);
+
+    });
+
+    $('#downArrow').click(function(){
+
+        var x = this.getAttribute('aria-expanded');
+
+            if(x == "true"){
+                x = "false";
+            }else{
+                x = "true";
+            }
+
+        this.setAttribute('aria-expanded', x);
+
+    });
+
+</script>
+
 @endsection
 
 @section('headlibraries')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="<?php echo asset('css/itemListInscription.css'); ?>" type="text/css">
 
     <script>
         $(() => {
+
             $(".row_act_dashboard").on("click", function() {
                 var icono = document.querySelector(".row_act_dashboard > #bx.bx-caret-down");
                 if ($(this).siblings().is(':visible')) {
@@ -110,18 +143,16 @@
 
             $('.bx.bx-caret-right').on("click", function(){
  
-                    var listaInscripciones = document.querySelector(".listTrayDashboard");
-                    var icono = document.querySelector(".bx.bx-caret-right");
+                var listaInscripciones = document.querySelector(".listTrayDashboard");
+                var icono = document.querySelector(".bx.bx-caret-right");
 
-                    if(listaInscripciones.style.visibility == 'visible'){
-                        console.log('visible')
-                        listaInscripciones.style.visibility = 'hidden';
-                        icono.style.transform = ''
-                    }else{
-                        console.log('invisible')
-                        listaInscripciones.style.visibility = 'visible'
-                        icono.style.transform = 'rotate(180deg)'
-                    }                   
+                if(listaInscripciones.style.visibility == 'visible'){
+                    listaInscripciones.style.visibility = 'hidden';
+                    icono.style.transform = ''
+                }else{
+                    listaInscripciones.style.visibility = 'visible'
+                    icono.style.transform = 'rotate(180deg)'
+                }                   
 
             });
 
@@ -134,11 +165,9 @@
                     var icono = document.querySelector(".bx.bx-caret-right");
 
                     if(listaInscripciones.style.visibility == 'visible'){
-                        console.log('visible')
                         listaInscripciones.style.visibility = 'hidden';
                         icono.style.transform = ''
                     }else{
-                        console.log('invisible')
                         listaInscripciones.style.visibility = 'visible'
                         icono.style.transform = 'rotate(180deg)'
                     }    
@@ -179,3 +208,5 @@
         });
     </script>
 @endsection
+
+

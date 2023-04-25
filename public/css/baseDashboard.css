@@ -1,6 +1,7 @@
-@import  "showActivitiesByDate.css";
-@import "showAllActivities.css";
-@import "showAllUsers.css";
+@import  "partials/showActivitiesByDate.css";
+@import "partials/showAllActivities.css";
+@import "partials/showAllUsers.css";
+@import "partials/itemListInscription.css";
 
 body {
     background-color: #ffffff;
