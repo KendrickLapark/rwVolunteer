@@ -14,7 +14,7 @@
         <div class="mainTrayActivitiesOptions">
 
             <div class="titleActivitiesOptions">
-               <h1> Selecciona tus actividades de voluntariado </h1>
+               <h1 tabindex="0"> Selecciona tus actividades de voluntariado </h1>
             </div>
 
             <div class="mainData center">

@@ -45,15 +45,6 @@
                         <div class="searchDayActivity" id="searchDayActivity"> </div>
                         <div class="searchDayActivity" id="searchDayActivity"> </div>
                         <div class="searchDayActivity" id="searchDayActivity"> </div>
-                        {{-- <div class="eachDayAct">
-                            <p class="eachDayActTitle" id='eachDayActTitle'> carrera </p>
-                            <select id="selectDayAct" name="cars" id="cars">
-                                <option >Actividades disponibles</option>
-                                <option >Saab</option>
-                                <option >Mercedes</option>
-                                <option >Audi</option>
-                            </select>
-                        </div> --}}
                     </div>
                     <div class="rightColumnDaysAct">
                         <div class="searchDayActivity" id="searchDayActivity"> </div>

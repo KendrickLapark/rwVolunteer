@@ -64,9 +64,9 @@
                                 </div>
                                 <div class="isCompletedIns">
                                     @if($inscription->isCompletedIns)
-                                      <p>  <strong> Inscripción completada </strong> </p>
+                                      <p tabindex="0">  <strong> Inscripción completada </strong> </p>
                                     @else
-                                      <p>  <strong> Inscripción incompleta, esperando aceptación administradora </strong> </p>
+                                      <p tabindex="0">  <strong> Inscripción incompleta, esperando aceptación administradora </strong> </p>
                                     @endif
                                 </div>
                                 <form method="POST" action="{{ route('PDF.generatepreinscription') }}">
