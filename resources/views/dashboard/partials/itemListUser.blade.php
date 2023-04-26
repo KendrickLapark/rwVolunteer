@@ -10,11 +10,9 @@
                         @endif
                     </div>
                     <div class="nameSurVol">
-                        <strong>
-                            <span> {{ $volunteer->nameVol }} </span>        
-                            <span> {{ $volunteer->surnameVol }} </span>
-                            <span> {{ $volunteer->surname2Vol }} </span>
-                        </strong>
+                        {{ $volunteer->nameVol }}         
+                        {{ $volunteer->surnameVol }} 
+                        {{ $volunteer->surname2Vol }} 
                         <br />
 
                     </div>

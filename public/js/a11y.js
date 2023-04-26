@@ -15,6 +15,10 @@ $(() => {
         var sidebar_button_bc = getComputedStyle(document.querySelector('.sidebar-button')).backgroundColor;
     }
 
+    /* if($('.sidebar span')[0]){
+        var sidebar_span_c = getComputedStyle(document.querySelector('.sidebar span')).color;
+    } */
+
     if($('.dashboard')[0]){
         var dashboard_c = getComputedStyle(document.querySelector('.dashboard')).color;
     }
@@ -233,6 +237,10 @@ $(() => {
         if($('.sidebar li')[0]){
             $('.sidebar li').css('background', sidebar_bc);
         }
+
+        /* if($('.sidebar span')[0]){
+            $('.sidebar span').css('color', sidebar_span_c);
+        } */
 
         if($('.adminMenu')[0]){
             $('.adminMenu').css('background', adminMenu_bc);

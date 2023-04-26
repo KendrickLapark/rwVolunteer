@@ -13,9 +13,14 @@
     padding-block: 20px;
 }
 
+.avatarInShowAllUsers {
+    width: 150%;
+    border-radius: 35px;
+}
+
 #search {
     background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 2px -2px;
-    width: 60%;
+    width: 40%;
     border-radius: 25px;
     margin-inline: 30px;
     padding-left: 35px;
@@ -27,19 +32,20 @@
     padding-bottom: 10px;
     padding-left: 30px;
     padding-right: 30px;
-    width:30%;
+    width: 40%;
     display: flex;
     text-align: left;
     flex-direction: row;
     justify-content: space-between;
     color:#004a98;
-    border-radius: 25px;
     margin: 20px;
     min-height: 100px;
+    border-bottom: 1px solid grey;
 }
 
 #search_list .row .avatarUserRow{
     width: 9%;
+    padding: auto;
     flex-shrink: 0;
     
 }
@@ -47,6 +53,7 @@
 #search_list .row .nameSurVol{
     width: 50%;
     margin:auto;
+    padding-inline: auto;
     flex-shrink: 0;
 }
 
@@ -108,14 +115,12 @@
     padding-left: 10px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1025px) {
     #search_list .row {
         flex-direction: column;
         align-items: center;
-        padding-left: 0;
-        padding-top: 30px;
-        padding-bottom: 30px;
         width: auto;
+        
     }
 
     #search_list .hidden {
@@ -124,6 +129,7 @@
         padding-top: 30px;
         padding-bottom: 30px;
         width: auto;
+
     }
 }
 
@@ -141,7 +147,13 @@
 
 }
 
-.mainData .row>div,
+.mainData .row>div{
+    margin: auto;
+    padding: auto;
+    line-height: 20px;
+}
+
+/* .mainData .row>div,
 .mainData .hidden .eachRow>div {
     margin-left: 30px;
     margin-top: 10px;
@@ -151,13 +163,12 @@
 
 .mainData .row{
     margin: 10px;
-    border-radius: 25px;
-}
+} */
 
-.mainData .row .controlButton {
+/* .mainData .row .controlButton {
     margin-left: 30px;
     font-size: 30px;
-}
+} */
 
 .mainData .row .controlButton:hover {
     color: #2697FF;
@@ -167,7 +178,6 @@
     color: #2697FF;
 }
 
-
 .userSearchBox,
 .addNew {
     width: 100%;
@@ -175,18 +185,34 @@
     text-align: center;
 }
 
-@media only screen and (max-width: 1000px) {
-    .mainData .row {
-        flex-direction: column;
-        padding-left: 0;
-        padding-top: 30px;
-        padding-bottom: 30px;
+@media only screen and (max-width: 1025px) {
+
+    .row{
+        width: 70%;
+        margin: auto;
     }
 
-    .mainData .hidden .eachRow {
-        flex-direction: column;
-        padding-left: 0;
-        padding-top: 30px;
-        padding-bottom: 30px;
+    #search{
+        width: 70%;
+        margin-left: 65px;
     }
+
+    #search_list .row .avatarUserRow{
+        padding: auto;
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    .avatarInShowAllUsers{
+        display: flex;
+        padding: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #search_list .row .nameSurVol{
+        text-align: center;
+    }
+
 }
