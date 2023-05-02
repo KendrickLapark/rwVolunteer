@@ -28,7 +28,7 @@
     <div class="mainTrayDateActivities">
         <div class="columnDateActivities">
             <div class="titleDateActivites">
-                <h1> Selecciona una semana </h1>
+                <h1 tabindex="0"> Selecciona una semana </h1>
             </div>
 
             <div class="calendario" id="calendario">
@@ -110,9 +110,9 @@
                 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
             ],
             header: {
-                left: 'prev',
+                left: 'anterior, anterior',
                 center: 'title,today',
-                right: 'next'
+                right: 'next, sig'
             },
             buttonText: {
                 today: 'HOY',

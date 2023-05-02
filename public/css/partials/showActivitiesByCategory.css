@@ -1,0 +1,105 @@
+/* showActivitiesByCategory */
+
+.mainDataCatAct{
+    display:flex;
+
+}
+
+.container.mainData{
+    display: flex;
+    width: 100%;
+
+}
+
+.titleOptCategories{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2%;
+    margin-left: 16%;
+    margin-bottom: 5%;
+
+}
+
+.leftColumnCatAct{
+    display: flex;
+    flex-direction: column;
+    width:20%;
+
+}
+
+.eachActOption{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.inputCatAct{
+    width: 10%;
+}
+
+.labelCatAct{
+    width:70%;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.imgContainer{
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    width: 60%;
+
+}
+
+.imgContainerLeft{
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+
+}
+
+.imgContainerRight{
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+
+}
+
+.imgColumn{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.imgSrc:hover{
+    filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+.leftColumnCatAct{
+    width:100%;
+
+}
+
+.rightColumnCatAct{
+    display:flex;
+    align-items: center;
+    margin:auto;
+
+}
+   
+.container.mainData{
+    display: flex;
+    flex-direction: column;
+}
+
+.imgContainer{
+    flex-direction: column;
+}
+
+}
+
+/* End showActivitiesByCategory */

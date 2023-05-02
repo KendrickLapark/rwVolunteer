@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="mainTray">
+    <div class="mainTrayMyProf">
         <div class="sectionTitle">
             Mi perfil
         </div>
@@ -16,7 +16,7 @@
         @endif
 
             <div class="container">
-                <div class="mainDataCenterRow">
+                <div class="mainDataMyProf">
                     <div class="leftCol">
 
                         <div class="columnItem">

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="mainTray">
+    <div class="mainTrayAdminNot">
         <div class="sectionTitle">
             USUARIOS SIN VALIDAR:
         </div>
@@ -20,7 +20,7 @@
                 NO hay USUARIOS SIN VALIDAR pendientes
             </div>
         @else
-            <div class="mainData">
+            <div class="mainDataAdminNot">
                 @foreach ($isNotCompleted as $eachNotCompleted)
                     <div>
                         <div class="row">
@@ -57,7 +57,7 @@
                                 <i class='bx bxs-down-arrow'></i>
                             </div>
                         </div>
-                        <div class="hidden">
+                        <div class="hiddenAdminNot">
                             <div class="eachRow">
                                 <div>
                                     <strong>Fecha de nacimiento: </strong>
@@ -188,7 +188,7 @@
         @endif
     </div>
 
-    <div class="mainTray">
+    <div class="mainTrayAdminNot">
         <div class="sectionTitle">
             Preinscripciones sin aceptar:
         </div>
@@ -213,7 +213,7 @@
             </div>
         @else
             @foreach ($inscriptionNotValidated as $inscription)
-                <div class="mainData">
+                <div class="mainDataAdminNot">
                     <div class="row">
                         <div>
                             @if ($inscription->volunteer->imageVol == 0 || $inscription->volunteer == null)
@@ -249,7 +249,7 @@
                             <i class='bx bxs-down-arrow'></i>
                         </div>
                     </div>
-                    <div class="hidden">
+                    <div class="hiddenAdminNot">
                         <div class="eachRow">
                             <div>
                                 <strong>Fecha de nacimiento: </strong>

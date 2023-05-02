@@ -1,0 +1,12 @@
+.mainDataMyProForm{
+    display: flex;
+    border: 1px grey solid;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 780px){
+    .mainDataMyProForm{
+        display: block;
+
+    }
+
+}

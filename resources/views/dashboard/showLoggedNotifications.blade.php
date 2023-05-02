@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="mainTray">
+    <div class="mainTrayLogNot">
 
         <div class="sectionTitle">
             PROCESOS QUE COMPLETAR
@@ -18,8 +18,8 @@
 
         @foreach ($inscription as $inscription)
             @if ($inscription->filenameIns == null)
-                <div class="mainData">
-                    <div class="row">
+                <div class="mainDataLogNot">
+                    <div class="rowLogNot">
                         <div>
                             <strong>Nombre: </strong>{{ $inscription->activity->nameAct }}
                         </div>
@@ -42,7 +42,7 @@
                             <i class='bx bxs-down-arrow'></i>
                         </div>
                     </div>
-                    <div class="hidden">
+                    <div class="hiddenLogNot">
                         <div class="eachRow">
                             <div>
                                 <strong>Descripcion: </strong>
@@ -116,10 +116,9 @@
 
     <script>
         $(() => {
-            $(".hidden").hide();
-            $(".row").on("click", function() {
+            $(".hiddenLogNot").hide();
+            $(".rowLogNot").on("click", function() {
                 $(this).siblings().show('slow');
-                if ($('#Div').is(':visible')) {}
             });
 
             $(".lessDetails").on("click", function() {

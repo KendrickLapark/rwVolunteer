@@ -8,7 +8,7 @@
     object-fit: cover;
 }
 
-.mainDataCenterRow{
+.mainDataMyProf{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -75,4 +75,13 @@
 
 .divButtonMyProfile{
     text-align: center;
+}
+
+@media only screen and (max-width: 780px) {
+
+    .mainDataMyProf{
+        display: block;
+        padding: 10%;
+    }
+    
 }

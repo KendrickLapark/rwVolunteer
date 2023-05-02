@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="mainTray ">
+    <div class="mainTrayShowDoc">
         <div class="sectionTitle">
             MUESTRA MIS DOCUMENTOS
         </div>
@@ -18,7 +18,7 @@
 
 
         @foreach ($documents as $document)
-            <div class="mainData">
+            <div class="mainDataShowDoc">
                 <div class="row">
                     <div>
                         {{ $document->titleDoc }}

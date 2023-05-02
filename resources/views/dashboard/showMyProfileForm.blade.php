@@ -19,7 +19,7 @@
         enctype="multipart/form-data">
             @csrf
             <div class="container">
-                <div class="mainDataCenterRow">
+                <div class="mainDataMyProForm">
                     <div class="leftColForm">
 
                         <div class="eachCreateInfoExtraElement">

@@ -1,0 +1,47 @@
+.mainTrayLogNot{
+    width: 40%;
+    margin: auto;
+
+}
+
+.mainDataLogNot{
+    border-bottom: 1px grey solid;
+    line-height: 2em;
+    padding-top: 5%;
+    text-align: center;
+}
+
+.mainDataLogNot .hiddenLogNot{
+    border: 1px grey solid;
+    justify-content: center;
+    text-align: center;
+
+}
+
+@media only screen and (min-width: 240px) and (max-width: 780px){
+    .mainTrayLogNot{
+        width: 100%;
+        padding: auto;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mainDataLogNot{
+        width: 85%;
+        padding: auto;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    .mainDataLogNot .hiddenLogNot{
+        width: 85%;
+        padding: 5%;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+}
