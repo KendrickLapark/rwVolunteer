@@ -109,10 +109,24 @@
                 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto',
                 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
             ],
+            customButtons:{
+                anterior:{
+                    text: "Anterior",
+                    click: function(){
+                        calendar.previous();
+                    }
+                },
+                siguiente:{
+                    text: "Siguiente",
+                    click: function(){
+                        calendar.next();
+                    }
+                }
+            },
             header: {
-                left: 'anterior, anterior',
-                center: 'title,today',
-                right: 'next, sig'
+                left: 'anterior',
+                center: 'title, today',
+                right: 'siguiente'
             },
             buttonText: {
                 today: 'HOY',
