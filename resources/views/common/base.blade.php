@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></script>
     <link rel="stylesheet" href="<?php echo asset('css/reset.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('css/base.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('css/home.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('css/toolbar.toggle.css'); ?>" type="text/css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 

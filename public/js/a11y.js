@@ -415,7 +415,7 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'white');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, button, .mainData, .row').css('background-color', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'black');         
             }
 

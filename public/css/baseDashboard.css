@@ -348,7 +348,7 @@ nav .profile-details i {
     font-weight: 500;
 }
 
-*/ .home-content .box .number {
+.home-content .box .number {
     display: inline-block;
     font-size: 35px;
     margin-top: -6px;

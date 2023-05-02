@@ -1,0 +1,333 @@
+/* Header */
+#divHeader {
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 45px;
+    padding-left: 40px;
+    padding-right: 25px;
+    padding-bottom: 35px;
+    box-shadow: 0 0 5px 5px #004a98;
+}
+
+#logo {
+    width: 20%;
+}
+
+#mainMenu {
+    width: 60%;
+}
+
+div#mainMenu ul li {
+    float: right;
+}
+
+@media only screen and (max-width: 950px) {
+
+    #logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    #mainMenu {
+        width: 100%;
+        text-align: center;
+
+    }
+
+    div#mainMenu ul {
+        display: table;
+        margin: 0 auto;
+        width: 100%;
+
+    }
+
+    div#mainMenu ul li {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+/* End Header */
+
+/* Footer */
+#divFooter {
+    background-color: #004a98;
+    min-height: 300px;
+}
+
+#contentFooter {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.eachHomeBoxImage{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.eachColFoot {
+    width: 23%;
+}
+
+div.eachColFoot p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+div.eachColFoot p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+div.titleFoot,
+div.eachColFoot p a {
+    color: #ffffff;
+}
+
+div.titleFoot {
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 950px) {
+    .eachColFoot {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+/* End Footer */
+
+/* Main Home */
+
+/******************************************************************/
+#contentDiv {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.rowDiv {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 2rem;
+    margin-bottom: 10px;
+    width: 25%;
+
+}
+
+.eachCell {
+    text-align: center;
+    justify-content: center;
+    margin-block: 20px;
+}
+
+.eachCell.withText {
+    text-align: center;
+
+}
+
+.eachCell.withText .header {
+    color: #004a98;
+    font-size: 1.5rem;
+    
+}
+
+.eachCell.withText p {
+    line-height: 25px;
+    padding-inline: 40px;
+    margin-top: 30px;
+}
+
+.eachCell img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 950px) {
+
+    #contentDiv{
+        flex-direction: column;
+    }
+
+    .slider{
+        position: relative;
+
+    }
+
+    .slider img{
+        position: absolute;
+        transform: translate(-50%);
+        margin: 0 auto !important;
+        width: auto !important;
+        object-fit: cover;
+
+    }
+
+    .eachCell.withText p {
+        line-height: 25px;
+        padding-inline: 0px;
+        margin-top: 30px;
+    }
+
+    .rowDiv {
+        flex-direction: column;
+        width: 80%;
+        margin-top: 4em;
+        margin-inline: auto !important;
+        /* margin-top: 30px; */
+    }
+
+    .rowDiv:nth-child(even) {
+        flex-direction: column-reverse;
+        color: black;
+    }
+
+    .eachCell {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+}
+
+/******************************************************************/
+
+/* End Main Home */
+
+/* Slider */
+#sliderHome {
+    width: 100%;
+}
+
+.slider{
+    width:100%;
+    height:500px;
+    overflow: hidden;
+}
+
+.slides{
+    width:400%;
+    height: 500px;
+    display: flex;
+
+}
+
+.slides input{
+    display:none;
+
+}
+
+.slide{
+    width: 25%;
+    transition: 2s;
+}
+
+.slide img{
+    width: 100%;
+    height: 500px;
+
+}
+
+.navigation-manual{
+    position: absolute;
+    width: 100%;   
+    display: flex;
+    justify-content: center;
+
+}
+
+.manual-btn{
+    background-color: grey;
+    padding: 5px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 10px;
+
+}
+
+.manual-btn:hover{
+    background: #004a98;
+
+}
+
+#radio1:checked~.first{
+    margin-left: 0;
+
+}
+
+#radio2:checked~.first{
+    margin-left: -25%;
+
+}
+
+#radio3:checked~.first{
+    margin-left: -50%;
+
+}
+
+#radio4:checked~.first{
+    margin-left: -75%;
+
+}
+/* End Slider */
+
+/* Slider automatic navigation */
+
+.navigation-auto{
+    position: absolute;
+    width: 100%;   
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div{
+    background-color: grey;
+    padding: 5px;
+    margin-top: 520px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 10px;
+
+}
+
+#radio1:checked~.navigation-auto .auto-btn1{  
+    background: #004a98;
+
+}
+
+#radio2:checked~.navigation-auto .auto-btn2{  
+    background: #004a98;
+
+}
+
+#radio3:checked~.navigation-auto .auto-btn3{  
+    background: #004a98;
+
+}
+
+#radio4:checked~.navigation-auto .auto-btn4{  
+    background: #004a98;
+
+}
+
+/* End Slider automatic navigation*/

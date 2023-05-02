@@ -167,7 +167,7 @@
         padding-block: 20px;
 
     }
-
+    
     .columnDateActivities{
         margin: auto;
         width: 80%;
@@ -197,8 +197,16 @@
 
     .searchDayActivity{
         min-width: 70%;
-        border: 1px gray solid;
         margin: auto;
+    }
+
+    .eachDayAct{
+        margin-block: 20px;
+        border: 1px gray solid;
+    }
+
+    .fc-view-container{
+        height: 600px;
     }
 
     .accordion{
