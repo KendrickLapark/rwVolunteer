@@ -112,15 +112,11 @@
             customButtons:{
                 anterior:{
                     text: "Anterior",
-                    click: function(){
-                        calendar.previous();
-                    }
+                    click: function () { $('#calendario').fullCalendar('prev');}
                 },
                 siguiente:{
                     text: "Siguiente",
-                    click: function(){
-                        calendar.next();
-                    }
+                    click: function () { $('#calendario').fullCalendar('next');}
                 }
             },
             header: {
@@ -135,6 +131,7 @@
                 month: 'MES'
             },
             firstDay: 1,
+            default: true,
             editable: true,
             displayEventTime: true,
             events: SITEURL + "/fullcalender",
@@ -169,6 +166,7 @@
                 },
             @endforeach
             ],
+            default: true,
             editable: false,
             selectable: true,
             selectHelper: true,
@@ -203,6 +201,22 @@
                 }
 
             },
+
+        });
+
+    });
+
+    $(function() {
+        var tabindex = 0;
+        $('.fc-day').each(function() {
+            var $input = $(this);
+            $input.attr("tabindex", tabindex);   
+        });
+
+        var tabindex2 = 0;
+        $('.fc-event-container a').each(function(){
+            var $input2 = $(this);
+            $input2.attr("tabindex", tabindex2);
 
         });
 
