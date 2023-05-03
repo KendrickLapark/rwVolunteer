@@ -40,7 +40,7 @@
                            <p id="title-inscription"> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
                             <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
                         </div> 
-                        <div class="hidden_msg_Inscription">
+                        <div class="hidden_msg_Inscription" aria-hidden="true">
                             <div class="inner_hidden_msg_Inscription">
                                 <div class="descIns">
                                   <p tabindex="0">  <strong> Descripción: </strong> 
@@ -175,13 +175,17 @@
 
             });
 
+            
+
             $(".msg_Inscription").on("click", function() {
                 var icono = document.querySelector(".row_act_dashboard > #bx.bx-caret-down");
                 if ($(this).siblings().is(':visible')) {
                     $(this).siblings().hide();
+                    $(this).siblings().setAttribute('aria-hidden', 'false');
                     icono.style.transform = ''
                 } else {
                     $(this).siblings().show();
+                    $(this).siblings().setAttribute('aria-hidden', 'true');
                     icono.style.transform = 'rotate(180deg)'
                 }
             });

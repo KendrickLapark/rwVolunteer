@@ -28,7 +28,7 @@
     <div class="mainTrayDateActivities">
         <div class="columnDateActivities">
             <div class="titleDateActivites">
-                <h1 tabindex="0"> Selecciona una semana </h1>
+                <h1 tabindex="0"> Selecciona una fecha </h1>
             </div>
 
             <div class="calendario" id="calendario">
@@ -82,14 +82,37 @@
                     $( ".searchDayActivity" ).each(function( i ) {
                         if(i>=longitud){
                             $( ".searchDayActivity").eq(i).html("");
+                            
+                            
                         }
                     
                     });
 
-                    $('.searchDayActivity').eq(pos).html(data.html);  
+                    $('.searchDayActivity').eq(pos).html(data.html); 
+
+                    var match = document.querySelectorAll('#dayActTitle');
+
+                    for (var i = 0; i < match.lengh; i++){
+                        console.log($('#dayActTitle').eq(i));
+                    }
+
+                    $aux = $('.accordion').eq(pos).prev().text(); //texto del dayActTitle
+                    $aux2 = $('#dayActTitle').eq(pos);
+                       
+                    $(".accordion").eq(pos).attr('aria-describedby', $aux2);
+                    /* $(".accordion").eq(pos).append($aux); añade apendice  */
                     
                     $('.panel').eq(pos).hide();
                     $('.accordion').eq(pos).on("click", function(){
+                        if($(this).next().is(':hidden'))
+                            $(this).next().show('slow');
+                        else{
+                            $(this).next().hide('slow');
+                            }                        
+                    });
+
+                    $('.panel2').eq(pos).hide();
+                    $('.accordion2').eq(pos).on("click", function(){
                         if($(this).next().is(':hidden'))
                             $(this).next().show('slow');
                         else{
@@ -166,7 +189,6 @@
                 },
             @endforeach
             ],
-            default: true,
             editable: false,
             selectable: true,
             selectHelper: true,
@@ -210,11 +232,20 @@
         var tabindex = 0;
         $('.fc-day').each(function() {
             var $input = $(this);
-            $input.attr("tabindex", tabindex);   
+            $input.attr("tabindex", tabindex); 
+
+        });
+
+        $('.fc-day').each(function(e){
+            var input = $(this);
+            if(e.keyCode === 13){
+                alert('hola');
+            }
+
         });
 
         var tabindex2 = 0;
-        $('.fc-event-container a').each(function(){
+        $('.fc-event-container a').each(function(event){
             var $input2 = $(this);
             $input2.attr("tabindex", tabindex2);
 

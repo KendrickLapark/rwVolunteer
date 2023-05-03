@@ -3,7 +3,7 @@
         <div class="row_act_entity"> <strong> Entidad: </strong> {{ $inscription->activity->entityAct }}</div>
         <i class='bx bx-caret-down' id="downArrow" ></i>
     </div>
-    <div class="hidden_row_desc_act">
+    <div class="hidden_row_desc_act" aria-hidden="true">
         <div class="inner_hidden_row">
             <div class="inner_hidden_leftCol">
                 <div class="row_act_desc"> <strong> Descripción: </strong>{{ $inscription->activity->nameAct }}</div>
