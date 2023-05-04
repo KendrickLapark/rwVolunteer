@@ -40,26 +40,26 @@
                            <p id="title-inscription"> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
                             <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
                         </div> 
-                        <div class="hidden_msg_Inscription" aria-hidden="true">
+                        <div class="hidden_msg_Inscription" aria-hidden="false">
                             <div class="inner_hidden_msg_Inscription">
-                                <div class="descIns">
-                                  <p tabindex="0">  <strong> Descripción: </strong> 
-                                    {{$inscription->activity->descAct}} </p>
+                                <div class="descIns" tabindex="0">
+                                  <p> <strong> Descripción: </strong> 
+                                    {{$inscription->activity->descAct}} 
                                 </div>
-                                <div class="entityIns">
-                                  <p tabindex="0">  <strong> Entidad: </strong> 
+                                <div class="entityIns" tabindex="0">
+                                  <p> <strong> Entidad: </strong> 
                                     {{$inscription->activity->entityAct}} </p>
                                 </div>
-                                <div class="direIns">
-                                  <p tabindex="0"> <strong> Dirección: </strong> 
+                                <div class="direIns" tabindex="0">
+                                  <p> <strong> Dirección: </strong> 
                                     {{$inscription->activity->direAct}} </p>
                                 </div>
-                                <div class="dateIns">
-                                  <p tabindex="0">  <strong> Fecha: </strong> 
+                                <div class="dateIns"  tabindex="0">
+                                  <p>  <strong> Fecha: </strong> 
                                     {{$inscription->activity->dateAct}} </p>
                                 </div>
-                                <div class="timeIns">
-                                   <p tabindex="0"> <strong> Hora: </strong> 
+                                <div class="timeIns"  tabindex="0">
+                                   <p> <strong> Hora: </strong> 
                                     {{$inscription->activity->timeAct}} </p>
                                 </div>
                                 <div class="isCompletedIns">
@@ -106,7 +106,7 @@
 
     });
 
-    $('#downArrow').click(function(){
+    $('.bx.bx-caret-down').click(function(){
 
         var x = this.getAttribute('aria-expanded');
 

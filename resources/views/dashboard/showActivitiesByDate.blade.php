@@ -82,25 +82,19 @@
                     $( ".searchDayActivity" ).each(function( i ) {
                         if(i>=longitud){
                             $( ".searchDayActivity").eq(i).html("");
-                            
-                            
+                                                       
                         }
                     
                     });
 
                     $('.searchDayActivity').eq(pos).html(data.html); 
-
-                    var match = document.querySelectorAll('#dayActTitle');
-
-                    for (var i = 0; i < match.lengh; i++){
-                        console.log($('#dayActTitle').eq(i));
-                    }
+                  
 
                     $aux = $('.accordion').eq(pos).prev().text(); //texto del dayActTitle
                     $aux2 = $('#dayActTitle').eq(pos);
                        
-                    $(".accordion").eq(pos).attr('aria-describedby', $aux2);
-                    /* $(".accordion").eq(pos).append($aux); añade apendice  */
+                    /* $(".accordion").eq(pos).attr('aria-describedby', $aux2 ); no lo settea correctamente  */
+                    $(".accordion").eq(pos).append($aux); 
                     
                     $('.panel').eq(pos).hide();
                     $('.accordion').eq(pos).on("click", function(){

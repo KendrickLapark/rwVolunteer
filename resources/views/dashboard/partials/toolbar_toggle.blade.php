@@ -1,9 +1,9 @@
-<div class="toolbar">
+<div class="toolbar" aria-hidden="false">
     <input type="checkbox" name="" id="check">
         <div class="toggle-overlay">
             
             <label for="check" id="overlay1">
-                <span class=icon-overlay tabindex="0" title="Herramientas de accessibilidad navegación"> <i class="fa-solid fa-wheelchair" id="icon-toolbar"></i> </span>
+                <span class=icon-overlay  tabindex="0" title="Herramientas de accessibilidad navegación"> <i class="fa-solid fa-wheelchair" id="icon-toolbar"></i> </span>
             </label>
         </div>
 

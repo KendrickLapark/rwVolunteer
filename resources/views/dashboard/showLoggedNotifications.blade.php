@@ -7,7 +7,7 @@
 @section('content')
     <div class="mainTrayLogNot">
 
-        <div class="sectionTitle">
+        <div class="sectionTitle" tabindex="0">
             PROCESOS QUE COMPLETAR
         </div>
         @if (session()->has('uploadPreinscription'))
@@ -20,10 +20,10 @@
             @if ($inscription->filenameIns == null)
                 <div class="mainDataLogNot">
                     <div class="rowLogNot">
-                        <div>
+                        <div tabindex="0">
                             <strong>Nombre: </strong>{{ $inscription->activity->nameAct }}
                         </div>
-                        <div>
+                        <div tabindex="0">
                             <strong>Cupo: </strong>
                             {{ App\Http\Controllers\ActivityController::quotaCalculator(
                                 $inscription->activity->quotasAct,
@@ -33,38 +33,38 @@
                             {{ $inscription->activity->quotasAct }}
                             Libres
                         </div>
-                        <Div><strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }}</div>
-                        <div><strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }}</div>
+                        <Div tabindex="0"><strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }}</div>
+                        <div tabindex="0"><strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }}</div>
 
-                        <div><strong>Fecha: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }}</div>
+                        <div tabindex="0"><strong>Fecha: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }}</div>
 
-                        <div class="controlButton moreDetails">
+                        <div class="controlButton moreDetails" tabindex="0">
                             <i class='bx bxs-down-arrow'></i>
                         </div>
                     </div>
                     <div class="hiddenLogNot">
                         <div class="eachRow">
-                            <div>
+                            <div tabindex="0">
                                 <strong>Descripcion: </strong>
                                 {{ $inscription->activity->descAct }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Entidad: </strong>
                                 {{ $inscription->activity->entityAct }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Dirección: </strong>
                                 {{ $inscription->activity->direAct }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Requisito Previo: </strong>
                                 {{ $inscription->activity->requiPrevAct }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Formacion deseada: </strong>
                                 {{ $inscription->activity->formaAct }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Requisitos: </strong>
                                 {{ $inscription->activity->requiAct }}
                             </div>
@@ -81,7 +81,7 @@
                                 @endforeach
                             </div>
                             <div>
-                                <p>Descargar documento</p>
+                                <p tabindex="0">Descargar documento</p>
                                 <form method="POST" action="{{ route('PDF.generatepreinscription') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="eachRow">
-                            <div class="controlButton lessDetails">
+                            <div class="controlButton lessDetails" tabindex="0">
                                 <i class='bx bxs-up-arrow'></i>
                             </div>
                         </div>

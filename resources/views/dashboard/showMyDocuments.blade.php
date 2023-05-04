@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="mainTrayShowDoc">
-        <div class="sectionTitle">
+        <div class="sectionTitle" tabindex="0">
             MUESTRA MIS DOCUMENTOS
         </div>
 
@@ -20,7 +20,7 @@
         @foreach ($documents as $document)
             <div class="mainDataShowDoc">
                 <div class="row">
-                    <div>
+                    <div tabindex="0">
                         {{ $document->titleDoc }}
                     </div>
                     <div>
@@ -36,7 +36,7 @@
                     <div>
                         <form method="POST" action="{{ route('dashboard.downloadDocument') }}">
                             @csrf
-                            <input type="hidden" name="doc" value="{{ $document->doc_id }}">
+                            <input type="hidden" tabindex="0" name="doc" value="{{ $document->doc_id }}">
                             <button type="submit" id="downloadDoc" class="botonesControl"><i
                                     class='bx bx-save'></i></button>
                         </form>

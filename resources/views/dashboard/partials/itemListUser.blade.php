@@ -1,15 +1,15 @@
 @foreach ($volunteers as $volunteer)
             <div class="mainData">
                 <div class="row">
-                    <div class="avatarUserRow">
+                    <div class="avatarUserRow" tabindex="0">
                         @if ($volunteer->imageVol == 0 || $volunteer == null)
                             <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="No hay imagen" class="avatarInShowAllUsers">
                         @else
-                            <img src="{{ asset('storage/avatar/' . $volunteer->imageVol) }}" alt="{{ $volunteer->nameVol }}"
+                            <img src="{{ asset('storage/avatar/' . $volunteer->imageVol) }}" alt="{{ $volunteer->nameVol }} avatar"
                                 class="avatarInShowAllUsers">
                         @endif
                     </div>
-                    <div class="nameSurVol">
+                    <div class="nameSurVol" tabindex="0">
                         {{ $volunteer->nameVol }}         
                         {{ $volunteer->surnameVol }} 
                         {{ $volunteer->surname2Vol }} 
@@ -17,32 +17,32 @@
 
                     </div>
 
-                    <div class="controlButtonMoreDetails">
+                    <div class="controlButtonMoreDetails" tabindex="0">
                         <i class='bx bxs-down-arrow'></i>
                     </div>
                                        
                 </div>
                 <div class="hidden">
                     <div class="eachRow">
-                        <div>
+                        <div tabindex="0">
                             <strong>Fecha de nacimiento: </strong>
                             {{ date('d-m-Y', strtotime($volunteer->birthDateVol)) }}
                         </div>
-                        <div>
+                        <div tabindex="0">
                             <strong>{{ $volunteer->typeDocVol }}: </strong>
                             {{ $volunteer->numDocVol }}
                         </div>
-                        <div>
+                        <div tabindex="0">
                             <strong>Sexo:</strong>
                             {{ $volunteer->sexVol }}
                         </div>
-                        <div>
+                        <div tabindex="0">
                             <strong>Talla de camiseta: </strong>
                             {{ $volunteer->shirtSizeVol }}
                         </div>
                     </div>
                     <div class="eachRow">
-                        <div>
+                        <div tabindex="0">
                             <strong>Delegaciones: </strong>
                             @if (count($volunteer->delegations) == 0)
                                 No tiene delegación
@@ -54,36 +54,36 @@
                         </div>
                     </div>
                     <div class="eachRow">
-                        <div>
-                            <strong>Dirección: </strong> <br />
-                            <div>
+                        <div>                           
+                            <div tabindex="0">
+                                <strong>Dirección: </strong> <br />
                                 {{ $volunteer->typeViaVol }}
                                 {{ $volunteer->direcVol }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Nº: </strong>
                                 {{ $volunteer->numVol }}
                                 {{ $volunteer->flatVol }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Código Postal: </strong>
                                 {{ $volunteer->codPosVol }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Provincia: </strong>
                                 {{ $volunteer->stateVol }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Ciudad: </strong>
                                 {{ $volunteer->townVol }}
                             </div>
-                            <div>
+                            <div tabindex="0">
                                 <strong>Información Adicional: </strong>
                                 {{ $volunteer->aditiInfoVol }}
                             </div>
 
                         </div>
-                        <div>
+                        <div tabindex="0">
                             <strong>Educación: </strong><br />
                             @if (count($volunteer->education) == 0)
                                 No tiene titulación registrada
@@ -103,7 +103,7 @@
                             @endif
                         </div>
                         <div>
-                            <strong>Documentos: </strong> <br />
+                            <strong tabindex="0">Documentos: </strong> <br />
                             @if (count($volunteer->documents) == 0)
                                 No tiene titulación registrada
                             @else
@@ -143,9 +143,9 @@
 
                     <div class="eachRow">
                         <div>
-                                <div><strong>Intereses:</strong></div>
+                                <div tabindex="0"><strong>Intereses:</strong></div>
                                 @if (count(App\Http\Controllers\UsersController::showEachInterest($volunteer->activities)) == 0)
-                                    <div>Aun no tenemos suficientes datos para mostrar intereses 
+                                    <div tabindex="0">Aun no tenemos suficientes datos para mostrar intereses 
                                     </div>
                                 @else
                                     <div>
@@ -159,22 +159,22 @@
                     <div class="eachRow">
                         <div>
                             <div class="eachRow">
-                                <div><strong>Actividades a las que se ha inscrito:</strong></div>
+                                <div tabindex="0"><strong>Actividades a las que se ha inscrito:</strong></div>
                             </div>
                             @if (count($volunteer->inscriptions) == 0)
                                 <div class="eachRowInscription">
-                                    <div>No se ha unido a ninguna actividad aun</div>
+                                    <div tabindex="0">No se ha unido a ninguna actividad aun</div>
                                 </div>
                             @else
                                 @foreach ($volunteer->inscriptions as $eachInscription)
                                     <div class="eachRowInscription">
-                                        <div style="width:200px;">
+                                        <div style="width:200px;" tabindex="0">
                                             <strong>{{ $eachInscription->activity->nameAct }}</strong>
                                         </div>
-                                        <div style="width:100px;">
+                                        <div style="width:100px;" tabindex="0">
                                             {{ $eachInscription->activity->dateAct }}
                                         </div>
-                                        <div>
+                                        <div tabindex="0">
                                             @if ($eachInscription->isCompletedIns)
                                                 ACEPTADO
                                             @elseif(is_null($eachInscription->filenameIns) && is_null($eachInscription->isCompletedIns))
@@ -192,7 +192,7 @@
                         </div>
                     </div>
                     <div class="eachRow">
-                        <div class="controlButton lessDetails">
+                        <div class="controlButton lessDetails" tabindex="0">
                             <i class='bx bxs-up-arrow' style="font-size:20px"></i>
                         </div>
                     </div>

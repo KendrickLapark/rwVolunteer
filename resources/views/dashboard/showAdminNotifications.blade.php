@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="mainTrayAdminNot">
-        <div class="sectionTitle">
+        <div class="sectionTitle" tabindex="0">
             USUARIOS SIN VALIDAR:
         </div>
 
@@ -16,7 +16,7 @@
             </div>
         @endif
         @if (count($isNotCompleted) == 0)
-            <div class="sectionTitle">
+            <div class="sectionTitle" tabindex="0">
                 NO hay USUARIOS SIN VALIDAR pendientes
             </div>
         @else
@@ -26,23 +26,23 @@
                         <div class="row">
                             <div>
                                 @if ($eachNotCompleted->imageVol == 0 || $eachNotCompleted->imageVol == null)
-                                    <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="No hay imagen" class="avatarInShowAllUsers">
+                                    <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" tabindex="0" alt="No hay imagen" class="avatarInShowAllUsers">
                                 @else
-                                    <img src="{{ asset('storage/avatar/' . $eachNotCompleted->imageVol) }}"
+                                    <img src="{{ asset('storage/avatar/' . $eachNotCompleted->imageVol) }}" tabindex="0"
                                         alt="{{ $eachNotCompleted->nameVol }}" class="avatarInShowAllUsers">
                                 @endif
                             </div>
                             <div>
-                                <strong>
+                                <strong tabindex="0">
                                     {{ $eachNotCompleted->nameVol }}
                                     {{ $eachNotCompleted->surnameVol }}
                                     {{ $eachNotCompleted->surname2Vol }}
                                 </strong>
                                 <br />
                                 @if ($eachNotCompleted->organiVol == false)
-                                    SIN Empresa Asociada
+                                    <div tabindex="0"> SIN Empresa Asociada </div>
                                 @else
-                                    {{ $eachNotCompleted->organiVol }}
+                                    <div tabindex="0"> {{ $eachNotCompleted->organiVol }} </div>
                                 @endif
                             </div>
                             <div class="mailVol">

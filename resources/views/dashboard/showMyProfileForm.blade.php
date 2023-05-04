@@ -114,7 +114,7 @@
                             <p>
                                 <label id="labelDelegations" class="formSections" for="shirtSizeVol"><strong>Delegaciones:
                                     </strong></label>
-                                <br />
+                                <br/>
                             <p>Si quieres seleccionar más de uno usa las teclas Mayuscula o control</p>
                             <?php
                             $checked = [];

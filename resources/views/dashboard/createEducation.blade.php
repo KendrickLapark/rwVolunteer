@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="mainTray">
-        <div class="sectionTitle">
+        <div class="sectionTitle" tabindex="0">
             FORMULARIO CREAR EDUCACIÓN
         </div>
         @if (session()->has('successCreateEdu'))

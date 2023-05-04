@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="mainTray">
-        <div class="sectionTitle">
+        <div class="sectionTitle" tabindex="0">
             MUESTRA TODOS LOS ESTUDIOS
         </div>
 

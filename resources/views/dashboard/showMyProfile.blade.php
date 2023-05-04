@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="mainTrayMyProf">
-        <div class="sectionTitle">
+        <div class="sectionTitle" tabindex="0">
             Mi perfil
         </div>
         @if (session()->has('successUpdateUser'))
@@ -25,12 +25,12 @@
 
                             <li class="dataVol-item">
                             <p>
-                                    <span class="colTitle"><strong>Contacto</strong></span>
+                                    <span class="colTitle" tabindex="0"><strong>Contacto</strong></span>
                                 <br>
                             </p>
                             </li>
 
-                            <li class="dataVol-item">
+                            <li class="dataVol-item" tabindex="0">
                                 <p>
                                     <strong>Talla de camiseta:</strong>
                                     <br />
@@ -38,7 +38,7 @@
                                         
                                 </p>
                             </li>
-                            <li class="dataVol-item">
+                            <li class="dataVol-item" tabindex="0">
                                 <p>
                                     <strong>Organización:</strong>
                                     <br />
@@ -46,7 +46,7 @@
                                 </p>
                             </li>
 
-                            <li class="dataVol-item">
+                            <li class="dataVol-item" tabindex="0">
                                 <p>
                                     <strong>Teléfono:</strong>
                                     <br />
@@ -54,14 +54,14 @@
                                 </p>
                             </li>
 
-                            <li class="dataVol-item">
+                            <li class="dataVol-item" tabindex="0">
                                 
                                     <strong>Correo Electrónico Personal: </strong>
                                     <br />
                                     <span class="persMailVol"> {{ $volunteer->persMailVol }} </span>
                             </li>
 
-                            <li class="dataVol-item">
+                            <li class="dataVol-item" tabindex="0">
                                     <strong>Correo Electrónico Corporativo: </strong>
                                     <br />
                                 @if($volunteer->corpMailVol)
@@ -90,7 +90,7 @@
                     <div class="rightCol">
 
                         <ul class="dataVol">
-                                <li class="contactVol-item">
+                                <li class="contactVol-item"  tabindex="0">
                                     <p>
                                         <span class =colTitle><strong>Datos personales</strong></span>
                                         <br>
@@ -98,7 +98,7 @@
 
                                 </li>                            
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                         <strong>Nombre: </strong>                                
                                         <span class="surnameVol">
@@ -106,7 +106,7 @@
                                     </p>
                                 </li>
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                         <strong>Apellidos:</strong>                            
                                         <span class="surnameVol">
@@ -114,21 +114,21 @@
                                     </p>
                                 </li>
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                         <strong> {{ $volunteer->typeDocVol }}</strong>     
                                         <span class="numDocVol" > {{ $volunteer->numDocVol }}</span>
                                     </p>
                                 </li>
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                             <strong>Fecha de nacimiento:</strong>
                                             <span class="birthdateVol">{{ $volunteer->birthDateVol }}</span>
                                     </p>
                                 </li>
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                             <strong> Dirección: </strong>
                                             <span class="direcVol">{{ $volunteer->typeViaVol . ' ' . $volunteer->direcVol
@@ -136,21 +136,21 @@
                                     </p>
                                 </li>
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                         <strong>Provincia:</strong>
                                         <span class="stateVol">{{ $volunteer->stateVol }} </span>
                                     </p>
                                 </li>
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                         <strong>Localidad:</strong>
                                         <span class="townVol"> {{ $volunteer->townVol }} </span>
                                     </p>
                                 </li>
 
-                                <li class="dataVol-item">
+                                <li class="dataVol-item" tabindex="0">
                                     <p>
                                         <strong>Código Postal: </strong>
                                         <span class="codPosVol"> {{ $volunteer->codPosVol }} </span>
