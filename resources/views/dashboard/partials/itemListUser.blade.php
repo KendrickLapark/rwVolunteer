@@ -10,45 +10,44 @@
                         @endif
                     </div>
                     <div class="nameSurVol" tabindex="0">
-                        {{ $volunteer->nameVol }}         
+                        <p> {{ $volunteer->nameVol }}         
                         {{ $volunteer->surnameVol }} 
-                        {{ $volunteer->surname2Vol }} 
-                        <br />
+                        {{ $volunteer->surname2Vol }} </p>                     
 
                     </div>
 
-                    <div class="controlButtonMoreDetails" tabindex="0">
-                        <i class='bx bxs-down-arrow'></i>
+                    <div class="controlButtonMoreDetails">
+                        <i class='bx bxs-down-arrow'role="button" aria-expanded="false" tabindex="0"></i>
                     </div>
                                        
                 </div>
                 <div class="hidden">
                     <div class="eachRow">
                         <div tabindex="0">
-                            <strong>Fecha de nacimiento: </strong>
-                            {{ date('d-m-Y', strtotime($volunteer->birthDateVol)) }}
+                            <p> <strong>Fecha de nacimiento: </strong>
+                            {{ date('d-m-Y', strtotime($volunteer->birthDateVol)) }} </p>
                         </div>
                         <div tabindex="0">
-                            <strong>{{ $volunteer->typeDocVol }}: </strong>
-                            {{ $volunteer->numDocVol }}
+                            <p> <strong>{{ $volunteer->typeDocVol }}: </strong>
+                            {{ $volunteer->numDocVol }} </p>
                         </div>
                         <div tabindex="0">
-                            <strong>Sexo:</strong>
-                            {{ $volunteer->sexVol }}
+                            <p> <strong>Sexo:</strong>
+                            {{ $volunteer->sexVol }} </p>
                         </div>
                         <div tabindex="0">
-                            <strong>Talla de camiseta: </strong>
-                            {{ $volunteer->shirtSizeVol }}
+                            <p> <strong>Talla de camiseta: </strong>
+                            {{ $volunteer->shirtSizeVol }} </p>
                         </div>
                     </div>
                     <div class="eachRow">
                         <div tabindex="0">
-                            <strong>Delegaciones: </strong>
+                            <p> <strong>Delegaciones: </strong>
                             @if (count($volunteer->delegations) == 0)
-                                No tiene delegación
+                                No tiene delegación </p>
                             @else
                                 @foreach ($volunteer->delegations as $delegation)
-                                    {{ $delegation->nameDel }},
+                                    <p> {{ $delegation->nameDel }} </p>,
                                 @endforeach
                             @endif
                         </div>
@@ -56,37 +55,37 @@
                     <div class="eachRow">
                         <div>                           
                             <div tabindex="0">
-                                <strong>Dirección: </strong> <br />
+                                <p> <strong>Dirección: </strong>
                                 {{ $volunteer->typeViaVol }}
-                                {{ $volunteer->direcVol }}
+                                {{ $volunteer->direcVol }} </p>
                             </div>
                             <div tabindex="0">
-                                <strong>Nº: </strong>
+                                <p> <strong>Nº: </strong>
                                 {{ $volunteer->numVol }}
-                                {{ $volunteer->flatVol }}
+                                {{ $volunteer->flatVol }} </p>
                             </div>
                             <div tabindex="0">
-                                <strong>Código Postal: </strong>
-                                {{ $volunteer->codPosVol }}
+                                <p> <strong>Código Postal: </strong>
+                                {{ $volunteer->codPosVol }} </p>
                             </div>
                             <div tabindex="0">
-                                <strong>Provincia: </strong>
-                                {{ $volunteer->stateVol }}
+                                <p> <strong>Provincia: </strong>
+                                {{ $volunteer->stateVol }} </p>
                             </div>
                             <div tabindex="0">
-                                <strong>Ciudad: </strong>
-                                {{ $volunteer->townVol }}
+                                <p> <strong>Ciudad: </strong>
+                                {{ $volunteer->townVol }} </p>
                             </div>
                             <div tabindex="0">
-                                <strong>Información Adicional: </strong>
-                                {{ $volunteer->aditiInfoVol }}
+                                <p> <strong>Información Adicional: </strong>
+                                {{ $volunteer->aditiInfoVol }} </p>
                             </div>
 
                         </div>
                         <div tabindex="0">
-                            <strong>Educación: </strong><br />
+                            <p> <strong>Educación: </strong>
                             @if (count($volunteer->education) == 0)
-                                No tiene titulación registrada
+                                 No tiene titulación registrada </p>
                             @else
                                 @foreach ($volunteer->education as $education)
                                 <button class="accordionUsers">{{ $education->titleEdu }} <i class='bx bxs-down-arrow' id='arrowDownload'></i> </button> 
@@ -101,22 +100,24 @@
                                 </div>
                                 @endforeach
                             @endif
-                        </div>
+                        </div>                    
                         <div>
-                            <strong tabindex="0">Documentos: </strong> <br />
+                            <p> <strong tabindex="0">Documentos: </strong> </p>
                             @if (count($volunteer->documents) == 0)
-                                No tiene titulación registrada
+                                <p> No tiene titulación registrada </p>
                             @else
                                 @foreach ($volunteer->documents as $document)
-                                <button class="accordionUsers">{{ $document->titleDoc }} <i class='bx bxs-down-arrow' id='arrowDownload'></i> </button>  
+                                <button class="accordionUsers"> <p> {{ $document->titleDoc }}  
+                                    <i class='bx bxs-down-arrow' id='arrowDownload'></i> </p> </button>  
                                 <div class="downloadPanel">                                  
                                     <form method="POST" action="{{ route('dashboard.showDocument') }}">
                                         @csrf
-                                        <input type="hidden" name="doc" value="{{ $document->doc_id }}">
-                                        <button type="submit" {{--id="showDocDoc"--}} class="downloadButton"><i
+                                        <input type="hidden" name="doc" aria-label="Descargar documento" value="{{ $document->doc_id }}">
+                                        <button type="submit" {{--id="showDocDoc"--}} aria-label="descargar documento" class="downloadButton"><i
                                                 class='bx bx-save'></i></button>
                                     </form>
                                 </div>
+                                </br>
                                 @endforeach
                             @endif
                         </div>
@@ -124,18 +125,18 @@
                     @if (date('Y') - date('Y', strtotime($volunteer->birthDateVol)) <= 17)
                         <div class="eachRow">
                             <div>
-                                <span class="redMark">ES MENOR</span>
+                                <p> <span class="redMark">ES MENOR</span> </p>
                                 <div>
-                                    <strong>Autorizador:</strong>
-                                    {{ $volunteer->nameAuthVol }}
+                                    <p> <strong>Autorizador:</strong>
+                                    {{ $volunteer->nameAuthVol }} </p>
                                 </div>
                                 <div>
-                                    <strong>Documento de identidad del autorizador:</strong>
-                                    {{ $volunteer->numDocAuthVol }}
+                                    <p> <strong>Documento de identidad del autorizador:</strong>
+                                    {{ $volunteer->numDocAuthVol }} </p>
                                 </div>
                                 <div>
-                                    <strong>Teléfono del autorizador:</strong>
-                                    <a href="tel:+34{{ $volunteer->tlfAuthVol }}">{{ $volunteer->tlfAuthVol }}</a>
+                                    <p> <strong>Teléfono del autorizador:</strong>
+                                    <a href="tel:+34{{ $volunteer->tlfAuthVol }}">{{ $volunteer->tlfAuthVol }}</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -143,9 +144,9 @@
 
                     <div class="eachRow">
                         <div>
-                                <div tabindex="0"><strong>Intereses:</strong></div>
+                                <div tabindex="0"> <p> <strong>Intereses:</strong> </p> </div>
                                 @if (count(App\Http\Controllers\UsersController::showEachInterest($volunteer->activities)) == 0)
-                                    <div tabindex="0">Aun no tenemos suficientes datos para mostrar intereses 
+                                    <div tabindex="0"><p> Aun no tenemos suficientes datos para mostrar intereses </p> 
                                     </div>
                                 @else
                                     <div>
@@ -159,22 +160,22 @@
                     <div class="eachRow">
                         <div>
                             <div class="eachRow">
-                                <div tabindex="0"><strong>Actividades a las que se ha inscrito:</strong></div>
+                                <div tabindex="0"> <p< <strong>Actividades a las que se ha inscrito:</strong> </p> </div>
                             </div>
                             @if (count($volunteer->inscriptions) == 0)
                                 <div class="eachRowInscription">
-                                    <div tabindex="0">No se ha unido a ninguna actividad aun</div>
+                                    <p> <div tabindex="0">No se ha unido a ninguna actividad aun</div> </p>
                                 </div>
                             @else
                                 @foreach ($volunteer->inscriptions as $eachInscription)
                                     <div class="eachRowInscription">
                                         <div style="width:200px;" tabindex="0">
-                                            <strong>{{ $eachInscription->activity->nameAct }}</strong>
+                                            <p> <strong>{{ $eachInscription->activity->nameAct }}</strong> </p>
                                         </div>
                                         <div style="width:100px;" tabindex="0">
-                                            {{ $eachInscription->activity->dateAct }}
+                                            <p> {{ $eachInscription->activity->dateAct }} </p>
                                         </div>
-                                        <div tabindex="0">
+                                        <div tabindex="0"> <p> 
                                             @if ($eachInscription->isCompletedIns)
                                                 ACEPTADO
                                             @elseif(is_null($eachInscription->filenameIns) && is_null($eachInscription->isCompletedIns))
@@ -184,7 +185,7 @@
                                             @elseif ($eachInscription->filenameIns != null)
                                                 PREINSCRIPCIÓN REALIZADA<br />
                                                 ESPERANDO VALIDACIÓN DE UN ADMINISTRADOR
-                                            @endif
+                                            @endif </p>
                                         </div>
                                     </div>
                                 @endforeach
@@ -192,10 +193,44 @@
                         </div>
                     </div>
                     <div class="eachRow">
-                        <div class="controlButton lessDetails" tabindex="0">
-                            <i class='bx bxs-up-arrow' style="font-size:20px"></i>
+                        <div class="controlButton lessDetails">
+                            <i class='bx bxs-up-arrow' role="button" tabindex="0" aria-expanded="true" style="font-size:20px"></i>
                         </div>
                     </div>
                 </div>
             </div>
         @endforeach
+
+        <script type="text/javascript">
+
+            $('.bx.bxs-down-arrow').click(function(){
+        
+                var x = this.getAttribute('aria-expanded');
+    
+                console.log('detected')
+        
+                    if(x == "true"){
+                        x = "false";
+                    }else{
+                        x = "true";
+                    }
+        
+                this.setAttribute('aria-expanded', x);
+        
+            });
+        
+            $('.bx.bxs-up-arrow').click(function(){
+        
+                var x = this.getAttribute('aria-expanded');
+        
+                    if(x == "true"){
+                        x = "false";
+                    }else{
+                        x = "true";
+                    }
+        
+                this.setAttribute('aria-expanded', x);
+        
+            });
+        
+        </script>

@@ -45,6 +45,7 @@
                                 <div class="descIns" tabindex="0">
                                   <p> <strong> Descripción: </strong> 
                                     {{$inscription->activity->descAct}} 
+                                  </p>
                                 </div>
                                 <div class="entityIns" tabindex="0">
                                   <p> <strong> Entidad: </strong> 
@@ -125,6 +126,7 @@
 @endsection
 
 @section('headlibraries')
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script>
@@ -174,8 +176,6 @@
                 }
 
             });
-
-            
 
             $(".msg_Inscription").on("click", function() {
                 var icono = document.querySelector(".row_act_dashboard > #bx.bx-caret-down");

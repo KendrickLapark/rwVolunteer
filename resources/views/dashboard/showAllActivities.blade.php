@@ -52,7 +52,8 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="text" name="searchActivity" id="searchActivity" placeholder="Buscar actividades..." class="form-control" onfocus="this.value=''">
+                        <input type="search" title="Escriba el nombre de la actividad que desea buscar"
+                         name="searchActivity" id="searchActivity" placeholder="Buscar actividades..." class="form-search" onfocus="this.value=''">
                     </div>
                     
                 </div>

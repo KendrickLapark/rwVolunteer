@@ -16,7 +16,8 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="text" name="search" id="search" placeholder="Buscar contactos..." class="form-control" onfocus="this.value=''">
+                        <input type="search" name="search" title="Escriba el nombre del usuario que desea buscar" role="search" id="search" placeholder="Buscar contactos..." 
+                        class="form-search" onfocus="this.value=''">
                     </div>
                     <div id="search_list"></div>
                 </div>
@@ -28,6 +29,7 @@
     <div id="excelDownload">
         <a href="{{ route('CSV.getUsers') }}"><i class='bx bx-cloud-download'></i></a>
     </div>
+
 @endsection
 
 @section('headlibraries')
