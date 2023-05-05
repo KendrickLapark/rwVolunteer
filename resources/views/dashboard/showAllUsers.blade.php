@@ -7,8 +7,8 @@
 @section('content')
     <div class="mainTray">
         
-        <div class="sectionTitleSearch" tabindex="0">
-            MUESTRA TODOS LOS USUARIOS
+        <div class="sectionTitleSearch">
+            <h1> MUESTRA TODOS LOS USUARIOS </h1>
         </div>
 
         <div class="container">

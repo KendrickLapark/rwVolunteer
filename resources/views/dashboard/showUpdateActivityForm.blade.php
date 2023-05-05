@@ -7,7 +7,7 @@
 @section('content')
     <div class="mainTray ">
         <div class="sectionTitle">
-            Actualizar Actividad
+            <h1 tabindex="0"> Actualizar Actividad </h1>
         </div>
         <form method="POST" action="{{ route('dashboard.updateActivity') }}">
             @csrf

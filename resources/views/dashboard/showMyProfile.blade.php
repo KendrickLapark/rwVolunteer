@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="mainTrayMyProf">
-        <div class="sectionTitle" tabindex="0">
-            Mi perfil
+        <div class="sectionTitle">
+            <h1 tabindex="0"> Mi perfil </h1>
         </div>
         @if (session()->has('successUpdateUser'))
             <div class="formSubmitSuccess center">

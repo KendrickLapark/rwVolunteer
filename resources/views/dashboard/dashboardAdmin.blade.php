@@ -9,7 +9,7 @@
         <div class="notifyTray">
             <div class="sectionTitle" id="sectionTitleAdmin">
                 <a href="{{ route('dashboard.admin.showNotify') }}">
-                    TIENE NOTIFICACIONES PENDIENTES
+                    <h1> TIENE NOTIFICACIONES PENDIENTES </h1>
                 </a>
             </div>
         </div>

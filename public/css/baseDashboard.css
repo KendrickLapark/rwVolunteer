@@ -9,6 +9,8 @@
 @import "partials/showMyDocuments.css";
 @import "partials/showMyProfile.css";
 @import "partials/showMyProfileForm.css";
+@import "partials/createActivity.css";
+@import "partials/showAllExtraActivity.css";
 
 body {
     background-color: #ffffff;
@@ -789,30 +791,6 @@ div.logo-details {
 
 /* End Show All activities */
 
-/* Create ActiviTy */
-
-.mainDataCenterCreateActivity{
-
-    display:flex;
-    flex-direction: column;
-    width:30%;
-    align-items: center;
-    text-align: center;
-
-}
-
-select.big {
-    width: 100%;
-    max-width: 400px;
-    height: 15rem;
-}
-
-select.small {
-    width: 100%;
-    max-width: 400px;
-}
-
-/* End Create Activiy */
 
 /* Dashboard Logged */
 

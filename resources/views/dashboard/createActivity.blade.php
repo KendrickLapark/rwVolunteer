@@ -7,7 +7,7 @@
 @section('content')
     <div class="mainTray">
         <div class="sectionTitle">
-            Crear Actividad
+            <h1 tabindex="0"> Crear Actividad </h1>
         </div>
         <form method="POST" action="{{ route('dashboard.saveActivity') }}">
             @csrf
@@ -116,10 +116,10 @@
                 </div>
 
                 <div class="eachCreateActivityElement">
-                    <p>La actividad se guardara como INVISIBLE/BORRADOR</p>
+                    <p tabindex="0">La actividad se guardara como INVISIBLE/BORRADOR</p>
                 </div>
                 <div class="eachCreateActivityElement">
-                    <button type="submit" class="botonesControl">Guardar</button>
+                    <button type="submit" class="botonesControl" aria-label="Guardar actividad">Guardar</button>
                 </div>
             </div>
         </form>

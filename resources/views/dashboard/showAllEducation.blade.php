@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="mainTray">
-        <div class="sectionTitle" tabindex="0">
-            MUESTRA TODOS LOS ESTUDIOS
+        <div class="sectionTitle">
+            <h1 tabindex="0"> MUESTRA TODOS LOS ESTUDIOS </h1>
         </div>
 
         @if (session()->has('deleteEducation'))

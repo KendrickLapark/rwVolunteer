@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="mainTrayShowDoc">
-        <div class="sectionTitle" tabindex="0">
-            MUESTRA MIS DOCUMENTOS
+        <div class="sectionTitle" >
+            <h1 tabindex="0"> MUESTRA MIS DOCUMENTOS </h1>
         </div>
 
         @if (session()->has('deleteDocument'))

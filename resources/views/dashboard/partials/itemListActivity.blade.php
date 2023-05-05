@@ -1,31 +1,31 @@
 @foreach ($activities as $activity)
             <div class="mainActivity">
                 <div class="row">
-
+                    <p>
                     @if(strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y')))) 
-                        <div class="divTime" style="background-color:#DDBFC8;">               
+                        <div class="divTime" tabindex="0" style="background-color:#DDBFC8;">               
                     @elseif(!$activity->isNulledAct)
-                        <div class="divTime" style="background-color: #406cbc;">                               
+                        <div class="divTime" tabindex="0" style="background-color: #406cbc;">                               
                     @else
-                        <div class="divTime" style="background-color:#8A8A8A";>
-                    @endif                               
-                            <div class="dateDiv"> {{ date('d-m-Y', strtotime($activity->dateAct)) }}</div>
-                            <div class="hourDiv"> {{ date('h:i', strtotime($activity->timeAct)) }}</div> 
+                        <div class="divTime" tabindex="0" style="background-color:#8A8A8A";>
+                    @endif </p>                               
+                            <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
+                            <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
                         </div>
                         
-                        <div class="divMainDesc">
+                        <div class="divMainDesc" tabindex="0">
                             <div class="nameDiv">
-                                <strong> {{ $activity->nameAct }} </strong>
+                                <p> <strong> {{ $activity->nameAct }} </strong> </p>
                             </div>
                             <div class="descDiv">
-                                {{$activity->descAct}}
+                               <p> {{$activity->descAct}} </p>
                             </div>
                             <div class="cupoDiv">
-                                <strong>Cupo: </strong>
+                                <p> <strong>Cupo: </strong>
                                 {{ App\Http\Controllers\ActivityController::quotaCalculator($activity->quotasAct, $activity->activity_id) }}
                                 /
                                 {{ $activity->quotasAct }}
-                                Libres
+                                Libres </p>
                             </div>
                         </div>    
                         
@@ -55,7 +55,7 @@
                             @endif
                             
                             <div class="controlButton-moreDetails">
-                                <i class='bx bxs-down-arrow'></i>
+                                <i class='bx bxs-down-arrow' role="button" aria-expanded="false" tabindex="0"></i>
                             </div>
                             
                         </div>
@@ -64,38 +64,38 @@
                         
             <div class="hidden">
                 <div class="eachRow">
-                    <div>
-                        <strong>Descripcion: </strong>
-                         {{ $activity->descAct }}
+                    <div tabindex="0">
+                        <p> <strong>Descripcion: </strong>
+                         {{ $activity->descAct }} </p>
                     </div>
-                    <div>
-                        <strong>Entidad: </strong>
-                        {{ $activity->entityAct }}
+                    <div tabindex="0">
+                        <p> <strong>Entidad: </strong>
+                        {{ $activity->entityAct }} </p>
                     </div>
-                    <div>
-                        <strong>Dirección: </strong>
-                        {{ $activity->direAct }}
+                    <div tabindex="0">
+                        <p> <strong>Dirección: </strong>
+                        {{ $activity->direAct }} </p>
                     </div>
-                    <div>
-                        <strong>Requisito Previo: </strong>
-                        {{ $activity->requiPrevAct }}
+                    <div tabindex="0">
+                        <p> <strong>Requisito Previo: </strong>
+                        {{ $activity->requiPrevAct }} </p>
                     </div>
-                    <div>
-                        <strong>Formacion deseada: </strong>
-                        {{ $activity->formaAct }}
+                    <div tabindex="0">
+                        <p> <strong>Formacion deseada: </strong>
+                        {{ $activity->formaAct }} </p>
                     </div>
-                    <div>
-                        <strong>Requisitos: </strong>
-                        {{ $activity->requiAct }}
+                    <div tabindex="0">
+                        <p> <strong>Requisitos: </strong>
+                        {{ $activity->requiAct }} </p>
                     </div>
                 </div>
                 <div class="eachRow">
                     <div>
-                        <strong>Tipos de Actividad: </strong>
+                        <p tabindex="0"> <strong>Tipos de Actividad: </strong> </p>
                         @foreach ($activityTypes as $activityType)
                             @foreach ($activity->typeAct as $itemActivityType)
                                 @if ($activityType->typeAct_id == $itemActivityType->typeAct_id)
-                                    <p>{{ $itemActivityType->nameTypeAct }}</p>
+                                    <p tabindex="0">{{ $itemActivityType->nameTypeAct }}</p>
                                 @endif
                             @endforeach
                         @endforeach
@@ -107,11 +107,11 @@
                         <div class="leftCol-buttonsBar">
 
                             <div>
-                                <strong>Información Extra: </strong>
+                                <p> <strong>Información Extra: </strong> </p>
                                 <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonesControl">
+                                    <button type="submit" class="botonesControl" aria-label="Información extra">
                                         
                                         <i class='bx bx-folder-plus' style="font-size:25px"></i>
                                     </button>
@@ -119,12 +119,12 @@
                             </div>
 
                             <div>
-                                <strong>Editar: </strong>
+                                <p> <strong>Editar: </strong> </p>
 
                                 <form method="POST" action="{{ route('dashboard.getActivityUpdateData') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonesControl">
+                                    <button type="submit" class="botonesControl" aria-label="Editar">
                                         <i class='bx bxs-edit' style="font-size:25px"></i>
                                     </button>
                                 </form>
@@ -136,27 +136,27 @@
 
                             <div>
                                 @if (!$activity->isNulledAct)
-                                    <strong>ANULAR: </strong>
+                                    <p> <strong>ANULAR: </strong> </p>
 
                                     <form method="POST" action="{{ route('dashboard.nullActivity') }}">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                        <button type="submit" class="botonesControl"
+                                        <button type="submit" class="botonesControl" aria-label="Anular"
                                             onclick="return confirm('¿Estas seguro/a?')">
                                             <i class='bx bxs-edit' style="font-size:25px"></i>
                                         </button>
                                     </form>
                                 @else
-                                    <strong>Esta actividad se ha anulado</strong>
+                                    <p tabindex="0"> <strong>Esta actividad se ha anulado</strong> </p>
                                 @endif
                             </div>
 
                             <div>
-                                <strong>Eliminar: </strong>
+                                <p> <strong>Eliminar: </strong> </p>
                                 <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonesControl"
+                                    <button type="submit" class="botonesControl" aria-label="Eliminar"
                                         onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
                                             style="font-size:25px;"></i></button>
                                 </form>
@@ -169,3 +169,23 @@
     </div>
     
     @endforeach
+
+<script type="text/javascript">
+
+        $('.bx.bxs-down-arrow').click(function(){
+    
+            var x = this.getAttribute('aria-expanded');
+
+            console.log('detected')
+    
+                if(x == "true"){
+                    x = "false";
+                }else{
+                    x = "true";
+                }
+    
+            this.setAttribute('aria-expanded', x);
+    
+        });
+
+</script>

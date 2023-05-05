@@ -7,8 +7,8 @@
 @section('content')
     <div class="mainTrayLogNot">
 
-        <div class="sectionTitle" tabindex="0">
-            PROCESOS QUE COMPLETAR
+        <div class="sectionTitle">
+            <h1 tabindex="0"> PROCESOS QUE COMPLETAR </h1>
         </div>
         @if (session()->has('uploadPreinscription'))
             <div class="formSubmitSuccess center">

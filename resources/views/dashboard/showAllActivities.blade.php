@@ -7,7 +7,7 @@
 @section('content')
     <div class="mainTray">
         <div class="sectionTitleSearch">
-            MUESTRA TODAS LAS ACTIVIDADES
+            <h1 tabindex="0"> MUESTRA TODAS LAS ACTIVIDADES </h1>
         </div>
 
         @if (session()->has('sucessActivityCreated'))

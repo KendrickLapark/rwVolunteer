@@ -1,0 +1,26 @@
+.mainDataExtAct{
+    margin: auto;
+    padding: 20px;
+    line-height: 2em;
+    width: 60%;
+    text-align: center;
+    border: 1px solid grey;
+
+}
+
+.secondaryTray.center{
+    border: 1px solid grey;
+    width: 60%;
+}
+
+@media only screen and (max-width: 480px){
+    .mainDataExtAct{
+        width: 80%;
+
+    }
+
+    .secondaryTray.center{
+        width: 80%;
+    }
+
+}

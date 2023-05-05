@@ -1,0 +1,31 @@
+/* Create ActiviTy */
+
+.mainDataCenterCreateActivity{
+    display:flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+    align-items: center;
+    text-align: center;
+
+}
+
+select.big {
+    width: 100%;
+    max-width: 400px;
+    height: 15rem;
+}
+
+select.small {
+    width: 100%;
+    max-width: 400px;
+}
+
+@media only screen and (max-width: 1024px){
+    .mainDataCenterCreateActivity{
+        width: 50% !important;
+    }
+
+}
+
+/* End Create Activiy */

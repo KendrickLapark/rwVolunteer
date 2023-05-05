@@ -7,67 +7,67 @@
 @section('content')
     <div class="mainTray ">
         <div class="sectionTitle">
-            MUESTRA TODA LA INFORMACIÓN EXTRA
+            <h1 tabindex="0"> MUESTRA TODA LA INFORMACIÓN EXTRA </h1>
         </div>
-        <div class="mainData">
-            <div class="row">
-                <div>
-                    <strong>Nombre: </strong>{{ $activity->nameAct }}
+        <div class="mainDataExtAct">
+            <div class="rowExtAct">
+                <div tabindex="0">
+                    <p> <strong>Nombre: </strong>{{ $activity->nameAct }} </p>
                 </div>
-                <div>
-                    <strong>Cupo: </strong>
+                <div tabindex="0">
+                    <p> <strong>Cupo: </strong>
                     {{ App\Http\Controllers\ActivityController::quotaCalculator($activity->quotasAct, $activity->activity_id) }}
                     /
                     {{ $activity->quotasAct }}
-                    Libres
+                    Libres </p>
                 </div>
-                <div><strong>Hora de inicio: </strong>{{ $activity->timeAct }}</div>
-                <div><strong>Hora Fin: </strong>{{ $activity->endTimeAct }}</div>
+                <div tabindex="0"> <p> <strong>Hora de inicio: </strong>{{ $activity->timeAct }} </p> </div>
+                <div tabindex="0"> <p> <strong>Hora Fin: </strong>{{ $activity->endTimeAct }} </p> </div>
 
-                <div><strong>Fecha: </strong>{{ date('d-m-Y', strtotime($activity->dateAct)) }}</div>
+                <div tabindex="0"> <p> <strong>Fecha: </strong>{{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>
             </div>
-            <div class="hidden">
+            <div class="hiddenExtAct">
                 <div class="eachRow">
-                    <div>
-                        <strong>Descripcion: </strong>
-                        {{ $activity->descAct }}
+                    <div tabindex="0">
+                        <p> <strong>Descripcion: </strong>
+                        {{ $activity->descAct }} </p>
                     </div>
-                    <div>
-                        <strong>Entidad: </strong>
-                        {{ $activity->entityAct }}
+                    <div tabindex="0">
+                        <p> <strong>Entidad: </strong>
+                        {{ $activity->entityAct }} </p>
                     </div>
-                    <div>
-                        <strong>Dirección: </strong>
-                        {{ $activity->direAct }}
+                    <div tabindex="0">
+                        <p> <strong>Dirección: </strong>
+                        {{ $activity->direAct }} </p>
                     </div>
-                    <div>
-                        <strong>Requisito Previo: </strong>
-                        {{ $activity->requiPrevAct }}
+                    <div tabindex="0">
+                        <p> <strong>Requisito Previo: </strong>
+                        {{ $activity->requiPrevAct }} </p>
                     </div>
-                    <div>
-                        <strong>Formacion deseada: </strong>
-                        {{ $activity->formaAct }}
+                    <div tabindex="0">
+                        <p> <strong>Formacion deseada: </strong>
+                        {{ $activity->formaAct }} </p>
                     </div>
-                    <div>
-                        <strong>Requisitos: </strong>
-                        {{ $activity->requiAct }}
+                    <div tabindex="0">
+                        <p>  <strong>Requisitos: </strong>
+                        {{ $activity->requiAct }} </p>
                     </div>
                 </div>
                 <div class="eachRow">
                     <div>
-                        <strong>Tipos de Actividad: </strong>
+                        <p tabindex="0"> <strong>Tipos de Actividad: </strong> <p> 
                         @foreach ($activity->typeAct as $itemActivityType)
-                            <p>{{ $itemActivityType->nameTypeAct }}</p>
+                            <p tabindex="0">{{ $itemActivityType->nameTypeAct }}</p>
                         @endforeach
                     </div>
-                    <div class="visDate">
-                        <strong>Visibilidad:</strong>
+                    <div class="visDate" tabindex="0">
+                        <p> <strong>Visibilidad:</strong> </p>
                         @if ($activity->isVisible == 0)
                             <i class='bx bxs-low-vision' style="font-size:25px;"></i>
-                            Actualmente Invisible / No publicado
+                            <p> Actualmente Invisible / No publicado </p>
                         @else
                             <i class='bx bx-show' style="font-size:25px;"></i>
-                            Actualmente Visible / Publicado
+                            <p> Actualmente Visible / Publicado </p>
                         @endif
                     </div>
                 </div>
@@ -77,22 +77,22 @@
             <form method="POST" action="{{ route('dashboard.formCreateInfoExtra') }}">
                 @csrf
                 <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                <button type="submit" id="submit" class="botonesControl">
+                <button type="submit" id="submit" class="botonesControl" aria-label="Crear información extra" >
                     CREAR INFORMACIÓN EXTRA
                     <br />
                     <i class='bx bx-folder-plus'></i>
                 </button>
             </form>
             @if (count($activity->infoExtra) == 0)
-                <div class="center">
-                    Esta actividad no tiene Información Extra
+                <div class="center" tabindex="0">
+                    <p> Esta actividad no tiene Información Extra </p>
                 </div>
             @else
                 @foreach ($activity->infoExtra as $infoExtra)
                     <div class="mainData">
                         <div class="row">
-                            <div class="extraName">
-                                <strong>Nombre: </strong>{{ $infoExtra->titleInfoExtra }}
+                            <div class="extraName" tabindex="0">
+                                <p> <strong>Nombre: </strong>{{ $infoExtra->titleInfoExtra }} </p>
                             </div>
                             <div class="extraName">
                                 <form method="POST" action="{{ route('dashboard.showInfoExtra') }}">
