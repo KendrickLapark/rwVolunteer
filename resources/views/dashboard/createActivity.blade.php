@@ -106,17 +106,19 @@
                         <input type="number" id="quotasAct" name="quotasAct" required>
                     </p>
                 </div>
-                <div class="eachCreateActivityElement">
+                <div class="eachCreateActivityElement" tabindex="0" role="select">
                     <p>Si quieres seleccionar más de uno usa las teclas Mayúscula o control</p>
-                    <select name="ActTypes[]" id="ActTypes" multiple="multiple" class="multipleSelect big">
+                    <select name="ActTypes[]" id="ActTypes" role="select" multiple="multiple" class="multipleSelect big">
+                        <ul tabindex="0">
                         @foreach ($activityTypes as $type)
-                            <option value="{{ $type->typeAct_id }}">{{ $type->nameTypeAct }}</option>
+                            <li> <option value="{{ $type->typeAct_id }}" tabindex="0">{{ $type->nameTypeAct }}</option> </li>
                         @endforeach
+                        </ul>
                     </select>
                 </div>
 
                 <div class="eachCreateActivityElement">
-                    <p tabindex="0">La actividad se guardara como INVISIBLE/BORRADOR</p>
+                    <p tabindex="0"> La actividad se guardara como INVISIBLE/BORRADOR </p>
                 </div>
                 <div class="eachCreateActivityElement">
                     <button type="submit" class="botonesControl" aria-label="Guardar actividad">Guardar</button>

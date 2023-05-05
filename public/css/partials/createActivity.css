@@ -23,7 +23,16 @@ select.small {
 
 @media only screen and (max-width: 1024px){
     .mainDataCenterCreateActivity{
-        width: 50% !important;
+        width: 100% !important;
+    }
+
+    .mainDataCenterCreateActivity div{
+        width: 80% !important;
+    }
+
+    .mainTray{
+        width: 100% !important;
+
     }
 
 }
