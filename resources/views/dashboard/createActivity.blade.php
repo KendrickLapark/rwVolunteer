@@ -109,9 +109,9 @@
                 <div class="eachCreateActivityElement" tabindex="0" role="select">
                     <p>Si quieres seleccionar más de uno usa las teclas Mayúscula o control</p>
                     <select name="ActTypes[]" id="ActTypes" role="select" multiple="multiple" class="multipleSelect big">
-                        <ul tabindex="0">
+                        <ul>
                         @foreach ($activityTypes as $type)
-                            <li> <option value="{{ $type->typeAct_id }}" tabindex="0">{{ $type->nameTypeAct }}</option> </li>
+                            <li> <option value="{{ $type->typeAct_id }}" aria-selected="false" tabindex="0">{{ $type->nameTypeAct }}</option> </li>
                         @endforeach
                         </ul>
                     </select>

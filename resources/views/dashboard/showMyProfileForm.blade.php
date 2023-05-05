@@ -111,22 +111,22 @@
                         </div>
 
                         <div class="eachCreateInfoExtraElement">
-                            <p>
+                            <p tabindex="0">
                                 <label id="labelDelegations" class="formSections" for="shirtSizeVol"><strong>Delegaciones:
                                     </strong></label>
                                 <br/>
-                            <p>Si quieres seleccionar más de uno usa las teclas Mayuscula o control</p>
+                            Si quieres seleccionar más de uno usa las teclas Mayuscula o control</p>
                             <?php
                             $checked = [];
                             foreach ($volunteer->delegations as $delegation) {
                                 array_push($checked, $delegation->delegation_id);
                             }
-                            echo '<select name="delegations[]" id="delegations" multiple="multiple" class="multipleSelect big">';
+                            echo '<select name="delegations[]" id="delegations" role="select" multiple="multiple" class="multipleSelect big">';
                             foreach ($allDelegations as $delegation) {
                                 if (in_array($delegation->delegation_id, $checked)) {
-                                    echo '<option value="' . $delegation->delegation_id . '" selected>' . $delegation->nameDel . '</option>';
+                                    echo '<option value="' . $delegation->delegation_id . '" aria-selected="true" selected>' . $delegation->nameDel . '</option>';
                                 } else {
-                                    echo '<option value="' . $delegation->delegation_id . '">' . $delegation->nameDel . '</option>';
+                                    echo '<option value="' . $delegation->delegation_id . ' aria-selected="false" ">' . $delegation->nameDel . '</option>';
                                 }
                             }
                             echo '</select>';
@@ -340,8 +340,7 @@
             </div>
 
             <div class="divButtonMyProfile">              
-                    <p><button type="submit" class="botonesControl" id="updateMyProfile">Actualizar</button></p>
-                
+                    <p><button type="submit" class="botonesControl" id="updateMyProfile">Actualizar</button></p>         
             </div>
 
         </form>
