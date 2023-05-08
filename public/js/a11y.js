@@ -319,9 +319,11 @@ $(() => {
             tamaño = parseInt($('#ti1').css('font-size'));
 
             curSize = parseInt($('#ti1').css('font-size')) + 10;
+
 		    if (curSize <= 48){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
                 $('h1').css('font-size', curSize);
+                $('span').css('font-size', curSize);
                 $('button').css('font-size', curSize);
                 $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize);
@@ -334,9 +336,11 @@ $(() => {
             tamaño = parseInt($('#ti1').css('font-size'));
 
             curSize = parseInt($('#ti1').css('font-size')) - 10;
+            
 		    if (curSize >= 18){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
                 $('h1').css('font-size', curSize);
+                $('span').css('font-size', curSize);
                 $('button').css('font-size', curSize);
                 $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize); 

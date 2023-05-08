@@ -121,7 +121,7 @@
                             foreach ($volunteer->delegations as $delegation) {
                                 array_push($checked, $delegation->delegation_id);
                             }
-                            echo '<select name="delegations[]" id="delegations" tabindex="0" role="select" multiple="multiple" class="multipleSelect big">';
+                            echo '<select name="delegations[]" id="delegations" multiple="multiple" class="multipleSelect big">';
                             foreach ($allDelegations as $delegation) {
                                 if (in_array($delegation->delegation_id, $checked)) {
                                     echo '<option value="' . $delegation->delegation_id . '" aria-selected="true" selected>' . $delegation->nameDel . '</option>';

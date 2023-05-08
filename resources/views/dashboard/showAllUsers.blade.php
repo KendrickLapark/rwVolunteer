@@ -19,7 +19,9 @@
                         <input type="search" name="search" title="Escriba el nombre del usuario que desea buscar" role="search" id="search" placeholder="Buscar contactos..." 
                         class="form-search" onfocus="this.value=''">
                     </div>
-                    <div id="search_list"></div>
+                    <div id="search_list">
+                        
+                    </div>
                 </div>
                     <div class="col-lg-3"></div>
             </div>

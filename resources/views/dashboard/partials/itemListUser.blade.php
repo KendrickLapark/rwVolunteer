@@ -1,4 +1,6 @@
+<ol>
 @foreach ($volunteers as $volunteer)
+        <li>
             <div class="mainData">
                 <div class="row">
                     <div class="avatarUserRow" tabindex="0">
@@ -199,7 +201,9 @@
                     </div>
                 </div>
             </div>
+        </li>
         @endforeach
+</ol>
 
         <script type="text/javascript">
 

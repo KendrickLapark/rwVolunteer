@@ -1,4 +1,6 @@
+<ol>
 @foreach ($activities as $activity)
+        <li>
             <div class="mainActivity">
                 <div class="row">
                     <p>
@@ -167,8 +169,12 @@
                 </div>
             </div>
     </div>
+
+    </li>
     
     @endforeach
+
+</ol>
 
 <script type="text/javascript">
 
