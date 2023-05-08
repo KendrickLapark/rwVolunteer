@@ -124,9 +124,9 @@
                             echo '<select name="delegations[]" id="delegations" tabindex="0" role="select" multiple="multiple" class="multipleSelect big">';
                             foreach ($allDelegations as $delegation) {
                                 if (in_array($delegation->delegation_id, $checked)) {
-                                    echo '<option value="' . $delegation->delegation_id . '" selected>' . $delegation->nameDel . '</option>';
+                                    echo '<option value="' . $delegation->delegation_id . '" aria-selected="true" selected>' . $delegation->nameDel . '</option>';
                                 } else {
-                                    echo '<option value="' . $delegation->delegation_id . ' aria-selected="false" ">' . $delegation->nameDel . '</option>';
+                                    echo '<option value="' . $delegation->delegation_id . '" aria-selected="false">' . $delegation->nameDel . '</option>';
                                 }
                             }
                             echo '</select>';

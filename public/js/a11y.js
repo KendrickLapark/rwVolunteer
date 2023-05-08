@@ -316,7 +316,9 @@ $(() => {
 
         $('#ti1').click(function(){
 
-           curSize = parseInt($('#ti1').css('font-size')) + 10;
+            tamaño = parseInt($('#ti1').css('font-size'));
+
+            curSize = parseInt($('#ti1').css('font-size')) + 10;
 		    if (curSize <= 48){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
                 $('h1').css('font-size', curSize);
