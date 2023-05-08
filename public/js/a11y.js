@@ -351,6 +351,7 @@ $(() => {
                 $(htmlElement).css('-webkit-filter', 'grayscale(100%)');
                 $(htmlElement).css('filter', 'grayscale(100%)');              
                 $(htmlElement).css('filter', 'gray');
+                    defaultColors();
                     grayscale = true;
                     high_contrast = false;
                     negative_contrast = false;

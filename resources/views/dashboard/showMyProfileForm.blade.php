@@ -111,8 +111,8 @@
                         </div>
 
                         <div class="eachCreateInfoExtraElement">
-                            <p tabindex="0">
-                                <label id="labelDelegations" class="formSections" for="shirtSizeVol"><strong>Delegaciones:
+                            <p>
+                                <label id="labelDelegations" for="delegations" class="formSections" for="shirtSizeVol"><strong>Delegaciones:
                                     </strong></label>
                                 <br/>
                             Si quieres seleccionar más de uno usa las teclas Mayuscula o control</p>
@@ -121,10 +121,10 @@
                             foreach ($volunteer->delegations as $delegation) {
                                 array_push($checked, $delegation->delegation_id);
                             }
-                            echo '<select name="delegations[]" id="delegations" role="select" multiple="multiple" class="multipleSelect big">';
+                            echo '<select name="delegations[]" id="delegations" tabindex="0" role="select" multiple="multiple" class="multipleSelect big">';
                             foreach ($allDelegations as $delegation) {
                                 if (in_array($delegation->delegation_id, $checked)) {
-                                    echo '<option value="' . $delegation->delegation_id . '" aria-selected="true" selected>' . $delegation->nameDel . '</option>';
+                                    echo '<option value="' . $delegation->delegation_id . '" selected>' . $delegation->nameDel . '</option>';
                                 } else {
                                     echo '<option value="' . $delegation->delegation_id . ' aria-selected="false" ">' . $delegation->nameDel . '</option>';
                                 }
