@@ -223,6 +223,7 @@
     });
 
     $(function() {
+
         var tabindex = 0;
         $('.fc-day').each(function() {
             var $input = $(this);
@@ -230,20 +231,25 @@
 
         });
 
-        $('.fc-day').each(function(e){
-            var input = $(this);
+        $('.fc-day').on("keypress", function(e){
+           
+            var $input = $(this).next('.fc-day-number');                    
+            
+            var $texto = $input.text();  
+            
             if(e.keyCode === 13){
-                alert('hola');
+                alert($texto);
+                console.log($input);
             }
 
         });
 
-        var tabindex2 = 0;
+        /* var tabindex2 = 0;
         $('.fc-event-container a').each(function(event){
             var $input2 = $(this);
             $input2.attr("tabindex", tabindex2);
 
-        });
+        }); */
 
     });
 

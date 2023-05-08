@@ -171,7 +171,7 @@
         display: flex;
         flex-direction: column;
         padding-block: 20px;
-        row-gap: 220px !important;
+        row-gap: 240px !important;
 
     }
 
@@ -185,7 +185,6 @@
     }
 
     .hiddenDaysActivities{
-        margin-inline: auto;
         width: 100%;
     }
 
@@ -206,9 +205,15 @@
         margin: auto;
     }
 
+    .titleDaysAct{
+        text-align: center;
+    }
+
     .searchDayActivity{
         min-width: 70%;
-        margin: auto;
+        text-align: center;
+        justify-content: center;
+        
     }
 
     .eachDayAct{
