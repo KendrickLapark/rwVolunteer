@@ -187,10 +187,13 @@
             selectable: true,
             selectHelper: true,
 
-            select:function(start, end, allDays){           
-
+            select:function(start, end, allDays){  
+            
                 var fechas = []
                 var cont = 0;
+
+                alert("start "+start+" end "+end);
+
                 for(dt=new Date(start); dt<new Date(end); dt.setDate(dt.getDate()+1)){
                     if(cont==7){
                         break;
@@ -229,9 +232,13 @@
             var $input = $(this);
             $input.attr("tabindex", tabindex); 
 
+            var atribute = $(this).attr('data-date');
+
+            var setAttr = $(this).attr('aria-label', atribute);
+
         });
 
-        $('.fc-day').on("keypress", function(e){
+        /* $('.fc-day').on("keypress", function(e){
            
             var $input = $(this).next('.fc-day-number');                    
             
@@ -240,6 +247,16 @@
             if(e.keyCode === 13){
                 alert($texto);
                 console.log($input);
+            }
+
+        }); */
+
+        $('td.fc-day').on("keypress", function(e){
+
+            var atribute = $(this).attr('data-date')
+
+            if(e.keyCode === 13){
+                ajaxCall()
             }
 
         });
