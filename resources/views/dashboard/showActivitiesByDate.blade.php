@@ -87,8 +87,7 @@
                     
                     });
 
-                    $('.searchDayActivity').eq(pos).html(data.html); 
-                  
+                    $('.searchDayActivity').eq(pos).html(data.html);                  
 
                     $aux = $('.accordion').eq(pos).prev().text(); //texto del dayActTitle
                     $aux2 = $('#dayActTitle').eq(pos);
@@ -192,8 +191,6 @@
                 var fechas = []
                 var cont = 0;
 
-                alert("start "+start+" end "+end);
-
                 for(dt=new Date(start); dt<new Date(end); dt.setDate(dt.getDate()+1)){
                     if(cont==7){
                         break;
@@ -222,12 +219,67 @@
             },
 
         });
-
+        
     });
 
     $(function() {
 
+        function ajaxCall(datos, pos, longitud){
+
+            return $.ajax({
+
+                url:"searchDayActivity",
+                type:"GET",
+                data:{'searchDayActivity':datos},
+                    success:function(data){
+
+                        $( ".searchDayActivity" ).each(function( i ) {
+                            if(i>=longitud){
+                                $( ".searchDayActivity").eq(i).html("");
+                                                        
+                            }
+                        
+                        });
+
+                        $('.searchDayActivity').eq(pos).html(data.html);                  
+
+                        $aux = $('.accordion').eq(pos).prev().text(); //texto del dayActTitle
+                        $aux2 = $('#dayActTitle').eq(pos);
+                        
+                        /* $(".accordion").eq(pos).attr('aria-describedby', $aux2 ); no lo settea correctamente  */
+                        $(".accordion").eq(pos).append($aux); 
+                        
+                        $('.panel').eq(pos).hide();
+                        $('.accordion').eq(pos).on("click", function(){
+                            if($(this).next().is(':hidden'))
+                                $(this).next().show('slow');
+                            else{
+                                $(this).next().hide('slow');
+                                }                        
+                        });
+
+                        $('.panel2').eq(pos).hide();
+                        $('.accordion2').eq(pos).on("click", function(){
+                            if($(this).next().is(':hidden'))
+                                $(this).next().show('slow');
+                            else{
+                                $(this).next().hide('slow');
+                                }                        
+                        });
+
+                    }
+
+                })
+
+            }
+
+        var diaInicio, diaFinal;
+
         var tabindex = 0;
+
+        /* permite tabular entre días en el fullcalendar, y settea la fecha del día en cuestión como atributo aria-label para cada celda del fullcalendar
+           permitiendo al screen reader guiar al usuario según el día por el que va tabulando */
+
         $('.fc-day').each(function() {
             var $input = $(this);
             $input.attr("tabindex", tabindex); 
@@ -238,25 +290,51 @@
 
         });
 
-        /* $('.fc-day').on("keypress", function(e){
-           
-            var $input = $(this).next('.fc-day-number');                    
-            
-            var $texto = $input.text();  
-            
-            if(e.keyCode === 13){
-                alert($texto);
-                console.log($input);
-            }
+        var seleccion = 0;
+        var dia1, dia2, dias;
 
-        }); */
+        /* permite seleccionar días mediante teclado, con un primer enter seleccionas el primer día y con el segundo seleccionas el segundo día
+           mostrando el intervalo de esos días como itemDayAct */
 
         $('td.fc-day').on("keypress", function(e){
 
-            var atribute = $(this).attr('data-date')
+            alert("seleccion "+seleccion)
 
             if(e.keyCode === 13){
-                ajaxCall()
+
+                if(seleccion === 0){
+                    seleccion += 1;
+                    dia1 = $(this).attr('data-date');
+
+                    alert("primer dia "+dia1)
+
+                }else if(seleccion === 1){
+                    
+                    dia2 = $(this).attr('data-date');
+
+                    alert("primer dia "+dia1+" segundo dia "+dia2)
+                    
+                    var d1 = new Date(dia1);
+                    var d2 = new Date(dia2);
+
+                    var dif = d2.getTime() - d1.getTime();
+
+                    dias =dif/(1000 * 60 * 60 * 24);
+                    
+                    alert("estos dias son "+diff_);
+
+                    var fInicio = new Date()
+
+                    seleccion = 0;
+
+                }
+
+                //modificar función para que avance día a día dentro del intervalo de días seleccionado
+
+                for( var i = 0; i < dias; i++){
+                    ajaxCall(dia1, dia2, dias )
+                }
+                
             }
 
         });
