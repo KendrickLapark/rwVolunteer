@@ -305,6 +305,7 @@
                 if(seleccion === 0){
                     seleccion += 1;
                     dia1 = $(this).attr('data-date');
+                    dia2 = $(this).attr('data-date');
 
                     alert("primer dia "+dia1)
 
@@ -316,23 +317,46 @@
                     
                     var d1 = new Date(dia1);
                     var d2 = new Date(dia2);
+                    var aux, aux2;
+
+                    var dif = d2.getTime() - d1.getTime();
+
+                    if(dif<0){
+                        aux = d1;
+                        d1 = d2;
+                        d2 = aux;
+
+                        aux2 = dia1;
+                        dia1 = dia2;
+                        dia2 = aux;
+                    }
 
                     var dif = d2.getTime() - d1.getTime();
 
                     dias =dif/(1000 * 60 * 60 * 24);
                     
-                    alert("estos dias son "+diff_);
+                    alert("estos dias son "+dif);
 
-                    var fInicio = new Date()
+                    alert("dias al final. Día 1 "+dia1+" dia2 "+dia2)
 
                     seleccion = 0;
 
                 }
 
-                //modificar función para que avance día a día dentro del intervalo de días seleccionado
+                var fechas2 = []
+                var cont2 = 0;                   
 
-                for( var i = 0; i < dias; i++){
-                    ajaxCall(dia1, dia2, dias )
+                for( dt = new Date(dia1); dt <= new Date(dia2); dt.setDate(dt.getDate()+1) ){
+                    if(cont2==7){
+                        break;
+                    }
+                    fechas2.push(new Date(dt));
+                    cont2+=1;
+                }
+
+                for (var i = 0; i < fechas2.length; i++){
+                ajaxCall(formateaFecha(fechas2[i]), i, fechas2.length); 
+
                 }
                 
             }
