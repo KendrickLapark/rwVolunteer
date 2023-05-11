@@ -1,5 +1,6 @@
 .mainDataShowDoc{
-    margin-left: 30%;
+    margin-inline: auto;
+    padding-inline: auto;
     text-align: center;
     width: 40%;
     
@@ -8,6 +9,30 @@
 .mainDataShowDoc{
     margin-top: 20px;
     padding-top: 1em;
+
+}
+
+@media only screen and (max-width: 720px){
+
+    .mainDataShowDoc{
+        margin-inline: auto !important;
+        padding-inline: auto !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    .mainDataShowDoc .rowShowDoc{
+        width: 100%;
+
+    }
+
+    .mainDataShowDoc .rowShowDoc button{
+        margin-inline: auto !important;
+        text-align: center;
+        justify-content: center;
+
+    }
+
 
 }
 

@@ -48,6 +48,11 @@
         flex-direction: column;
     }
 
+    .mainData.center div{
+        margin-block: 15%;
+            
+    }
+
     .titleActivitiesOptions{
         text-align: center;
     }
@@ -66,6 +71,7 @@
 
     .mainData.center{
         flex-direction: column;
+        
     }
 
     .titleActivitiesOptions{

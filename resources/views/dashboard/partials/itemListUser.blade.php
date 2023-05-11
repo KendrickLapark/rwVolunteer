@@ -236,5 +236,43 @@
                 this.setAttribute('aria-expanded', x);
         
             });
+
+            $(".row").on("keypress", function(e) {
+
+                var key = e.which;
+
+                    if(key == 13){
+
+                        var icono = document.querySelector(".bx.bxs-up-arrow");
+                        if ($(this).siblings().is(':visible')) {
+                            $(this).siblings().hide('slow');
+                            icono.style.transform = ''
+                        } else {
+                            $(this).siblings().show('slow');
+                            icono.style.transform = 'rotate(180deg)'
+                        }
+
+                    }
+
+            });
+
+            $(".hidden").on("keypress", function(e) {
+
+            var key = e.which;
+
+                if(key == 13){
+
+                    var icono = document.querySelector(".bx.bxs-up-arrow");
+                    if ($(this).is(':visible')) {
+                        $(this).hide('slow');
+                        icono.style.transform = ''
+                    } else {
+                        $(this).show('slow');
+                        icono.style.transform = 'rotate(180deg)'
+                    }
+
+                }
+
+            });
         
         </script>

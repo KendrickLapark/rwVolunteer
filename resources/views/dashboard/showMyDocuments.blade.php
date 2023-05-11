@@ -19,8 +19,8 @@
 
         @foreach ($documents as $document)
             <div class="mainDataShowDoc">
-                <div class="row">
-                    <div tabindex="0">
+                <div class="rowShowDoc">
+                    <div class="rowTitleShowDoc" tabindex="0">
                         {{ $document->titleDoc }}
                     </div>
                     <div>

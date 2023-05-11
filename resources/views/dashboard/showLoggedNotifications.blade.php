@@ -124,6 +124,45 @@
             $(".lessDetails").on("click", function() {
                 $(this).parent().parent().hide('slow');
             })
+
+            $(".rowLogNot").on("keypress", function(e) {
+
+                var key = e.which;
+
+                    if(key == 13){
+
+                        var icono = document.querySelector(".bx.bx-caret-down");
+                        if ($(this).siblings().is(':visible')) {
+                            $(this).siblings().hide();
+                            icono.style.transform = ''
+                        } else {
+                            $(this).siblings().show();
+                            icono.style.transform = 'rotate(180deg)'
+                        }
+
+                    }
+
+            });
+
+            $(".hiddenLogNot").on("keypress", function(e) {
+
+                var key = e.which;
+
+                    if(key == 13){
+
+                        var icono = document.querySelector(".bx.bxs-up-arrow");
+                        if ($(this).is(':visible')) {
+                            $(this).hide();
+                            icono.style.transform = ''
+                        } else {
+                            $(this).show();
+                            icono.style.transform = 'rotate(180deg)'
+                        }
+
+                    }
+
+            });
+
         });
     </script>
 @endsection

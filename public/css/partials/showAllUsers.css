@@ -16,6 +16,8 @@
 .avatarInShowAllUsers {
     width: 64px;
     border-radius: 35px;
+    margin-inline: auto !important;
+
 }
 
 #search {
@@ -194,21 +196,27 @@
 
     #search{
         width: 70%;
-        margin-left: 65px;
+        margin-left: 55px;
     }
 
     #search_list .row .avatarUserRow{
-        padding: auto;
-        justify-content: center;
-        text-align: center;
+        padding-inline: auto !important;
 
     }
 
     .avatarInShowAllUsers{
         display: flex;
-        padding: auto;
+        padding-inline: auto !important;
         justify-content: center;
         text-align: center;
+    }
+
+    .avatarInShowAllUsers img{
+        display: block;
+        margin: auto;
+        text-align: center;
+        padding-inline: auto !important;
+
     }
 
     #search_list .row .nameSurVol{

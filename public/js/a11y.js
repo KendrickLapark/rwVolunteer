@@ -15,10 +15,6 @@ $(() => {
         var sidebar_button_bc = getComputedStyle(document.querySelector('.sidebar-button')).backgroundColor;
     }
 
-    /* if($('.sidebar span')[0]){
-        var sidebar_span_c = getComputedStyle(document.querySelector('.sidebar span')).color;
-    } */
-
     if($('.dashboard')[0]){
         var dashboard_c = getComputedStyle(document.querySelector('.dashboard')).color;
     }
@@ -238,10 +234,6 @@ $(() => {
             $('.sidebar li').css('background', sidebar_bc);
         }
 
-        /* if($('.sidebar span')[0]){
-            $('.sidebar span').css('color', sidebar_span_c);
-        } */
-
         if($('.adminMenu')[0]){
             $('.adminMenu').css('background', adminMenu_bc);
             $('.sidebar .nav-links .adminMenu .links_name').css('color', sidebar_c);
@@ -267,12 +259,6 @@ $(() => {
         if($('.inner_hidden_msg_Inscription')[0]){
             $('.inner_hidden_msg_Inscription').css('background', inner_hidden_msg_Inscription_bc);
         } 
-
-        /* if($('.hidden_msg_Inscription')[0]){
-            $('.hidden_msg_Inscription').children().each( function(){
-                $(this).css('background', hidden_msg_Inscription_bc);
-            })
-        } */
 
         if($('.toolbar-inner')[0]){
             $('.toolbar-inner').css('background', toolbar_inner_bc);      
@@ -434,21 +420,5 @@ $(() => {
             restoreFontSize();
 
         });
-
-        /* Importarlo en dashboard.blade.php */
-
-        /* $('#desplegar').click(function(){
-
-            var x = document.getElementById('#desplegar').getAttribute('aria-expanded');
-
-                if( x = true){
-                    x = false;
-                } else {
-                    x = true;
-                }
-
-            document.getElementById('#desplegar').setAttribute('aria-expanded', x);
-
-        }); */
 
 });

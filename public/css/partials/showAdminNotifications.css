@@ -15,6 +15,18 @@
 
 }
 
+.avatarAdminNot{
+    margin-inline: auto !important;
+
+}
+
+.avatarAdminNot img{
+    display: flex;
+    width: 96px;
+    border-radius: 50%;
+    margin-inline: auto !important;
+}
+
 .mainDataAdminNot .row{
     width: 30%;
     padding-block: 1%;
@@ -31,4 +43,28 @@
     margin-inline: auto;
     margin-block: 2%;
     border: 1px solid grey;
+}
+
+@media only screen and (max-width: 780px){
+
+    .mainDataAdminNot{
+        width: 80%;
+        
+    }
+
+    .avatarAdminNot{
+        margin-inline: auto !important;
+        width: 64px;
+        border-radius: 25px;
+        text-align: center;
+    }
+
+    .mainDataAdminNot .row{
+        width: 100%;
+    }
+
+    .mainDataAdminNot .hiddenAdminNot{
+        width: 100%;
+    }
+
 }

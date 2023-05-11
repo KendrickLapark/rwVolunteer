@@ -24,12 +24,11 @@
                 @foreach ($isNotCompleted as $eachNotCompleted)
                     <div>
                         <div class="row">
-                            <div>
+                            <div class="avatarAdminNot">
                                 @if ($eachNotCompleted->imageVol == 0 || $eachNotCompleted->imageVol == null)
-                                    <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" tabindex="0" alt="No hay imagen" class="avatarInShowAllUsers">
+                                    <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" tabindex="0" alt="No hay imagen" >
                                 @else
-                                    <img src="{{ asset('storage/avatar/' . $eachNotCompleted->imageVol) }}" tabindex="0"
-                                     alt="{{ $eachNotCompleted->nameVol }}" class="avatarInShowAllUsers">
+                                    <img src="{{ asset('storage/avatar/' . $eachNotCompleted->imageVol) }}" tabindex="0" alt="{{ $eachNotCompleted->nameVol }}">
                                 @endif
                             </div>
                             <div>
@@ -217,12 +216,12 @@
             @foreach ($inscriptionNotValidated as $inscription)
                 <div class="mainDataAdminNot">
                     <div class="row">
-                        <div>
+                        <div class="avatarAdminNot">
                             @if ($inscription->volunteer->imageVol == 0 || $inscription->volunteer == null)
-                                <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" tabindex="0" alt="No hay imagen" class="avatarInShowAllUsers">
+                                <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" tabindex="0" alt="No hay imagen" >
                             @else
                                 <img src="{{ asset('storage/avatar/' . $inscription->volunteer->imageVol) }}"
-                                    alt="{{ $inscription->volunteer->nameVol }}" tabindex="0" class="avatarInShowAllUsers">
+                                    alt="{{ $inscription->volunteer->nameVol }}" tabindex="0">
                             @endif
                         </div>
                         <div tabindex="0">
@@ -271,16 +270,16 @@
                             </div>
                         </div>
                         <div class="eachRow">
-                            <div tabindex="0">
-                                <p> <strong>Delegaciones: </strong> 
+                            <p> <div tabindex="0">
+                                <strong>Delegaciones: </strong> 
                                 @if (count($inscription->volunteer->delegations) == 0)
                                     No tiene delegaciones
                                 @else
                                     @foreach ($inscription->volunteer->delegations as $delegation)
-                                        {{ $delegation->nameDel }} </p>,
+                                        {{ $delegation->nameDel }} ,
                                     @endforeach
                                 @endif
-                            </div>
+                            </div> </p>
                         </div>
                         @if (date('Y') - date('Y', strtotime($inscription->volunteer->birthDateVol)) <= 17)
                             <div class="eachRow">
@@ -301,8 +300,6 @@
                                 </div>
                             </div>
                         @endif
-
-
 
                         <div class="eachRow">
                             <div>

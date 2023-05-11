@@ -307,13 +307,9 @@
                     dia1 = $(this).attr('data-date');
                     dia2 = $(this).attr('data-date');
 
-                    alert("primer dia "+dia1)
-
                 }else if(seleccion === 1){
                     
                     dia2 = $(this).attr('data-date');
-
-                    alert("primer dia "+dia1+" segundo dia "+dia2)
                     
                     var d1 = new Date(dia1);
                     var d2 = new Date(dia2);
@@ -333,11 +329,7 @@
 
                     var dif = d2.getTime() - d1.getTime();
 
-                    dias =dif/(1000 * 60 * 60 * 24);
-                    
-                    alert("estos dias son "+dif);
-
-                    alert("dias al final. Día 1 "+dia1+" dia2 "+dia2)
+                    dias =dif/(1000 * 60 * 60 * 24);          
 
                     seleccion = 0;
 

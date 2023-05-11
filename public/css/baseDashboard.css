@@ -611,7 +611,7 @@ nav .profile-details i {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
     .sidebar {
         width: 0;
     }
@@ -881,6 +881,7 @@ div.logo-details {
 }
 
 @media (max-width: 1150px) {
+
     #calendarCaption {
         flex-direction: column;
     }
