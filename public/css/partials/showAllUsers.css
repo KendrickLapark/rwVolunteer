@@ -14,9 +14,9 @@
 }
 
 .avatarInShowAllUsers {
+    display: flex;
     width: 64px;
     border-radius: 35px;
-    margin-inline: auto !important;
 
 }
 
@@ -28,6 +28,10 @@
     padding-left: 35px;
 
   }
+
+.container .row, .container .hidden{
+    margin-inline: auto !important;
+}
 
 #search_list .row{
     padding-top: 15px;
@@ -46,9 +50,8 @@
 }
 
 #search_list .row .avatarUserRow{
-    width: 9%;
-    padding: auto;
-    flex-shrink: 0;
+    width: 20%;
+    padding-inline: auto !important;
     
 }
 
@@ -82,11 +85,11 @@
 #search_list .hidden{
     display:flex;
     flex-direction: column;
+    padding-inline: 15px;
+    padding-block: 15px;
     background-color: #004a98;
     color:white;
-    border-radius: 25px;
-    margin: 20px;
-    padding: 10px;
+    border-radius: 25px; 
     width: 40%;
 }
 
@@ -117,24 +120,6 @@
     padding-left: 10px;
 }
 
-@media only screen and (max-width: 1025px) {
-    #search_list .row {
-        flex-direction: column;
-        align-items: center;
-        width: auto;
-        
-    }
-
-    #search_list .hidden {
-        flex-direction: column;
-        padding-left: 0;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        width: auto;
-
-    }
-}
-
 .stateNotification {
     vertical-align: center;
 }
@@ -142,7 +127,6 @@
 .eachRowInscription {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: center;
     border-bottom: 3px solid black;
     border-top: 3px solid black;
@@ -154,23 +138,6 @@
     padding: auto;
     line-height: 20px;
 }
-
-/* .mainData .row>div,
-.mainData .hidden .eachRow>div {
-    margin-left: 30px;
-    margin-top: 10px;
-    margin-right: 30px;
-    line-height: 25px;
-}
-
-.mainData .row{
-    margin: 10px;
-} */
-
-/* .mainData .row .controlButton {
-    margin-left: 30px;
-    font-size: 30px;
-} */
 
 .mainData .row .controlButton:hover {
     color: #2697FF;
@@ -190,7 +157,7 @@
 @media only screen and (max-width: 1025px) {
 
     .row{
-        width: 70%;
+        width: 85%;
         margin: auto;
     }
 
@@ -199,23 +166,23 @@
         margin-left: 55px;
     }
 
+    #search_list .row {
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+        
+    }
+
+    #search_list .hidden {
+        flex-direction: column;
+        width: auto;
+
+    }
+
     #search_list .row .avatarUserRow{
-        padding-inline: auto !important;
-
-    }
-
-    .avatarInShowAllUsers{
+        width: 100%;
         display: flex;
-        padding-inline: auto !important;
         justify-content: center;
-        text-align: center;
-    }
-
-    .avatarInShowAllUsers img{
-        display: block;
-        margin: auto;
-        text-align: center;
-        padding-inline: auto !important;
 
     }
 

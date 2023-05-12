@@ -39,7 +39,7 @@
                         <div tabindex="0"><strong>Fecha: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }}</div>
 
                         <div class="controlButton moreDetails" tabindex="0">
-                            <i class='bx bxs-down-arrow'></i>
+                            <i class='bx bxs-down-arrow' id="displayTriggerIcon"></i>
                         </div>
                     </div>
                     <div class="hiddenLogNot">
@@ -105,6 +105,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
             @endif
         @endforeach
     </div>
@@ -131,7 +132,7 @@
 
                     if(key == 13){
 
-                        var icono = document.querySelector(".bx.bx-caret-down");
+                        var icono = document.querySelector(".rowLogNot > #displayTriggerIcon");
                         if ($(this).siblings().is(':visible')) {
                             $(this).siblings().hide();
                             icono.style.transform = ''

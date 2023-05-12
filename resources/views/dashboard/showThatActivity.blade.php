@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="mainTray">
+    <div class="mainTrayLogNot">
 
         <div class="sectionTitle">
             MOSTRANDO ACTIVIDAD
@@ -20,8 +20,8 @@
         @endif
 
 
-        <div class="mainData">
-            <div class="row">
+        <div class="mainDataLogNot">
+            <div class="rowLogNot">
                 <div>
                     <strong>Nombre: </strong>{{ $activity->nameAct }}
                 </div>
@@ -41,7 +41,7 @@
                     <i class='bx bxs-down-arrow'></i>
                 </div>
             </div>
-            <div class="hidden">
+            <div class="hiddenLogNot">
                 <div class="eachRow">
                     <div>
                         <strong>Descripcion: </strong>

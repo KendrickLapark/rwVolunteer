@@ -49,8 +49,8 @@
                                 No tiene delegación </p>
                             @else
                                 @foreach ($volunteer->delegations as $delegation)
-                                    <p> {{ $delegation->nameDel }} </p>,
-                                @endforeach
+                                    {{ $delegation->nameDel }} ,
+                                @endforeach </p>
                             @endif
                         </div>
                     </div>
