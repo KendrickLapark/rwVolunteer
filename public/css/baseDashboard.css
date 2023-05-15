@@ -12,6 +12,7 @@
 @import "partials/createActivity.css";
 @import "partials/showAllExtraActivity.css";
 @import "partials/showThatActivity.css";
+@import "partials/showAllEducation.css";
 
 body {
     background-color: #ffffff;

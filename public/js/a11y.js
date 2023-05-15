@@ -7,8 +7,12 @@ $(() => {
     var toolbar_text_color = getComputedStyle(document.querySelector('.toolbar-text')).color;
     var toolbar_inner_color = getComputedStyle(document.querySelector('.toolbar-inner')).color;
 
-    if($('.toolbar-item svg')[0]){
-        var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item svg')).backgroundColor;
+    if($('button i')[0]){
+        var button_i_c = getComputedStyle(document.querySelector('button i')).color;
+    }
+
+    if($('.notifyTrayIns')[0]){
+        var notifyTrayIns_bc = getComputedStyle(document.querySelector('.notifyTrayIns')).backgroundColor;
     } 
 
     if($('.sidebar-button')[0]){
@@ -58,7 +62,11 @@ $(() => {
     if($('.home-section')[0]){
         var home_section_bc = getComputedStyle(document.querySelector('.home-section')).backgroundColor;
     }
-
+    
+    if($('.mainTray')[0]){
+        var mainTray_bc = getComputedStyle(document.querySelector('.mainTray')).backgroundColor;
+    }
+    
     if($('.mainTrayDashboard')[0]){
         var mainTrayDashboard_bc = getComputedStyle(document.querySelector('.mainTrayDashboard')).backgroundColor;
     }
@@ -110,11 +118,7 @@ $(() => {
     if($('.sidebar .nav-links .adminMenu .links_name')[0]){
         var sidebar_c = getComputedStyle(document.querySelector('.sidebar .nav-links .adminMenu .links_name')).color;
     }
-
-    if($('.toolbar-item svg')[0]){
-        var toolbar_icons_c = getComputedStyle(document.querySelector('.toolbar-item svg')).color;
-    }
-
+ 
     if($('button')[0]){
         var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
         var button_c = getComputedStyle(document.querySelector('button')).color;
@@ -141,11 +145,6 @@ $(() => {
         $('.toolbar-inner').css('color', toolbar_inner_color);
         $('.toolbar-text').css('color', toolbar_text_color);
         $('p').css('color', p_color);
-        
-
-        if($('.toolbar-item svg')[0]){
-            $('.toolbar-item svg').css('color', toolbar_icons_c);
-        }
 
         if($('i')[0]){
             $('i').css('color', i_c);
@@ -159,6 +158,17 @@ $(() => {
         if($('div')[0]){
             $('div').css('color', div_color);
             $('div').css('background', div_bc);
+        }
+ 
+        $('div').find('div').each(function(){
+            $(this).css('background', mainTray_bc);
+            $(this).css('color', div_color);
+
+        })
+
+        if($('.notifyTrayIns')[0]){
+            $('.notifyTrayIns').css('background', notifyTrayIns_bc);
+
         }
 
         if($('.sidebar')[0]){
@@ -272,8 +282,18 @@ $(() => {
             $('h1').css('color', h1_c);
         }
 
-         if($('.toolbar_item svg')[0]){
-            $('.toolbar_item svg').css('background', toolbar_item_bc); 
+        if($('.mainTray')[0]){
+            $('.mainTray').css('background', mainTray_bc);
+        }
+
+
+
+        if($('button i')[0]){
+            $('button i').css('color', button_i_c); 
+        }
+
+        if($('.toolbar-item svg')[0]){
+            $('.toolbar-item svg').css('color', toolbar_text_color); 
         } 
 
     }
