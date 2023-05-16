@@ -42,17 +42,18 @@ class NotifyController extends Controller
                                 ->where('isAdminVol','=',0)
                                 ->where('isRegisterComplete','=',0)
                                 ->count();
+
         if($isNotCompleted>0){
             return true;
         }
 
         $inscriptionNotValidated=Inscription::where('filenameIns','!=', null)
                                             ->where('isCompletedIns', 0)
-                                            ->count();
+                                            ->count();               
+
         if($inscriptionNotValidated>0){
             return true;
         }
-
 
         /* Documentos */
         return false;
@@ -61,6 +62,7 @@ class NotifyController extends Controller
     public static function notifyLoggedTrigger()
     {
         /* Tenemos documentos que subir */
+
         $activities=Volunteer::find(Auth::user()->id)->activities;
 
         $noDocUploaded=0;
@@ -69,6 +71,7 @@ class NotifyController extends Controller
                 $noDocUploaded++;
             }
         }
+
         if ($noDocUploaded>0){
             return true;
         } 

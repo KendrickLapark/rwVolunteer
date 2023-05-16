@@ -166,6 +166,11 @@ $(() => {
 
         })
 
+        $('.mainTrayDateActivities').find('div').each(function(){
+            $(this).css('background', mainTray_bc);
+            $(this).css('color', div_color);
+        })
+
         if($('.notifyTrayIns')[0]){
             $('.notifyTrayIns').css('background', notifyTrayIns_bc);
 
@@ -285,8 +290,6 @@ $(() => {
         if($('.mainTray')[0]){
             $('.mainTray').css('background', mainTray_bc);
         }
-
-
 
         if($('button i')[0]){
             $('button i').css('color', button_i_c); 

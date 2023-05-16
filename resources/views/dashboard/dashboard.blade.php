@@ -9,19 +9,17 @@
     @if (App\Http\Controllers\NotifyController::notifyLoggedTrigger())
         <div class="notifyTrayIns">
             <div class="sectionTitle">
-                    <i class='bx bx-envelope'></i>
-                    {{-- <span class="badge"> </span> --}}
-                        <p id="title-desc"> Tienes notificaciones </p>
-                    <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>                
+                <i class='bx bx-envelope'></i>
+                    <p id="title-desc"> Tienes notificaciones </p>
+                <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>            
             </div>
         </div>
     @else
         <div class="notifyTrayIns">
             <div class="sectionTitle">
-                    <i class='bx bx-envelope'></i>
-                    {{-- <span class="badge"> </span> --}}
-                      <p class="title-desc"> No tienes notificaciones </p>
-                    <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" role="button" aria-describedby="title-desc"></i>                   
+                <i class='bx bx-envelope'></i>                  
+                    <p class="title-desc"> Tienes notificaciones </p>
+                <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" role="button" aria-describedby="title-desc"></i>                   
             </div>
         </div>
     @endif 
