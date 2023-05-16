@@ -770,7 +770,7 @@ div.logo-details {
 }
 
 #sectionTitleAdmin a{
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 
 /* End Notifications */
