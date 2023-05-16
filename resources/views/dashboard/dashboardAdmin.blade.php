@@ -16,7 +16,7 @@
     @else
         <div class="notifyTray">
             <div class="sectionTitle" id="sectionTitleAdmin">
-                    AHORA MISMO NO TIENES NOTIFICACIONES QUE ATENDER<br/>GRACIAS
+                    <h1> AHORA MISMO NO TIENES NOTIFICACIONES QUE ATENDER <h1> <br/>GRACIAS
             </div>
         </div>
     @endif
