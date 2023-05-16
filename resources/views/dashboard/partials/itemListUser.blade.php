@@ -162,7 +162,7 @@
                     <div class="eachRow">
                         <div>
                             <div class="eachRow">
-                                <div tabindex="0"> <p< <strong>Actividades a las que se ha inscrito:</strong> </p> </div>
+                                <div tabindex="0"> <p> <strong>Actividades a las que se ha inscrito:</strong> </p> </div>
                             </div>
                             @if (count($volunteer->inscriptions) == 0)
                                 <div class="eachRowInscription">

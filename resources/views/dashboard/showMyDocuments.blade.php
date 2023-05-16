@@ -16,33 +16,36 @@
             </div>
         @endif
 
-
-        @foreach ($documents as $document)
-            <div class="mainDataShowDoc">
-                <div class="rowShowDoc">
-                    <div class="rowTitleShowDoc" tabindex="0">
-                        {{ $document->titleDoc }}
-                    </div>
-                    <div>
-                        @if (!$document->isContactModelVol && !$document->isInscripModelVol)
-                            <form method="POST" action="{{ route('dashboard.deleteDocument') }}">
+        <ol>
+            @foreach ($documents as $document)
+            <li>
+                <div class="mainDataShowDoc">
+                    <div class="rowShowDoc">
+                        <div class="rowTitleShowDoc" tabindex="0">
+                            {{ $document->titleDoc }}
+                        </div>
+                        <div>
+                            @if (!$document->isContactModelVol && !$document->isInscripModelVol)
+                                <form method="POST" action="{{ route('dashboard.deleteDocument') }}">
+                                    @csrf
+                                    <input type="hidden" name="doc" value="{{ $document->doc_id }}">
+                                    <button type="submit" id="downloadDoc" class="botonesControl"><i
+                                            class='bx bx-trash'></i></button>
+                                </form>
+                            @endif
+                        </div>
+                        <div>
+                            <form method="POST" action="{{ route('dashboard.downloadDocument') }}">
                                 @csrf
-                                <input type="hidden" name="doc" value="{{ $document->doc_id }}">
+                                <input type="hidden" tabindex="0" name="doc" value="{{ $document->doc_id }}">
                                 <button type="submit" id="downloadDoc" class="botonesControl"><i
-                                        class='bx bx-trash'></i></button>
+                                        class='bx bx-save'></i></button>
                             </form>
-                        @endif
-                    </div>
-                    <div>
-                        <form method="POST" action="{{ route('dashboard.downloadDocument') }}">
-                            @csrf
-                            <input type="hidden" tabindex="0" name="doc" value="{{ $document->doc_id }}">
-                            <button type="submit" id="downloadDoc" class="botonesControl"><i
-                                    class='bx bx-save'></i></button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            </li>
+            @endforeach
+        </ol>
     </div>
 @endsection

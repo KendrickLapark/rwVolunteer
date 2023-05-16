@@ -28,8 +28,10 @@
                <p> No tienes inscripciones hechas en ninguna actividad. </p>
             </div>                          
         @else     
-        <div class="listTrayDashboard" id="#listTrayDashboard">         
-            @foreach ($inscriptions as $inscription)                      
+        <div class="listTrayDashboard" id="#listTrayDashboard">    
+        <ol>     
+            @foreach ($inscriptions as $inscription)  
+            <li>                    
                 <div class="mainActivityDashboard">
                     @if($inscription->filenameIns == null)
                         {{-- @include('dashboard.partials.itemListInscription') --}}
@@ -83,8 +85,10 @@
                             </div>
                         </div>                                                                            
                     @endif
-                </div>                               
+                </div>  
+            </li>                             
             @endforeach
+        </ol>
         @endif
     </div>
 </div>

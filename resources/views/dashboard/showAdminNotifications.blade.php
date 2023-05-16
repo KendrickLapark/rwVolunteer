@@ -31,7 +31,6 @@
                                     <img src="{{ asset('storage/avatar/' . $eachNotCompleted->imageVol) }}" tabindex="0" alt="{{ $eachNotCompleted->nameVol }}">
                                 @endif
                             </div>
-                            <div>
                                 <strong tabindex="0">
                                    <p> {{ $eachNotCompleted->nameVol }}
                                     {{ $eachNotCompleted->surnameVol }}
@@ -43,7 +42,6 @@
                                 @else
                                     <div tabindex="0"> <p> {{ $eachNotCompleted->organiVol }} </p> </div>
                                 @endif
-                            </div>
                             <div class="mailVol">
                                 <i class='bx bx-envelope'></i>
                                 <a href="mailto:{{ $eachNotCompleted->persMailVol }}"> <p> {{ $eachNotCompleted->persMailVol }} </p> </a>
@@ -58,90 +56,55 @@
                         </div>
                         <div class="hiddenAdminNot">
                             <div class="eachRow">
-                                <div>
-                                    <p> <strong>Fecha de nacimiento: </strong>
-                                    {{ date('d-m-Y', strtotime($eachNotCompleted->organiVol)) }} </p>
-                                </div>
-                                <div>
-                                   <p> <strong>{{ $eachNotCompleted->typeDocVol }}: </strong> 
-                                    {{ $eachNotCompleted->numDocVol }} </p>
-                                </div>
-                                <div>
-                                    <p> <strong>Sexo:</strong>
-                                    {{ $eachNotCompleted->sexVol }} </p>
-                                </div>
-                                <div>
-                                    <p> <strong>Talla de camiseta: </strong>
-                                    {{ $eachNotCompleted->shirtSizeVol }} </p>
-                                </div>
+                                <p> <strong>Fecha de nacimiento: </strong>
+                                {{ date('d-m-Y', strtotime($eachNotCompleted->organiVol)) }} </p>                      
+                                <p> <strong>{{ $eachNotCompleted->typeDocVol }}: </strong> 
+                                {{ $eachNotCompleted->numDocVol }} </p>                              
+                                <p> <strong>Sexo:</strong>
+                                {{ $eachNotCompleted->sexVol }} </p>                               
+                                <p> <strong>Talla de camiseta: </strong>
+                                {{ $eachNotCompleted->shirtSizeVol }} </p>                                
                             </div>
                             <div class="eachRow">
-                                <div>
-                                    <p> 
-                                    <strong>Delegaciones: </strong>
-                                    @if (count($eachNotCompleted->delegations) == 0)
-                                        No tiene delegación
-                                    @else
-                                        @foreach ($eachNotCompleted->delegations as $delegation)
-                                            {{ $delegation->nameDel }},
-                                        @endforeach
-                                    @endif
-                                    </p>
-                                </div>
+                                <p> 
+                                <strong>Delegaciones: </strong>
+                                @if (count($eachNotCompleted->delegations) == 0)
+                                    No tiene delegación
+                                @else
+                                    @foreach ($eachNotCompleted->delegations as $delegation)
+                                        {{ $delegation->nameDel }},
+                                    @endforeach
+                                @endif
+                                </p>
                             </div>
                             @if (date('Y') - date('Y', strtotime($eachNotCompleted->birthDateVol)) <= 17)
                                 <div class="eachRow">
-                                    <div>
-                                        <span class="redMark">ES MENOR</span>
-                                        <div>
-                                            <p> <strong>Autorizador:</strong>
-                                            {{ $eachNotCompleted->nameAuthVol }} </p>
-                                        </div>
-                                        <div>
-                                            <p> <strong>Documento de identidad del autorizador:</strong>
-                                            {{ $eachNotCompleted->numDocAuthVol }} </p>
-                                        </div>
-                                        <div>
-                                            <p> <strong>Teléfono del autorizador:</strong>
-                                            <a
-                                                href="tel:+34{{ $eachNotCompleted->tlfAuthVol }}">{{ $eachNotCompleted->tlfAuthVol }}</a> </p>
-                                        </div>
-                                    </div>
+                                    <span class="redMark">ES MENOR</span>
+                                    <p> <strong>Autorizador:</strong>
+                                    {{ $eachNotCompleted->nameAuthVol }} </p>
+                                    <p> <strong>Documento de identidad del autorizador:</strong>
+                                    {{ $eachNotCompleted->numDocAuthVol }} </p>
+                                    <p> <strong>Teléfono del autorizador:</strong>
+                                    <a href="tel:+34{{ $eachNotCompleted->tlfAuthVol }}">{{ $eachNotCompleted->tlfAuthVol }}</a> </p>
                                 </div>
                             @endif
 
-
                             <div class="eachRow">
-                                <div>
                                     <p> <strong>Dirección: </strong> <br />
-                                    <div>
                                         {{ $eachNotCompleted->typeViaVol }}
                                         {{ $eachNotCompleted->direcVol }} </p>
-                                    </div>
-                                    <div>
                                         <p> <strong>Nº: </strong>
                                         {{ $eachNotCompleted->numVol }}
-                                        {{ $eachNotCompleted->flatVol }} </p>
-                                    </div>
-                                    <div>                             
+                                        {{ $eachNotCompleted->flatVol }} </p>                     
                                         <p> <strong>Código Postal: </strong>
                                         {{ $eachNotCompleted->codPosVol }} </p>
-                                    </div>
-                                    <div>
                                         <p> <strong>Provincia: </strong>
                                         {{ $eachNotCompleted->stateVol }} </p>
-                                    </div>
-                                    <div>
                                         <p> <strong>Ciudad: </strong>
                                         {{ $eachNotCompleted->townVol }} </p>
-                                    </div>
-                                    <div>
                                         <p> <strong>Información Adicional: </strong>
                                         {{ $eachNotCompleted->aditiInfoVol }} </p>
-                                    </div>
-                                </div>
                                 <div class="eachRow">
-                                    <div>
                                         @foreach ($eachNotCompleted->documents as $eachDocument)
                                             <p> <strong>{{ $eachDocument->titleDoc }}</strong> </p> <br />
                                             <div>
@@ -156,7 +119,6 @@
                                             </div>
                                         @endforeach
 
-                                    </div>
                                 </div>
                                 <div class="eachRow">
                                     <div>

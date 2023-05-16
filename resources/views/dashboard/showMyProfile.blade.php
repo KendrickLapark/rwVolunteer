@@ -19,7 +19,6 @@
                 <div class="mainDataMyProf">
                     <div class="leftCol">
 
-                        <div class="columnItem">
 
                         <ul class="contactVol">
 
@@ -72,7 +71,6 @@
                             </li>
                         </ul>
 
-                        </div>
 
                     </div>
 

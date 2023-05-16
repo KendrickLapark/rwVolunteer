@@ -7,8 +7,33 @@ $(() => {
     var toolbar_text_color = getComputedStyle(document.querySelector('.toolbar-text')).color;
     var toolbar_inner_color = getComputedStyle(document.querySelector('.toolbar-inner')).color;
 
+    if($('form')[0]){
+        var form_bc = getComputedStyle(document.querySelector('form')).backgroundColor;
+    }
+
+    if($('.botonesControl')[0]){
+        var botonesControl_bc = getComputedStyle(document.querySelector('.botonesControl')).backgroundColor;
+        var botonesControl_c = getComputedStyle(document.querySelector('.botonesControl')).color;
+    }
+
     if($('button i')[0]){
         var button_i_c = getComputedStyle(document.querySelector('button i')).color;
+    }
+
+    if($('.mainTrayShowDoc')[0]){
+        var mainTrayShowDoc_bc = getComputedStyle(document.querySelector('.mainTrayShowDoc')).backgroundColor;
+    }
+
+    if($('.mainTrayAdminNot')[0]){
+        var mainTrayAdminNot_bc = getComputedStyle(document.querySelector('.mainTrayAdminNot')).backgroundColor;
+    }
+
+    if($('.mainTrayMyProf')[0]){
+        var mainTrayMyProf_bc = getComputedStyle(document.querySelector('.mainTrayMyProf')).backgroundColor;
+    }
+
+    if($('.mainDataMyProf')[0]){
+        var mainTrayMyProf_bc = getComputedStyle(document.querySelector('.mainDataMyProf')).backgroundColor;
     }
 
     if($('.notifyTrayIns')[0]){
@@ -45,6 +70,10 @@ $(() => {
 
     if($('.home-content')[0]){
         var home_content_bc = getComputedStyle(document.querySelector('.home-content')).backgroundColor;
+    }
+
+    if($('.mainContainerActivitiesOptions')[0]){
+        var mainContainerActivitiesOptions_bc = getComputedStyle(document.querySelector('.mainContainerActivitiesOptions')).backgroundColor;
     }
 
     if($('.sidebar')[0]){
@@ -143,17 +172,11 @@ $(() => {
 
         $('span').css('color', span_color);
         $('.toolbar-inner').css('color', toolbar_inner_color);
-        $('.toolbar-text').css('color', toolbar_text_color);
-        $('p').css('color', p_color);
+        $('.toolbar-text').css('color', toolbar_text_color);       
 
         if($('i')[0]){
             $('i').css('color', i_c);
-        } 
-
-        if($('button')[0]){
-            $('button').css('background', button_bc);
-            $('button').css('color', button_c);
-        }
+        }        
 
         if($('div')[0]){
             $('div').css('color', div_color);
@@ -273,7 +296,26 @@ $(() => {
 
         if($('.inner_hidden_msg_Inscription')[0]){
             $('.inner_hidden_msg_Inscription').css('background', inner_hidden_msg_Inscription_bc);
-        } 
+            $('.inner_hidden_msg_Inscription').children().css('background', inner_hidden_msg_Inscription_bc);
+        }
+        
+        if($('.mainContainerActivitiesOptions')[0]){
+            $('.mainContainerActivitiesOptions').css('background', mainContainerActivitiesOptions_bc);
+            $('.mainContainerActivitiesOptions').children().css('background', mainContainerActivitiesOptions_bc);
+
+        }
+
+        if($('.mainTrayActivitiesOptions')[0]){
+            $('.mainTrayActivitiesOptions').css('background', mainContainerActivitiesOptions_bc);
+            $('.mainTrayActivitiesOptions').children().css('background', mainContainerActivitiesOptions_bc);
+
+        }
+
+        if($('.mainData.center')[0]){
+            $('.mainData.center').css('background', mainContainerActivitiesOptions_bc);
+            $('.mainData.center').children().css('background', mainContainerActivitiesOptions_bc);
+
+        }
 
         if($('.toolbar-inner')[0]){
             $('.toolbar-inner').css('background', toolbar_inner_bc);      
@@ -293,6 +335,66 @@ $(() => {
 
         if($('button i')[0]){
             $('button i').css('color', button_i_c); 
+        }
+
+        if($('form')[0]){
+            $('form').css('background', form_bc);
+        }
+
+        if($('.mainTrayShowDoc')[0]){
+            $('.mainTrayShowDoc').css('background', mainTrayShowDoc_bc);
+        }
+
+        if($('.mainTrayMyProf')[0]){
+            $('.mainTrayMyProf').css('background', mainTrayMyProf_bc);
+            $('.mainTrayMyProf').children().css('background', mainTrayMyProf_bc);
+            $('.mainTrayMyProf').children().css('color', 'black');
+        }
+
+        if($('.mainDataMyProf')[0]){
+            $('.mainDataMyProf').css('background', mainTrayMyProf_bc);
+            $('.mainDataMyProf').children().css('background', mainTrayMyProf_bc);
+            $('.mainDataMyProf span').css('color', 'black');
+        }
+
+        if($('.mainTrayAdminNot')[0]){
+            $('.mainTrayAdminNot').css('background', mainTrayAdminNot_bc);
+            $('.mainTrayAdminNot').children().css('background', mainTrayAdminNot_bc);
+            $('.mainDataAdminNot .row').children().css('background', mainTrayAdminNot_bc);
+            $('.mainDataAdminNot .hiddenAdminNot').children().css('background', mainTrayAdminNot_bc);
+            $('.mainDataAdminNot .hiddenAdminNot').css('background', mainTrayAdminNot_bc);
+            $('.mainDataAdminNot .hiddenAdminNot .eachRow').children().css('background', mainTrayAdminNot_bc);
+        }
+
+        if($('.mainDataAdminNot.hiddenAdminNot')[0]){
+            $('.mainDataAdminNot.hiddenAdminNot').children().css('background', mainTrayAdminNot_bc);
+
+        }
+
+        $('p').css('color', p_color);
+
+        if($('.accordionUsers')[0]){
+            $('.accordionUsers').css('background', '#004a98');
+            $('.accordionUsers').css('color', 'white');
+            $('.accordionUsers i').css('color', 'white');
+        }
+
+        if($('.botonesControl')[0]){
+            $('.botonesControl').css('background', botonesControl_bc);
+            $('.botonesControl').css('color', botonesControl_c);
+        }
+
+        if($('.downloadPanel')[0]){
+            $('.downloadPanel').children().css('background', '#004a98');
+            $('.downloadPanel').css('color', 'white');
+            $('.downloadButton').css('background', '#EFEFEF');
+            $('.downloadButton i').css('color', '#666666');
+        }
+
+        if($('.hidden')[0]){
+            $('.hidden').css('background', '#004a98');
+            $('.hidden').children().css('background', '#004a98');
+            $('.hidden p').css('color', 'white');
         }
 
         if($('.toolbar-item svg')[0]){
@@ -391,7 +493,7 @@ $(() => {
                 white_background = false; 
                 high_contrast = true;
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');         
             }
 
@@ -411,7 +513,7 @@ $(() => {
                 white_background = false; 
                 negative_contrast = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');         
             }
 
@@ -431,7 +533,7 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, #spaceTopMenu, button, .mainData, .row').css('background-color', 'white');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, button, .mainData, .row').css('background-color', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'black');         
             }
 
