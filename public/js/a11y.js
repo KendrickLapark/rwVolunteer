@@ -30,6 +30,11 @@ $(() => {
 
     if($('.botonesControl')[0]){
         var botonesControl_bc = getComputedStyle(document.querySelector('.botonesControl')).backgroundColor;
+        var botonesControl_c = getComputedStyle(document.querySelector('.botonesControl')).color;
+    }
+
+    if($('.botonesControl')[0]){
+        var botonesControl_bc = getComputedStyle(document.querySelector('.botonesControl')).backgroundColor;
     }
 
     if($('.mainTrayShowDoc')[0]){
@@ -322,16 +327,7 @@ $(() => {
 
         if($('.mainTray')[0]){
             $('p').css('color', 'black');
-        }
-
-        if($('.visDate')[0]){
-            $('.botonVis').css('background', '#406cbc');
-            $('.visDate i').css('color', 'black');
-            $('.botonVis, .botonVis i').css('color', '#ffffff');
-            $('.buttonsBar .botonesControl').css('background', 'grey');
-            $('.buttonsBar .botonesControl i').css('color', 'white');
-            
-        }
+        }      
 
         if($('.mainTrayActivitiesOptions')[0]){
             $('.mainTrayActivitiesOptions').css('background', mainContainerActivitiesOptions_bc);
@@ -413,6 +409,20 @@ $(() => {
             $('.accordionUsers i').css('color', 'white');
             $('.nameSurVol p').css('color', '#004a98');
             $('.toolbar-inner p').css('color', 'black');
+        }
+
+        if($('.botonesControl')[0]){
+            $('.botonesControl').css('background', botonesControl_bc);
+            $('.botonesControl').css('color', botonesControl_c);
+        }
+
+        if($('.visDate')[0]){
+            $('.botonVis').css('background', '#406cbc');
+            $('.visDate i').css('color', 'black');
+            $('.botonVis, .botonVis i').css('color', '#ffffff');
+            $('.buttonsBar .botonesControl').css('background', 'grey');
+            $('.buttonsBar .botonesControl i').css('color', 'white');
+            
         }
 
         if($('.downloadPanel')[0]){
