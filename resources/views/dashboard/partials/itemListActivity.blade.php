@@ -5,11 +5,11 @@
                 <div class="row">
                     <p>
                     @if(strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y')))) 
-                        <div class="divTime" tabindex="0" style="background-color:#DDBFC8;">               
+                        <div class="divTime" id="#divTime" tabindex="0" style="background-color:#DDBFC8;">               
                     @elseif(!$activity->isNulledAct)
-                        <div class="divTime" tabindex="0" style="background-color: #406cbc;">                               
+                        <div class="divTime" id="#divTime" tabindex="0" style="background-color: #406cbc;">                               
                     @else
-                        <div class="divTime" tabindex="0" style="background-color:#8A8A8A";>
+                        <div class="divTime" id="#divTime" tabindex="0" style="background-color:#8A8A8A";>
                     @endif </p>                               
                             <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
                             <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
@@ -108,35 +108,29 @@
 
                         <div class="leftCol-buttonsBar">
 
-                            <div>
-                                <p> <strong>Información Extra: </strong> </p>
-                                <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonesControl" aria-label="Información extra">
-                                        
-                                        <i class='bx bx-folder-plus' style="font-size:25px"></i>
-                                    </button>
-                                </form>
-                            </div>
+                            <p> <strong>Información Extra: </strong> </p>
+                            <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <button type="submit" class="botonesControl" aria-label="Información extra">
+                                    
+                                    <i class='bx bx-folder-plus' style="font-size:25px"></i>
+                                </button>
+                            </form>
+                            <p> <strong>Editar: </strong> </p>
 
-                            <div>
-                                <p> <strong>Editar: </strong> </p>
-
-                                <form method="POST" action="{{ route('dashboard.getActivityUpdateData') }}">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonesControl" aria-label="Editar">
-                                        <i class='bx bxs-edit' style="font-size:25px"></i>
-                                    </button>
-                                </form>
-                            </div>
+                            <form method="POST" action="{{ route('dashboard.getActivityUpdateData') }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <button type="submit" class="botonesControl" aria-label="Editar">
+                                    <i class='bx bxs-edit' style="font-size:25px"></i>
+                                </button>
+                            </form>
 
                         </div>
 
                         <div class="rightCol-buttonsBar">
 
-                            <div>
                                 @if (!$activity->isNulledAct)
                                     <p> <strong>ANULAR: </strong> </p>
 
@@ -151,9 +145,7 @@
                                 @else
                                     <p tabindex="0"> <strong>Esta actividad se ha anulado</strong> </p>
                                 @endif
-                            </div>
 
-                            <div>
                                 <p> <strong>Eliminar: </strong> </p>
                                 <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
                                     @csrf
@@ -162,7 +154,6 @@
                                         onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
                                             style="font-size:25px;"></i></button>
                                 </form>
-                            </div>
 
                         </div>
                     

@@ -91,8 +91,7 @@
                 Cita Normal
             </div>
         </div>
-
-            
+       
         <div class='mainActivityAct'>
             <div id="search_listAct"></div>
  
@@ -156,7 +155,6 @@
 
 
     });
-
 
     </script>
 

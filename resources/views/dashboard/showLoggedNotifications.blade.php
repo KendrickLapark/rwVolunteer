@@ -20,10 +20,7 @@
             @if ($inscription->filenameIns == null)
                 <div class="mainDataLogNot">
                     <div class="rowLogNot">
-                        <div tabindex="0">
                             <strong>Nombre: </strong>{{ $inscription->activity->nameAct }}
-                        </div>
-                        <div tabindex="0">
                             <strong>Cupo: </strong>
                             {{ App\Http\Controllers\ActivityController::quotaCalculator(
                                 $inscription->activity->quotasAct,
@@ -32,11 +29,10 @@
                             /
                             {{ $inscription->activity->quotasAct }}
                             Libres
-                        </div>
-                        <Div tabindex="0"><strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }}</div>
-                        <div tabindex="0"><strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }}</div>
+                        <strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }}
+                        <strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }}
 
-                        <div tabindex="0"><strong>Fecha: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }}</div>
+                        <strong>Fecha: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }}
 
                         <div class="controlButton moreDetails" tabindex="0">
                             <i class='bx bxs-down-arrow' id="displayTriggerIcon"></i>
@@ -44,30 +40,18 @@
                     </div>
                     <div class="hiddenLogNot">
                         <div class="eachRow">
-                            <div tabindex="0">
                                 <strong>Descripcion: </strong>
                                 {{ $inscription->activity->descAct }}
-                            </div>
-                            <div tabindex="0">
                                 <strong>Entidad: </strong>
                                 {{ $inscription->activity->entityAct }}
-                            </div>
-                            <div tabindex="0">
                                 <strong>Dirección: </strong>
                                 {{ $inscription->activity->direAct }}
-                            </div>
-                            <div tabindex="0">
                                 <strong>Requisito Previo: </strong>
                                 {{ $inscription->activity->requiPrevAct }}
-                            </div>
-                            <div tabindex="0">
                                 <strong>Formacion deseada: </strong>
                                 {{ $inscription->activity->formaAct }}
-                            </div>
-                            <div tabindex="0">
                                 <strong>Requisitos: </strong>
                                 {{ $inscription->activity->requiAct }}
-                            </div>
                         </div>
                         <div class="eachRow">
                             <div>

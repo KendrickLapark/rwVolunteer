@@ -85,6 +85,7 @@
 #search_list .hidden{
     display:flex;
     flex-direction: column;
+    line-height: 1.5em;
     padding-inline: 15px;
     padding-block: 15px;
     background-color: #004a98;

@@ -11,13 +11,25 @@ $(() => {
         var form_bc = getComputedStyle(document.querySelector('form')).backgroundColor;
     }
 
-    if($('.botonesControl')[0]){
-        var botonesControl_bc = getComputedStyle(document.querySelector('.botonesControl')).backgroundColor;
-        var botonesControl_c = getComputedStyle(document.querySelector('.botonesControl')).color;
-    }
-
     if($('button i')[0]){
         var button_i_c = getComputedStyle(document.querySelector('button i')).color;
+    }
+
+    //to do
+    /* if($('.mainActivityAct')[0]){
+        if($('.divTime')){
+            var divTime_bc = getComputedStyle(document.querySelector('.divTime')).backgroundColor;
+        }
+    } */
+
+    if($('.botonVis')[0]){
+        var botonVis_bc = getComputedStyle(document.querySelector('.botonVis')).backgroundColor;
+        var botonVis_c = getComputedStyle(document.querySelector('.botonVis')).color;
+
+    }
+
+    if($('.botonesControl')[0]){
+        var botonesControl_bc = getComputedStyle(document.querySelector('.botonesControl')).backgroundColor;
     }
 
     if($('.mainTrayShowDoc')[0]){
@@ -297,12 +309,28 @@ $(() => {
         if($('.inner_hidden_msg_Inscription')[0]){
             $('.inner_hidden_msg_Inscription').css('background', inner_hidden_msg_Inscription_bc);
             $('.inner_hidden_msg_Inscription').children().css('background', inner_hidden_msg_Inscription_bc);
+            $('p').css('color', 'black');
+            $('button').css('background', button_bc);
+            $('button').css('color', 'black');
         }
         
         if($('.mainContainerActivitiesOptions')[0]){
             $('.mainContainerActivitiesOptions').css('background', mainContainerActivitiesOptions_bc);
             $('.mainContainerActivitiesOptions').children().css('background', mainContainerActivitiesOptions_bc);
 
+        }
+
+        if($('.mainTray')[0]){
+            $('p').css('color', 'black');
+        }
+
+        if($('.visDate')[0]){
+            $('.botonVis').css('background', '#406cbc');
+            $('.visDate i').css('color', 'black');
+            $('.botonVis, .botonVis i').css('color', '#ffffff');
+            $('.buttonsBar .botonesControl').css('background', 'grey');
+            $('.buttonsBar .botonesControl i').css('color', 'white');
+            
         }
 
         if($('.mainTrayActivitiesOptions')[0]){
@@ -316,6 +344,10 @@ $(() => {
             $('.mainData.center').children().css('background', mainContainerActivitiesOptions_bc);
 
         }
+
+        /* if($('#search_listAct')[0]){
+            $('.divTime').css('background', divTime_bc);
+        } */
 
         if($('.toolbar-inner')[0]){
             $('.toolbar-inner').css('background', toolbar_inner_bc);      
@@ -355,6 +387,7 @@ $(() => {
             $('.mainDataMyProf').css('background', mainTrayMyProf_bc);
             $('.mainDataMyProf').children().css('background', mainTrayMyProf_bc);
             $('.mainDataMyProf span').css('color', 'black');
+            $('p').css('color', 'black');
         }
 
         if($('.mainTrayAdminNot')[0]){
@@ -364,6 +397,9 @@ $(() => {
             $('.mainDataAdminNot .hiddenAdminNot').children().css('background', mainTrayAdminNot_bc);
             $('.mainDataAdminNot .hiddenAdminNot').css('background', mainTrayAdminNot_bc);
             $('.mainDataAdminNot .hiddenAdminNot .eachRow').children().css('background', mainTrayAdminNot_bc);
+            $('p').css('color', 'black');
+            $('a').css('color', '#064b98');
+
         }
 
         if($('.mainDataAdminNot.hiddenAdminNot')[0]){
@@ -371,17 +407,12 @@ $(() => {
 
         }
 
-        $('p').css('color', p_color);
-
         if($('.accordionUsers')[0]){
             $('.accordionUsers').css('background', '#004a98');
             $('.accordionUsers').css('color', 'white');
             $('.accordionUsers i').css('color', 'white');
-        }
-
-        if($('.botonesControl')[0]){
-            $('.botonesControl').css('background', botonesControl_bc);
-            $('.botonesControl').css('color', botonesControl_c);
+            $('.nameSurVol p').css('color', '#004a98');
+            $('.toolbar-inner p').css('color', 'black');
         }
 
         if($('.downloadPanel')[0]){
@@ -400,6 +431,10 @@ $(() => {
         if($('.toolbar-item svg')[0]){
             $('.toolbar-item svg').css('color', toolbar_text_color); 
         } 
+
+        if($('.toolbar-title')[0]){
+            $('.toolbar-title').css('color', 'black');
+        }
 
     }
 
@@ -533,7 +568,7 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, button, .mainData, .row').css('background-color', 'white');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'black');         
             }
 

@@ -18,8 +18,13 @@
 
   }
 
+#search_listAct{
+    margin-bottom: 50px;
+}
+
 #search_listAct .row .divTime{
     background-color: rgb(221, 191, 200);
+    color: #ffffff;
     border-radius: 5px;
     padding: 20px;
     margin: 20px;
@@ -31,11 +36,11 @@
 }
 
 #search_listAct .row{
-    background-color: #e8f1fa;
-    border-radius: 25px;
+    background-color: #ffffff;
     margin-block: 10px; 
     display:flex;
-    flex-direction: row;   
+    flex-direction: row;  
+    border-bottom: 1px solid grey; 
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -82,7 +87,7 @@
 .botonVis{
     border: none;
     border-radius: 10px;
-    background: #004a98;
+    background: #406cbc;
     text-align: center;
     color: #ffffff;
     padding-inline:10px;
@@ -97,7 +102,9 @@
 }
 
 .mainActivityAct .hidden{
-    background-color: #DAE9E5;
+    background-color: #004a98;
+    line-height: 1.5em;
+    color: #ffffff;
     border-radius: 25px;
     padding: 20px;
     align-items: center;
@@ -105,11 +112,17 @@
 }
 
 .mainActivityAct .hidden .buttonsBar{
-    background-color: #DAE9E5;
+    background-color: #004a98;
     border-radius: 25px;
     display:flex;
     flex-direction: row;
     width: 100%;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.buttonsBar div{
+    text-align: center;
     justify-content: center;
 }
 
@@ -126,7 +139,7 @@
 .mainActivityAct .hidden .botonesControl{
     border: none;
     border-radius: 10px;
-    background: #004a98;
+    background: grey;
     text-align: center;
     color: #ffffff;
     padding-inline:10px;
@@ -134,6 +147,10 @@
     width: fit-content;
     font-size: 14px;
 
+}
+
+.botonesControl p{
+    text-align: center;
 }
 
 /* .avatarInShowAllUsers {

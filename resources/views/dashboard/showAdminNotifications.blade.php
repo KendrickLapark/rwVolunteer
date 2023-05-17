@@ -192,11 +192,10 @@
                                 {{ $inscription->volunteer->surnameVol }}
                                 {{ $inscription->volunteer->surname2Vol }} </p>
                             </strong>
-                            <br />
                             @if ($inscription->volunteer->organiVol == false)
-                                <p> <div> SIN Empresa Asociada </div> </p>
+                                <p> SIN Empresa Asociada </p>
                             @else
-                                <p> <div> {{ $inscription->volunteer->organiVol }} </div> </p>
+                                <p> {{ $inscription->volunteer->organiVol }} </p>
                             @endif
                         </div>
                         <div class="mailVol" tabindex="0"> <p>
@@ -214,86 +213,53 @@
                     </div>
                     <div class="hiddenAdminNot">
                         <div class="eachRow">
-                            <div tabindex="0">
                                 <p> <strong>Fecha de nacimiento: </strong>
                                 {{ date('d-m-Y', strtotime($inscription->volunteer->organiVol)) }} </p>
-                            </div>
-                            <div tabindex="0">
                                 <p> <strong>{{ $inscription->volunteer->typeDocVol }}: </strong>
                                 {{ $inscription->volunteer->numDocVol }} </p>
-                            </div>
-                            <div tabindex="0">
                                 <p> <strong>Sexo:</strong>
                                 {{ $inscription->volunteer->sexVol }} </p>
-                            </div>
-                            <div tabindex="0">
                                 <p> <strong>Talla de camiseta: </strong>
                                 {{ $inscription->volunteer->shirtSizeVol }} </p>
-                            </div>
                         </div>
                         <div class="eachRow">
-                            <p> <div tabindex="0">
-                                <strong>Delegaciones: </strong> 
+                            <p> <strong>Delegaciones: </strong> 
                                 @if (count($inscription->volunteer->delegations) == 0)
                                     No tiene delegaciones
                                 @else
                                     @foreach ($inscription->volunteer->delegations as $delegation)
                                         {{ $delegation->nameDel }} ,
                                     @endforeach
-                                @endif
-                            </div> </p>
+                                @endif</p>
                         </div>
                         @if (date('Y') - date('Y', strtotime($inscription->volunteer->birthDateVol)) <= 17)
                             <div class="eachRow">
-                                <div>
                                     <p> <span class="redMark" tabindex="0">ES MENOR</span> </p>
-                                    <div tabindex="0">
                                         <p> <strong>Autorizador:</strong>
                                         {{ $inscription->volunteer->nameAuthVol }} </p>
-                                    </div>
-                                    <div tabindex="0">
                                         <p> <strong>Documento de identidad del autorizador:</strong>
                                         {{ $inscription->volunteer->numDocAuthVol }} </p>
-                                    </div>
-                                    <div tabindex="0">
                                         <p> <strong>Teléfono del autorizador:</strong>
                                         {{ $inscription->volunteer->tlfAuthVol }} </p>
-                                    </div>
-                                </div>
                             </div>
                         @endif
 
                         <div class="eachRow">
-                            <div>
-                                <div tabindex="0">
                                 <p> <strong>Dirección: </strong>                               
                                     {{ $inscription->volunteer->typeViaVol }}
                                     {{ $inscription->volunteer->direcVol }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Nº: </strong>
                                     {{ $inscription->volunteer->numVol }}
                                     {{ $inscription->volunteer->flatVol }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Código Postal: </strong>
                                     {{ $inscription->volunteer->codPosVol }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Provincia: </strong>
                                     {{ $inscription->volunteer->stateVol }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Ciudad: </strong>
                                     {{ $inscription->volunteer->townVol }} </p>
-                                </div>
-                                <div tabindex="0"s>
                                     <p> <strong>Información Adicional: </strong>
                                     {{ $inscription->volunteer->aditiInfoVol }} </p>
-                                </div>
-
-                            </div>
-                            <div tabindex="0">                               
+                             
                                 <p> <strong> Educación: </strong><br />
                                 @if (count($inscription->volunteer->education) == 0)
                                     No tiene titulación registrada<p>
@@ -309,12 +275,7 @@
                                         </form>
                                     @endforeach
                                 @endif
-                            </div>
-                            <div>
-                                <div tabindex="0">
                                     <p> <strong>Nombre: </strong>{{ $inscription->activity->nameAct }} </p>
-                                </div>
-                                <div tabindex="0"> 
                                     <p> <strong>Cupo: </strong>
                                     {{ App\Http\Controllers\ActivityController::quotaCalculator(
                                         $inscription->activity->quotasAct,
@@ -323,46 +284,29 @@
                                     /
                                     {{ $inscription->activity->quotasAct }}
                                     Libres </p>
-                                </div>
-                                <div tabindex="0"> <p> <strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }} </p> </div>
-                                <div tabindex="0"> <p> <strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }} </p> </div>
+                                 <p> <strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }} </p> 
+                                 <p> <strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }} </p> 
 
-                                <div tabindex="0"> <p> <strong>Fecha:
-                                    </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }} </p> </div>
-                                <div tabindex="0">
+                                    <p> <strong>Fecha:
+                                    </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }} </p> 
                                     <p> <strong>Descripcion: </strong>
                                     {{ $inscription->activity->descAct }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Entidad: </strong>
                                     {{ $inscription->activity->entityAct }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Dirección: </strong>
                                     {{ $inscription->activity->direAct }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Requisito Previo: </strong>
                                     {{ $inscription->activity->requiPrevAct }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Formacion deseada: </strong>
                                     {{ $inscription->activity->formaAct }} </p>
-                                </div>
-                                <div tabindex="0">
                                     <p> <strong>Requisitos: </strong>
                                     {{ $inscription->activity->requiAct }} </p>
-                                </div>
-                            </div>
-                            <div>
                                 <p> <strong tabindex="0">Tipos de Actividad: </strong> </p>
                                 @foreach ($inscription->activity->typeAct as $typeAct)
                                     <p tabindex="0">{{ $typeAct->nameTypeAct }}</p>
                                 @endforeach
-                            </div>
                         </div>
                         <div class="eachRow">
-                            <div>
                                 <p> <strong tabindex="0">Documentación</strong> </p>
                                 <form method="POST" action="{{ route('dashboard.downloadPreinscription') }}">
                                     @csrf
@@ -370,23 +314,18 @@
                                     <button type="submit" class="botonesControl" aria-label="descargar documento"><i
                                             class='bx bx-save'></i></button>
                                 </form>
-                            </div>
-                            <div>
                                 <form method="POST" action="{{ route('dashboard.validatePreinscription') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">
                                     <button type="submit" class="botonesControl"
                                         onclick="return confirm('¿Estas seguro/a?')">ACEPTAR</button>
                                 </form>
-                            </div>
-                            <div>
                                 <form method="POST" action="{{ route('dashboard.declinatePreinscription') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">
                                     <button type="submit" class="botonesControl"
                                         onclick="return confirm('¿Estas seguro/a?')">RECHAZAR</button>
                                 </form>
-                            </div>
                         </div>
                         <div class="eachRow">
                             <div class="controlButton lessDetails">

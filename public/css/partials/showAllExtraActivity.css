@@ -10,6 +10,7 @@
 
 .secondaryTray.center{
     border: 1px solid grey;
+    padding-block: 20px;
     width: 60%;
 }
 
