@@ -37,6 +37,10 @@ $(() => {
         var botonesControl_bc = getComputedStyle(document.querySelector('.botonesControl')).backgroundColor;
     }
 
+    if($('.botones.botonesAB')[0]){
+        var botonesAB_bc = getComputedStyle(document.querySelector('.botones.botonesAB')).backgroundColor;
+    }
+
     if($('.mainTrayShowDoc')[0]){
         var mainTrayShowDoc_bc = getComputedStyle(document.querySelector('.mainTrayShowDoc')).backgroundColor;
     }
@@ -182,6 +186,10 @@ $(() => {
         var h1_c = getComputedStyle(document.querySelector('h1')).color;
     }
 
+    if($('#divFooter')[0]){
+        var divFooter_bc = getComputedStyle(document.querySelector('#divFooter')).backgroundColor;
+    }
+
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
     var div_bc = getComputedStyle(document.querySelector('div')).backgroundColor;
 
@@ -197,23 +205,22 @@ $(() => {
 
         if($('div')[0]){
             $('div').css('color', div_color);
-            $('div').css('background', div_bc);
+            $('div:not(.slide, .slider, .slides, #main, .navigation-auto)').css('background', div_bc);
         }
  
         $('div').find('div').each(function(){
-            $(this).css('background', mainTray_bc);
+            $(this).not('.slider, slides, slide').css('background', mainTray_bc);
             $(this).css('color', div_color);
 
         })
 
-        $('.mainTrayDateActivities').find('div').each(function(){
+        $('.mainTrayDateActivities').find('div').each(function(){        
             $(this).css('background', mainTray_bc);
             $(this).css('color', div_color);
         })
 
         if($('.notifyTrayIns')[0]){
             $('.notifyTrayIns').css('background', notifyTrayIns_bc);
-
         }
 
         if($('.sidebar')[0]){
@@ -386,6 +393,8 @@ $(() => {
             $('p').css('color', 'black');
         }
 
+        $('p').css('color', 'black');
+
         if($('.mainTrayAdminNot')[0]){
             $('.mainTrayAdminNot').css('background', mainTrayAdminNot_bc);
             $('.mainTrayAdminNot').children().css('background', mainTrayAdminNot_bc);
@@ -432,6 +441,10 @@ $(() => {
             $('.downloadButton i').css('color', '#666666');
         }
 
+        if($('.botones.botonesAB')[0]){
+            $('.botones.botonesAB').css('background', botonesAB_bc);
+        }
+
         if($('.hidden')[0]){
             $('.hidden').css('background', '#004a98');
             $('.hidden').children().css('background', '#004a98');
@@ -441,6 +454,11 @@ $(() => {
         if($('.toolbar-item svg')[0]){
             $('.toolbar-item svg').css('color', toolbar_text_color); 
         } 
+
+        if($('#divFooter')[0]){
+            $('#divFooter, #contentFooter, #contentFooter p, .eachColFoot, .titleFoot').css('background', divFooter_bc);
+            $('#divFooter p, #divFooter a, .titleFoot').css('color', 'white');
+        }
 
         if($('.toolbar-title')[0]){
             $('.toolbar-title').css('color', 'black');
@@ -538,7 +556,8 @@ $(() => {
                 white_background = false; 
                 high_contrast = true;
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #divFooter p, #spaceTopMenu, button, .botones.botonesAB, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');         
             }
 
@@ -558,7 +577,8 @@ $(() => {
                 white_background = false; 
                 negative_contrast = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'black');
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .botones.botonesAB, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');         
             }
 
@@ -578,7 +598,8 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, div, button, .mainData, .row').css('background-color', 'white');
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .mainData, .botones.botonesAB, .row').css('background-color', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'black');         
             }
 

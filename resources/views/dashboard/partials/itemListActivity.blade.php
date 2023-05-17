@@ -5,15 +5,22 @@
                 <div class="row">
                     <p>
                     @if(strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y')))) 
-                        <div class="divTime" id="#divTime" tabindex="0" style="background-color:#DDBFC8;">               
+                        <div class="divTime" tabindex="0" style="background-color:#DDBFC8;">  
+                            <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
+                            <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
+                        </div>             
                     @elseif(!$activity->isNulledAct)
-                        <div class="divTime" id="#divTime" tabindex="0" style="background-color: #406cbc;">                               
+                        <div class="divTime" tabindex="0" style="background-color: #406cbc;">
+                            <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
+                            <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
+                        </div>                               
                     @else
-                        <div class="divTime" id="#divTime" tabindex="0" style="background-color:#8A8A8A";>
-                    @endif </p>                               
+                        <div class="divTime" tabindex="0" style="background-color:#8A8A8A";>
                             <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
                             <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
                         </div>
+                    @endif </p>                               
+                            
                         
                         <div class="divMainDesc" tabindex="0">
                             <div class="nameDiv">
@@ -61,7 +68,7 @@
                             </div>
                             
                         </div>
-
+                    
             </div>
                         
             <div class="hidden">
