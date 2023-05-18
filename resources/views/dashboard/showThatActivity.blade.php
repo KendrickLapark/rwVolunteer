@@ -11,14 +11,13 @@
     <div class="mainTrayLogNot">
 
         <div class="sectionTitle">
-            MOSTRANDO ACTIVIDAD
+            <h1 tabindex="0"> MOSTRANDO ACTIVIDAD </h1>
         </div>
         @if (session()->has('doPreinscription'))
             <div class="formSubmitSuccess center">
                 {{ session('doPreinscription') }}
             </div>
         @endif
-
 
         <div class="mainDataLogNot">
             <div class="rowLogNot">
@@ -99,8 +98,78 @@
                             @endif
                         @endif
                     </div>
+                    <div class="controlButton moreDetails">
+                        <i class='bx bxs-up-arrow'></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+
+        $(() => {
+            $(".hiddenLogNot").hide();
+            $(".rowLogNot").on("click", function() {
+
+                var icono = document.querySelector(".rowLogNot .bx.bxs-down-arrow");
+
+                if($(this).siblings().is(':hidden')){
+                    $(this).siblings().show('slow');
+                    icono.style.transform = 'rotate(180deg)'
+                }else{
+                    $(this).siblings().hide('slow');
+                    icono.style.transform = ''
+                }
+                
+            });
+    
+            $(".bx.bxs-up-arrow").on("click", function() {
+                $(this).parent().parent().parent().hide('slow');
+            })
+    
+            $(".rowLogNot").on("keypress", function(e) {
+    
+                var key = e.which;
+    
+                    if(key == 13){
+    
+                        var icono = document.querySelector(".rowLogNot .bx.bxs-down-arrow");
+                        if ($(this).siblings().is(':visible')) {
+                            $(this).siblings().hide();
+                            icono.style.transform = ''
+                        } else {
+                            $(this).siblings().show();
+                            icono.style.transform = 'rotate(180deg)'
+                        }
+    
+                    }
+    
+            });
+    
+            $(".hiddenLogNot").on("keypress", function(e) {
+    
+                var key = e.which;
+    
+                    if(key == 13){
+    
+                        var icono = document.querySelector(".bx.bxs-up-arrow");
+                        if ($(this).is(':visible')) {
+                            $(this).hide();
+                            icono.style.transform = ''
+                        } else {
+                            $(this).show();
+                            icono.style.transform = 'rotate(180deg)'
+                        }
+    
+                    }
+    
+            });
+    
+        });
+    
+    </script>
+
 @endsection
+
+

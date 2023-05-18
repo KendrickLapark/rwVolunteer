@@ -106,6 +106,10 @@ $(() => {
         var mainContainerActivitiesOptions_bc = getComputedStyle(document.querySelector('.mainContainerActivitiesOptions')).backgroundColor;
     }
 
+    if($('.mainDataLogNot')[0]){
+        var mainDataLogNot_bc = getComputedStyle(document.querySelector('.mainDataLogNot')).backgroundColor;
+    }
+
     if($('.sidebar')[0]){
         var sidebar_bc = getComputedStyle(document.querySelector('.sidebar')).backgroundColor;
     }
@@ -203,6 +207,9 @@ $(() => {
         var divFooter_bc = getComputedStyle(document.querySelector('#divFooter')).backgroundColor;
     }
 
+    var sidebar_size = parseInt($('.links_name').css('font-size'));
+    var toolbar_text_size = parseInt($('.toolbar-text').css('font-size'));
+
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
     var div_bc = getComputedStyle(document.querySelector('div')).backgroundColor;
 
@@ -257,6 +264,14 @@ $(() => {
 
         if($('.mainData')[0]){
             $('.mainData').css('background', mainData_bc);
+        }
+
+        if($('.mainDataLogNot')[0]){
+            $('.mainTrayLogNot').css('background', mainDataLogNot_bc);
+            $('.mainTrayLogNot').find('div').each(function(){
+                $(this).css('background', mainDataLogNot_bc);
+            });
+            $('.mainTrayLogNot i').css('color', '#000000');
         }
 
         if($('.home-content')[0]){
@@ -453,6 +468,8 @@ $(() => {
             });
         }
 
+        /* showActivitiesByDate toggle-toolbar */ 
+
         if($('.mainContainerDateActivities')[0]){
             $('.mainContainerDateActivities').css('background', containerDateAct_bc);
 
@@ -492,48 +509,6 @@ $(() => {
             $('.panel2 a').css('background', '#009fe3');
             $('.panel2 a').css('color', '#ffffff');
             
-
-            /* $('.mainContainerDateActivities').children().css('background', containerDateAct_bc);
-            $('.calendario').css('background', containerDateAct_bc);
-            $('.calendario').children().css('background', containerDateAct_bc);
-            $('.fc-toolbar').css('background', containerDateAct_bc);
-            $('.fc-toolbar').children().css('background', containerDateAct_bc);
-            $('.titleDateActivities').css('background', containerDateAct_bc);
-            $('.fc-siguiente-button').css('background', '#F1F1F1');
-            $('.fc-today-button').css('background', '#F1F1F1');
-            $('.fc-anterior-button').css('background', '#F1F1F1');
-            $('.fc-siguiente-button').css('color', '#000000');
-            $('.fc-today-button').css('color', '#878787');           
-            $('.fc-anterior-button').css('color', '#000000');
-            if($('.mainTrayDateActivities')[0]){
-                $('.mainTrayDateActivities').children().css('background', containerDateAct_bc);
-                $('.hiddenDaysActivities').css('background', containerDateAct_bc);
-                $('.hiddenDaysActivities').children().css('background', containerDateAct_bc);
-                $('.mainHiddenDaysActivities').css('background', containerDateAct_bc);
-                $('.mainHiddenDaysActivities').children().css('background', containerDateAct_bc);
-                $('.searchDayActivity').css('background', containerDateAct_bc);
-                $('.eachDayAct').css('background', containerDateAct_bc);
-
-                $('.fc-view-container').find('div').each(function(){
-                    $(this).css('background', containerDateAct_bc);
-                });
-
-                $('.fc-view-container').find('span').each(function(){
-                    $(this).css('color', '#000000');
-                });
-
-                if($('.accordion')[0]){
-                    $('.accordion').css('background', '#009fe3');
-                    $('.accordion, .accordion i').css('color', 'white');
-                    $('.accordion2').css('background', '#ffffff');
-                    $('.accordion2').css('color', '#054d9b');                   
-                    $('.panel').css('background', '#ffffff');
-                    $('.panel2').css('background', '#ffffff');
-                    $('.panel2, .panel2 span').css('color', '#000000');
-                    $('#li-accordion2 a').css('color', '#ffffff');
-                }
-                
-            } */
         }
 
         if($('.downloadPanel')[0]){
@@ -574,6 +549,9 @@ $(() => {
         $('button').css('font-size', 18);
         $('label:not(#overlay1)').css('font-size', 18);
         $('.toolbar-item').css('font-size', 18);
+        $('.dashboard').css('font-size', 24);
+        $('.links_name, .admin_name').css('font-size', sidebar_size);
+        $('.toolbar-text').css('font-size', toolbar_text_size);
 
     }
 

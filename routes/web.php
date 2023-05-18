@@ -107,19 +107,19 @@ Route::middleware(['isLogged'])->group(function () {
 
     Route::get("searchDayActivity",[ActivityController::class,'searchDayActivity']);
     /*RUTAS LOGGEADAS*/
-    Route::get('/dashboard-logged',  [AuthController::class, 'loggedDashboard'])
+    Route::get('/dashboard-logged', [AuthController::class, 'loggedDashboard'])
             ->name('dashboard.logged');
     /* Muestro mis documentos */
-    Route::get('/dashboard-showUserDocument',  [DocumentController::class, 'showUserDocuments'])
+    Route::get('/dashboard-showUserDocument', [DocumentController::class, 'showUserDocuments'])
             ->name('dashboard.showUserDocument');
     /* Descarga mi documento */
-    Route::post('/dashboard-downloadDocument',  [DocumentController::class, 'downloadMyDocument'])
+    Route::post('/dashboard-downloadDocument', [DocumentController::class, 'downloadMyDocument'])
         ->name('dashboard.downloadDocument');        
     /* Borrar mi documento */
-    Route::post('/dashboard-deleteDocument',  [DocumentController::class, 'deleteMyDocument'])
+    Route::post('/dashboard-deleteDocument', [DocumentController::class, 'deleteMyDocument'])
         ->name('dashboard.deleteDocument'); 
     /* Form Logged Change Avatar */
-    Route::get('/changeAvatar-logged',[UsersController::class, 'avatarChangeForm'])
+    Route::get('/changeAvatar-logged', [UsersController::class, 'avatarChangeForm'])
         ->name('dashboard.changeAvatar');     
     /* CLIC Form Logged Change Avatar */
     Route::post('/uploadAvatar',[UsersController::class, 'uploadAvatar'])

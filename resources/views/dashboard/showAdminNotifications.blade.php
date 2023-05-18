@@ -345,18 +345,24 @@
 
     <script>
         $(() => {
-            $(".hidden").hide();
+            $(".hiddenAdminNot").hide();
             $(".row").on("click", function() {
+
+                var icono = document.querySelector(".row .bx.bxs-down-arrow");
                 
                 if ($(this).siblings().is(':visible')) {
                     $(this).siblings().hide('slow');
+                    icono.style.transform = ''
                 }else{
                     $(this).siblings().show('slow');
+                    icono.style.transform = 'rotate(180deg)'
                 }
             });
 
             $(".lessDetails").on("click", function() {
+                var icono = document.querySelector(".row .bx.bxs-down-arrow");
                 $(this).parent().parent().hide('slow');
+                icono.style.transform = ''
             })
         });
 
