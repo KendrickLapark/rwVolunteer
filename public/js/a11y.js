@@ -41,6 +41,15 @@ $(() => {
         var botonesAB_bc = getComputedStyle(document.querySelector('.botones.botonesAB')).backgroundColor;
     }
 
+    if($('.accordion')[0]){
+        var accordion_bc = getComputedStyle(document.querySelector('.accordion')).backgroundColor;
+    }
+
+
+    if($('.mainContainerDateActivities')[0]){
+        var containerDateAct_bc = getComputedStyle(document.querySelector('.mainContainerDateActivities')).backgroundColor;
+    }
+
     if($('.mainTrayShowDoc')[0]){
         var mainTrayShowDoc_bc = getComputedStyle(document.querySelector('.mainTrayShowDoc')).backgroundColor;
     }
@@ -149,6 +158,10 @@ $(() => {
         var mainActivityDashboard_bc = getComputedStyle(document.querySelector('.mainActivityDashboard')).backgroundColor;      
     }
 
+    if($('.mainDataShowDoc')[0]){
+        var mainDataShowDoc_bc = getComputedStyle(document.querySelector('.mainDataShowDoc')).backgroundColor;
+    }
+
     if($('.listTrayDashboard')[0]){
         var listTrayDashboard_bc = getComputedStyle(document.querySelector('.listTrayDashboard')).backgroundColor;
     }
@@ -211,7 +224,6 @@ $(() => {
         $('div').find('div').each(function(){
             $(this).not('.slider, slides, slide').css('background', mainTray_bc);
             $(this).css('color', div_color);
-
         })
 
         $('.mainTrayDateActivities').find('div').each(function(){        
@@ -434,6 +446,96 @@ $(() => {
             
         }
 
+        if($('.mainDataShowDoc')[0]){
+            $('.mainDataShowDoc').css('background', mainDataShowDoc_bc);
+            $('.mainDataShowDoc').find('div').each(function(){
+                $(this).css('background', mainDataShowDoc_bc);
+            });
+        }
+
+        if($('.mainContainerDateActivities')[0]){
+            $('.mainContainerDateActivities').css('background', containerDateAct_bc);
+
+            $('.mainContainerDateActivities').find('div').each(function(){
+                $(this).css('background', containerDateAct_bc);
+            });
+
+            $('.mainContainerDateActivities').find('span').each(function(){
+                $(this).css('color', '#000000');
+            });
+
+            $('.mainContainerDateActivities').find('span:not(.fc-title)').each(function(){
+                $(this).css('color', '#000000');
+            });
+
+            $('.fc-title').css('color', '#FFFFFF');
+
+            $('.calendario').find('button').each(function(){
+                $(this).css('background', '#F1F1F1');
+                $(this).css('color', '#000000');
+            });
+
+            $('.hiddenDaysActivities').find('.accordion').each(function(){
+                $(this).css('background', '#009fe3');
+                $(this).css('color', '#FFFFFF');
+            });
+
+            $('.hiddenDaysActivities').find('i').each(function(){
+                $(this).css('color', '#FFFFFF');
+            });
+
+            $('.titleDaysAct, .eachDayActTitle').css('color', '#014a99');
+            $('.accordion2').css('background', '#ffffff');
+            $('.accordion2, .accordion2 i').css('color', '#054d9b');  
+            $('.panel2').css('background', '#ffffff');
+            $('.panel2, .panel2 span').css('color', '#000000');
+            $('.panel2 a').css('background', '#009fe3');
+            $('.panel2 a').css('color', '#ffffff');
+            
+
+            /* $('.mainContainerDateActivities').children().css('background', containerDateAct_bc);
+            $('.calendario').css('background', containerDateAct_bc);
+            $('.calendario').children().css('background', containerDateAct_bc);
+            $('.fc-toolbar').css('background', containerDateAct_bc);
+            $('.fc-toolbar').children().css('background', containerDateAct_bc);
+            $('.titleDateActivities').css('background', containerDateAct_bc);
+            $('.fc-siguiente-button').css('background', '#F1F1F1');
+            $('.fc-today-button').css('background', '#F1F1F1');
+            $('.fc-anterior-button').css('background', '#F1F1F1');
+            $('.fc-siguiente-button').css('color', '#000000');
+            $('.fc-today-button').css('color', '#878787');           
+            $('.fc-anterior-button').css('color', '#000000');
+            if($('.mainTrayDateActivities')[0]){
+                $('.mainTrayDateActivities').children().css('background', containerDateAct_bc);
+                $('.hiddenDaysActivities').css('background', containerDateAct_bc);
+                $('.hiddenDaysActivities').children().css('background', containerDateAct_bc);
+                $('.mainHiddenDaysActivities').css('background', containerDateAct_bc);
+                $('.mainHiddenDaysActivities').children().css('background', containerDateAct_bc);
+                $('.searchDayActivity').css('background', containerDateAct_bc);
+                $('.eachDayAct').css('background', containerDateAct_bc);
+
+                $('.fc-view-container').find('div').each(function(){
+                    $(this).css('background', containerDateAct_bc);
+                });
+
+                $('.fc-view-container').find('span').each(function(){
+                    $(this).css('color', '#000000');
+                });
+
+                if($('.accordion')[0]){
+                    $('.accordion').css('background', '#009fe3');
+                    $('.accordion, .accordion i').css('color', 'white');
+                    $('.accordion2').css('background', '#ffffff');
+                    $('.accordion2').css('color', '#054d9b');                   
+                    $('.panel').css('background', '#ffffff');
+                    $('.panel2').css('background', '#ffffff');
+                    $('.panel2, .panel2 span').css('color', '#000000');
+                    $('#li-accordion2 a').css('color', '#ffffff');
+                }
+                
+            } */
+        }
+
         if($('.downloadPanel')[0]){
             $('.downloadPanel').children().css('background', '#004a98');
             $('.downloadPanel').css('color', 'white');
@@ -497,7 +599,7 @@ $(() => {
 		    if (curSize <= 48){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
                 $('h1').css('font-size', curSize);
-                $('span').css('font-size', curSize);
+                $('span:not(.icon-overlay)').css('font-size', curSize);
                 $('button').css('font-size', curSize);
                 $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize);
@@ -514,7 +616,7 @@ $(() => {
 		    if (curSize >= 18){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
                 $('h1').css('font-size', curSize);
-                $('span').css('font-size', curSize);
+                $('span:not(.icon-overlay)').css('font-size', curSize);
                 $('button').css('font-size', curSize);
                 $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize); 
@@ -554,10 +656,10 @@ $(() => {
                 disable_greyScale();
                 negative_contrast = false;
                 white_background = false; 
-                high_contrast = true;
+                high_contrast = true;           
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #divFooter p, #spaceTopMenu, button, .botones.botonesAB, .mainData, .row').css('background-color', 'black');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #divFooter p, #spaceTopMenu, button, .botones.botonesAB, .mainData, .row, .buttonSignUp').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');         
             }
 
@@ -578,7 +680,7 @@ $(() => {
                 negative_contrast = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .botones.botonesAB, .mainData, .row').css('background-color', 'black');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .botones.botonesAB, .buttonSignUp, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');         
             }
 
@@ -599,7 +701,7 @@ $(() => {
                 white_background = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .mainData, .botones.botonesAB, .row').css('background-color', 'white');
+                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .mainData, .buttonSignUp, .botones.botonesAB, .row').css('background-color', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'black');         
             }
 
@@ -611,5 +713,16 @@ $(() => {
             restoreFontSize();
 
         });
+        
+
+        /* Para Ana
+        
+            Hola Ana, no me gustan las despedidas aunque sabiamos que el día tenía que llegar, se ha adelantado, por suerte para ti. 
+            Es un momento agridulce, aunque más dulce que agrio, te vas por una buena causa, por tu futuro y por lo que has luchado, 
+            una nueva oportunidad de avanzar en tu vida, te lo mereces muchísimo.
+
+
+
+        */
 
 });

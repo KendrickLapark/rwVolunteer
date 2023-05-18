@@ -27,7 +27,7 @@
 <div class="mainContainerDateActivities">
     <div class="mainTrayDateActivities">
         <div class="columnDateActivities">
-            <div class="titleDateActivites">
+            <div class="titleDateActivities">
                 <h1 tabindex="0"> Selecciona una fecha </h1>
             </div>
 
