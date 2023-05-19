@@ -136,11 +136,14 @@
 
             $(".row_act_dashboard").on("click", function() {
                 var icono = document.querySelector(".row_act_dashboard > #bx.bx-caret-down");
+                var x = icono.getAttribute('aria-expanded');
                 if ($(this).siblings().is(':visible')) {
                     $(this).siblings().hide();
+                    x = false;
                     icono.style.transform = ''
                 } else {
                     $(this).siblings().show();
+                    x = true;
                     icono.style.transform = 'rotate(180deg)'
                 }
             });
@@ -149,13 +152,16 @@
  
                 var listaInscripciones = document.querySelector(".listTrayDashboard");
                 var icono = document.querySelector(".bx.bx-caret-right");
+                var x = icono.getAttribute('aria-expanded');
 
                 if(listaInscripciones.style.visibility == 'visible'){
                     listaInscripciones.style.visibility = 'hidden';
-                    icono.style.transform = ''
+                    x = 'false';
+                    icono.style.transform = '';
                 }else{
-                    listaInscripciones.style.visibility = 'visible'
-                    icono.style.transform = 'rotate(180deg)'
+                    listaInscripciones.style.visibility = 'visible';
+                    x = 'true';
+                    icono.style.transform = 'rotate(180deg)';
                 }                   
 
             });
@@ -168,11 +174,15 @@
                     var listaInscripciones = document.querySelector(".listTrayDashboard");
                     var icono = document.querySelector(".bx.bx-caret-right");
 
+                    var x = icono.getAttribute('aria-expanded');
+
                     if(listaInscripciones.style.visibility == 'visible'){
                         listaInscripciones.style.visibility = 'hidden';
+                        x = 'false';
                         icono.style.transform = ''
                     }else{
                         listaInscripciones.style.visibility = 'visible'
+                        x = 'true';
                         icono.style.transform = 'rotate(180deg)'
                     }    
                 }

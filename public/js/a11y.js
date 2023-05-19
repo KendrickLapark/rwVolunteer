@@ -45,7 +45,6 @@ $(() => {
         var accordion_bc = getComputedStyle(document.querySelector('.accordion')).backgroundColor;
     }
 
-
     if($('.mainContainerDateActivities')[0]){
         var containerDateAct_bc = getComputedStyle(document.querySelector('.mainContainerDateActivities')).backgroundColor;
     }
@@ -551,7 +550,7 @@ $(() => {
         $('.toolbar-item').css('font-size', 18);
         $('.dashboard').css('font-size', 24);
         $('.links_name, .admin_name').css('font-size', sidebar_size);
-        $('.toolbar-text').css('font-size', toolbar_text_size);
+        $('.toolbar-text').css('font-size', die);
 
     }
 
@@ -590,14 +589,29 @@ $(() => {
             tamaño = parseInt($('#ti1').css('font-size'));
 
             curSize = parseInt($('#ti1').css('font-size')) - 10;
+
+            alert(toolbar_text_size)
             
-		    if (curSize >= 18){
+		    if (curSize > 18){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
                 $('h1').css('font-size', curSize);
                 $('span:not(.icon-overlay)').css('font-size', curSize);
                 $('button').css('font-size', curSize);
                 $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize); 
+            }else if(curSize == 18){
+                $('p:not(.toolbar-title)').css('font-size', curSize);
+                $('h1').css('font-size', curSize);
+                $('span:not(.icon-overlay)').css('font-size', curSize);
+                $('button').css('font-size', curSize);
+                $('label:not(#overlay1)').css('font-size', curSize);
+                $('.toolbar-item').css('font-size', curSize);        
+                $('.links_name').css('font-size', sidebar_size);
+
+                $('.calendario').find('span').each(function(){
+                    $(this).css('font-size', sidebar_size);
+                });
+
             }
 			    
         });

@@ -209,7 +209,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/dashboard-admin',[AuthController::class, 'adminDashboard'])
             ->name('dashboard.admin');
     /* Mostramos dashboard de notificaciones Admin */
-    Route::get('/dashboard-admin-showNotify',[NotifyController::class, 'adminShowNotify'])
+    Route::get('/dashboard-admin-showNotify', [NotifyController::class, 'adminShowNotify'])
             ->name('dashboard.admin.showNotify');
     /* Descarga ESE documento */
     Route::post('/dashboard-downloadThatDocument',  [DocumentController::class, 'downloadThatDocument'])

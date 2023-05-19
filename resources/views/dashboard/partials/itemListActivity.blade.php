@@ -2,28 +2,28 @@
 @foreach ($activities as $activity)
         <li>
             <div class="mainActivity">
-                <div class="row">
+                <div class="row" tabindex="0">
                     <p>
                     @if(strtotime(date('d-m-Y', strtotime($activity->dateAct)))<(strtotime(date('d-m-Y')))) 
-                        <div class="divTime" tabindex="0" style="background-color:#DDBFC8;">  
+                        <div class="divTime" style="background-color:#DDBFC8;">  
                             <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
                             <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
                         </div>             
                     @elseif(!$activity->isNulledAct)
-                        <div class="divTime" tabindex="0" style="background-color: #406cbc;">
+                        <div class="divTime" style="background-color: #406cbc;">
                             <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
                             <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
                         </div>                               
                     @else
-                        <div class="divTime" tabindex="0" style="background-color:#8A8A8A";>
+                        <div class="divTime" style="background-color:#8A8A8A";>
                             <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
                             <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
                         </div>
                     @endif </p>                               
                             
                         
-                        <div class="divMainDesc" tabindex="0">
-                            <div class="nameDiv">
+                        <div class="divMainDesc" >
+                            <div class="nameDiv" aria-label="Nombre de actividad">
                                 <p> <strong> {{ $activity->nameAct }} </strong> </p>
                             </div>
                             <div class="descDiv">
@@ -43,7 +43,7 @@
                                 <form method="POST" action="{{ route('dashboard.visibleActivity') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonVis"
+                                    <button type="submit" class="botonVis" 
                                         onclick="return confirm('¿Estas seguro/a?')">
                                         PUBLICAR
                                         <br />
@@ -54,7 +54,7 @@
                                 <form method="POST" action="{{ route('dashboard.invisibleActivity') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                    <button type="submit" class="botonVis"
+                                    <button type="submit" class="botonVis" 
                                         onclick="return confirm('¿Estas seguro/a?')">
                                         DESPUBLICAR
                                         <br />
@@ -64,7 +64,7 @@
                             @endif
                             
                             <div class="controlButton-moreDetails">
-                                <i class='bx bxs-down-arrow' role="button" aria-expanded="false" tabindex="0"></i>
+                                <i class='bx bxs-down-arrow' role="button" aria-expanded="false"></i>
                             </div>
                             
                         </div>
@@ -165,6 +165,11 @@
                         </div>
                     
                 </div>
+
+                <div class="controlButton moreDetails">
+                    <i class='bx bxs-up-arrow' style="padding-top: 10px"></i>
+                </div>
+
             </div>
     </div>
 
