@@ -705,16 +705,5 @@ $(() => {
             restoreFontSize();
 
         });
-        
-
-        /* Para Ana
-        
-            Hola Ana, no me gustan las despedidas aunque sabiamos que el día tenía que llegar, se ha adelantado, por suerte para ti. 
-            Es un momento agridulce, aunque más dulce que agrio, te vas por una buena causa, por tu futuro y por lo que has luchado, 
-            una nueva oportunidad de avanzar en tu vida, te lo mereces muchísimo.
-
-
-
-        */
 
 });

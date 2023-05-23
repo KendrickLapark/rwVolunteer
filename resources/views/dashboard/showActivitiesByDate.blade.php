@@ -298,8 +298,6 @@
 
         $('td.fc-day').on("keypress", function(e){
 
-            alert("seleccion "+seleccion)
-
             if(e.keyCode === 13){
 
                 if(seleccion === 0){

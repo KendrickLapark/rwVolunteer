@@ -152,6 +152,24 @@
 
             });
 
+            $(".mainActivity.row").on("keypress", function(e) {
+
+                var key = e.which;
+
+                if(key == 13){
+
+                    var icono = document.querySelector(".mainData .row");
+                    if ($(this).siblings().is(':visible')) {
+                        $(this).siblings().hide();
+                        icono.style.transform = ''
+                    } else {
+                        $(this).siblings().show();
+                        icono.style.transform = 'rotate(180deg)'
+                    }
+
+                }
+
+            });
 
     });
 

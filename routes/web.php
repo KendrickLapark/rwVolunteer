@@ -190,6 +190,9 @@ Route::middleware(['isLogged'])->group(function () {
     /* Mostramos los datos de esa actividad */
     Route::get('/showThatActivity/{id}', [ActivityController::class, 'showThatActivity'])
         ->name('dashboard.showThatActivity');
+        /* Mostramos la lista de voluntarios para una actividad determinada */ 
+    Route::get('/showVolunteersActivity/{id}', [ActivityController::class, 'showVolunteersActivity'])
+        ->name('dashboard.showVolunteersActivity');
     /* Filtramos calendario por categorias */
     Route::get('/showFilterByTypeAct/{id}', [ActivityController::class, 'showFilterByTypeAct'])
         ->name('dashboard.showFilterByTypeAct');
@@ -286,6 +289,9 @@ Route::middleware(['isAdmin'])->group(function () {
     /* create Users CSV */    
     Route::get('/getUsersCSV',[CSVController::class,'getUsersCSV'])
         ->name('CSV.getUsers');
+    /* create Users CSV */    
+    Route::get('/getUsersActivity',[CSVController::class,'getUsersActivityCSV'])
+        ->name('CSV.getUsersActivity');
     /* Borrar Actividad */
     Route::post('/dashboard-nullActivity',[ActivityController::class, 'nullActivity'])
         ->name('dashboard.nullActivity');

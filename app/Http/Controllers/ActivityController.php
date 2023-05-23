@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TypeActivity;
 use App\Models\Activity;
 use App\Models\Inscription;
+use App\Models\Volunteer;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -239,6 +240,17 @@ class ActivityController extends Controller
                             ->first();
         $activityTypes = TypeActivity::all();
         return view('dashboard.showThatActivity', compact("activity","activityTypes"));
+    }
+
+    public function showVolunteersActivity ($activity_id){
+
+        $activity = Activity::where('activity_id', $activity_id)->first();
+
+        $volunteers_ids = Inscription::select('volunteer_id')->where('activity_id', $activity_id)->get();
+
+        $volunteers = Volunteer::whereIn('id', $volunteers_ids)->get();
+
+        return view('dashboard.showVolunteersActivity', compact("activity", "volunteers"));
     }
 
     public function searchActivity(Request $request){

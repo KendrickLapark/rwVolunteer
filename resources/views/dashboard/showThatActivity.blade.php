@@ -98,11 +98,17 @@
                             @endif
                         @endif
                     </div>
+
                     <div class="controlButton moreDetails">
                         <i class='bx bxs-up-arrow'></i>
                     </div>
                 </div>
             </div>
+
+            <div id="excelDownload">
+                <a href="{{ route('CSV.getUsers') }}" title="Descargar lista de voluntarios apuntados a la actividad"><i class='bx bx-cloud-download'></i></a>
+            </div>
+
         </div>
     </div>
 

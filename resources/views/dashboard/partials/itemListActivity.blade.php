@@ -19,11 +19,11 @@
                             <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
                             <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
                         </div>
-                    @endif </p>                               
-                            
+
+                    @endif </p>                                                          
                         
-                        <div class="divMainDesc" >
-                            <div class="nameDiv" aria-label="Nombre de actividad">
+                        <div class="divMainDesc">
+                            <div class="nameDiv">
                                 <p> <strong> {{ $activity->nameAct }} </strong> </p>
                             </div>
                             <div class="descDiv">
@@ -35,7 +35,7 @@
                                 /
                                 {{ $activity->quotasAct }}
                                 Libres </p>
-                            </div>
+                            </div>  
                         </div>    
                         
                         <div class="visDate">
@@ -115,6 +115,16 @@
 
                         <div class="leftCol-buttonsBar">
 
+                            <p> <strong>Información: </strong> </p>
+                            <form method="GET" action="{{ route('dashboard.showVolunteersActivity' , [$activity->activity_id])}}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <button type="submit" class="botonesControl" aria-label="Información extra">
+                                    
+                                    <i class='bx bx-folder-plus' style="font-size:25px"></i>
+                                </button>
+                            </form>
+
                             <p> <strong>Información Extra: </strong> </p>
                             <form method="POST" action="{{ route('dashboard.showAllExtraActivity') }}">
                                 @csrf
@@ -126,7 +136,7 @@
                             </form>
                             <p> <strong>Editar: </strong> </p>
 
-                            <form method="POST" action="{{ route('dashboard.getActivityUpdateData') }}">
+                            <form method="POST" action="{{ route('dashboard.showThatActivity', [$activity->activity_id])}}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $activity->activity_id }}">
                                 <button type="submit" class="botonesControl" aria-label="Editar">
@@ -181,6 +191,11 @@
 
 <script type="text/javascript">
 
+        $(document).ready(function(){
+            $('.nameDiv').attr('aria-label', 'Nombre de la actividad');
+
+        });
+
         $('.bx.bxs-down-arrow').click(function(){
     
             var x = this.getAttribute('aria-expanded');
@@ -195,6 +210,44 @@
     
             this.setAttribute('aria-expanded', x);
     
+        });
+
+        $(".row").on("keypress", function(e) {
+
+        var key = e.which;
+
+        if(key == 13){
+
+            var icono = document.querySelector(".mainData .row");
+            if ($(this).siblings().is(':visible')) {
+                $(this).siblings().hide('slow');
+                icono.style.transform = ''
+            } else {
+                $(this).siblings().show('slow');
+                icono.style.transform = 'rotate(180deg)'
+            }
+
+        }
+
+        });
+
+        $(".hidden").on("keypress", function(e) {
+
+        var key = e.which;
+
+        if(key == 13){
+
+            var icono = document.querySelector(".mainData .row");
+            if ($(this).is(':visible')) {
+                $(this).hide('slow');
+                icono.style.transform = ''
+            } else {
+                $(this).show('slow');
+                icono.style.transform = 'rotate(180deg)'
+            }
+
+        }
+
         });
 
 </script>
