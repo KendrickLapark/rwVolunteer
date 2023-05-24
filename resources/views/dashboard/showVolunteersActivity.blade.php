@@ -14,7 +14,77 @@
     <div class="mainTrayVolAct">
 
         <div class="sectionTitle">
-            <h1 tabindex="0"> MOSTRANDO VOLUNTARIOS APUNTADOS PARA {{$activity->nameAct}}</h1>
+            <h1 tabindex="0"> MOSTRANDO VOLUNTARIOS APUNTADOS A LA ACTIVIDAD </h1>
+        </div>
+
+        <div class="mainActivityInfo">
+
+            <div class="row">
+                <div class="divTime" style="background-color:#DDBFC8;">  
+                    <div class="dateDiv"> <p> {{ date('d-m-Y', strtotime($activity->dateAct)) }} </p> </div>     
+                    <div class="hourDiv"> <p> {{ date('h:i', strtotime($activity->timeAct)) }} </p> </div>   
+                </div>  
+                <div class="divMainDesc">
+                    <div class="nameDiv">
+                        <p> <strong> {{ $activity->nameAct }} </strong> </p>
+                    </div>
+                    <div class="descDiv">
+                       <p> {{$activity->descAct}} </p>
+                    </div>
+                    <div class="cupoDiv">
+                        <p> <strong>Cupo: </strong>
+                        {{ App\Http\Controllers\ActivityController::quotaCalculator($activity->quotasAct, $activity->activity_id) }}
+                        /
+                        {{ $activity->quotasAct }}
+                        Libres </p>
+                    </div>  
+                </div>  
+                <div class="controlButton-moreDetails">
+                    <i class='bx bxs-down-arrow' role="button" aria-expanded="false"></i>
+                </div>
+            </div>
+
+            <div class="hidden">
+                <div class="eachRow">
+                    <div tabindex="0">
+                        <p> <strong>Descripcion: </strong>
+                         {{ $activity->descAct }} </p>
+                    </div>
+                    <div tabindex="0">
+                        <p> <strong>Entidad: </strong>
+                        {{ $activity->entityAct }} </p>
+                    </div>
+                    <div tabindex="0">
+                        <p> <strong>Dirección: </strong>
+                        {{ $activity->direAct }} </p>
+                    </div>
+                    <div tabindex="0">
+                        <p> <strong>Requisito Previo: </strong>
+                        {{ $activity->requiPrevAct }} </p>
+                    </div>
+                    <div tabindex="0">
+                        <p> <strong>Formacion deseada: </strong>
+                        {{ $activity->formaAct }} </p>
+                    </div>
+                    <div tabindex="0">
+                        <p> <strong>Requisitos: </strong>
+                        {{ $activity->requiAct }} </p>
+                    </div>
+                </div>
+                <div class="eachRow">
+                    <div>
+                        <p tabindex="0"> <strong>Tipos de Actividad: </strong> </p>
+                        @foreach ($activityTypes as $activityType)
+                            @foreach ($activity->typeAct as $itemActivityType)
+                                @if ($activityType->typeAct_id == $itemActivityType->typeAct_id)
+                                    <p tabindex="0">{{ $itemActivityType->nameTypeAct }}</p>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="mainDataVolAct">
@@ -242,18 +312,28 @@
             $('.hidden').hide();
 
             $(".row").on("click", function() {
-                                if($(this).next().is(':hidden'))
-                                    $(this).next().show('slow');
-                                else{
-                                    $(this).next().hide('slow');
-                            }
-                            });
+                if($(this).next().is(':hidden'))
+                    $(this).next().show('slow');
+                else{
+                    $(this).next().hide('slow');
+                }
+            });
 
-                            $(".lessDetails").on("click", function() {
-                                $(this).parent().parent().hide('slow');
-                            });
+            $(".lessDetails").on("click", function() {
+                $(this).parent().parent().hide('slow');
+            });
     
-        })
+
+            $(".downloadPanel").hide();
+            $('.accordionUsers').on("click", function(){
+                if($(this).next().is(':hidden')){
+                    $(this).next().show('slow');
+                }    
+                else{
+                    $(this).next().hide('slow');
+                }  
+            })
+        });
     
     </script>
 

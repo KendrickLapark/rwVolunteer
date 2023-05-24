@@ -246,11 +246,13 @@ class ActivityController extends Controller
 
         $activity = Activity::where('activity_id', $activity_id)->first();
 
+        $activityTypes = TypeActivity::all();
+
         $volunteers_ids = Inscription::select('volunteer_id')->where('activity_id', $activity_id)->get();
 
         $volunteers = Volunteer::whereIn('id', $volunteers_ids)->get();
 
-        return view('dashboard.showVolunteersActivity', compact("activity", "volunteers"));
+        return view('dashboard.showVolunteersActivity', compact("activity", "activityTypes", "volunteers"));
     }
 
     public function searchActivity(Request $request){
