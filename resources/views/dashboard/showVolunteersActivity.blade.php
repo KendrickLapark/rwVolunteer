@@ -296,10 +296,16 @@
             </li>
 
             @endforeach
-            </ol>            
+            </ol>   
+
+            <!-- sustituir este form por el boton de abajo "excelDownload" y darle estilo -->
+
+            <form action = "{{route('CSV.getUsersActivity', [$activity->activity_id])}}" method="GET">
+                <button type="submit">Exportar usuarios a CSV</button>
+            </form>
 
             <div id="excelDownload">
-                <a href="{{ route('CSV.getUsers') }}" title="Descargar lista de voluntarios apuntados a la actividad"><i class='bx bx-cloud-download'></i></a>
+                <a href="{{ route('CSV.getUsersActivity', [$activity->activity_id] ) }}" title="Descargar lista de voluntarios apuntados a la actividad"><i class='bx bx-cloud-download'></i></a>
             </div>
 
         </div>

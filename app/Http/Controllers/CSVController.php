@@ -16,9 +16,10 @@ class CSVController extends Controller
         return Excel::download(new VolunteerExport, date('d-m-Y').'voluntarios.xlsx');
     }
 
-    public function getUsersActivityCSV()
+    public function getUsersActivityCSV($activity_id)
     {
-        return Excel::download(new VolunteerActivityExport, date('d-m-Y').'voluntarios_activity.xlsx');
+
+        return Excel::download(new VolunteerActivityExport($activity_id), date('d-m-Y').'voluntarios_activity.xlsx');
     }
 
 }

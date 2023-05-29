@@ -29,7 +29,7 @@
     </div>
 
     <div id="excelDownload">
-        <a href="{{ route('CSV.getUsers') }}"><i class='bx bx-cloud-download'></i></a>
+        <a href="{{ route('CSV.getUsers') }}" title="Descargar lista de voluntarios"><i class='bx bx-cloud-download'></i></a>
     </div>
 
 @endsection

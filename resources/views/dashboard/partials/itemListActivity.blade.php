@@ -136,7 +136,7 @@
                             </form>
                             <p> <strong>Editar: </strong> </p>
 
-                            <form method="POST" action="{{ route('dashboard.getActivityUpdateData', [$activity->activity_id])}}">
+                            <form method="POST" action="{{ route('dashboard.getActivityUpdateData')}}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $activity->activity_id }}">
                                 <button type="submit" class="botonesControl" aria-label="Editar">
