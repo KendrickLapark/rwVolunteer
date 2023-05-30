@@ -58,7 +58,6 @@
 .mainDataVolAct .mainData{
     display: flex;
     flex-direction: column;
-    /* row-gap: 10px; */
 }
 
 .mainDataVolAct .mainData .row{
@@ -107,5 +106,75 @@
 
 .mainDataVolAct .mainData .hidden .downloadButton{
     width:25%;
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px){
+    .mainActivityInfo .row{
+        width: 100%;
+
+    }
+
+    .mainDataVolAct{
+        width: 70%;
+        margin-inline: auto;
+    }
+
+    .mainDataVolAct .mainData .row, .mainDataVolAct .mainData .hidden{
+        width: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 260px) and (max-width: 768px){
+
+    .mainTrayVolAct{
+        min-width: 85% !important;
+        margin-inline: auto;
+
+    }
+    
+    .mainActivityInfo {
+        display: block;
+        width: 85%;
+        
+    }
+
+    .mainActivityInfo .row, .mainActivityInfo .hidden{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .divTime{
+        width: 35%;
+        margin-inline: auto !important;
+    }
+
+    .mainDataVolAct{
+        width: 85% ;
+        margin-inline: auto !important;
+    }
+
+    .mainDataVolAct .mainData .row{
+        display: block;
+        width: 100% ;
+        text-align: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .mainActivityInfo .row{
+        padding: 0;
+    }
+
+    .mainDataVolAct .mainData .row .avatarUserRow img{
+        margin-inline: auto !important;
+    }
+
+    .mainDataVolAct .mainData .hidden{
+        width: 100%;
+        margin-inline: auto !important;
+    }
 
 }
