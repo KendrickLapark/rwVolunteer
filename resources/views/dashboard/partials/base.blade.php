@@ -45,6 +45,45 @@
     </section>
 
     <script type="text/javascript">
+
+    const elementos = document.querySelectorAll('.nav-links a');
+
+    function seleccionarElemento(elemento) {
+
+        elementos.forEach((el) => {
+            el.classList.remove('activo');
+            el.removeAttribute('aria-current');
+        });
+
+        elemento.classList.add('activo');
+        elemento.setAttribute('aria-current', 'page');
+
+        localStorage.setItem('elementoSeleccionado', elemento.textContent);
+
+        }
+
+        elementos.forEach((elemento) => {
+            elemento.addEventListener('click', () => {
+                seleccionarElemento(elemento);
+            });
+
+            elemento.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter') {
+                seleccionarElemento(elemento);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementoSeleccionado = localStorage.getItem('elementoSeleccionado');
+            if (elementoSeleccionado) {
+                const elemento = [...elementos].find(el => el.textContent === elementoSeleccionado);
+                if (elemento) {
+                seleccionarElemento(elemento);
+                }
+            }
+        });
+
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".sidebarBtn");
         let img = document.getElementById("logoImg");

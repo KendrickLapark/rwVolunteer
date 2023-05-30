@@ -6,7 +6,6 @@
 
 @section('content')
 <div class="mainTrayDashboard">
-    @if (App\Http\Controllers\NotifyController::notifyLoggedTrigger())
         <div class="notifyTrayIns">
             <div class="sectionTitle">
                 <i class='bx bx-envelope'></i>
@@ -14,15 +13,6 @@
                 <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>            
             </div>
         </div>
-    @else
-        <div class="notifyTrayIns">
-            <div class="sectionTitle">
-                <i class='bx bx-envelope'></i>                  
-                    <p class="title-desc"> Tienes notificaciones </p>
-                <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" role="button" aria-describedby="title-desc"></i>                   
-            </div>
-        </div>
-    @endif 
         @if (count($inscriptions) == 0)         
             <div class="sectionTitleNoInscriptions">
                <p> No tienes inscripciones hechas en ninguna actividad. </p>
@@ -34,7 +24,7 @@
             <li>                    
                 <div class="mainActivityDashboard">
                     @if($inscription->filenameIns == null)
-                        {{-- @include('dashboard.partials.itemListInscription') --}}
+                        @include('dashboard.partials.itemListInscription') 
                     @elseif($inscription->filenameIns != null)
                         <div class="msg_Inscription">
                            <p id="title-inscription"> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
@@ -72,7 +62,7 @@
                                 </div>
                                 <form method="POST" action="{{ route('PDF.generatepreinscription') }}">
                                     @csrf
-                                    <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">
+                                    <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">      
                                     <button type="submit" class="button_dashboard">
                                     <i class='bx bx-caret-down'></i> Descargar documento</button>
                                 </form>

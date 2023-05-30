@@ -121,6 +121,14 @@
     column-gap: 30px;
 }
 
+.buttonsBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline:auto;
+    text-align: center;
+}
+
 .buttonsBar div{
     text-align: center;
     justify-content: center;
