@@ -6,79 +6,90 @@
 
 @section('content')
 <div class="mainTrayDashboard">
-        <div class="notifyTrayIns">
-            <div class="sectionTitle">
-                <i class='bx bx-envelope'></i>
-                    <p id="title-desc"> Tienes notificaciones </p>
-                <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>            
-            </div>
+
+    <div class="notifyTrayIns">
+        <div class="sectionTitle">
+            <i class='bx bx-envelope'></i>
+                <p id="title-desc"> Tienes notificaciones </p>
+            <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>            
         </div>
-        @if (count($inscriptions) == 0)         
-            <div class="sectionTitleNoInscriptions">
-               <p> No tienes inscripciones hechas en ninguna actividad. </p>
-            </div>                          
-        @else     
-        <div class="listTrayDashboard" id="#listTrayDashboard">    
-        <ol> 
-            <div class="listTrayContainer">  
-                <div class="sectionIncomplete"> 
-                    <p> Inscripciones por completar </p> 
-                    <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
-                </div> 
-                @foreach ($inscriptions as $inscription)
-
-                    @if(count($inscriptions) == 0)
-
-                        <div class="msg_Inscription">
-                            <p id="title-inscription"> No hay inscripciones por completar </p>
-                            <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
-                        </div> 
-
-                    @else
-                    
-                        @if($inscription->filenameIns==null)
-                            <li>                    
-                                <div class="mainActivityDashboard">
-                                        @include('dashboard.partials.itemListInscription')            
-                                </div>  
-                            </li> 
-                        @endif
-
-                    @endif                        
-                @endforeach
-            </div>
-
-            <div class="listTrayContainer">
-                <div class="sectionIncomplete"> 
-                    <p> Inscripciones completadas </p>
-                    <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
-                </div>
-                @foreach ($inscriptions as $inscription)
-
-                    @if(count($inscriptions)==0)
-
-                        <div class="msg_Inscription">
-                            <p id="title-inscription"> No hay completadas </p>
-                            <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
-                        </div>
-                        
-                    @else
-
-                        @if($inscription->filenameIns!=null)
-                            <li>                    
-                                <div class="mainActivityDashboard">
-                                        @include('dashboard.partials.itemListInscription')            
-                                </div>  
-                            </li> 
-                        @endif 
-
-                    @endif
-
-                @endforeach
-            </div>
-        </ol>
-        @endif
     </div>
+
+    @if (count($inscriptions) == 0)         
+        <div class="sectionTitleNoInscriptions">
+            <p> No tienes inscripciones hechas en ninguna actividad. </p>
+        </div>                          
+    @else     
+        <div class="listTrayDashboard" id="#listTrayDashboard">    
+            <ol> 
+                <div class="listTrayContainer">  
+
+                    <div class="sectionIncomplete"> 
+                        <p> Inscripciones por completar </p> 
+                        <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                    </div> 
+
+                    @foreach ($inscriptions as $inscription)
+                        
+                            @if($inscription->filenameIns==null)
+
+                                <li>                    
+                                    <div class="mainActivityDashboard">
+                                        @include('dashboard.partials.itemListInscription')            
+                                    </div>  
+                                </li> 
+
+                            @else
+
+                                <div class="msg_Inscription">
+                                    <p id="title-inscription"> No hay inscripciones por completar </p>
+                                </div>
+
+                                @break
+
+                            @endif
+
+                    @endforeach
+
+                </div>
+
+                <div class="listTrayContainer">
+
+                    <div class="sectionIncomplete"> 
+                        <p> Inscripciones completadas </p>
+                        <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                    </div>
+
+                        @foreach ($inscriptions as $inscription)
+
+                            @if($inscription->filenameIns!=null)
+
+                                <li>                    
+                                    <div class="mainActivityDashboard">
+                                        @include('dashboard.partials.itemListInscription')            
+                                    </div>  
+                                </li> 
+
+                            @else
+
+                                    <li>                    
+                                        <div class="mainActivityDashboard">
+                                            <div class="msg_Inscription">
+                                                <p id="title-inscription"> No inscripciones hay completadas </p>
+                                            </div>
+                                        </div>  
+                                    </li> 
+
+                                @break
+
+                            @endif 
+
+                        @endforeach                    
+                    
+                </div>
+            </ol>
+        </div>
+    @endif
 </div>
 
 <script type="text/javascript">

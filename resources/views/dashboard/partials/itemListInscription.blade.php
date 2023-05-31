@@ -3,12 +3,12 @@
         @if($inscription->filenameIns==null)
             <div class="msg_Inscription">
                 <p id="title-inscription"> Inscripcion incompleta para actividad : {{$inscription->activity->nameAct}} </p>
-                 <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
             </div> 
         @elseif($inscription->filenameIns!=null)
             <div class="msg_Inscription">
                 <p id="title-inscription"> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
-                 <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
             </div> 
         @endif
          <div class="hidden_msg_Inscription" aria-hidden="false">
