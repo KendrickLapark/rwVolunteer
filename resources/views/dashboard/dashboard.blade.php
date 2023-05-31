@@ -55,7 +55,7 @@
                 </div>
                 @foreach ($inscriptions as $inscription)
 
-                    @if(count($inscription)==0)
+                    @if(count($inscriptions)==0)
 
                         <div class="msg_Inscription">
                             <p id="title-inscription"> No hay completadas </p>
