@@ -26,14 +26,25 @@
                     <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
                 </div> 
                 @foreach ($inscriptions as $inscription)
-                
-                    @if($inscription->filenameIns==null)
-                        <li>                    
-                            <div class="mainActivityDashboard">
-                                    @include('dashboard.partials.itemListInscription')            
-                            </div>  
-                        </li> 
-                    @endif                           
+
+                    @if(count($inscriptions) == 0)
+
+                        <div class="msg_Inscription">
+                            <p id="title-inscription"> No hay inscripciones por completar </p>
+                            <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                        </div> 
+
+                    @else
+                    
+                        @if($inscription->filenameIns==null)
+                            <li>                    
+                                <div class="mainActivityDashboard">
+                                        @include('dashboard.partials.itemListInscription')            
+                                </div>  
+                            </li> 
+                        @endif
+
+                    @endif                        
                 @endforeach
             </div>
 
@@ -44,13 +55,25 @@
                 </div>
                 @foreach ($inscriptions as $inscription)
 
-                    @if($inscription->filenameIns!=null)
-                        <li>                    
-                            <div class="mainActivityDashboard">
-                                    @include('dashboard.partials.itemListInscription')            
-                            </div>  
-                        </li> 
-                    @endif                           
+                    @if(count($inscription)==0)
+
+                        <div class="msg_Inscription">
+                            <p id="title-inscription"> No hay completadas </p>
+                            <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                        </div>
+                        
+                    @else
+
+                        @if($inscription->filenameIns!=null)
+                            <li>                    
+                                <div class="mainActivityDashboard">
+                                        @include('dashboard.partials.itemListInscription')            
+                                </div>  
+                            </li> 
+                        @endif 
+
+                    @endif
+
                 @endforeach
             </div>
         </ol>
