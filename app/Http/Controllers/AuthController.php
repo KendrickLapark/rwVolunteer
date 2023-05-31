@@ -24,7 +24,17 @@ class AuthController extends Controller
     {
         $inscriptions = Inscription::where('volunteer_id', Auth::user()->id)
             ->get();
-        return view('dashboard.dashboard', compact("inscriptions"));
+
+        $inscriptionsInc = Inscription::where('volunteer_id', Auth::user()->id)
+            ->whereNull('fileNameIns')
+            ->get();
+
+        $inscriptionsComp = Inscription::where('volunteer_id', Auth::user()->id)
+            ->whereNotNull('fileNameIns')
+            ->get();
+            
+
+        return view('dashboard.dashboard', compact("inscriptions", "inscriptionsInc", "inscriptionsComp"));
     }
 
     public function adminDashboard()

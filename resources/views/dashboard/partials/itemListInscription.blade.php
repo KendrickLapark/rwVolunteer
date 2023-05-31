@@ -12,7 +12,7 @@
             </div> 
         @endif
          <div class="hidden_msg_Inscription" aria-hidden="false">
-            <div class="inner_hidden_msg_Inscription">
+            <div class="inner_hidden_msg_Inscription" tabindex="0">
                     <div class="row_act_desc"> <strong> Descripción: </strong>{{ $inscription->activity->nameAct }}</div>
                     <div class="row_act_title"> <strong> Requisito previo: </strong> {{ $inscription->activity->requiPrevAct }}</div>
                     <div class="row_type_act"> <strong> Tipo de actividad: </strong> {{-- {{$inscription->activity->typeAct[0]->nameTypeAct}} --}} </div>

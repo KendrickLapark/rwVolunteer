@@ -15,16 +15,15 @@ $(() => {
         var button_i_c = getComputedStyle(document.querySelector('button i')).color;
     }
 
-    //to do
-    /* if($('.mainActivityAct')[0]){
-        if($('.divTime')){
-            var divTime_bc = getComputedStyle(document.querySelector('.divTime')).backgroundColor;
-        }
-    } */
-
     if($('.botonVis')[0]){
         var botonVis_bc = getComputedStyle(document.querySelector('.botonVis')).backgroundColor;
         var botonVis_c = getComputedStyle(document.querySelector('.botonVis')).color;
+
+    }
+
+    if($('.sectionIncomplete')[0]){
+        var sectionInc_bc = getComputedStyle(document.querySelector('.sectionIncomplete')).backgroundColor;
+        var sectionInc_c = getComputedStyle(document.querySelector('.sectionIncomplete')).color;
 
     }
 
@@ -121,6 +120,11 @@ $(() => {
         var sectionTitle_bc = getComputedStyle(document.querySelector('.sectionTitle')).backgroundColor; 
     }
 
+    if($('.sectionTitleNoInscriptions')[0]){
+        var sectionTitle_bc = getComputedStyle(document.querySelector('.sectionTitleNoInscriptions')).backgroundColor; 
+        var sectionTitle_c = getComputedStyle(document.querySelector('.sectionTitleNoInscriptions')).color; 
+    }
+
     if($('.home-section')[0]){
         var home_section_bc = getComputedStyle(document.querySelector('.home-section')).backgroundColor;
     }
@@ -204,6 +208,10 @@ $(() => {
 
     if($('#divFooter')[0]){
         var divFooter_bc = getComputedStyle(document.querySelector('#divFooter')).backgroundColor;
+    }
+
+    if($('.toolbar-item')[0]){
+        var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     }
 
     var sidebar_size = parseInt($('.links_name').css('font-size'));
@@ -338,6 +346,8 @@ $(() => {
         
         if($('.msg_Inscription')[0]){
             $('.msg_Inscription').css('background', msg_Inscription_bc);
+            $('.msg_Inscription').parent().css('background', 'white');
+            $('.msg_Inscription').parent().css('color', '#004a98');
         }
 
         if($('.hidden_msg_Inscription')[0]){
@@ -540,6 +550,26 @@ $(() => {
             $('.toolbar-title').css('color', 'black');
         }
 
+        if($('.sectionTitleNoInscriptions')[0]){
+            $('.sectionTitleNoInscriptions').css('background', sectionTitle_bc);
+            $('.sectionTitleNoInscriptions, p').css('color', sectionTitle_c);
+
+        }
+
+        if($('.sectionIncomplete')[0]){
+            $('.sectionIncomplete').css('background', sectionInc_bc);
+            $('.listTrayContainer').css('background', 'white');
+            $('.sectionIncomplete, .sectionIncomplete p, .sectionIncomplete i').css('color', 'white');
+        }
+
+        if($('.msg_Inscription')[0]){
+            $('.msg_Inscription').parent().css('color', '#004a98');
+        }
+
+        if($('.toolbar-item')[0]){
+            $('.toolbar-item').css('background', toolbar_item_bc);
+        }
+
     }
 
     function restoreFontSize(){
@@ -651,7 +681,7 @@ $(() => {
                 high_contrast = true;           
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #divFooter p, #spaceTopMenu, button, .botones.botonesAB, .mainData, .row, .buttonSignUp').css('background-color', 'black');
+                $('.sidebar, .sidebar li, li, nav, .home-section, .toolbar-inner, form, #divFooter p, #spaceTopMenu, button, .botones.botonesAB, .mainData, .row, .buttonSignUp').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');         
             }
 
@@ -672,7 +702,7 @@ $(() => {
                 negative_contrast = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .botones.botonesAB, .buttonSignUp, .mainData, .row').css('background-color', 'black');
+                $('.sidebar, .sidebar li, li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .botones.botonesAB, .buttonSignUp, .mainData, .row').css('background-color', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');         
             }
 

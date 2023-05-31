@@ -160,12 +160,6 @@ Route::middleware(['isLogged'])->group(function () {
     /* Muestra las actividades en función de la fecha */
     Route::get('/dashboard-showActivitiesByDate', [ActivityController::class, 'showActivitiesByDate'])
         ->name('dashboard.showActivitiesByDate');
-        /* Muestra las actividades en vista Genially */
-    Route::get('/dashboard-showActivitiesGenially', [ActivityController::class, 'showActivitiesGenially'])
-        ->name('dashboard.showActivitiesGenially');
-        /* Muestra las actividades semanales del Genially */
-    Route::get('/dashboard-showWeekCalendarGenially', [ActivityController::class, 'showWeekCalendarGenially'])
-        ->name('dashboard.showWeekCalendarGenially');
     /* Mostrar MI InfoExtra de usuario */
     Route::post('/dashboard-showMyInfoExtra',  [ExtraActivityController::class, 'showMyInfoExtra'])
         ->name('dashboard.showMyInfoExtra');

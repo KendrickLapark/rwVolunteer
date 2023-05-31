@@ -5,124 +5,124 @@
 @endsection
 
 @section('content')
-<div class="mainTrayDashboard">
+    <div class="mainTrayDashboard">
 
-    <div class="notifyTrayIns">
-        <div class="sectionTitle">
-            <i class='bx bx-envelope'></i>
-                <p id="title-desc"> Tienes notificaciones </p>
-            <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>            
+        <div class="notifyTrayIns">
+            <div class="sectionTitle">
+                <i class='bx bx-envelope'></i>
+                    <p id="title-desc"> Tienes notificaciones </p>
+                <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>            
+            </div>
         </div>
-    </div>
 
-    @if (count($inscriptions) == 0)         
-        <div class="sectionTitleNoInscriptions">
-            <p> No tienes inscripciones hechas en ninguna actividad. </p>
-        </div>                          
-    @else     
-        <div class="listTrayDashboard" id="#listTrayDashboard">    
-            <ol> 
-                <div class="listTrayContainer">  
+        @if (count($inscriptions) == 0)         
+            <div class="sectionTitleNoInscriptions">
+                <p tabindex="0"> No tienes inscripciones hechas en ninguna actividad. </p>
+            </div>                          
+        @else     
+            <div class="listTrayDashboard" id="#listTrayDashboard">    
+                <ol> 
+                    <div class="listTrayContainer">  
 
-                    <div class="sectionIncomplete"> 
-                        <p> Inscripciones por completar </p> 
-                        <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
-                    </div> 
+                        @if(count($inscriptionsComp)==0)
 
-                    @foreach ($inscriptions as $inscription)
+                            <div class="sectionIncomplete"> 
+                                <p id="title-section"> Inscripciones por completar </p> 
+                                <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-section" tabindex="0"></i>
+                            </div> 
+
+                            @foreach ($inscriptions as $inscription)
+                                
+                                    @if($inscription->filenameIns==null)
+
+                                        <li>                    
+                                            <div class="mainActivityDashboard">
+                                                @include('dashboard.partials.itemListInscription')            
+                                            </div>  
+                                        </li> 
+
+                                    @endif
+
+                            @endforeach
+
+                        @else
+
+                        <div class="sectionIncomplete"> 
+                            <p tabindex="0"> No tienes inscripciones por completar </p>
+                        </div>            
                         
-                            @if($inscription->filenameIns==null)
+                        @endif
 
-                                <li>                    
-                                    <div class="mainActivityDashboard">
-                                        @include('dashboard.partials.itemListInscription')            
-                                    </div>  
-                                </li> 
-
-                            @else
-
-                                <div class="msg_Inscription">
-                                    <p id="title-inscription"> No hay inscripciones por completar </p>
-                                </div>
-
-                                @break
-
-                            @endif
-
-                    @endforeach
-
-                </div>
-
-                <div class="listTrayContainer">
-
-                    <div class="sectionIncomplete"> 
-                        <p> Inscripciones completadas </p>
-                        <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
                     </div>
 
-                        @foreach ($inscriptions as $inscription)
+                    <div class="listTrayContainer">
 
-                            @if($inscription->filenameIns!=null)
+                        @if(count($inscriptionsInc)==0)
 
-                                <li>                    
-                                    <div class="mainActivityDashboard">
-                                        @include('dashboard.partials.itemListInscription')            
-                                    </div>  
-                                </li> 
+                            <div class="sectionIncomplete"> 
+                                <p id="title-section"> Inscripciones completadas </p>
+                                <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-section" tabindex="0"></i>
+                            </div>
 
-                            @else
+                                @foreach ($inscriptions as $inscription)
 
-                                    <li>                    
-                                        <div class="mainActivityDashboard">
-                                            <div class="msg_Inscription">
-                                                <p id="title-inscription"> No inscripciones hay completadas </p>
-                                            </div>
-                                        </div>  
-                                    </li> 
+                                    @if($inscription->filenameIns!=null)
 
-                                @break
+                                        <li>                    
+                                            <div class="mainActivityDashboard">
+                                                @include('dashboard.partials.itemListInscription')            
+                                            </div>  
+                                        </li> 
 
-                            @endif 
+                                    @endif 
 
-                        @endforeach                    
-                    
-                </div>
-            </ol>
-        </div>
-    @endif
-</div>
+                                @endforeach
+                        
+                        @else
 
-<script type="text/javascript">
+                            <div class="sectionIncomplete"> 
+                                <p tabindex="0"> No tienes inscripciones completas </p> 
+                            </div>   
 
-    $('#desplegar').click(function(){
+                        @endif
+                        
+                    </div>
+                </ol>
+            </div>
+        @endif
+    </div>
 
-        var x = this.getAttribute('aria-expanded');
+    <script type="text/javascript">
 
-            if(x == "true"){
-                x = "false";
-            }else{
-                x = "true";
-            }
+        $('#desplegar').click(function(){
 
-        this.setAttribute('aria-expanded', x);
+            var x = this.getAttribute('aria-expanded');
 
-    });
+                if(x == "true"){
+                    x = "false";
+                }else{
+                    x = "true";
+                }
 
-    $('.bx.bx-caret-down').click(function(){
+            this.setAttribute('aria-expanded', x);
 
-        var x = this.getAttribute('aria-expanded');
+        });
 
-            if(x == "true"){
-                x = "false";
-            }else{
-                x = "true";
-            }
+        $('.bx.bx-caret-down').click(function(){
 
-        this.setAttribute('aria-expanded', x);
+            var x = this.getAttribute('aria-expanded');
 
-    });
+                if(x == "true"){
+                    x = "false";
+                }else{
+                    x = "true";
+                }
 
-</script>
+            this.setAttribute('aria-expanded', x);
+
+        });
+
+    </script>
 
 @endsection
 

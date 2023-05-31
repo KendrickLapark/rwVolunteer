@@ -92,7 +92,6 @@
                     $aux = $('.accordion').eq(pos).prev().text(); //texto del dayActTitle
                     $aux2 = $('#dayActTitle').eq(pos);
                        
-                    /* $(".accordion").eq(pos).attr('aria-describedby', $aux2 ); no lo settea correctamente  */
                     $(".accordion").eq(pos).append($aux); 
                     
                     $('.panel').eq(pos).hide();
@@ -246,7 +245,6 @@
                         $aux = $('.accordion').eq(pos).prev().text(); //texto del dayActTitle
                         $aux2 = $('#dayActTitle').eq(pos);
                         
-                        /* $(".accordion").eq(pos).attr('aria-describedby', $aux2 ); no lo settea correctamente  */
                         $(".accordion").eq(pos).append($aux); 
                         
                         $('.panel').eq(pos).hide();
@@ -279,6 +277,22 @@
 
         /* permite tabular entre días en el fullcalendar, y settea la fecha del día en cuestión como atributo aria-label para cada celda del fullcalendar
            permitiendo al screen reader guiar al usuario según el día por el que va tabulando */
+
+        const calendario = document.querySelector('.calendario');
+            calendario.setAttribute('aria-label', 'Calendario');
+            calendario.setAttribute('tabindex', '0');
+
+        const botonAnterior = document.querySelector('.fc-anterior-button');
+            botonAnterior.setAttribute('aria-label', 'Mes anterior');
+
+        const botonSiguiente = document.querySelector('.fc-siguiente-button');
+            botonSiguiente.setAttribute('aria-label', 'Siguiente mes');
+
+        const botonDiaActual = document.querySelector('.fc-today-button');
+            botonDiaActual.setAttribute('aria-label', 'Volver al día actual');
+
+        const mesActual = document.querySelector('.fc-center h2');
+            mesActual.setAttribute('tabindex', '0');
 
         $('.fc-day').each(function() {
             var $input = $(this);
@@ -352,13 +366,6 @@
             }
 
         });
-
-        /* var tabindex2 = 0;
-        $('.fc-event-container a').each(function(event){
-            var $input2 = $(this);
-            $input2.attr("tabindex", tabindex2);
-
-        }); */
 
     });
 
