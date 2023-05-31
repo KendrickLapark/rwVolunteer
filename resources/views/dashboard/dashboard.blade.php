@@ -19,65 +19,40 @@
             </div>                          
         @else     
         <div class="listTrayDashboard" id="#listTrayDashboard">    
-        <ol>     
-            @foreach ($inscriptions as $inscription)  
-            <li>                    
-                <div class="mainActivityDashboard">
-                    @if($inscription->filenameIns == null)
-                        @include('dashboard.partials.itemListInscription') 
-                    @elseif($inscription->filenameIns != null)
-                        <div class="msg_Inscription">
-                           <p id="title-inscription"> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
-                            <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
-                        </div> 
-                        <div class="hidden_msg_Inscription" aria-hidden="false">
-                            <div class="inner_hidden_msg_Inscription">
-                                <div class="descIns" tabindex="0">
-                                  <p> <strong> Descripción: </strong> 
-                                    {{$inscription->activity->descAct}} 
-                                  </p>
-                                </div>
-                                <div class="entityIns" tabindex="0">
-                                  <p> <strong> Entidad: </strong> 
-                                    {{$inscription->activity->entityAct}} </p>
-                                </div>
-                                <div class="direIns" tabindex="0">
-                                  <p> <strong> Dirección: </strong> 
-                                    {{$inscription->activity->direAct}} </p>
-                                </div>
-                                <div class="dateIns"  tabindex="0">
-                                  <p>  <strong> Fecha: </strong> 
-                                    {{$inscription->activity->dateAct}} </p>
-                                </div>
-                                <div class="timeIns"  tabindex="0">
-                                   <p> <strong> Hora: </strong> 
-                                    {{$inscription->activity->timeAct}} </p>
-                                </div>
-                                <div class="isCompletedIns">
-                                    @if($inscription->isCompletedIns)
-                                      <p tabindex="0">  <strong> Inscripción completada </strong> </p>
-                                    @else
-                                      <p tabindex="0">  <strong> Inscripción incompleta, esperando aceptación administradora </strong> </p>
-                                    @endif
-                                </div>
-                                <form method="POST" action="{{ route('PDF.generatepreinscription') }}">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">      
-                                    <button type="submit" class="button_dashboard">
-                                    <i class='bx bx-caret-down'></i> Descargar documento</button>
-                                </form>
-                                <form method="POST" action="{{ route('dashboard.unDoInscription') }}">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">
-                                    <button type="submit" class="button_dashboard" id="dash_but2">
-                                        <i class='bx bx-x-circle'></i>Cancelar preinscripción</button>
-                                </form>
-                            </div>
-                        </div>                                                                            
-                    @endif
-                </div>  
-            </li>                             
-            @endforeach
+        <ol> 
+            <div class="listTrayContainer">  
+                <div class="sectionIncomplete"> 
+                    <p> Inscripciones por completar </p> 
+                    <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                </div> 
+                @foreach ($inscriptions as $inscription)
+                
+                    @if($inscription->filenameIns==null)
+                        <li>                    
+                            <div class="mainActivityDashboard">
+                                    @include('dashboard.partials.itemListInscription')            
+                            </div>  
+                        </li> 
+                    @endif                           
+                @endforeach
+            </div>
+
+            <div class="listTrayContainer">
+                <div class="sectionIncomplete"> 
+                    <p> Inscripciones completadas </p>
+                    <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+                </div>
+                @foreach ($inscriptions as $inscription)
+
+                    @if($inscription->filenameIns!=null)
+                        <li>                    
+                            <div class="mainActivityDashboard">
+                                    @include('dashboard.partials.itemListInscription')            
+                            </div>  
+                        </li> 
+                    @endif                           
+                @endforeach
+            </div>
         </ol>
         @endif
     </div>
@@ -123,6 +98,8 @@
 
     <script>
         $(() => {
+
+            $(".sectionIncomplete").siblings().hide();
 
             $(".row_act_dashboard").on("click", function() {
                 var icono = document.querySelector(".row_act_dashboard > #bx.bx-caret-down");
@@ -179,7 +156,7 @@
 
             });
 
-            $(".msg_Inscription").on("click", function() {
+            $(".msg_Inscription, .sectionIncomplete").on("click", function() {
                 var icono = document.querySelector(".row_act_dashboard > #bx.bx-caret-down");
                 if ($(this).siblings().is(':visible')) {
                     $(this).siblings().hide();
@@ -192,7 +169,17 @@
                 }
             });
 
-            $(".msg_Inscription").on("keypress", function(e) {
+            $(".sectionIncomplete").on("click", function() {
+                if ($(this).siblings().is(':visible')) {
+                    $(this).siblings().hide();
+                    $(this).siblings().setAttribute('aria-hidden', 'false');
+                } else {
+                    $(this).siblings().show();
+                    $(this).siblings().setAttribute('aria-hidden', 'true');
+                }
+            });
+
+            $(".msg_Inscription, .sectionIncomplete").on("keypress", function(e) {
 
                 var key = e.which;
 
@@ -205,6 +192,22 @@
                     } else {
                         $(this).siblings().show();
                         icono.style.transform = 'rotate(180deg)'
+                    }
+
+                }
+
+            });
+
+            $(".sectionIncomplete").on("keypress", function(e) {
+
+                var key = e.which;
+
+                if(key == 13){
+
+                    if ($(this).siblings().is(':visible')) {
+                        $(this).siblings().hide();
+                    } else {
+                        $(this).siblings().show();
                     }
 
                 }

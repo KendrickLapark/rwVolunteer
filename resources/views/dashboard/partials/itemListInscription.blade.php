@@ -1,9 +1,16 @@
 <ol>
     <li>
-        <div class="msg_Inscription">
-            <p id="title-inscription"> Inscripcion incompleta para actividad : {{$inscription->activity->nameAct}} </p>
-             <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
-         </div> 
+        @if($inscription->filenameIns==null)
+            <div class="msg_Inscription">
+                <p id="title-inscription"> Inscripcion incompleta para actividad : {{$inscription->activity->nameAct}} </p>
+                 <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+            </div> 
+        @elseif($inscription->filenameIns!=null)
+            <div class="msg_Inscription">
+                <p id="title-inscription"> Inscripcion realizada para actividad : {{$inscription->activity->nameAct}} </p>
+                 <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+            </div> 
+        @endif
          <div class="hidden_msg_Inscription" aria-hidden="false">
             <div class="inner_hidden_msg_Inscription">
                     <div class="row_act_desc"> <strong> Descripción: </strong>{{ $inscription->activity->nameAct }}</div>

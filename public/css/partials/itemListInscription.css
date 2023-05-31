@@ -71,6 +71,22 @@
 
 }
 
+.sectionIncomplete{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding-block: 15px;
+    padding-bottom: 30px;
+    padding-inline: 5px;
+    margin-bottom: 20px;
+    background-color: #3F6BBF;
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 3px 2px -2px gray;
+
+}
+
 .row_act_dashboard, .msg_Inscription{
     display: flex;
     align-items: center;
@@ -192,9 +208,11 @@
         margin: auto;
     }
 
-    .row_act_dashboard, .msg_Inscription{
+    .row_act_dashboard, .msg_Inscription, .sectionIncomplete{
         width: 100%;
     }
+
+
 
     .hidden_msg_Inscription{
         width: 100%;
