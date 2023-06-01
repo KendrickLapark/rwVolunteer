@@ -14,6 +14,7 @@
 @import "partials/showThatActivity.css";
 @import "partials/showAllEducation.css";
 @import "partials/showVolunteersActivity.css";
+@import "partials/dashboardAdmin.css";
 
 body {
     background-color: #ffffff;
@@ -764,15 +765,7 @@ div.logo-details {
     line-height: 35px;
 }
 
-.notifyTray .sectionTitle a,
-.notifyTray .sectionTitle {
-    color: #004a98;
-    padding-bottom: 0px;
-}
 
-#sectionTitleAdmin a{
-    color: #FFFFFF !important;
-}
 
 /* End Notifications */
 

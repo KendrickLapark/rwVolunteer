@@ -110,7 +110,7 @@
                             </p>
                         </div>
 
-                        <div class="eachCreateInfoExtraElement">
+                        <div class="eachCreateInfoExtraElement" tabindex="0">
                             <p>
                                 <label id="labelDelegations" for="delegations" class="formSections" for="shirtSizeVol"><strong>Delegaciones:
                                     </strong></label>
@@ -357,3 +357,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
+
+    <script type="text/javascript"> 
+
+        var select = document.getElementById('shirtSizeVol');
+        var options = select.options;
+
+        select.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                var selectedIndex = select.selectedIndex;
+                var newIndex = e.shiftKey ? selectedIndex - 1 : selectedIndex + 1;
+
+                if (newIndex >= 0 && newIndex < options.length) {
+                    options[newIndex].selected = true;
+                    e.preventDefault();
+                }
+            }
+        });
+
+    </script>
+

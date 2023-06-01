@@ -19,39 +19,36 @@
         @foreach ($inscription as $inscription)
             @if ($inscription->filenameIns == null)
                 <div class="mainDataLogNot">
-                    <div class="rowLogNot">
-                            <strong>Nombre: </strong>{{ $inscription->activity->nameAct }}
-                            <strong>Cupo: </strong>
+                    <div class="rowLogNot" tabindex="0">
+                        <div> <strong>Nombre: </strong>{{ $inscription->activity->nameAct }} </div>
+                        <div> <strong>Cupo: </strong>
                             {{ App\Http\Controllers\ActivityController::quotaCalculator(
                                 $inscription->activity->quotasAct,
                                 $inscription->activity->activity_id,
-                            ) }}
-                            /
-                            {{ $inscription->activity->quotasAct }}
+                            ) }} / {{ $inscription->activity->quotasAct }}
                             Libres
-                        <strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }}
-                        <strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }}
-
-                        <strong>Fecha: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }}
-
-                        <div class="controlButton moreDetails" tabindex="0">
+                        </div>
+                        <div> <strong>Hora de inicio: </strong>{{ $inscription->activity->timeAct }} </div>
+                        <div> <strong>Hora Fin: </strong>{{ $inscription->activity->endTimeAct }} </div>                        
+                        <div> <strong>Fecha: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct)) }} </div>                        
+                        <div class="controlButton moreDetails" tabindex="0" aria-label="pulsar para desplegar detalles de la actividad">
                             <i class='bx bxs-down-arrow' id="displayTriggerIcon"></i>
                         </div>
                     </div>
-                    <div class="hiddenLogNot">
+                    <div class="hiddenLogNot" tabindex="0">
                         <div class="eachRow">
-                                <strong>Descripcion: </strong>
-                                {{ $inscription->activity->descAct }}
-                                <strong>Entidad: </strong>
-                                {{ $inscription->activity->entityAct }}
-                                <strong>Dirección: </strong>
-                                {{ $inscription->activity->direAct }}
-                                <strong>Requisito Previo: </strong>
-                                {{ $inscription->activity->requiPrevAct }}
-                                <strong>Formacion deseada: </strong>
-                                {{ $inscription->activity->formaAct }}
-                                <strong>Requisitos: </strong>
-                                {{ $inscription->activity->requiAct }}
+                            <div> <strong>Descripcion: </strong>
+                                {{ $inscription->activity->descAct }} </div>
+                            <div> <strong>Entidad: </strong>
+                                {{ $inscription->activity->entityAct }} </div>
+                            <div> <strong>Dirección: </strong>
+                                {{ $inscription->activity->direAct }} </div>
+                            <div> <strong>Requisito Previo: </strong>
+                                {{ $inscription->activity->requiPrevAct }} </div>
+                            <div> <strong>Formacion deseada: </strong>
+                                {{ $inscription->activity->formaAct }} </div>
+                            <div> <strong>Requisitos: </strong>
+                                {{ $inscription->activity->requiAct }}  </div>                               
                         </div>
                         <div class="eachRow">
                             <div>
@@ -69,7 +66,7 @@
                                 <form method="POST" action="{{ route('PDF.generatepreinscription') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">
-                                    <button type="submit" id="downloadPDF" class="botonesControl"><i
+                                    <button type="submit" id="downloadPDF" class="botonesControl" aria-label="descargar documento"><i
                                             class='bx bx-save'></i></button>
                                 </form>
                                 <hr />
@@ -77,8 +74,8 @@
                                     accept-charset="UTF-8" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $inscription->inscription_id }}">
-                                    <p><input type="file" name="file" accept="application/pdf" required></p>
-                                    <p><button type="submit" id="registerSubmitButton" class="botonesControl">SUBIR PDF
+                                    <p><input type="file" name="file" accept="application/pdf" aria-label="subir documento en formato pdf" required></p>
+                                    <p><button type="submit" id="registerSubmitButton" class="botonesControl" aria-label="subir pdf firmado">SUBIR PDF
                                             FIRMADO</button></p>
                                 </form>
                             </div>

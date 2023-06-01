@@ -294,6 +294,14 @@
         const mesActual = document.querySelector('.fc-center h2');
             mesActual.setAttribute('tabindex', '0');
 
+        $('.fc-content').each(function(){
+            var input = $(this);
+            var inputText = $(this).find('span').text();
+            input.attr('tabindex', '0');
+            input.attr('aria-label', inputText);
+
+        });
+
         $('.fc-day').each(function() {
             var $input = $(this);
             $input.attr("tabindex", tabindex); 

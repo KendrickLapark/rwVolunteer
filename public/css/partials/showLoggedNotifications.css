@@ -12,6 +12,8 @@
 }
 
 .mainDataLogNot .hiddenLogNot{
+    display: flex;
+    flex-direction: column;
     border: 1px grey solid;
     justify-content: center;
     text-align: center;

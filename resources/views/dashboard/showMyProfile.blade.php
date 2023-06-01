@@ -55,13 +55,13 @@
 
                             <li class="dataVol-item" tabindex="0">
                                 
-                                    <strong>Correo Electrónico Personal: </strong>
+                                    <strong>Correo electrónico personal: </strong>
                                     <br />
                                     <span class="persMailVol"> {{ $volunteer->persMailVol }} </span>
                             </li>
 
                             <li class="dataVol-item" tabindex="0">
-                                    <strong>Correo Electrónico Corporativo: </strong>
+                                    <strong>Correo electrónico corporativo: </strong>
                                     <br />
                                 @if($volunteer->corpMailVol)
                                     <span class="corpMailVol"> {{ $volunteer->corpMailVol }} </span>
@@ -163,7 +163,7 @@
             <div class="divButtonMyProfile">
                 <form method="GET" action="{{ route('dashboard.showMyProfileForm') }}" accept-charset="UTF-8"
                     enctype="multipart/form-data">
-                    <p><button type="submit" class="botonesControl">Editar</button></p>
+                    <p><button type="submit" class="botonesControl" aria-label="Editar perfil">Editar</button></p>
                 </form>
             </div>
 

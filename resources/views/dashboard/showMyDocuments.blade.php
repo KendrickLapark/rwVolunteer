@@ -18,7 +18,7 @@
 
         <ol>
             @foreach ($documents as $document)
-            <li>
+            <li class="itemShowDoc">
                 <div class="mainDataShowDoc">
                     <div class="rowShowDoc">
                         <div class="rowTitleShowDoc" tabindex="0">
@@ -38,7 +38,7 @@
                             <form method="POST" action="{{ route('dashboard.downloadDocument') }}">
                                 @csrf
                                 <input type="hidden" tabindex="0" name="doc" value="{{ $document->doc_id }}">
-                                <button type="submit" id="downloadDoc" class="botonesControl"><i
+                                <button type="submit" id="downloadDoc" class="botonesControl" aria-label="Descargar documento"><i
                                         class='bx bx-save'></i></button>
                             </form>
                         </div>

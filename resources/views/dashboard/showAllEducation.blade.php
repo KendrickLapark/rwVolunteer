@@ -30,7 +30,7 @@
             </form>
         </div>
         @if (count($education) == 0)
-            <div class="notifyContent center">
+            <div class="notifyContent center" tabindex="0">
                 No se encuentran Estudios ahora mismo.
             </div>
         @else

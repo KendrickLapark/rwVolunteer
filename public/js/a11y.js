@@ -116,6 +116,10 @@ $(() => {
         var sidebar_li_bc = getComputedStyle(document.querySelector('.sidebar li')).backgroundColor; 
     }
 
+    if($('.itemShowDoc')[0]){
+        var itemShowDoc_bc = getComputedStyle(document.querySelector('.itemShowDoc')).backgroundColor;
+    }
+
     if($('.sectionTitle')[0]){
         var sectionTitle_bc = getComputedStyle(document.querySelector('.sectionTitle')).backgroundColor; 
     }
@@ -562,6 +566,10 @@ $(() => {
             $('.sectionIncomplete, .sectionIncomplete p, .sectionIncomplete i').css('color', 'white');
         }
 
+        if($('.itemShowDoc')[0]){
+            $('.itemShowDoc').css('background', itemShowDoc_bc);
+        }
+
         if($('.msg_Inscription')[0]){
             $('.msg_Inscription').parent().css('color', '#004a98');
         }
@@ -619,8 +627,6 @@ $(() => {
             tamaño = parseInt($('#ti1').css('font-size'));
 
             curSize = parseInt($('#ti1').css('font-size')) - 10;
-
-            alert(toolbar_text_size)
             
 		    if (curSize > 18){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
