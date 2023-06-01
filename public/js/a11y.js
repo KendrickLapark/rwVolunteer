@@ -116,6 +116,10 @@ $(() => {
         var sidebar_li_bc = getComputedStyle(document.querySelector('.sidebar li')).backgroundColor; 
     }
 
+    if($('li')[0]){
+        var li_bc = getComputedStyle(document.querySelector('li')).backgroundColor;
+    }
+
     if($('.itemShowDoc')[0]){
         var itemShowDoc_bc = getComputedStyle(document.querySelector('.itemShowDoc')).backgroundColor;
     }
@@ -576,6 +580,10 @@ $(() => {
 
         if($('.toolbar-item')[0]){
             $('.toolbar-item').css('background', toolbar_item_bc);
+        }
+
+        if($('li')[0]){
+            $('li:not(.adminMenu)').css('background', li_bc);
         }
 
     }
