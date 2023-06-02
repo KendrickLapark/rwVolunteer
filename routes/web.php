@@ -198,7 +198,10 @@ Route::middleware(['isAdmin'])->group(function () {
     /* RUTAS ADMIN */
 
     // Búsqueda de actividades en showAllActivities
-    Route::get("searchActivity",[ActivityController::class,'searchActivity']);
+    Route::get("searchActivity",[ActivityController::class, 'searchActivity']);
+
+    // Búsqueda de actividades según la fecha en showAllActivities
+    Route::get("searchActByDate", [ActivityController::class, 'searchActivity']);
 
     // Búsqueda de usuarios en bd.
     Route::get("searchUser",[UsersController::class,'searchUser']);

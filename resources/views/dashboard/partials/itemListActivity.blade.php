@@ -104,7 +104,7 @@
                         @foreach ($activityTypes as $activityType)
                             @foreach ($activity->typeAct as $itemActivityType)
                                 @if ($activityType->typeAct_id == $itemActivityType->typeAct_id)
-                                {{ preg_replace('/\d+/', '', $itemActivityType->nameTypeAct) }}
+                                {{ preg_replace('/[\d\.]+/', '', $itemActivityType->nameTypeAct) }}
                                 @endif
                             @endforeach
                         @endforeach </p>

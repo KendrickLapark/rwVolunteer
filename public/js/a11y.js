@@ -222,6 +222,14 @@ $(() => {
         var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     }
 
+    if($('.toggle-act-button')[0]){
+        var toggle_act_button_bc = getComputedStyle(document.querySelector('.toggle-act-button')).backgroundColor;
+        var toggle_act_button_c = getComputedStyle(document.querySelector('.toggle-act-button')).color;
+        var eachColor_A_c = getComputedStyle(document.querySelector('#eachColor_A')).backgroundColor;
+        var eachColor_B_c = getComputedStyle(document.querySelector('#eachColor_B')).backgroundColor;
+        var eachColor_C_c = getComputedStyle(document.querySelector('#eachColor_C')).backgroundColor;
+    }
+
     var sidebar_size = parseInt($('.links_name').css('font-size'));
     var toolbar_text_size = parseInt($('.toolbar-text').css('font-size'));
 
@@ -562,6 +570,14 @@ $(() => {
             $('.sectionTitleNoInscriptions').css('background', sectionTitle_bc);
             $('.sectionTitleNoInscriptions, p').css('color', sectionTitle_c);
 
+        }
+
+        if($('.toggle-act-button')[0]){
+            $('.toggle-act-button').css('background', toggle_act_button_bc);
+            $('.toggle-act-button').css('color', toggle_act_button_c);
+            $('#eachColor_A').css('background', eachColor_A_c);
+            $('#eachColor_B').css('background', eachColor_B_c);
+            $('#eachColor_C').css('background', eachColor_C_c);
         }
 
         if($('.sectionIncomplete')[0]){

@@ -253,11 +253,52 @@ class ActivityController extends Controller
             $query = $request->get('searchActivity');
             if(empty($query)) {
                 $activities=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
-                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')->orderBy('dateAct', 'desc')->get();
+                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')
+                ->whereDate('dateAct', '>=', date('Y-m-d'))
+                ->orderBy('dateAct', 'desc')
+                ->get();
                 $activityTypes = TypeActivity::all();
             } else {
                 $activities=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
-                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')->orderBy('dateAct', 'desc')->get();
+                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')
+                ->whereDate('dateAct', '>=', date('Y-m-d'))
+                ->orderBy('dateAct', 'desc')
+                ->get();
+                $activityTypes = TypeActivity::all();
+            }
+
+            $total = $activities->count();
+        
+            $html = view('dashboard.partials.itemListActivity', [
+                'activities' => $activities,
+                'activityTypes' => $activityTypes,
+            ])->render();             
+        
+            return response()->json([
+                'success' => true,
+                'html' => $html,
+                'total' => $total,
+            ], 200);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => "Something went wrong!",
+            ], 403);
+        }
+
+    }
+
+    public function searchActByDate(Request $request){
+
+        if($request->ajax()) {
+            $query = $request->get('searchActByDate');
+            if(empty($query)) {
+                $activities=Activity::where('activity_id','like','%'.$request->searchActByDate.'%')
+                ->orwhere('nameAct','like','%'.$request->searchActByDate.'%')->orderBy('dateAct', 'desc')->get();
+                $activityTypes = TypeActivity::all();
+            } else {
+                $activities=Activity::where('activity_id','like','%'.$request->searchActByDate.'%')
+                ->orwhere('nameAct','like','%'.$request->searchActByDate.'%')->orderBy('dateAct', 'desc')->get();
                 $activityTypes = TypeActivity::all();
             }
             $total = $activities->count();

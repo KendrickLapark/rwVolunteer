@@ -72,23 +72,29 @@
 
         <div id="calendarCaption">
             <div class="eachCalendarCaption">
-                <div class="eachColor" style="background-color:#DDBFC8;">
-                    &nbsp;
-                </div>
-                Pasada
+                <button class="toggle-act-button" id="button-past-act">
+                    <div class="eachColor" id="eachColor_A" style="background-color:#DDBFC8;">
+                        &nbsp;
+                    </div>
+                    Pasada
+                </button>
             </div>
             <div class="eachCalendarCaption">
-                <div class="eachColor" style="background-color:#8A8A8A;">
-                    &nbsp;
-                </div>
-                Anulada
+                <button class="toggle-act-button" id="button-nulled-act">
+                    <div class="eachColor" id="eachColor_B" style="background-color:#8A8A8A;">
+                        &nbsp;
+                    </div>
+                    Anulada
+                </button>
             </div>
 
             <div class="eachCalendarCaption">
-                <div class="eachColor" style="background-color:#406cbc;">
-                    &nbsp;
-                </div>
-                Cita Normal
+                <button class="toggle-act-button" id="button-avaliable-act">
+                    <div class="eachColor" id="eachColor_C" style="background-color:#406cbc;">
+                        &nbsp;
+                    </div>
+                    Cita Normal
+                </button>
             </div>
         </div>
        
@@ -141,6 +147,40 @@
             })
 
         }
+
+        function ajaxSearch(datos){
+
+            return $.ajax({
+
+                url:"searchActByDate",
+                type:"GET",
+                data:{'searchActByDate':datos},
+                success:function(data){
+                    $('#search_listAct').html(data.html);
+
+                    $(".hidden").hide();
+                        $(".row").on("click", function() {
+                            if($(this).next().is(':hidden'))
+                                $(this).next().show('slow');
+                            else{
+                                $(this).next().hide('slow');
+                            }
+                        });
+
+                        $(".bx.bxs-up-arrow").on("click", function() {
+                            $(this).parent().parent().hide('slow');
+                        });
+
+                }
+
+            })
+
+        }
+
+            $('#button-past-act').on('click', function(){
+               ajaxCall(''); 
+
+            })
 
             ajaxCall('');
 
