@@ -100,20 +100,20 @@
                 </div>
                 <div class="eachRow">
                     <div>
-                        <p tabindex="0"> <strong>Tipos de Actividad: </strong> </p>
+                        <p tabindex="0"> <strong>Tipos de Actividad: </strong> 
                         @foreach ($activityTypes as $activityType)
                             @foreach ($activity->typeAct as $itemActivityType)
                                 @if ($activityType->typeAct_id == $itemActivityType->typeAct_id)
-                                    <p tabindex="0">{{ $itemActivityType->nameTypeAct }}</p>
+                                {{ preg_replace('/\d+/', '', $itemActivityType->nameTypeAct) }}
                                 @endif
                             @endforeach
-                        @endforeach
+                        @endforeach </p>
                     </div>
                 </div>
                     
                     <div class="buttonsBar">
 
-                        <div class="leftCol-buttonsBar">
+                        <div class="col-buttonsBar">
 
                             <div class="buttonAct">
                                 <p> <strong>Información: </strong> </p>
@@ -139,6 +139,10 @@
                                 </form>
                             </div>
 
+                        </div>
+
+                        <div class="col-buttonsBar">
+
                             <div class="buttonAct">
                                 <p> <strong>Editar: </strong> </p>
                                 <form method="POST" action="{{ route('dashboard.getActivityUpdateData')}}">
@@ -148,11 +152,7 @@
                                         <i class='bx bxs-edit' style="font-size:25px"></i>
                                     </button>
                                 </form>
-                            </div>
-
-                        </div>
-
-                        <div class="rightCol-buttonsBar">
+                            </div>                  
 
                             <div class="buttonAct">
                                 @if (!$activity->isNulledAct)
@@ -171,6 +171,10 @@
                                 @endif
                             </div>
 
+                        </div>
+
+                        <div class="col-buttonsBar">
+
                             <div class="buttonAct">
                                 <p> <strong>Eliminar: </strong> </p>
                                 <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
@@ -181,9 +185,9 @@
                                             style="font-size:25px;"></i></button>
                                 </form>
                             </div>
-                        </div>
+                        </div>                       
                     
-                </div>
+                    </div>
 
                 <div class="controlButton moreDetails">
                     <i class='bx bxs-up-arrow' style="padding-top: 10px"></i>

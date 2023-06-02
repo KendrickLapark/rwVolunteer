@@ -22,6 +22,7 @@
     margin-bottom: 50px;
 }
 
+
 #search_listAct .row .divTime{
     background-color: rgb(221, 191, 200);
     color: #ffffff;
@@ -32,12 +33,13 @@
     flex-direction: column;
     text-align: center;
     line-height: 1.5em; 
-    width: auto;
+    width: 12%;
 }
 
 #search_listAct .row{
     background-color: #ffffff;
-    margin-block: 10px; 
+    margin-inline: auto;
+    margin-block: 20px;
     display:flex;
     flex-direction: row;  
     border-bottom: 1px solid grey; 
@@ -55,7 +57,7 @@
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    width: 60%;
+    width: 70%;
     text-align: left;
     flex-direction: column;
     overflow:auto;
@@ -75,12 +77,13 @@
     padding-top: 10px;
 }
 
-#search_listAct .row .divVis{
+#search_listAct .row .visDate{
     align-items: center;
     text-align: center;
     justify-content: center;
     padding: 10px;
-    width: 18%;
+    margin-inline: 10px;
+    min-width: 18%;
     
 }
 
@@ -109,6 +112,7 @@
     padding: 20px;
     align-items: center;
     width: 100%;
+    margin-block: 20px;
 }
 
 .mainActivityAct .hidden .buttonsBar{
@@ -118,7 +122,6 @@
     flex-direction: row;
     width: 100%;
     justify-content: center;
-    column-gap: 30px;
 }
 
 .buttonsBar{
@@ -134,15 +137,11 @@
     justify-content: center;
 }
 
-.leftCol-buttonsBar{
+.col-buttonsBar{
     display: flex;
     flex-direction: row;
 }
 
-.rightCol-buttonsBar{
-    display: flex;
-    flex-direction: row;
-}
 
 .mainActivityAct .hidden .botonesControl{
     border: none;
@@ -160,11 +159,6 @@
 .botonesControl p{
     text-align: center;
 }
-
-/* .avatarInShowAllUsers {
-    width: 64px;
-    border-radius: 35px;
-} */
 
 /* changeAvatarForm */
 
@@ -209,7 +203,7 @@
     }
 }
 
-@media only screen and (min-width: 260px) and (max-width: 768px){
+@media only screen and (max-width: 768px){
     
     #searchActivity{
         width: 70%;
@@ -237,18 +231,12 @@
         margin: auto;
     }
 
-    .leftCol-buttonsBar{
+    .col-buttonsBar{
         padding: auto;
         margin: auto;
         text-align: center;
         justify-content: center;
-    }
-
-    .rightCol-buttonsBar{
-        padding: auto;
-        margin: auto;
-        text-align: center;
-        justify-content: center;
+        row-gap: 60px;
     }
 
 }

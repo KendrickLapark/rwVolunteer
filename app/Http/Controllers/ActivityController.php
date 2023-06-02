@@ -14,7 +14,6 @@ class ActivityController extends Controller
 {
     public function showAllActivities()
     {
-        //$activities = Activity::all();
         $activities = Activity::orderBy('dateAct')->get();
         $activityTypes = TypeActivity::all();
 
@@ -254,11 +253,11 @@ class ActivityController extends Controller
             $query = $request->get('searchActivity');
             if(empty($query)) {
                 $activities=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
-                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')->orderBy('dateAct', 'asc')->get();
+                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')->orderBy('dateAct', 'desc')->get();
                 $activityTypes = TypeActivity::all();
             } else {
                 $activities=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
-                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')->orderBy('dateAct', 'asc')->get();
+                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')->orderBy('dateAct', 'desc')->get();
                 $activityTypes = TypeActivity::all();
             }
             $total = $activities->count();
