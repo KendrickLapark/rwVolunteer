@@ -176,7 +176,8 @@
         function ajaxDisponibles(){
             return $.ajax({
                 url:"searchActByDate",
-                type:"GET",               
+                type:"GET",
+                data:{'searchActivity':datos},                
                 success:function(data){
                     $('#search_listAct').html(data.html);
                     $(".hidden").hide();
@@ -212,10 +213,9 @@
                 var query = $(this).val();
 
                 if($('#button-all-act').hasClass('seleccionado')){
-                    alert('boton 1')
                     ajaxCall(query);
                 }else if($('#button-past-act').hasClass('seleccionado')){
-                    alert('boton 2')
+                    ajaxAntiguas(query);
                 }else if($('#button-nulled-act').hasClass('seleccionado')){
                     alert('boton 3')
                 }else if($('#button-avaliable-act').hasClass('seleccionado')){
@@ -224,7 +224,6 @@
                     alert('ningun boton seleccionado')
                 }
 
-                /* ajaxCall(query); */
 
             });
 

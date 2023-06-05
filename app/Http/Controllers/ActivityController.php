@@ -284,7 +284,7 @@ class ActivityController extends Controller
 
     }
 
-     public function searchActByDate(Request $request){
+    public function searchActByDate(Request $request){
 
         if($request->ajax()) {
             $query = $request->get('searchActivity');
