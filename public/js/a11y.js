@@ -237,26 +237,20 @@ $(() => {
     var div_bc = getComputedStyle(document.querySelector('div')).backgroundColor;
 
     var coloresFondo = [];
+    var coloresLetra = [];
    
     $(document).ajaxSuccess(function(){
         var padreLista = $('#search_listAct');
-
-        coloresFondo = [];
 
         padreLista.find('.divTime').each(function() {
             var div = $(this);
 
             coloresFondo.push(div.css('background-color'));
+            coloresLetra.push(div.css('color'));
 
         }) 
 
-        coloresFondo.forEach(function(color){
-            console.log(color)
-
-        });
-
     });
-    
 
     function defaultColors(){
 
@@ -420,15 +414,6 @@ $(() => {
             $('.mainData.center').css('background', mainContainerActivitiesOptions_bc);
             $('.mainData.center').children().css('background', mainContainerActivitiesOptions_bc);
 
-        }
-
-        if($('.divTime')[0]){
-            $('.divTime').each(function(index){
-                var color = coloresFondo[index % coloresFondo.length]; // Obtener el color correspondiente del array 'colores'
-
-                $(this).css('background-color', color);
-
-            })
         }
 
         if($('.toolbar-inner')[0]){
@@ -627,6 +612,17 @@ $(() => {
 
         if($('li')[0]){
             $('li:not(.adminMenu)').css('background', li_bc);
+        }
+
+        if($('.divTime')[0]){
+            $('.divTime').each(function(index){
+                var colorFondo = coloresFondo[index % coloresFondo.length]; 
+                var colorLetra = coloresLetra[index % coloresLetra.length];
+
+                $(this).css('background-color', colorFondo);
+                $(this).find('p').css('color', colorLetra);
+
+            })
         }
 
     }   

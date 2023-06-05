@@ -201,7 +201,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get("searchActivity",[ActivityController::class, 'searchActivity']);
 
     // Búsqueda de actividades según la fecha en showAllActivities
-    Route::get("searchActByDate", [ActivityController::class, 'searchActivity']);
+    Route::get("searchActByDate", [ActivityController::class, 'searchActByDate']);
 
     // Búsqueda de usuarios en bd.
     Route::get("searchUser",[UsersController::class,'searchUser']);

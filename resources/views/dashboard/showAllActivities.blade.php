@@ -72,6 +72,11 @@
 
         <div id="calendarCaption">
             <div class="eachCalendarCaption">
+                <button class="toggle-act-button" id="button-all-act">
+                    Todas
+                </button>
+            </div>
+            <div class="eachCalendarCaption">
                 <button class="toggle-act-button" id="button-past-act">
                     <div class="eachColor" id="eachColor_A" style="background-color:#DDBFC8;">
                         &nbsp;
@@ -119,6 +124,13 @@
 
     $(document).ready(function(){
 
+        var botones = $('.toggle-act-button');
+
+        botones.click(function(){
+            botones.removeClass('seleccionado');
+            $(this).addClass('seleccionado');
+        })
+
         function ajaxCall(datos){
 
             return $.ajax({
@@ -147,48 +159,72 @@
             })
 
         }
-
-        function ajaxSearch(datos){
-
+       
+        function ajaxAntiguas(datos){
             return $.ajax({
-
                 url:"searchActByDate",
-                type:"GET",
-                data:{'searchActByDate':datos},
+                type:"GET", 
+                data:{'searchActivity':datos},              
                 success:function(data){
                     $('#search_listAct').html(data.html);
-
                     $(".hidden").hide();
-                        $(".row").on("click", function() {
-                            if($(this).next().is(':hidden'))
-                                $(this).next().show('slow');
-                            else{
-                                $(this).next().hide('slow');
-                            }
-                        });
-
-                        $(".bx.bxs-up-arrow").on("click", function() {
-                            $(this).parent().parent().hide('slow');
-                        });
 
                 }
-
             })
-
         }
 
-            $('#button-past-act').on('click', function(){
-               ajaxCall(''); 
+        function ajaxDisponibles(){
+            return $.ajax({
+                url:"searchActByDate",
+                type:"GET",               
+                success:function(data){
+                    $('#search_listAct').html(data.html);
+                    $(".hidden").hide();
 
+                }
             })
+        }
 
             ajaxCall('');
+            
+            $('#button-all-act').on('click', function(){
+                ajaxCall('');
+
+            });
+
+            $('#button-past-act').on('click', function(){
+                ajaxAntiguas();
+
+            });
+
+            $('#button-nulled-act').on('click', function(){
+                ajaxAntiguas();
+
+            });
+
+            $('#button-avaliable-act').on('click', function(){
+                ajaxAntiguas();
+
+            });
 
             $('#searchActivity').on('keyup', function(){
 
-            var query = $(this).val();
+                var query = $(this).val();
 
-            ajaxCall(query);
+                if($('#button-all-act').hasClass('seleccionado')){
+                    alert('boton 1')
+                    ajaxCall(query);
+                }else if($('#button-past-act').hasClass('seleccionado')){
+                    alert('boton 2')
+                }else if($('#button-nulled-act').hasClass('seleccionado')){
+                    alert('boton 3')
+                }else if($('#button-avaliable-act').hasClass('seleccionado')){
+                    alert('boton 4')
+                }else{
+                    alert('ningun boton seleccionado')
+                }
+
+                /* ajaxCall(query); */
 
             });
 
@@ -212,27 +248,6 @@
             });
 
     });
-
-    /* $(document).ajaxSuccess(function(){
-        // Obtener el elemento padre que contiene la lista ordenada
-        var padreLista = $('#search_listAct');
-
-        // Array para almacenar los colores de fondo
-        var coloresFondo = [];
-
-        // Iterar sobre los divs recién agregados
-        padreLista.find('.divTime').each(function() {
-            var div = $(this);
-
-            // Guardar el color de fondo en el array
-            coloresFondo.push(div.css('background-color'));
-
-            // Cambiar el color de fondo
-
-        })
-
-
-    }); */
 
     </script>
 
