@@ -213,6 +213,27 @@
 
     });
 
+    /* $(document).ajaxSuccess(function(){
+        // Obtener el elemento padre que contiene la lista ordenada
+        var padreLista = $('#search_listAct');
+
+        // Array para almacenar los colores de fondo
+        var coloresFondo = [];
+
+        // Iterar sobre los divs recién agregados
+        padreLista.find('.divTime').each(function() {
+            var div = $(this);
+
+            // Guardar el color de fondo en el array
+            coloresFondo.push(div.css('background-color'));
+
+            // Cambiar el color de fondo
+
+        })
+
+
+    }); */
+
     </script>
 
 @endsection

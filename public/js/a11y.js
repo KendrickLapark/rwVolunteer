@@ -228,13 +228,35 @@ $(() => {
         var eachColor_A_c = getComputedStyle(document.querySelector('#eachColor_A')).backgroundColor;
         var eachColor_B_c = getComputedStyle(document.querySelector('#eachColor_B')).backgroundColor;
         var eachColor_C_c = getComputedStyle(document.querySelector('#eachColor_C')).backgroundColor;
-    }
+    }    
 
     var sidebar_size = parseInt($('.links_name').css('font-size'));
     var toolbar_text_size = parseInt($('.toolbar-text').css('font-size'));
 
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
     var div_bc = getComputedStyle(document.querySelector('div')).backgroundColor;
+
+    var coloresFondo = [];
+   
+    $(document).ajaxSuccess(function(){
+        var padreLista = $('#search_listAct');
+
+        coloresFondo = [];
+
+        padreLista.find('.divTime').each(function() {
+            var div = $(this);
+
+            coloresFondo.push(div.css('background-color'));
+
+        }) 
+
+        coloresFondo.forEach(function(color){
+            console.log(color)
+
+        });
+
+    });
+    
 
     function defaultColors(){
 
@@ -400,9 +422,14 @@ $(() => {
 
         }
 
-        /* if($('#search_listAct')[0]){
-            $('.divTime').css('background', divTime_bc);
-        } */
+        if($('.divTime')[0]){
+            $('.divTime').each(function(index){
+                var color = coloresFondo[index % coloresFondo.length]; // Obtener el color correspondiente del array 'colores'
+
+                $(this).css('background-color', color);
+
+            })
+        }
 
         if($('.toolbar-inner')[0]){
             $('.toolbar-inner').css('background', toolbar_inner_bc);      
@@ -602,7 +629,7 @@ $(() => {
             $('li:not(.adminMenu)').css('background', li_bc);
         }
 
-    }
+    }   
 
     function restoreFontSize(){
         $('p:not(.toolbar-title)').css('font-size', 18);
