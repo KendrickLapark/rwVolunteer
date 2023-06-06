@@ -52,7 +52,7 @@
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="search" title="Escriba el nombre de la actividad que desea buscar"
+                        <input type="search" title="Escriba el nombre de la actividad que desea buscar o la fecha de la actividad"
                          name="searchActivity" id="searchActivity" placeholder="Buscar actividades..." class="form-search" onfocus="this.value=''">
                     </div>
                     
@@ -173,9 +173,22 @@
             })
         }
 
-        function ajaxDisponibles(){
+        function ajaxNulas(datos){
             return $.ajax({
-                url:"searchActByDate",
+                url:"searchByNullAct",
+                type:"GET", 
+                data:{'searchActivity':datos},              
+                success:function(data){
+                    $('#search_listAct').html(data.html);
+                    $(".hidden").hide();
+
+                }
+            })
+        }
+
+        function ajaxDisponibles(datos){
+            return $.ajax({
+                url:"searchByAvaliableAct",
                 type:"GET",
                 data:{'searchActivity':datos},                
                 success:function(data){
@@ -199,12 +212,12 @@
             });
 
             $('#button-nulled-act').on('click', function(){
-                ajaxAntiguas();
+                ajaxNulas();
 
             });
 
             $('#button-avaliable-act').on('click', function(){
-                ajaxAntiguas();
+                ajaxDisponibles();
 
             });
 
@@ -217,13 +230,10 @@
                 }else if($('#button-past-act').hasClass('seleccionado')){
                     ajaxAntiguas(query);
                 }else if($('#button-nulled-act').hasClass('seleccionado')){
-                    alert('boton 3')
+                    ajaxNulas(query);
                 }else if($('#button-avaliable-act').hasClass('seleccionado')){
-                    alert('boton 4')
-                }else{
-                    alert('ningun boton seleccionado')
+                    ajaxDisponibles(query);
                 }
-
 
             });
 

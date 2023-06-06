@@ -20,7 +20,8 @@ class Activity extends Model
         "dateAct",
         'isPreseAct',
         'quotasAct',
-        'isVisible'
+        'isVisible',
+        'isNulledAct'
     ];
 
     public function typeAct()

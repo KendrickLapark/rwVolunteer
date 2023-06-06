@@ -256,8 +256,7 @@ class ActivityController extends Controller
                 $activities=Activity::orderBy('dateAct', 'desc')
                     ->get();
             } else {
-                $activities=Activity::where('activity_id','like','%'.$request->searchActivity.'%')
-                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')
+                $activities=Activity::where('nameAct','like','%'.$request->searchActivity.'%')
                 ->orwhere('dateAct', 'like', '%'.$request->searchActivity.'%')
                 ->orderBy('dateAct', 'desc')
                 ->get();
@@ -293,10 +292,96 @@ class ActivityController extends Controller
                 $activities=Activity::orderBy('dateAct', 'desc')
                 ->whereDate('dateAct', '<', date('Y-m-d'))
                 ->get();
-            } else {
+            } else {                               
                 $activities=Activity::orderBy('dateAct', 'desc')
                 ->whereDate('dateAct', '<', date('Y-m-d'))
                 ->where('dateAct', 'like', '%'.$request->searchActivity.'%')
+                ->orwhere('nameAct','like','%'.$request->searchActivity.'%')
+                ->get();               
+            }
+
+            $total = $activities->count();
+        
+            $html = view('dashboard.partials.itemListActivity', [
+                'activities' => $activities,
+                'activityTypes' => $activityTypes,
+            ])->render();             
+        
+            return response()->json([
+                'success' => true,
+                'html' => $html,
+                'total' => $total,
+            ], 200);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => "Something went wrong!",
+            ], 403);
+        }
+
+    } 
+
+    public function searchByNullAct(Request $request){
+
+        if($request->ajax()) {
+            $query = $request->get('searchActivity');
+            $activityTypes = TypeActivity::all();
+            $searchActivity = $request->searchActivity;
+            if(empty($query)) {
+                $activities=Activity::orderBy('dateAct', 'desc')
+                ->where('isNulledAct', true)
+                ->get();
+            } else {
+                $activities = Activity::where('isNulledAct', true)
+                ->where(function ($query) use ($searchActivity) {
+                    $query->where('dateAct', 'like', '%'. $searchActivity.'%')
+                          ->orWhere('nameAct',  'like', '%'. $searchActivity.'%');
+                })->orderBy('dateAct','desc')
+                ->get();
+
+            }
+
+            $total = $activities->count();
+        
+            $html = view('dashboard.partials.itemListActivity', [
+                'activities' => $activities,
+                'activityTypes' => $activityTypes,
+            ])->render();             
+        
+            return response()->json([
+                'success' => true,
+                'html' => $html,
+                'total' => $total,
+            ], 200);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => "Something went wrong!",
+            ], 403);
+        }
+
+    } 
+
+    public function searchByAvaliableAct(Request $request){
+
+        if($request->ajax()) {
+            $query = $request->get('searchActivity');
+            $activityTypes = TypeActivity::all();
+            $searchActivity = $request->searchActivity;
+            
+            if(empty($query)) {
+                $activities=Activity::where('isNulledAct', false)  
+                ->whereDate('dateAct', '>=', date('Y-m-d'))
+                ->orderBy('dateAct', 'desc')
+                ->get();
+            } else {
+                $activities = Activity::where('isNulledAct', false)
+                ->whereDate('dateAct', '>=', date('Y-m-d'))
+                ->where(function ($query) use ($searchActivity) {
+                    $query->where('dateAct', 'like', '%'. $searchActivity.'%')
+                          ->orWhere('nameAct',  'like', '%'. $searchActivity.'%');
+                })
+                ->orderBy('dateAct', 'desc')
                 ->get();
             }
 
@@ -336,7 +421,8 @@ class ActivityController extends Controller
     public function nullActivity(Request $request)
     {
         $activity = Activity::where('activity_id',$request->id)->first();
-        Activity::where('activity_id',$request->id)->first()->update(['isNulledAct'=> true]);
+        $activity->update(['isNulledAct'=> true]);
+        $activity->save();
 
         foreach ($activity->volunteers as $volunteer) {
             EmailController::nullActivityMail(
