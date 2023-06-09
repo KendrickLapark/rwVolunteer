@@ -1,5 +1,71 @@
 <ol>
+
+@php
+$meses = [];
+@endphp
+
+@foreach ($activities as $actividad)
+    @php
+        $mes = date('m', strtotime($actividad->dateAct));
+    @endphp
+
+    @if (!in_array($mes, $meses))
+        @php
+            $meses[] = $mes;
+        @endphp
+    @endif
+@endforeach
+
+@foreach($meses as $mes)
+
+    <div class="monthAccordion">
+        @switch($mes)
+            @case(1)
+                Enero
+                @break
+            @case(2)
+                Febrero
+                @break
+            @case(3)
+                Marzo
+                @break
+            @case(4)
+                Abril
+                @break
+            @case(5)
+                Mayo
+                @break
+            @case(6)
+                Junio
+                @break
+            @case(7)
+                Julio
+                @break
+            @case(8)
+                Agosto
+                @break
+            @case(9)
+                Septiembre
+                @break
+            @case(10)
+                Octubre
+                @break
+            @case(11)
+                Noviembre
+                @break;
+            @case(12)
+                Diciembre
+                @break;
+            @default
+                Mes desconocido
+        @endswitch
+        <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
+    </div>
+
 @foreach ($activities as $activity)
+
+    @if(date('m', strtotime($activity->dateAct)) === $mes)
+
         <li>
             <div class="mainActivity">
                 <div class="row" tabindex="0">
@@ -197,8 +263,12 @@
     </div>
 
     </li>
+
+    @endif
     
-    @endforeach
+@endforeach
+
+@endforeach
 
 </ol>
 
@@ -208,6 +278,20 @@
             $('.nameDiv').attr('aria-label', 'Nombre de la actividad');
 
         });
+
+        $('.row').hide();
+        $('.hidden').hide();
+
+        //modificar esta funcion jquery para que despliegue y oculte correctamente las actividades de cada mes
+
+        /* $('.monthAccordion').click(function(){
+            if($(this).children().siblings().is(':visible')){
+                $(this).children().siblings().hide('slow');
+            }else{
+                $(this).children().siblings().show('slow');
+            }
+
+        }); */
 
         $('.bx.bxs-down-arrow').click(function(){
     

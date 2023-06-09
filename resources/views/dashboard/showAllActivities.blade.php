@@ -141,18 +141,17 @@
                 success:function(data){
                     $('#search_listAct').html(data.html);
 
-                    $(".hidden").hide();
-                        $(".row").on("click", function() {
-                            if($(this).next().is(':hidden'))
-                                $(this).next().show('slow');
-                            else{
-                                $(this).next().hide('slow');
-                            }
-                        });
+                    $(".row").on("click", function() {
+                        if($(this).next().is(':hidden'))
+                            $(this).next().show('slow');
+                        else{
+                            $(this).next().hide('slow');
+                        }
+                    });
 
-                        $(".bx.bxs-up-arrow").on("click", function() {
-                            $(this).parent().parent().hide('slow');
-                        });
+                    $(".bx.bxs-up-arrow").on("click", function() {
+                        $(this).parent().parent().hide('slow');
+                    });
 
                 }
 
@@ -167,7 +166,6 @@
                 data:{'searchActivity':datos},              
                 success:function(data){
                     $('#search_listAct').html(data.html);
-                    $(".hidden").hide();
 
                 }
             })
@@ -180,7 +178,6 @@
                 data:{'searchActivity':datos},              
                 success:function(data){
                     $('#search_listAct').html(data.html);
-                    $(".hidden").hide();
 
                 }
             })
@@ -193,7 +190,6 @@
                 data:{'searchActivity':datos},                
                 success:function(data){
                     $('#search_listAct').html(data.html);
-                    $(".hidden").hide();
 
                 }
             })
