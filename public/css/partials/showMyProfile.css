@@ -8,45 +8,29 @@
     object-fit: cover;
 }
 
-.mainDataMyProf{
+.containerMyProfile{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    background-color: red;
+}
+
+.containerProfileData{
+    width: 50%;
+    margin-inline: 5%;
+}
+
+.accordionPersonalData, .accordionDocuments{
+    display:flex;
+    flex-direction: row;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    align-items: center;
-    border: 1px grey solid;
-    border-radius: 25px;
-    overflow: auto;
-
-}
-
-.leftCol{
-    display: flex;
-    float:flex;
-    min-width: 33%; 
-}
-
-.leftColForm{
-    float:flex;
-    min-width: 33%; 
-    padding: 20px;
-}
-
-.auxItem{
-    width: 30%;
-}
-
-.columnItem{
-    width: 70%;
-    float: flex;
-}
-
-.colTitle{
-    font-size: 30px;
-}
-
-.dataVol-item{
-    margin:10px;
+    margin-block: 5%;
+    margin-inline: 5%;
+    padding-inline: 1%;
+    padding-block: 2%;
+    height: fit-content;
+    background-color: #004A98;
+    color: white;
 }
 
 .centerCol{
@@ -57,17 +41,7 @@
     min-width: 33%;
 }
 
-.rightCol{
-    
-    float:flex;
-    min-width: 33%; 
-}
 
-.rightColForm{
-    padding: 20px;
-    float:flex;
-    min-width: 33%; 
-}
 
 #labeltitleCol{
     font-size: 24px;
@@ -77,11 +51,3 @@
     text-align: center;
 }
 
-@media only screen and (max-width: 780px) {
-
-    .mainDataMyProf{
-        display: block;
-        padding: 10%;
-    }
-    
-}

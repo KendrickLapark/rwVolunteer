@@ -15,150 +15,36 @@
             </div>
         @endif
 
-            <div class="container">
-                <div class="mainDataMyProf">
-                    <div class="leftCol">
+            <div class="containerMyProfile">
 
-
-                        <ul class="contactVol">
-
-                            <li class="dataVol-item">
-                            <p>
-                                    <span class="colTitle" tabindex="0"><strong>Contacto</strong></span>
-                                <br>
-                            </p>
-                            </li>
-
-                            <li class="dataVol-item" tabindex="0">
-                                <p>
-                                    <strong>Talla de camiseta:</strong>
-                                    <br />
-                                    <span class="shirtSizeVol"> {{ $volunteer->shirtSizeVol }}</span>
-                                        
-                                </p>
-                            </li>
-                            <li class="dataVol-item" tabindex="0">
-                                <p>
-                                    <strong>Organización:</strong>
-                                    <br />
-                                    <span value="organiVol" {{ $volunteer->organiVol == 'SIN Empresa Asociada' ? 'selected' : '' }}>SIN Empresa Asociada </span>
-                                </p>
-                            </li>
-
-                            <li class="dataVol-item" tabindex="0">
-                                <p>
-                                    <strong>Teléfono:</strong>
-                                    <br />
-                                    <span class="telVol">{{ $volunteer->telVol }} </span>
-                                </p>
-                            </li>
-
-                            <li class="dataVol-item" tabindex="0">
-                                
-                                    <strong>Correo electrónico personal: </strong>
-                                    <br />
-                                    <span class="persMailVol"> {{ $volunteer->persMailVol }} </span>
-                            </li>
-
-                            <li class="dataVol-item" tabindex="0">
-                                    <strong>Correo electrónico corporativo: </strong>
-                                    <br />
-                                @if($volunteer->corpMailVol)
-                                    <span class="corpMailVol"> {{ $volunteer->corpMailVol }} </span>
-                                @else
-                                    <span class="corpMailVol"> No dispone de correo electrónico corporativo. </span>
-                                @endif                     
-                            </li>
-                        </ul>
-
-
-                    </div>
-
-                    <div class="centerCol">
-                        <p>
-                            @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
-                                <img class="avatarMyProfile" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
-                            @else
-                                <img class="avatarMyProfile" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
-                                alt="{{ Auth::user()->nameVol }}" id="avatarInTopBar" />
-                            @endif
-                        </p>
-                    </div>
-
-                    <div class="rightCol">
-
-                        <ul class="dataVol">
-                                <li class="contactVol-item"  tabindex="0">
-                                    <p>
-                                        <span class =colTitle><strong>Datos personales</strong></span>
-                                        <br>
-                                    </p>
-
-                                </li>                            
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                        <strong>Nombre: </strong>                                
-                                        <span class="surnameVol">
-                                                {{ $volunteer->nameVol }}</span>                                    
-                                    </p>
-                                </li>
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                        <strong>Apellidos:</strong>                            
-                                        <span class="surnameVol">
-                                                {{ $volunteer->surnameVol .' '. $volunteer->surname2Vol}} </span>
-                                    </p>
-                                </li>
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                        <strong> {{ $volunteer->typeDocVol }}</strong>     
-                                        <span class="numDocVol" > {{ $volunteer->numDocVol }}</span>
-                                    </p>
-                                </li>
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                            <strong>Fecha de nacimiento:</strong>
-                                            <span class="birthdateVol">{{ $volunteer->birthDateVol }}</span>
-                                    </p>
-                                </li>
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                            <strong> Dirección: </strong>
-                                            <span class="direcVol">{{ $volunteer->typeViaVol . ' ' . $volunteer->direcVol
-                                            . ' ' . $volunteer->numVol. ' ' . $volunteer->flatVol}}</span>
-                                    </p>
-                                </li>
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                        <strong>Provincia:</strong>
-                                        <span class="stateVol">{{ $volunteer->stateVol }} </span>
-                                    </p>
-                                </li>
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                        <strong>Localidad:</strong>
-                                        <span class="townVol"> {{ $volunteer->townVol }} </span>
-                                    </p>
-                                </li>
-
-                                <li class="dataVol-item" tabindex="0">
-                                    <p>
-                                        <strong>Código Postal: </strong>
-                                        <span class="codPosVol"> {{ $volunteer->codPosVol }} </span>
-                                    </p>
-                                </li>
-              
-                    </div>
-                    
+                <div class="avatarContainer">
+                    <p>
+                        @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
+                            <img class="avatarMyProfile" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
+                        @else
+                            <img class="avatarMyProfile" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
+                            alt="{{ Auth::user()->nameVol }}" id="avatarInTopBar" />
+                        @endif
+                    </p>
                 </div>
-            </div>
+
+                <div class="containerProfileData">
+
+                    <div class="accordionPersonalData">
+                        <i class="fa-solid fa-user-large" style="color: #ffffff;"></i>
+                        <p> Datos personales </p>
+                        <i class='bx bxs-chevron-down'></i>
+                    </div>
+
+                    <div class="accordionDocuments">
+                        <i class="fa-solid fa-user-large" style="color: #ffffff;"></i>
+                        <p> Documentos </p>
+                        <i class='bx bxs-chevron-down'></i>
+                    </div>
+
+                </div>
+
+            </div>                
 
             <div class="divButtonMyProfile">
                 <form method="GET" action="{{ route('dashboard.showMyProfileForm') }}" accept-charset="UTF-8"
