@@ -1,70 +1,31 @@
 <ol>
 
 @php
-$meses = [];
+$fechas = [];
 @endphp
 
 @foreach ($activities as $actividad)
     @php
-        $mes = date('m', strtotime($actividad->dateAct));
+        $fecha = date('Y-m', strtotime($actividad->dateAct));
     @endphp
 
-    @if (!in_array($mes, $meses))
+    @if (!in_array($fecha, $fechas))
         @php
-            $meses[] = $mes;
+            $fechas[] = $fecha;
         @endphp
     @endif
+
 @endforeach
 
-@foreach($meses as $mes)
-
-    <div class="monthAccordion">
-        @switch($mes)
-            @case(1)
-                Enero
-                @break
-            @case(2)
-                Febrero
-                @break
-            @case(3)
-                Marzo
-                @break
-            @case(4)
-                Abril
-                @break
-            @case(5)
-                Mayo
-                @break
-            @case(6)
-                Junio
-                @break
-            @case(7)
-                Julio
-                @break
-            @case(8)
-                Agosto
-                @break
-            @case(9)
-                Septiembre
-                @break
-            @case(10)
-                Octubre
-                @break
-            @case(11)
-                Noviembre
-                @break;
-            @case(12)
-                Diciembre
-                @break;
-            @default
-                Mes desconocido
-        @endswitch
+@foreach($fechas as $fecha)
+    <div class="dateAccordion">
+        {{$fecha}}
         <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-inscription" tabindex="0"></i>
     </div>
 
 @foreach ($activities as $activity)
 
-    @if(date('m', strtotime($activity->dateAct)) === $mes)
+    @if(date('Y-m', strtotime($activity->dateAct)) === $fecha)
 
         <li>
             <div class="mainActivity">
@@ -274,24 +235,39 @@ $meses = [];
 
 <script type="text/javascript">
 
+        var currentDate = new Date();
+
+        var currentYear = currentDate.getFullYear();
+        var currentMonth = currentDate.getMonth() + 1;
+
+        var currentYM = currentYear + '-' + (currentMonth < 10 ? '0' + currentMonth : currentMonth);
+
+        var accordionDivs = document.querySelectorAll(".dateAccordion");
+
+        accordionDivs.forEach(function(div) {
+            var fechaDiv = div.textContent.trim();
+
+            if (fechaDiv < currentYM) {
+                div.style.backgroundColor = "#DDBFC8"; 
+            } else {
+                div.style.backgroundColor = "#3F6BBF"; 
+            }
+
+        });
+
         $(document).ready(function(){
             $('.nameDiv').attr('aria-label', 'Nombre de la actividad');
 
         });
 
-        $('.row').hide();
+        $('.mainActivityAct li').hide();
         $('.hidden').hide();
 
-        //modificar esta funcion jquery para que despliegue y oculte correctamente las actividades de cada mes
+        $('.dateAccordion').click(function(){
 
-        /* $('.monthAccordion').click(function(){
-            if($(this).children().siblings().is(':visible')){
-                $(this).children().siblings().hide('slow');
-            }else{
-                $(this).children().siblings().show('slow');
-            }
+            $(this).nextUntil('.dateAccordion', 'li').toggle('slow');
 
-        }); */
+        });
 
         $('.bx.bxs-down-arrow').click(function(){
     
@@ -313,18 +289,18 @@ $meses = [];
 
         var key = e.which;
 
-        if(key == 13){
+            if(key == 13){
 
-            var icono = document.querySelector(".mainData .row");
-            if ($(this).siblings().is(':visible')) {
-                $(this).siblings().hide('slow');
-                icono.style.transform = ''
-            } else {
-                $(this).siblings().show('slow');
-                icono.style.transform = 'rotate(180deg)'
+                var icono = document.querySelector(".mainData .row");
+                if ($(this).siblings().is(':visible')) {
+                    $(this).siblings().hide('slow');
+                    icono.style.transform = ''
+                } else {
+                    $(this).siblings().show('slow');
+                    icono.style.transform = 'rotate(180deg)'
+                }
+
             }
-
-        }
 
         });
 
@@ -332,18 +308,18 @@ $meses = [];
 
         var key = e.which;
 
-        if(key == 13){
+            if(key == 13){
 
-            var icono = document.querySelector(".mainData .row");
-            if ($(this).is(':visible')) {
-                $(this).hide('slow');
-                icono.style.transform = ''
-            } else {
-                $(this).show('slow');
-                icono.style.transform = 'rotate(180deg)'
+                var icono = document.querySelector(".mainData .row");
+                if ($(this).is(':visible')) {
+                    $(this).hide('slow');
+                    icono.style.transform = ''
+                } else {
+                    $(this).show('slow');
+                    icono.style.transform = 'rotate(180deg)'
+                }
+
             }
-
-        }
 
         });
 

@@ -45,15 +45,15 @@
     margin-bottom: 50px;
 }
 
-.monthAccordion{
-    background-color: lemonchiffon;
+.dateAccordion{
+    background-color: #3F6BBF;
     display: flex;
     align-items: center;
     width: 100%;
     padding-block: 25px;
     padding-inline: 15px;
     margin-bottom: 20px;
-    color: black;
+    color: white;
     font-size: 18px;
     font-weight: bold;
     box-shadow: 0 3px 2px -2px gray;

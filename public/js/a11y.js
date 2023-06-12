@@ -238,6 +238,8 @@ $(() => {
 
     var coloresFondo = [];
     var coloresLetra = [];
+    var coloresDateAccordion_bc = [];
+    var coloresDateAccordion_c = [];
    
     $(document).ajaxSuccess(function(){
         var padreLista = $('#search_listAct');
@@ -247,8 +249,14 @@ $(() => {
 
             coloresFondo.push(div.css('background-color'));
             coloresLetra.push(div.css('color'));
-
         }) 
+
+        padreLista.find('.dateAccordion').each(function(){
+            var div = $(this);
+
+            coloresDateAccordion_bc.push(div.css('background-color'));
+            coloresDateAccordion_c.push(div.css('color'));
+        })
 
     });
 
@@ -622,6 +630,16 @@ $(() => {
                 $(this).css('background-color', colorFondo);
                 $(this).find('p').css('color', colorLetra);
 
+            })
+        }
+
+        if($('.dateAccordion')[0]){
+            $('.dateAccordion').each(function(index){
+                var dateAccordion_bc = coloresDateAccordion_bc[index % coloresDateAccordion_bc.length];
+                var dateAccordion_c = coloresDateAccordion_c[index % coloresDateAccordion_c.length];
+        
+                $(this).css('background-color', dateAccordion_bc);
+                $(this).css('color', dateAccordion_c);
             })
         }
 
