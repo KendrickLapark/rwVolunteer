@@ -44,6 +44,10 @@ $(() => {
         var accordion_bc = getComputedStyle(document.querySelector('.accordion')).backgroundColor;
     }
 
+    if($('.accordionPersonalData')[0]){
+        var accordionPersonalData_bc = getComputedStyle(document.querySelector('.accordionPersonalData')).backgroundColor;
+    }
+
     if($('.mainContainerDateActivities')[0]){
         var containerDateAct_bc = getComputedStyle(document.querySelector('.mainContainerDateActivities')).backgroundColor;
     }
@@ -155,6 +159,14 @@ $(() => {
 
     if($('main')[0]){
         var main_bc = getComputedStyle(document.querySelector('main')).backgroundColor;
+    }
+
+    if($('.avatarContainer')[0]){
+        var avatarContainer_bc = getComputedStyle(document.querySelector('.avatarContainer')).backgroundColor;
+    }
+
+    if($('.containerProfileData')[0]){
+        var containerProfileData_bc = getComputedStyle(document.querySelector('.containerProfileData')).backgroundColor;
     }
 
     if($('.mainData')[0]){
@@ -320,6 +332,9 @@ $(() => {
             });
             $('.mainTrayLogNot i').css('color', '#000000');
         }
+
+
+        
 
         if($('.home-content')[0]){
             $('.home-content').css('background', home_content_bc);
@@ -631,6 +646,18 @@ $(() => {
                 $(this).find('p').css('color', colorLetra);
 
             })
+        }
+
+        if($('.containerProfileData')[0]){
+            $('.avatarContainer').css('background', avatarContainer_bc);          
+            $('.containerProfileData').css('background', containerProfileData_bc);
+            $('.containerProfileData').find('div').each(function(){
+                $(this).css('background', containerProfileData_bc);
+            });
+            $('.accordionPersonalData').css('background', accordionPersonalData_bc);
+            $('.accordionDocuments').css('background', accordionPersonalData_bc);
+            $('.containerProfileData p, .containerProfileData i').css('color', 'white');
+            $('.containerProfileData span').css('color', 'black');
         }
 
         if($('.dateAccordion')[0]){

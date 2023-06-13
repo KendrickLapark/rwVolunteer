@@ -12,25 +12,57 @@
     display: flex;
     flex-direction: row;
     width: 80%;
-    background-color: red;
 }
 
 .containerProfileData{
-    width: 50%;
+    width: 60%;
     margin-inline: 5%;
 }
 
 .accordionPersonalData, .accordionDocuments{
     display:flex;
     flex-direction: row;
-    width: 100%;
+    max-width: 100%;
+    column-gap: 5%;
     margin-block: 5%;
     margin-inline: 5%;
-    padding-inline: 1%;
+    padding-inline: 3%;
     padding-block: 2%;
     height: fit-content;
     background-color: #004A98;
     color: white;
+}
+
+.documentsPanel{
+    max-width: 100%;
+    margin-inline: 5%;
+}
+
+.rowTitleMyDocs{
+    height: 20px;
+}
+
+.buttonsMyDocs{
+    text-align: right;
+}
+
+.personalDataPanel{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin-inline: 5%;
+}
+
+.personalDataLeftCol, .personalDataRightCol{
+    display: flex;
+    flex-direction: column;
+    line-height: 2em;
+    width: 50%;
+}
+
+
+.bx.bxs-chevron-down{
+    margin-left: auto;
 }
 
 .centerCol{
@@ -41,13 +73,65 @@
     min-width: 33%;
 }
 
-
-
 #labeltitleCol{
     font-size: 24px;
 }
 
+.divButtonMyProfile .botonesControl{
+    background-color: #009FE3;
+    line-height: 0%;
+}
+
 .divButtonMyProfile{
-    text-align: center;
+    text-align: right;
+    margin-top: auto;
+}
+
+.documentsPanel .botonesControl{
+    background-color: #009FE3;
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px){
+    .personalDataPanel{
+        flex-direction: column;
+        padding: auto;
+        margin-inline: auto;
+
+    }
+
+    .personalDataLeftCol, .personalDataRightCol{
+        margin-inline: auto;
+    }
+
+}
+
+@media only screen and (max-width: 1400px){
+    .containerMyProfile{
+        flex-direction: column;
+        margin-inline: auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .personalDataPanel{
+        flex-direction: column;
+        padding: auto;
+        margin-inline: auto;
+
+    }
+
+    .personalDataLeftCol, .personalDataRightCol{
+        margin-inline: auto;
+    }
+
+    .containerMyProfile{
+        width: 95%;
+        margin-bottom: 60px;
+    }
+
+    .containerProfileData{
+        width: 100%;
+    }
 }
 

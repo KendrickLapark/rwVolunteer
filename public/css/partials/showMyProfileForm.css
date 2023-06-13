@@ -1,6 +1,15 @@
 .mainDataMyProForm{
     display: flex;
     border: 1px grey solid;
+    padding: 2%;
+}
+
+#updateMyProfile{
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    padding: 20px;
+
 }
 
 @media only screen and (min-width: 320px) and (max-width: 780px){

@@ -142,29 +142,6 @@
     border:none;
 }
 
-/* @media only screen and (max-width: 1220px){
-
-    .mainTrayDateActivities{
-        display: flex;
-        flex-direction: column;
-        padding-block: 20px;
-
-    }
-
-    .columnDateActivities{
-        margin: auto;
-        width: 80%;
-    }
-
-    .hiddenDaysActivities{
-        margin: auto;
-        width: 80%;
-    }
-
-} */
-
-/* TO DO Adaptando a resolución movil*/
-
 @media only screen and (max-width: 720px){
 
     .mainTrayDateActivities{

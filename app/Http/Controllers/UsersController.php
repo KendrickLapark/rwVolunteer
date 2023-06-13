@@ -104,7 +104,9 @@ class UsersController extends Controller
             ->first();
 
         $allDelegations = Delegation::all();
-        return view('dashboard.showMyProfile', compact("volunteer", "allDelegations"));
+        $documents = Auth::user()->documents()->get();
+
+        return view('dashboard.showMyProfile', compact("volunteer", "allDelegations", "documents"));
 
     }
 
