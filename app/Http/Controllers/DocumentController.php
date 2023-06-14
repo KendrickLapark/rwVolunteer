@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-    public function showUserDocuments()
+    /* public function showUserDocuments()
     {
         $documents = Auth::user()->documents()->get();
         return view("dashboard.showMyDocuments", compact("documents"));
-    }
+    } */
 
     public function downloadMyDocument(Request $request)
     {

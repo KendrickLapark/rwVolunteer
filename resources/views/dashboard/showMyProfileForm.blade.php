@@ -115,7 +115,7 @@
                                 <label id="labelDelegations" for="delegations" class="formSections" for="shirtSizeVol"><strong>Delegaciones:
                                     </strong></label>
                                 <br/>
-                            Si quieres seleccionar más de uno usa las teclas Mayuscula o control</p>
+                            Si quieres seleccionar más de uno usa las teclas Mayuscula o control, y la barra espaciadora para confirmar cada selección.</p>
                             <?php
                             $checked = [];
                             foreach ($volunteer->delegations as $delegation) {

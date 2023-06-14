@@ -32,12 +32,6 @@
                     <span class="links_name">Mis Estudios</span>
                 </a>
             </li>
-            <li title="Mi documentación">
-                <a href="{{ route('dashboard.showUserDocument') }}">
-                    <i class='bx bx-file'></i>
-                    <span class="links_name">Mi documentación</span>
-                </a>
-            </li>
             <li title="Editar perfil">
                 <a href="{{ route('dashboard.showMyProfile') }}">
                     <i class='bx bxs-user-account'></i>

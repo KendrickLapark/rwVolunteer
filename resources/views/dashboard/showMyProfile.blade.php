@@ -20,23 +20,23 @@
                 <div class="avatarContainer">
                     <p>
                         @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
-                            <img class="avatarMyProfile" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
+                            <img class="avatarMyProfile" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" tabindex="0" alt="imagen de perfil de {{ Auth::user()->nameVol }}">
                         @else
-                            <img class="avatarMyProfile" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
-                            alt="{{ Auth::user()->nameVol }}" id="avatarInTopBar" />
+                            <img class="avatarMyProfile" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}" 
+                            tabindex="0" alt="imagen de perfil de {{ Auth::user()->nameVol }}" id="avatarInTopBar" />
                         @endif
                     </p>
                 </div>
 
                 <div class="containerProfileData">
 
-                    <div class="accordionPersonalData">
+                    <button type="button" aria-expanded="false" class="accordion-trigger" id="accordion-trigger-1" aria-controls="personalDataPanel">
                         <i class="fa-solid fa-user-large"></i>
-                        <p> Datos personales </p>
+                        <span> Datos personales </span>
                         <i class='bx bxs-chevron-down'></i>
-                    </div>
+                    </button>
 
-                    <div class="personalDataPanel">
+                    <div class="accordion-panel" role="region" aria-labelledby="accordion-trigger-1" tabindex="0">
                         <div class="personalDataLeftCol">
                             <span> <i class="fa-solid fa-caret-right" style="color: #000000;"></i>
                                  Nombre: {{Auth::user()->nameVol}} </span>
@@ -79,43 +79,46 @@
                             </div>
                     </div>
 
-                    <div class="accordionDocuments">
+                    <button type="button" aria-expanded="false" class="accordion-trigger" id="accordion-trigger-2" aria-controls="personalDataPanel">
                         <i class="fa-solid fa-user-large"></i>
-                        <p> Documentos </p>
+                        <span> Documentos </span>
                         <i class='bx bxs-chevron-down'></i>
-                    </div>
+                    </button>
 
-                    <div class="documentsPanel">
+                    <div class="accordion-panel" id="accordion-panel-documents" role="region" aria-labelledby="accordion-trigger-2" tabindex="0">
+                        <ul>
                         @foreach($documents as $document)
-                            <div class="rowTitleMyDocs" tabindex="0">
-                                <i class="fa-solid fa-caret-right"></i>
-                                {{ $document->titleDoc }}
-                            </div>
-                            <div class="buttonsMyDocs">
-                                    @if (!$document->isContactModelVol && !$document->isInscripModelVol)
-                                        <form method="POST" action="{{ route('dashboard.deleteDocument') }}">
-                                            @csrf
-                                            <input type="hidden" name="doc" value="{{ $document->doc_id }}">
-                                            <button type="submit" id="downloadDoc" class="botonesControl"><i
-                                                    class='bx bx-trash'></i></button>
-                                        </form>
-                                    @endif
-                                    <form method="POST" action="{{ route('dashboard.downloadDocument') }}">
-                                        @csrf
-                                        <input type="hidden" tabindex="0" name="doc" value="{{ $document->doc_id }}">
-                                        <button type="submit" id="downloadDoc" class="botonesControl" aria-label="Descargar documento"><i
-                                                class='bx bx-save'></i> Descargar documento</button>
-                                    </form>
-                            </div>
+                            <li>
+                                <div class="rowTitleMyDocs" tabindex="0">
+                                    <i class="fa-solid fa-caret-right"></i>
+                                    {{ $document->titleDoc }}
+                                </div>
+                                <div class="buttonsMyDocs">
+                                        @if (!$document->isContactModelVol && !$document->isInscripModelVol)
+                                            <form method="POST" action="{{ route('dashboard.deleteDocument') }}">
+                                                @csrf
+                                                <input type="hidden" name="doc" value="{{ $document->doc_id }}">
+                                                <button type="submit" id="downloadDoc" class="botonesControl"><i
+                                                        class='bx bx-trash'></i></button>
+                                            </form>
+                                        @endif
+                                            <form method="POST" action="{{ route('dashboard.downloadDocument') }}">
+                                                @csrf
+                                                <input type="hidden" tabindex="0" name="doc" value="{{ $document->doc_id }}">
+                                                <button type="submit" id="downloadDoc" class="botonesControl" aria-label="Descargar documento"><i
+                                                        class='bx bx-save'></i> Descargar documento</button>
+                                            </form>
+                                        
+                                </div>
+                            </li>
                         @endforeach
+                        </ul>
 
                     </div>
 
                 </div>
 
-            </div>                
-
-            
+            </div>                 
 
     </div>
 @endsection
@@ -134,28 +137,16 @@
 
         $(()=>{
 
-            $('.personalDataPanel').hide();
-            $('.documentsPanel').hide();
+           $('.accordion-panel').hide();
 
-            $('.accordionPersonalData').on('click', function(){
+            $('.accordion-trigger').on('click', function(){
 
-                if($('.personalDataPanel').is(':visible')){
-                    $('.personalDataPanel').hide('slow');
-                }else{
-                    $('.personalDataPanel').show('slow');
-                }
+                var expanded = $(this).attr("aria-expanded") === "true" || false;
+                $(this).attr("aria-expanded", !expanded);
 
-            })
+                $(this).next('.accordion-panel').slideToggle('slow');
 
-            $('.accordionDocuments').on('click', function(){
-
-                if($('.documentsPanel').is(':visible')){
-                    $('.documentsPanel').hide('slow');
-                }else{
-                    $('.documentsPanel').show('slow');
-                }
-
-            })
+            });     
 
         })
 

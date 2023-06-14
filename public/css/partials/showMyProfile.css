@@ -19,23 +19,35 @@
     margin-inline: 5%;
 }
 
-.accordionPersonalData, .accordionDocuments{
-    display:flex;
-    flex-direction: row;
+.accordion-trigger{
+    display: flex;
     max-width: 100%;
-    column-gap: 5%;
-    margin-block: 5%;
     margin-inline: 5%;
     padding-inline: 3%;
     padding-block: 2%;
-    height: fit-content;
+    border: none;
     background-color: #004A98;
     color: white;
+    align-items: start;
+    gap: 5%;
+    
 }
 
-.documentsPanel{
+.accordionPersonalData h3, .accordionDocuments h3{
+    display: flex;
+    max-width: 100%;   
+
+}
+
+.accordion-panel{
+    display: flex;
+    flex-direction: row;
     max-width: 100%;
     margin-inline: 5%;
+}
+
+#accordion-panel-documents{
+    flex-direction: column;
 }
 
 .rowTitleMyDocs{
@@ -46,20 +58,12 @@
     text-align: right;
 }
 
-.personalDataPanel{
-    display: flex;
-    flex-direction: row;
-    max-width: 100%;
-    margin-inline: 5%;
-}
-
 .personalDataLeftCol, .personalDataRightCol{
     display: flex;
     flex-direction: column;
     line-height: 2em;
     width: 50%;
 }
-
 
 .bx.bxs-chevron-down{
     margin-left: auto;

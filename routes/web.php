@@ -109,9 +109,6 @@ Route::middleware(['isLogged'])->group(function () {
     /*RUTAS LOGGEADAS*/
     Route::get('/dashboard-logged', [AuthController::class, 'loggedDashboard'])
             ->name('dashboard.logged');
-    /* Muestro mis documentos */
-    Route::get('/dashboard-showUserDocument', [DocumentController::class, 'showUserDocuments'])
-            ->name('dashboard.showUserDocument');
     /* Descarga mi documento */
     Route::post('/dashboard-downloadDocument', [DocumentController::class, 'downloadMyDocument'])
         ->name('dashboard.downloadDocument');        

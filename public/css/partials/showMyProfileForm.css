@@ -12,10 +12,26 @@
 
 }
 
+.leftColForm{
+    max-width: 33%;
+}
+
+.rightColForm{
+    min-width: 28%;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 780px){
     .mainDataMyProForm{
         display: block;
 
+    }
+
+    .leftColForm{
+        max-width: 100%;
+    }
+    
+    .avatarMyProfile{
+        width: 100%;
     }
 
 }
