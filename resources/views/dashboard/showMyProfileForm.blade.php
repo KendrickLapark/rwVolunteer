@@ -156,14 +156,12 @@
                     </div>
 
                     <div class="centerCol">
-                        <p>
                             @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
                                 <img class="avatarMyProfile" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="{{ Auth::user()->nameVol }}">
                             @else
                                 <img class="avatarMyProfile" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}"
                                 alt="{{ Auth::user()->nameVol }}" id="avatarInTopBar" />
                             @endif
-                        </p>
                     </div>
 
                     <div class="rightColForm">

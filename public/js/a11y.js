@@ -44,8 +44,8 @@ $(() => {
         var accordion_bc = getComputedStyle(document.querySelector('.accordion')).backgroundColor;
     }
 
-    if($('.accordionPersonalData')[0]){
-        var accordionPersonalData_bc = getComputedStyle(document.querySelector('.accordionPersonalData')).backgroundColor;
+    if($('.accordion-trigger')[0]){
+        var accordion_trigger_bc = getComputedStyle(document.querySelector('.accordion-trigger')).backgroundColor;
     }
 
     if($('.mainContainerDateActivities')[0]){
@@ -234,6 +234,11 @@ $(() => {
         var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     }
 
+    if($('select')[0]){
+        var select_bc = getComputedStyle(document.querySelector('select')).backgroundColor;
+        var input_bc = getComputedStyle(document.querySelector('select')).backgroundColor;
+    }
+
     if($('.toggle-act-button')[0]){
         var toggle_act_button_bc = getComputedStyle(document.querySelector('.toggle-act-button')).backgroundColor;
         var toggle_act_button_c = getComputedStyle(document.querySelector('.toggle-act-button')).color;
@@ -332,9 +337,6 @@ $(() => {
             });
             $('.mainTrayLogNot i').css('color', '#000000');
         }
-
-
-        
 
         if($('.home-content')[0]){
             $('.home-content').css('background', home_content_bc);
@@ -654,10 +656,10 @@ $(() => {
             $('.containerProfileData').find('div').each(function(){
                 $(this).css('background', containerProfileData_bc);
             });
-            $('.accordionPersonalData').css('background', accordionPersonalData_bc);
-            $('.accordionDocuments').css('background', accordionPersonalData_bc);
+            $('.accordion-trigger').css('background', accordion_trigger_bc);
             $('.containerProfileData p, .containerProfileData i').css('color', 'white');
             $('.containerProfileData span').css('color', 'black');
+            $('.accordion-trigger span, .accordion-trigger svg').css('color', 'white');
         }
 
         if($('.dateAccordion')[0]){
@@ -668,6 +670,11 @@ $(() => {
                 $(this).css('background-color', dateAccordion_bc);
                 $(this).css('color', dateAccordion_c);
             })
+        }
+
+        if($('select')[0]){
+            $('select').css('background', select_bc);
+            $('input').css('background', input_bc);
         }
 
     }   
@@ -779,8 +786,8 @@ $(() => {
                 high_contrast = true;           
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.sidebar, .sidebar li, li, nav, .home-section, .toolbar-inner, form, #divFooter p, #spaceTopMenu, button, .botones.botonesAB, .mainData, .row, .buttonSignUp').css('background-color', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');         
+                $('.sidebar, .sidebar li, li, nav, select, input, .home-section, .toolbar-inner, form, #divFooter p, #spaceTopMenu, button, .botones.botonesAB, .mainData, .row, .buttonSignUp').css('background-color', 'black');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .accordion-trigger svg').css('color', '#00FFFF');         
             }
 
         });
@@ -800,8 +807,8 @@ $(() => {
                 negative_contrast = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.sidebar, .sidebar li, li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .botones.botonesAB, .buttonSignUp, .mainData, .row').css('background-color', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');         
+                $('.sidebar, .sidebar li, li, nav, select, input, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .botones.botonesAB, .buttonSignUp, .mainData, .row').css('background-color', 'black');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .accordion-trigger svg').css('color', 'yellow');         
             }
 
         });
@@ -821,8 +828,8 @@ $(() => {
                 white_background = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
-                $('.sidebar, .sidebar li, nav, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .mainData, .buttonSignUp, .botones.botonesAB, .row').css('background-color', 'white');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'black');         
+                $('.sidebar, .sidebar li, nav, select, input, .home-section, .toolbar-inner, form, #spaceTopMenu, #divFooter p, button, .mainData, .buttonSignUp, .botones.botonesAB, .row').css('background-color', 'white');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .accordion-trigger svg').css('color', 'black');         
             }
 
         });

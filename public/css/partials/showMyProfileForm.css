@@ -30,7 +30,8 @@
         max-width: 100%;
     }
     
-    .avatarMyProfile{
+    .centerCol{
+        display: flex;
         width: 100%;
     }
 
