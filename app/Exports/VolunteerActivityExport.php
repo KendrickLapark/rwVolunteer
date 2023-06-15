@@ -10,7 +10,6 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class VolunteerActivityExport implements FromCollection, WithHeadings
 {
-
     protected $filtro;
 
     public function __construct($filtro)
@@ -55,12 +54,15 @@ class VolunteerActivityExport implements FromCollection, WithHeadings
                             volunteer.numDocAuthVol")
                 ); 
 
+                if (empty($volunteers_ids)) {
+                    return collect([]);
+                }
+
              foreach($volunteers_ids as $volunteers_id) {
 
                 $query->orWhereRaw('id = ?', [$volunteers_id]);
 
             }
-
 
             $results = $query->get();
 

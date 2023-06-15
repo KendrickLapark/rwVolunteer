@@ -30,13 +30,13 @@
 
                 <div class="containerProfileData">
 
-                    <button type="button" aria-expanded="false" class="accordion-trigger" id="accordion-trigger-1" aria-controls="personalDataPanel">
+                    <button type="button" aria-expanded="false" class="accordion-trigger" id="accordion-trigger-1" aria-controls="accordion-panel-1">
                         <i class="fa-solid fa-user-large"></i>
                         <span> Datos personales </span>
                         <i class='bx bxs-chevron-down'></i>
                     </button>
 
-                    <div class="accordion-panel" role="region" aria-labelledby="accordion-trigger-1" tabindex="0">
+                    <div class="accordion-panel" id="accordion-panel-1" role="region" aria-labelledby="accordion-trigger-1" tabindex="0">
                         <div class="personalDataLeftCol">
                             <span> <i class="fa-solid fa-caret-right" style="color: #000000;"></i>
                                  Nombre: {{Auth::user()->nameVol}} </span>
@@ -79,13 +79,13 @@
                             </div>
                     </div>
 
-                    <button type="button" aria-expanded="false" class="accordion-trigger" id="accordion-trigger-2" aria-controls="personalDataPanel">
+                    <button type="button" aria-expanded="false" class="accordion-trigger" id="accordion-trigger-2" aria-controls="accordion-panel-2">
                         <i class="fa-solid fa-user-large"></i>
                         <span> Documentos </span>
                         <i class='bx bxs-chevron-down'></i>
                     </button>
 
-                    <div class="accordion-panel" id="accordion-panel-documents" role="region" aria-labelledby="accordion-trigger-2" tabindex="0">
+                    <div class="accordion-panel" id="accordion-panel-2" role="region" aria-labelledby="accordion-trigger-2" tabindex="0">
                         <ul>
                         @foreach($documents as $document)
                             <li>

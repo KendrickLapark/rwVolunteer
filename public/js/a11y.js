@@ -236,7 +236,10 @@ $(() => {
 
     if($('select')[0]){
         var select_bc = getComputedStyle(document.querySelector('select')).backgroundColor;
-        var input_bc = getComputedStyle(document.querySelector('select')).backgroundColor;
+    }
+
+    if($('input')[0]){
+        var input_bc = getComputedStyle(document.querySelector('input')).backgroundColor;
     }
 
     if($('.toggle-act-button')[0]){
@@ -674,6 +677,9 @@ $(() => {
 
         if($('select')[0]){
             $('select').css('background', select_bc);
+        }
+        
+        if($('input')[0]){
             $('input').css('background', input_bc);
         }
 

@@ -311,7 +311,7 @@
             @endforeach
             </ol>   
 
-            <form action = "{{route('CSV.getUsersActivity', [$activity->activity_id])}}" method="GET">
+            <form action = "{{route('CSV.getUsersActivity', [$activity->activity_id, $activity->nameAct])}}" method="GET">
                 <div id="excelDownload">
                     <button type="submit" id="excelDownload" title="Descargar lista de voluntarios apuntados a la actividad"><i class='bx bx-cloud-download'></i></button>
                 </div>

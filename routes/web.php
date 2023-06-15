@@ -290,7 +290,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/getUsersCSV',[CSVController::class,'getUsersCSV'])
         ->name('CSV.getUsers');
     /* create Users CSV */    
-    Route::get('/getUsersActivity/{id}',[CSVController::class,'getUsersActivityCSV'])
+    Route::get('/getUsersActivity/{id}/{nameAct}',[CSVController::class,'getUsersActivityCSV'])
         ->name('CSV.getUsersActivity');
     /* Borrar Actividad */
     Route::post('/dashboard-nullActivity',[ActivityController::class, 'nullActivity'])

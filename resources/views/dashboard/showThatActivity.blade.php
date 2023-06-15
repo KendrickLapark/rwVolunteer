@@ -86,12 +86,16 @@
                                 @if (App\Http\Controllers\ActivityController::inscriptedYet($activity->activity_id, Auth::user()->id))
                                     No puedes volver a inscribirte en la misma actividad
                                 @else
-                                    <form method="POST" action="{{ route('dashboard.makeInscription') }}">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $activity->activity_id }}">
-                                        <button type="submit" id="submit"
-                                            class="botonesControl">QUIERO<br />PREINSCRIBIRME</button>
-                                    </form>
+                                    @if($activity->dateAct >= now())
+                                        <form method="POST" action="{{ route('dashboard.makeInscription') }}">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                            <button type="submit" id="submit"
+                                                class="botonesControl">QUIERO<br />PREINSCRIBIRME</button>
+                                        </form>
+                                    @else
+                                        No puedes incribirte a una actividad pasada
+                                    @endif
                                 @endif
                             @else
                                 No quedan plazas libres

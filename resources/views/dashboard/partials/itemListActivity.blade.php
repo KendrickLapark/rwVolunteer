@@ -183,7 +183,7 @@ $fechas = [];
 
                             <div class="buttonAct">
                                 @if (!$activity->isNulledAct)
-                                    <p> <strong>ANULAR: </strong> </p>
+                                    <p> <strong>Anular: </strong> </p>
 
                                     <form method="POST" action="{{ route('dashboard.nullActivity') }}">
                                         @csrf
@@ -194,7 +194,15 @@ $fechas = [];
                                         </button>
                                     </form>
                                 @else
-                                    <p tabindex="0"> <strong>Esta actividad se ha anulado</strong> </p>
+                                    <p tabindex="0"> <strong>Deshacer nulidad:</strong> </p>
+                                    <form method="POST" action="{{ route('dashboard.nullActivity') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                        <button type="submit" class="botonesControl" aria-label="Deshacer nulidad"
+                                            onclick="return confirm('¿Estas seguro/a?')">
+                                            <i class='bx bxs-edit' style="font-size:25px"></i>
+                                        </button>
+                                    </form>
                                 @endif
                             </div>
 

@@ -421,8 +421,18 @@ class ActivityController extends Controller
     public function nullActivity(Request $request)
     {
         $activity = Activity::where('activity_id',$request->id)->first();
-        $activity->update(['isNulledAct'=> true]);
-        $activity->save();
+        /* $activity->update(['isNulledAct'=> true]);
+        $activity->save(); */
+
+        if ($activity->isNulledAct == false) {
+            $activity->isNulledAct = true;
+            $activity->save();
+            session()->flash('nullActivity', 'La actividad ha sido anulada.');
+        } else {
+            $activity->isNulledAct = false;
+            $activity->save();
+            session()->flash('nullActivity', 'El estado de la actividad ha sido cambiado a no anulada.');
+        }
 
         foreach ($activity->volunteers as $volunteer) {
             EmailController::nullActivityMail(
@@ -430,7 +440,7 @@ class ActivityController extends Controller
                 $volunteer->persMailVol
             ); 
         }
-        session()->flash('nullActivity', 'Se ha ANULADO una ACTIVIDAD.');
+        /* session()->flash('nullActivity', 'Se ha ANULADO una ACTIVIDAD.'); */
         return redirect()->route('dashboard.showAllActivities');
     }
 

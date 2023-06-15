@@ -10,7 +10,7 @@
         <div class="notifyTrayIns">
             <div class="sectionTitle">
                 <i class='bx bx-envelope'></i>
-                    <p id="title-desc"> Tienes notificaciones </p>
+                    <p id="title-desc"> Notificaciones </p>
                 <i class='bx bx-caret-right' id="desplegar" tabindex="0" aria-expanded="false" style="font-size: 20px" role="button" aria-describedby="title-desc"></i>            
             </div>
         </div>
@@ -28,28 +28,25 @@
 
                             <div class="sectionIncomplete"> 
                                 <p id="title-section"> Inscripciones por completar </p> 
-                                <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-section" tabindex="0"></i>
+                                <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-section" 
+                                    aria-controls="inc-inscriptions-panel-1" tabindex="0"></i>
                             </div> 
 
-                            @foreach ($inscriptions as $inscription)
-                                
-                                    @if($inscription->filenameIns==null)
-
-                                        <li>                    
+                            <div class="inc-inscriptions-panel" id="inc-inscriptions-panel-1" role="region" aria-describedby="title-section">                             
+                                    @foreach ($inscriptions as $inscription)                                        
+                                        @if($inscription->filenameIns==null)              
                                             <div class="mainActivityDashboard">
                                                 @include('dashboard.partials.itemListInscription')            
-                                            </div>  
-                                        </li> 
-
-                                    @endif
-
-                            @endforeach
+                                            </div> 
+                                        @endif
+                                    @endforeach
+                            </div>
 
                         @else
 
-                        <div class="sectionIncomplete"> 
-                            <p tabindex="0"> No tienes inscripciones por completar </p>
-                        </div>            
+                            <div class="sectionIncomplete"> 
+                                <p tabindex="0"> No tienes inscripciones por completar </p>
+                            </div>            
                         
                         @endif
 
@@ -64,19 +61,17 @@
                                 <i class='bx bx-caret-down' id="downArrow" role="button" aria-expanded="false" aria-describedby="title-section" tabindex="0"></i>
                             </div>
 
+                            <ul>
                                 @foreach ($inscriptions as $inscription)
 
-                                    @if($inscription->filenameIns!=null)
-
-                                        <li>                    
-                                            <div class="mainActivityDashboard">
-                                                @include('dashboard.partials.itemListInscription')            
-                                            </div>  
-                                        </li> 
-
+                                    @if($inscription->filenameIns!=null)           
+                                        <div class="mainActivityDashboard">
+                                            @include('dashboard.partials.itemListInscription')            
+                                        </div>  
                                     @endif 
-
+                                    
                                 @endforeach
+                            </ul>
                         
                         @else
 
