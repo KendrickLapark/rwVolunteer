@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('direcVol',50)->nullable(false);
             $table->string('numVol',10)->nullable(false);
             $table->string('flatVol',10)->nullable(true);
+            $table->string('floorVol',10)->nullable(true);
             $table->string('aditiInfoVol',100)->nullable();
             $table->string('codPosVol',7)->nullable(false);
             $table->string('stateVol',20)->nullable(false);

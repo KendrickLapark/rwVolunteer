@@ -295,6 +295,15 @@
                         </div>
                         <div class="eachCreateInfoExtraElement">
                             <p>
+                                <label id="labelfloorVol" class="formSections" for="floorVol"><strong>Planta:
+                                    </strong></label>
+                                <br />
+                                <input type="text" id="floorVol" name="floorVol" value="{{ $volunteer->floorVol }}"
+                                    maxlength="9">
+                            </p>
+                        </div>
+                        <div class="eachCreateInfoExtraElement">
+                            <p>
                                 <label id="labeladitiInfoVol" class="formSections" for="aditiInfoVol"><strong>Información
                                         Adicional: </strong></label>
                                 <br />

@@ -44,6 +44,7 @@ class VolunteerActivityExport implements FromCollection, WithHeadings
                             volunteer.direcVol,
                             volunteer.numVol,
                             volunteer.flatVol ,
+                            volunteer.floorVol ,
                             volunteer.aditiInfoVol,
                             volunteer.codPosVol ,
                             volunteer.stateVol ,

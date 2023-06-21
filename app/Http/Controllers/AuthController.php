@@ -161,6 +161,7 @@ class AuthController extends Controller
             'direcVol' => $data['direcVol'],
             'numVol' => $data['numVol'],
             'flatVol' => $data['flatVol'],
+            'floorVol' => $data['floorVol'],
             'aditiInfoVol' => $data['aditiInfoVol'],
             'codPosVol' => $data['codPosVol'],
             'stateVol' => $data['stateVol'],

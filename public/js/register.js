@@ -3,7 +3,7 @@ $(() => {
     $("#registerSheetTwo").hide();
     $("#registerAuth.RegisterContainer").hide();
 
-    $("#nextRegisterFirst").on("click", () => {
+    $("#nextRegister").on("click", () => {
         /**
          *   Comprobamos que la primera parte no tenga errores  
          * */

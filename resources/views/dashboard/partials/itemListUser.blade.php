@@ -64,7 +64,8 @@
                             <div tabindex="0">
                                 <p> <strong>Nº: </strong>
                                 {{ $volunteer->numVol }}
-                                {{ $volunteer->flatVol }} </p>
+                                {{ $volunteer->flatVol }}
+                                {{ $volunteer->floorVol}} </p>
                             </div>
                             <div tabindex="0">
                                 <p> <strong>Código Postal: </strong>

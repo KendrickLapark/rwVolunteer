@@ -78,15 +78,15 @@
                 </div>
                 <div class="RegisterContainer" id="registerAuth">
                     <div class="eachRegisterElement">
-                        <label id="nameAuthVolLabel" class="formSections" for="nameAuthVol">Nombre del autorizador:<span
+                        <label id="nameAuthVolLabel" class="formSections" for="nameAuthVol">Nombre del tutor/a:<span
                                 class="redMark">*</span></label>
                         <br />
                         <input type="text" id="nameAuthVol" name="nameAuthVol">
                         <br />
-                        <p id="nameVolError" class="formError">El nombre del autorizador es obligatorio.</p>
+                        <p id="nameVolError" class="formError">El nombre del tutor/a es obligatorio.</p>
                     </div>
                     <div class="eachRegisterElement">
-                        <label id="tlfAuthVolLabel" class="formSections" for="tlfAuthVol">Teléfono del autorizador:<span
+                        <label id="tlfAuthVolLabel" class="formSections" for="tlfAuthVol">Teléfono del tutor/a:<span
                                 class="redMark">*</span></label>
                         <br />
                         <input type="text" id="tlfAuthVol" name="tlfAuthVol">
@@ -95,7 +95,7 @@
                     </div>
                     <div class="eachRegisterElement">
                         <label id="numDocAuthVolLabel" class="formSections" for="numDocAuthVol">Número de documento del
-                            autorizador:<span class="redMark">*</span></label>
+                            tutor/a:<span class="redMark">*</span></label>
                         <br />
                         <input type="text" id="numDocAuthVol" name="numDocAuthVol">
                         <br />
@@ -197,9 +197,10 @@
                     <div class="eachRegisterElement" style="display:none;">
                         &nbsp;
                     </div>
-                    <div class="eachRegisterElement">
+                    <div class="eachRegisterElement" id="nextRegister">
+                        <div class="nextRegisterText">Siguiente</div>
                         <img width="40" height="40" src="<?php echo asset('images/icons/next.png'); ?>" title="Siguiente"
-                            id="nextRegisterFirst" alt="Siguiente" />
+                            id="nextRegisterFirst" alt="Siguiente" /> 
                     </div>
                 </div>
             </div>
@@ -246,12 +247,12 @@
                         <p id="typeViaError" class="formError">El Tipo de vía es obligatorio.</p>
                     </div>
                     <div class="eachRegisterElement">
-                        <label id="direcVolLabel" class="formSections" for="direcVol">Dirección:<span
+                        <label id="direcVolLabel" class="formSections" for="direcVol">Domicilio:<span
                                 class="redMark">*</span></label>
                         <br />
                         <input type="text" id="direcVol" name="direcVol" required>
                         <br />
-                        <p id="direcError" class="formError">La dirección es obligatorio.</p>
+                        <p id="direcError" class="formError">El domicilio es obligatorio.</p>
                     </div>
                     <div class="eachRegisterElement">
                         <label id="numVolLabel" class="formSections" for="numVol">Número:<span
@@ -264,9 +265,15 @@
                 </div>
                 <div class="RegisterContainer">
                     <div class="eachRegisterElement">
-                        <label id="flatVolLabel" class="formSections" for="flatVol">Piso:</label>
+                        <label id="flatVolLabel" class="formSections" for="flatVol">Bloque/escalera:</label>
                         <br />
                         <input type="text" id="flatVol" name="flatVol">
+                        <br />
+                    </div>
+                    <div class="eachRegisterElement">
+                        <label id="floorVolLabel" class="formSections" for="floorVol">Planta/puerta:</label>
+                        <br />
+                        <input type="text" id="floorVol" name="floorVol">
                         <br />
                     </div>
                     <div class="eachRegisterElement">
@@ -311,9 +318,10 @@
                     <button type="submit" id="registerSubmitButton">Enviar</button>
                 </div>
                 <div class="RegisterContainer">
-                    <div class="eachRegisterElement">
+                    <div class="eachRegisterElement" id="backRegister">
                         <img width="40" height="40" src="<?php echo asset('images/icons/back.png'); ?>" title="Volver"
                             id="backRegisterSecond" alt="Volver" />
+                        <div class="backRegisterText">Volver</div>
                     </div>
                     <div class="eachRegisterElement" style="display:none;">
                         &nbsp;

@@ -85,7 +85,7 @@ button {
 
 #spaceTopMenu {
     height: 80px;
-    background: #014a99;
+    background: #ffffff;
 }
 
 .center {
@@ -236,7 +236,7 @@ a[href^="mailto:"] {
     display: flex;
     justify-content: space-between;
     height: 80px;
-    background: #3f6bbf;
+    background: #009fe3;
     display: flex;
     align-items: center;
     position: fixed;
@@ -669,7 +669,7 @@ div.logo-details {
 }
 
 .adminMenu {
-    background-color: #064b98;
+    background-color: #009fe3;
     color: #ffffff;
     height: 100%;
     width: 100%;

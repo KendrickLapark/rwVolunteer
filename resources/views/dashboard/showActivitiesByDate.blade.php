@@ -35,6 +35,8 @@
 
             </div>
 
+            <div class="calendar-footer"> Selecciona entre 1 y 7 días</div>
+
         </div>
 
         <div class="hiddenDaysActivities">

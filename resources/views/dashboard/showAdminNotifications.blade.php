@@ -95,7 +95,8 @@
                                         {{ $eachNotCompleted->direcVol }} </p>
                                         <p> <strong>Nº: </strong>
                                         {{ $eachNotCompleted->numVol }}
-                                        {{ $eachNotCompleted->flatVol }} </p>                     
+                                        {{ $eachNotCompleted->flatVol }}
+                                        {{ $eachNotCompleted->floorVol}} </p>                     
                                         <p> <strong>Código Postal: </strong>
                                         {{ $eachNotCompleted->codPosVol }} </p>
                                         <p> <strong>Provincia: </strong>
@@ -250,7 +251,8 @@
                                     {{ $inscription->volunteer->direcVol }} </p>
                                     <p> <strong>Nº: </strong>
                                     {{ $inscription->volunteer->numVol }}
-                                    {{ $inscription->volunteer->flatVol }} </p>
+                                    {{ $inscription->volunteer->flatVol }}
+                                    {{ $inscription->volunteer->floorVol}} </p>
                                     <p> <strong>Código Postal: </strong>
                                     {{ $inscription->volunteer->codPosVol }} </p>
                                     <p> <strong>Provincia: </strong>

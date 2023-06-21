@@ -108,11 +108,12 @@
             sidebar.classList.toggle("active");
             if (sidebar.classList.contains("active")) {
                 sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-                img.src = <?php echo json_encode(asset('images/fm_blanco.png')); ?>;
+                img.src = <?php echo json_encode(asset('images/logo2.png')); ?>;
+                img.style.marginLeft='-23px';
                 <?php session()->put('status', '1'); ?>
             } else {
                 sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-                img.src = <?php echo json_encode(asset('images/logoNeg.jpg')); ?>;
+                img.src = <?php echo json_encode(asset('images/logo-fundacion1.png')); ?>;
                 <?php session()->forget('status'); ?>
             }
         }

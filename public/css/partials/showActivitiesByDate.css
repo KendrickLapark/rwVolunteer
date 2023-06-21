@@ -44,6 +44,16 @@
 
 }
 
+.calendar-footer{
+    margin-inline: auto;
+    width: fit-content;
+    margin-block: 20px;
+    padding-block: 10px;
+    font-size: 20px;
+    border-bottom: grey 1px solid;
+
+}
+
 .titleDaysAct{
     text-align: left;
     color: #014a99;
@@ -149,6 +159,11 @@
         flex-direction: column;
         padding-block: 20px;
         row-gap: 240px !important;
+
+    }
+
+    .calendar-footer{
+        margin-top: 500px;
 
     }
 
