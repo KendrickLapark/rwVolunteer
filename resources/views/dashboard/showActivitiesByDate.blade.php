@@ -120,8 +120,6 @@
 
         }
 
-        
-
         var calendar = $('#calendario').fullCalendar({
             dayNamesShort: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
             monthNames: [

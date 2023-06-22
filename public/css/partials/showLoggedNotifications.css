@@ -7,8 +7,9 @@
 .mainDataLogNot{
     border-bottom: 1px grey solid;
     line-height: 2em;
-    padding-top: 5%;
-    text-align: center;
+    padding: 2%;
+    text-align: left;
+    border: 1px grey solid;
 }
 
 .mainDataLogNot .hiddenLogNot{
@@ -16,7 +17,9 @@
     flex-direction: column;
     border: 1px grey solid;
     justify-content: center;
-    text-align: center;
+    text-align: left;
+    padding: 2%;
+    margin-top: 2%;
 
 }
 
