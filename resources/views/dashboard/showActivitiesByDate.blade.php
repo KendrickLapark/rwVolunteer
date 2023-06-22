@@ -35,7 +35,7 @@
 
             </div>
 
-            <div class="calendar-footer"> Selecciona entre 1 y 7 días</div>
+            <div class="calendar-footer" id="footer-info"> Selecciona entre 1 y 7 días</div>
 
         </div>
 
@@ -120,6 +120,8 @@
 
         }
 
+        
+
         var calendar = $('#calendario').fullCalendar({
             dayNamesShort: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
             monthNames: [
@@ -155,33 +157,19 @@
             displayEventTime: false,
             editable: true,
             events: [
-                @foreach ($activities as $activity)
-                {
-                    color: '#064b98',
-                    id: '{{ $activity->activity_id }}',
-                    title: '{{ $activity->nameAct }}',
-                    start: '{{ $activity->dateAct }}T{{ $activity->timeAct }}',
-                    @if ($activity->isNulledAct)
-                        color: '#8A8A8A',
-                    @else
-                        @if(count($activity->inscriptions)>0)
-                            @foreach ($activity->inscriptions as $eachInscription)
-                                @if ($eachInscription->volunteer_id==Auth::user()->id)
-                                    @if ($eachInscription->isDoneIns == 1)
-                                        color: '#00A300',
-                                    @elseif ($eachInscription->isCompletedIns == 1) 
-                                        color: '#8f1d21',
-                                    @elseif (is_null($eachInscription->filenameIns) && is_null($eachInscription->isCompletedIns))
-                                        color: '#000000', 
-                                    @elseif ($eachInscription->filenameIns && $eachInscription->isCompletedIns == 0)
-                                        color: '#ffa500',
-                                    @endif    
-                                @endif
-                            @endforeach
-                        @endif
-                    @endif
-                },
-            @endforeach
+
+            @php
+                $uniqueActivities = $activities->unique('dateAct')->values();
+            @endphp
+
+                @foreach ($uniqueActivities as $activity)
+                    {
+                        color: '#064b98',
+                        id: '{{ $activity->activity_id }}',
+                        title: 'Consulta Actividades',
+                        start: '{{ $activity->dateAct }}T{{ $activity->timeAct }}',
+                    },
+                @endforeach
             ],
             editable: false,
             selectable: true,
@@ -236,10 +224,8 @@
 
                         $( ".searchDayActivity" ).each(function( i ) {
                             if(i>=longitud){
-                                $( ".searchDayActivity").eq(i).html("");
-                                                        
-                            }
-                        
+                                $( ".searchDayActivity").eq(i).html("");                                                   
+                            }                        
                         });
 
                         $('.searchDayActivity').eq(pos).html(data.html);                  
@@ -280,8 +266,8 @@
         /* permite tabular entre días en el fullcalendar, y settea la fecha del día en cuestión como atributo aria-label para cada celda del fullcalendar
            permitiendo al screen reader guiar al usuario según el día por el que va tabulando */
 
-        const calendario = document.querySelector('.calendario');
-            calendario.setAttribute('aria-label', 'Calendario');
+        const calendario = document.querySelector('.fc-view.fc-month-view');
+            calendario.setAttribute('aria-describedby', 'footer-info');
             calendario.setAttribute('tabindex', '0');
 
         const botonAnterior = document.querySelector('.fc-anterior-button');

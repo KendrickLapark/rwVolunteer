@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            /* ActivitySeeder::class, */
-            /* AdminUserSeeder::class,
+            /* ActivitySeeder::class, 
+             AdminUserSeeder::class, */
             DelegationSeeder::class,
-            TypeActivitySeeder::class, */
+            TypeActivitySeeder::class, 
             ActivitySeeder::class,
         ]);
     }
