@@ -242,6 +242,18 @@ $(() => {
         var input_bc = getComputedStyle(document.querySelector('input')).backgroundColor;
     }
 
+    if($('.mainTrayVolAct')[0]){
+        var mainTrayVolAct_bc = getComputedStyle(document.querySelector('.mainTrayVolAct')).backgroundColor;
+    }
+
+    if($('.mainActivityInfo')[0]){
+        var mainActivityInfo_bc = getComputedStyle(document.querySelector('.mainActivityInfo')).backgroundColor;
+    }
+
+    if($('.divTime')[0]){
+        var divTime_bc = getComputedStyle(document.querySelector('.divTime')).backgroundColor;
+    }
+
     if($('.toggle-act-button')[0]){
         var toggle_act_button_bc = getComputedStyle(document.querySelector('.toggle-act-button')).backgroundColor;
         var toggle_act_button_c = getComputedStyle(document.querySelector('.toggle-act-button')).color;
@@ -355,10 +367,6 @@ $(() => {
 
         if($('.home-section')[0]){
             $('.home-section').css('background', home_section_bc);
-        }
-
-        if($('.row')[0]){
-            $('.row').css('background', row_bc);
         }
 
         if($('.sectionTitle')[0]){
@@ -683,6 +691,28 @@ $(() => {
             $('input').css('background', input_bc);
         }
 
+        if($('.mainTrayVolAct')[0]){
+            $('.mainTrayVolAct').css('background', mainTrayVolAct_bc);
+            $('.mainActivityInfo').css('background', mainActivityInfo_bc);
+            $('.mainActivityInfo p').css('color', 'black');
+            $('.mainActivityInfo').find('div').each(function(){
+                $(this).css('background', mainActivityInfo_bc);
+                $(this).css('color', 'black');
+            })
+            $('.divTime').css('background', divTime_bc);
+            $('.divTime, .divTime p').css('color', 'white');
+            $('.divTime').find('div').each(function(){
+                $(this).css('background', divTime_bc);
+                $(this).css('color', 'white');
+            })         
+        }
+
+        if($('.row')[0]){
+            $('.row').css('background', row_bc);
+            $('.mainActivityInfo.row').find('div').each(function(){
+                $(this).css('background', row_bc);
+            })
+        }
     }   
 
     function restoreFontSize(){

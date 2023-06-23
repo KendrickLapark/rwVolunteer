@@ -5,6 +5,7 @@
 @endsection
 
 @section('headlibraries')  
+<script type="text/javascript" src="{{ URL::asset('js/showVolunteersActivity.a11y.js') }}"></script>
 
 @endsection
 
@@ -125,6 +126,17 @@
     
                         <div class="controlButtonMoreDetails">
                             <i class='bx bxs-down-arrow'role="button" aria-expanded="false" tabindex="0"></i>
+                        </div>
+
+                        <div class="buttonAct">
+                            <p> <strong>Eliminar de la actividad: </strong> </p>
+                            <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $activity->activity_id }}">
+                                <button type="submit" class="boton-delete-user" aria-label="Eliminar voluntario de la actividad"
+                                    onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
+                                        style="font-size:25px; color:white"></i></button>
+                            </form>
                         </div>
                                            
                     </div>

@@ -58,6 +58,7 @@
 .mainDataVolAct .mainData{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .mainDataVolAct .mainData .row{
@@ -107,6 +108,24 @@
 .mainDataVolAct .mainData .hidden .downloadButton{
     width:25%;
 
+}
+
+.buttonAct{
+    text-align: center;
+}
+
+.boton-delete-user{
+    width: fit-content;
+    justify-content: center;
+    padding-inline: 10px;
+    background-color: #009fe3;
+    border-radius: 10px;
+    border: none;
+
+}
+
+.boton-delete-user i{
+    color: white ;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1200px){

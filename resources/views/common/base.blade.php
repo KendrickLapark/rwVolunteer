@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" 
     integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <script type="text/javascript" src="{{ URL::asset('js/a11y.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ URL::asset('js/a11y.js') }}"></script> --}}
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="<?php echo asset('images/favicon.png'); ?>" />
 

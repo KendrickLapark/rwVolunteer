@@ -6,7 +6,7 @@
         <div class="eachColFoot">
             <div class="titleFoot">MAPA WEB</div>
             <p><a href="https://www.fundacionmagtel.es/conocenos/">Conócenos</a></p>
-            <p><a href="https://www.fundacionmagtel.es/trabaja-con-nosotros/">Trabaja con nosotros</a></p>
+            <p><a href="https://www.magtel.es/trabaja-con-nosotros/">Trabaja con nosotros</a></p>
             <p><a href="https://www.fundacionmagtel.es/actualidad-magtel/">Actualidad</a></p>
             <p><a href="https://www.fundacionmagtel.es/innovacion-social">Innovación social</a></p>
             <p><a href="https://www.fundacionmagtel.es/empleabilidad">Empleabilidad</a></p>
