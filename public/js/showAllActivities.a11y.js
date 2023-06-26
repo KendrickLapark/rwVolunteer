@@ -1,205 +1,158 @@
 $(() => { 
 
-    var mainTrayVolAct_bc = getComputedStyle(document.querySelector('.mainTrayVolAct')).backgroundColor;
+    var mainTray_bc = getComputedStyle(document.querySelector('.mainTray')).backgroundColor;
     var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
-    var row_bc = getComputedStyle(document.querySelector('.row')).backgroundColor;
-    var divTime_bc = getComputedStyle(document.querySelector('.divTime')).backgroundColor;
-    var divTime_c = getComputedStyle(document.querySelector('.divTime')).color;
-    var button_i_c = getComputedStyle(document.querySelector('button i')).color;
+    var h1_c = getComputedStyle(document.querySelector('h1')).color;
     var adminMenu_bc = getComputedStyle(document.querySelector('.adminMenu')).backgroundColor;
     var i_c = getComputedStyle(document.querySelector('i')).color;
     var span_color = getComputedStyle(document.querySelector('span')).color;
     var toolbar_text_color = getComputedStyle(document.querySelector('.toolbar-text')).color;
     var toolbar_inner_color = getComputedStyle(document.querySelector('.toolbar-inner')).color;
     var sidebar_bc = getComputedStyle(document.querySelector('.sidebar')).backgroundColor;
-
-    if($('.mainData')[0]){
-        var mainData_bc = getComputedStyle(document.querySelector('.mainData')).backgroundColor;
-    }
-    
     var home_content_bc = getComputedStyle(document.querySelector('.home-content')).backgroundColor;
     var profile_details_bc = getComputedStyle(document.querySelector('.profile-details')).backgroundColor; 
     var logo_details_bc = getComputedStyle(document.querySelector('.logo-details')).backgroundColor; 
     var home_section_bc = getComputedStyle(document.querySelector('.home-section')).backgroundColor;
-    var sectionTitle_bc = getComputedStyle(document.querySelector('.sectionTitle')).backgroundColor; 
     var sidebar_button_bc = getComputedStyle(document.querySelector('.sidebar-button')).backgroundColor;
     var dashboard_c = getComputedStyle(document.querySelector('.dashboard')).color;
     var nav_bc = getComputedStyle(document.querySelector('nav')).backgroundColor;
     var sidebar_c = getComputedStyle(document.querySelector('.sidebar .nav-links .adminMenu .links_name')).color;
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
-    var h1_c = getComputedStyle(document.querySelector('h1')).color;
-    var form_bc = getComputedStyle(document.querySelector('form')).backgroundColor;
     var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     var a_c = getComputedStyle(document.querySelector('a')).color;
     var li_bc = getComputedStyle(document.querySelector('li')).backgroundColor;
-    var mainActivityInfo_bc = getComputedStyle(document.querySelector('.mainActivityInfo')).backgroundColor;
+    var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
+    var button_c = getComputedStyle(document.querySelector('button')).color;
 
-    if($('.hidden')[0]){
-        var hidden_bc = getComputedStyle(document.querySelector('.hidden')).backgroundColor;
-        var hidden_c = getComputedStyle(document.querySelector('.hidden p')).color;
-        if($('.hidden button')[0]){
-            var hidden_button_bc = getComputedStyle(document.querySelector('.hidden button')).backgroundColor;
-            var download_button_bc = getComputedStyle(document.querySelector('.downloadPanel button')).backgroundColor;
-            var boton_delete_user_bc = getComputedStyle(document.querySelector('.boton-delete-user')).backgroundColor;
-            var boton_delete_user_c = getComputedStyle(document.querySelector('.boton-delete-user')).color;
-        }
-    }
+    var toggle_act_button_bc = getComputedStyle(document.querySelector('.toggle-act-button')).backgroundColor;
+    var toggle_act_button_c = getComputedStyle(document.querySelector('.toggle-act-button')).color;
+    var eachColor_A_c = getComputedStyle(document.querySelector('#eachColor_A')).backgroundColor;
+    var eachColor_B_c = getComputedStyle(document.querySelector('#eachColor_B')).backgroundColor;
+    var eachColor_C_c = getComputedStyle(document.querySelector('#eachColor_C')).backgroundColor;
 
-    if($('.mainData .hidden')[0]){
-        var main_hidden_bc = getComputedStyle(document.querySelector('.mainData .hidden')).backgroundColor;
-        var main_hidden_c = getComputedStyle(document.querySelector('.mainData .hidden')).color;
-        if($('.hidden button')[0]){
-            var hidden_button_bc = getComputedStyle(document.querySelector('.hidden button')).backgroundColor;
-            var download_button_bc = getComputedStyle(document.querySelector('.downloadPanel button')).backgroundColor;
-            var boton_delete_user_bc = getComputedStyle(document.querySelector('.boton-delete-user')).backgroundColor;
-            var boton_delete_user_c = getComputedStyle(document.querySelector('.boton-delete-user')).color;
-        }
-    }
+    var coloresFondo = [];
+    var coloresLetra = [];
+    var coloresDateAccordion_bc = [];
+    var coloresDateAccordion_c = [];
+    
+        $(document).ajaxSuccess(function(){
+            var padreLista = $('#search_listAct');
+
+            padreLista.find('.divTime').each(function() {
+                var div = $(this);
+
+                coloresFondo.push(div.css('background-color'));
+                coloresLetra.push(div.css('color'));
+            }) 
+
+            padreLista.find('.dateAccordion').each(function(){
+                var div = $(this);
+
+                coloresDateAccordion_bc.push(div.css('background-color'));
+                coloresDateAccordion_c.push(div.css('color'));
+            })
+
+        });
 
     function defaultColors(){
-        $('span').css('color', span_color);
-        $('.toolbar-inner').css('color', toolbar_inner_color);
-        $('.toolbar-text').css('color', toolbar_text_color);       
 
-        if($('i')[0]){
-            $('i').css('color', i_c);
-        }        
+        $('.mainTray').css('background', mainTray_bc);
 
-        if($('.sidebar')[0]){
-            $('.sidebar').css('background', sidebar_bc);
-        }
-
+        $('.mainTray').find('div').each(function(){
+            $(this).css('background', mainTray_bc);
+            $(this).css('color', 'black');
+        })
+        
         $('#spaceTopMenu').css('background', spaceTopMenu_bc);
 
-        if($('.mainTrayVolAct')[0]){
-            $('.mainTrayVolAct').css('background', mainTrayVolAct_bc);
-        }
-
-        if($('main')[0]){
-            $('main').css('background', main_bc);
-        }
-
-        if($('.mainData')[0]){
-            $('.mainData').css('background', mainData_bc);
-        }
-
-        if($('.home-content')[0]){
-            $('.home-content').css('background', home_content_bc);
-        }
-
-        if($('.profile-details')[0]){
-            $('.profile-details').css('background', profile_details_bc);
-        }
-
-        if($('.logo-details')[0]){
-            $('.logo-details').css('background', logo_details_bc);
-        }
-
-        if($('.home-section')[0]){
-            $('.home-section').css('background', home_section_bc);
-        }
-
-        if($('.sectionTitle')[0]){
-            $('.sectionTitle').css('background', sectionTitle_bc);
-        }
-
-        if($('.sidebar-button')[0]){
-            $('.sidebar-button').css('background', sidebar_button_bc);
-        }
-
-        if($('.dashboard')[0]){
-            $('.dashboard').css('color', dashboard_c);
-        }
-
-        if($('header')[0]){
-            $('header').css('background', header_bc);
-        }
-
-        if($('nav')[0]){
-            $('nav').css('background', nav_bc);
-            $('nav .sidebar-button i').css('color', sidebar_c);
-        }
-
-        if($('.sidebar')[0]){
-            $('.sidebar').css('background', sidebar_bc);
-        }
-
-        if($('.hidden')[0]){          
-            $('.hidden').css('background', hidden_bc);
-            $('.hidden button').css('background', hidden_button_bc);
-        }
-
-        if($('.sidebar li')[0]){
-            $('.sidebar li').css('background', sidebar_bc);
-        }
-
-        if($('.toolbar-inner')[0]){
-            $('.toolbar-inner').css('background', toolbar_inner_bc);      
-        }   
-
-        if($('a')[0]){
-            $('a').css('color', a_c);
-        }
-
-        if($('h1')[0]){
-            $('h1').css('color', h1_c);
-        }
-
-        if($('button i')[0]){
-            $('button i').css('color', button_i_c); 
-        }
+        if($('.dateAccordion')[0]){
+            $('.dateAccordion').each(function(index){
+                var dateAccordion_bc = coloresDateAccordion_bc[index % coloresDateAccordion_bc.length];
+                var dateAccordion_c = coloresDateAccordion_c[index % coloresDateAccordion_c.length];
         
-        $('.mainActivityInfo').css('background', mainActivityInfo_bc);
-        $('.row').css('background', row_bc);
-
-        if($('form')[0]){
-            $('form').css('background', form_bc);
+                $(this).css('background-color', dateAccordion_bc);
+                $(this).css('color', dateAccordion_c);
+            })
         }
+
+        
+
+        $('form').css('background', mainTray_bc);
+        $('button').css('background', button_bc);
+        $('button').css('color', button_c);
+
+        $('.toggle-act-button').css('background', toggle_act_button_bc);
+        $('.toggle-act-button').css('color', toggle_act_button_c);
+        $('#eachColor_A').css('background', eachColor_A_c);
+        $('#eachColor_B').css('background', eachColor_B_c);
+        $('#eachColor_C').css('background', eachColor_C_c);      
+
+        $('h1').css('color', h1_c);
+
+        $('span').css('color', span_color);
+        $('.toolbar-inner').css('color', toolbar_inner_color);
+        $('.toolbar-text').css('color', toolbar_text_color);  
+        
+        $('i').css('color', i_c);
+        $('button i').css('color', button_c);
+        $('.sidebar').css('background', sidebar_bc);
+        $('.home-content').css('background', home_content_bc);
+        $('.profile-details').css('background', profile_details_bc);
+    
+        $('.logo-details').css('background', logo_details_bc);
+        $('.home-section').css('background', home_section_bc);
+        $('.sidebar-button').css('background', sidebar_button_bc);
+        $('.dashboard').css('color', dashboard_c);
+        $('nav').css('background', nav_bc);
+        $('nav .sidebar-button i').css('color', sidebar_c);
+        $('.sidebar').css('background', sidebar_bc);
+        $('.sidebar li').css('background', sidebar_bc);
+        $('.toolbar-inner').css('background', toolbar_inner_bc);      
+        $('a').css('color', a_c);
 
         $('p').css('color', 'black');
-
-        if($('.toolbar-item svg')[0]){
-            $('.toolbar-item svg').css('color', toolbar_text_color); 
-        } 
-
-        if($('.toolbar-title')[0]){
-            $('.toolbar-title').css('color', 'black');
-        }
-
-        if($('.toolbar-item')[0]){
-            $('.toolbar-item').css('background', toolbar_item_bc);
-        }
-
-        if($('.adminMenu')[0]){
-            $('.adminMenu').css('background', adminMenu_bc);
-            $('.adminMenu span, .adminMenu i').css('color', 'white')
-        }
-
-        if($('li')[0]){
-            $('li:not(.adminMenu)').css('background', li_bc);
-        }
+        $('.toolbar-item svg').css('color', toolbar_text_color); 
+        $('.toolbar-title').css('color', 'black');
+        $('.toolbar-item').css('background', toolbar_item_bc);
+        $('.adminMenu').css('background', adminMenu_bc);
+        $('.adminMenu span, .adminMenu i').css('color', 'white')
+        $('li:not(.adminMenu)').css('background', li_bc);
 
         if($('.divTime')[0]){
-            $('.divTime').css('background', divTime_bc);
-            $('.divTime p').css('color', divTime_c);
+            $('.divTime').each(function(index){
+                var colorFondo = coloresFondo[index % coloresFondo.length]; 
+                var colorLetra = coloresLetra[index % coloresLetra.length];
+
+                $(this).css('background-color', colorFondo);
+                $(this).find('p').css('color', colorLetra);
+
+            })
+
+            $('.divTime').css('color', 'white');
+
+            $('.divTime').find('div').each(function(){
+                $(this).css('color', 'white');
+            })
+
+            $('.divTime').find('p').each(function(){
+                $(this).css('color', 'white');
+            })
+        }
+
+        if($('.hidden')[0]){
+            $('.hidden').css('background', '#004998');
+            $('.hidden').find('div p').each(function(){
+                $(this).css('color', 'white');
+            })
+            $('.hidden').find('i').each(function(){
+                $(this).css('color', 'white');
+            })
+
+            $('.hidden').find('button').each(function(){
+                $(this).css('background', 'grey');
+            })
         }
         
-        $('.downloadPanel button').css('background', download_button_bc);
-        $('.downloadPanel button i').css('color', '#666666');
-        $('.boton-delete-user').css('background', boton_delete_user_bc);
-        $('.boton-delete-user').css('color', boton_delete_user_c);
-
-        if($('.mainData .hidden')[0]){
-            $('.mainData .hidden').css('background', main_hidden_bc);
-            $('.eachRow').find('p').each(function(){
-                $(this).css('color', main_hidden_c);
-            })
-
-            $('.mainData .hidden').find('div').each(function(){
-                $(this).css('color', main_hidden_c);
-            })
-        }
-
     }
 
     var grayscale = false;
@@ -296,7 +249,8 @@ $(() => {
                 white_background = false; 
                 high_contrast = true;           
                 defaultColors();
-                $('.sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'black');
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
                 
               }
@@ -317,7 +271,8 @@ $(() => {
                 white_background = false; 
                 negative_contrast = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'black');
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
              }
 
@@ -337,7 +292,8 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'white');
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
              }
 

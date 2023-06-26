@@ -22,3 +22,7 @@
     @endif
 
 @endsection
+
+@section('headlibraries')
+<script type="text/javascript" src="{{ URL::asset('js/dashboardAdmin.a11y.js') }}"></script>
+@endsection

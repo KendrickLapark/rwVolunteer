@@ -5,6 +5,7 @@
 @endsection
 
 @section('headlibraries')
+<script type="text/javascript" src="{{ URL::asset('js/showThatActivity.a11y.js') }}"></script>
 @endsection
 
 @section('content')

@@ -74,3 +74,8 @@
         @endif
     </div>
 @endsection
+
+@section('headlibraries')
+<script type="text/javascript" src="{{ URL::asset('js/showAllEducation.a11y.js') }}"></script>
+
+@endsection

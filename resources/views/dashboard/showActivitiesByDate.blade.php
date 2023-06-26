@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
     <script src='https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'></script>
+    <script type="text/javascript" src="{{ URL::asset('js/showActivitiesByDate.a11y.js') }}"></script>
 
 @endsection
 
@@ -62,6 +63,7 @@
 </div>
 
 <script>
+
     $(document).ready(function() {
 
         var SITEURL = "{{ url('/') }}";
