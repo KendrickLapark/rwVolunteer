@@ -1,6 +1,7 @@
 $(() => { 
 
     var mainTrayVolAct_bc = getComputedStyle(document.querySelector('.mainTrayVolAct')).backgroundColor;
+    var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
     var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
     var row_bc = getComputedStyle(document.querySelector('.row')).backgroundColor;
     var divTime_bc = getComputedStyle(document.querySelector('.divTime')).backgroundColor;
@@ -33,6 +34,8 @@ $(() => {
     var a_c = getComputedStyle(document.querySelector('a')).color;
     var li_bc = getComputedStyle(document.querySelector('li')).backgroundColor;
     var mainActivityInfo_bc = getComputedStyle(document.querySelector('.mainActivityInfo')).backgroundColor;
+    var excelDownload_bc = getComputedStyle(document.querySelector('#excelDownload')).backgroundColor;
+    var excelDownload_c = getComputedStyle(document.querySelector('#excelDownload')).color;
 
     if($('.hidden')[0]){
         var hidden_bc = getComputedStyle(document.querySelector('.hidden')).backgroundColor;
@@ -56,7 +59,7 @@ $(() => {
         }
     }
 
-    function defaultColors(){
+    function defaultColors(){ 
         $('span').css('color', span_color);
         $('.toolbar-inner').css('color', toolbar_inner_color);
         $('.toolbar-text').css('color', toolbar_text_color);       
@@ -200,6 +203,11 @@ $(() => {
             })
         }
 
+        
+        $('#excelDownload').css('background', excelDownload_bc);
+        $('#excelDownload i').css('color', excelDownload_c);
+        $('.icon-overlay').css('background', icon_overlay_bc);
+
     }
 
     var grayscale = false;
@@ -296,7 +304,7 @@ $(() => {
                 white_background = false; 
                 high_contrast = true;           
                 defaultColors();
-                $('.sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'black');
+                $('.sidebar, .icon-overlay, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
                 
               }
@@ -317,7 +325,7 @@ $(() => {
                 white_background = false; 
                 negative_contrast = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'black');
+                $('.sidebar, .sidebar li, li, .icon-overlay, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
              }
 
@@ -337,7 +345,7 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'white');
+                $('.sidebar, .sidebar li, li, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row, .hidden').css('background', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
              }
 

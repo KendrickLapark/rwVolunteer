@@ -1,6 +1,8 @@
 $(() => { 
 
     var mainTray_bc = getComputedStyle(document.querySelector('.mainTray')).backgroundColor;
+    
+    var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
     var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
     var h1_c = getComputedStyle(document.querySelector('h1')).color;
     var adminMenu_bc = getComputedStyle(document.querySelector('.adminMenu')).backgroundColor;
@@ -21,6 +23,8 @@ $(() => {
     var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     var a_c = getComputedStyle(document.querySelector('a')).color;
     var li_bc = getComputedStyle(document.querySelector('li')).backgroundColor;
+    var excelDownload_bc = getComputedStyle(document.querySelector('#excelDownload')).backgroundColor;
+    var excelDownload_c = getComputedStyle(document.querySelector('#excelDownload')).color;
 
     if($('button')[0]){
         var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
@@ -74,6 +78,10 @@ $(() => {
         $('li:not(.adminMenu)').css('background', li_bc);
 
         $('p').css('color', 'black');
+
+        $('#excelDownload').css('background', excelDownload_bc);
+        $('#excelDownload i').css('color', excelDownload_c);      
+        $('.icon-overlay').css('background', icon_overlay_bc);
 
         if($('.hidden')[0]){
             $('.hidden').css('background', '#004998');
@@ -188,7 +196,7 @@ $(() => {
                 high_contrast = true;           
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+                $('.notifyTrayIns, .sectionIncomplete, .icon-overlay, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
                 
               }
@@ -210,7 +218,7 @@ $(() => {
                 negative_contrast = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+                $('.notifyTrayIns, .sectionIncomplete, .icon-overlay, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
              }
 
@@ -230,8 +238,8 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .hidden, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
+                $('.notifyTrayIns, .icon-overlay, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .hidden, .divTime, #excelDownload, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, #excelDownload, .boton-delete-user i').css('color', 'black');                
              }
 
         });

@@ -6,9 +6,9 @@
     <div id="spaceTopMenu">
         <div class="logo-details">
             @if(!session()->has("status"))
-            <img width="300" height="80" src="<?php echo asset('images/logo-fundacion1.png'); ?>" alt="header-logo" id="logoImg" />
+            <img width="300" height="80" src="<?php echo asset('images/logo-fundacion2.png'); ?>" alt="header-logo" id="logoImg" />
             @else
-            <img width="200" height="39" src="<?php echo asset('images/logo-fundacion1.png'); ?>" alt="header-logo" id="logoImg" />
+            <img width="200" height="39" src="<?php echo asset('images/logo-fundacion2.png'); ?>" alt="header-logo" id="logoImg" />
             @endif
         </div>
     </div>

@@ -86,7 +86,7 @@
     margin-top: auto;
 }
 
-.documentsPanel .botonesControl{
+.documentsPanel .botonesControl, #downloadDoc{
     background-color: #009FE3;
 }
 
@@ -104,10 +104,61 @@
 
 }
 
-@media only screen and (max-width: 1400px){
+@media only screen and (min-width: 720px) and (max-width: 1400px){
     .containerMyProfile{
         flex-direction: column;
         margin-inline: auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerProfileData{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .personalDataPanel{
+        flex-direction: column;
+        padding: auto;
+        margin-inline: auto;
+
+    }
+
+    .accordion-trigger{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .personalDataLeftCol, .personalDataRightCol{
+        margin: 10px;
+    }
+
+    .containerMyProfile{
+        width: 95%;
+        margin-bottom: 60px;
+    }
+
+    .accordion-trigger{
+        display: flex;
+        margin-inline: auto;
+    }
+
+    .accordion-panel{
+        flex-direction: column;
+        text-align: left;
+        padding: 0;
+
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .containerMyProfile{
+        flex-direction: column;
+        margin-inline: auto;
+        padding-inline: auto;
         text-align: center;
         justify-content: center;
         align-items: center;
@@ -121,7 +172,7 @@
     }
 
     .personalDataLeftCol, .personalDataRightCol{
-        margin-inline: auto;
+        margin: 5px;
     }
 
     .containerMyProfile{
@@ -131,6 +182,21 @@
 
     .containerProfileData{
         width: 100%;
+        justify-content: center;
+        text-align: center;
+        
+    }
+
+    .accordion-trigger{
+        display: flex;
+        margin-inline: auto;
+    }
+
+    .accordion-panel{
+        flex-direction: column;
+        text-align: left;
+        padding: 0;
+
     }
 }
 

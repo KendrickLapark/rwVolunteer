@@ -202,6 +202,8 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('color', 'black');
                 $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
              }
