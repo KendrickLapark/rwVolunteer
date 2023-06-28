@@ -338,6 +338,7 @@
 
 
 @section('library')
+    <script type="text/javascript" src="{{ URL::asset('js/register.a11y.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::asset('js/register.js') }}"></script>
 @endsection

@@ -91,6 +91,8 @@
 
 @section('library')
 
+<script type="text/javascript" src="{{ URL::asset('js/home.a11y.js') }}"></script>
+
     <script type="text/javascript">
 
         var counter = 1;
