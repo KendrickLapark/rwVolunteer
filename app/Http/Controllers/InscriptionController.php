@@ -33,6 +33,24 @@ class InscriptionController extends Controller
         return redirect()->route('dashboard.logged');
     }
 
+    public function unDoThisInscription(Request $request, $volunteer_id){
+
+        $inscription=Inscription::where('activity_id', $request->id)
+                ->where('volunteer_id', $volunteer_id)
+                ->first(); 
+        $inscription->delete();   
+
+        if ($inscription) {
+            $inscription->delete();
+            session()->flash('unDoThisinscription', 'Has cancelado la preinscripción en una actividad.');
+        } else {
+            session()->flash('error', 'No se encontró la inscripción.');
+        }
+
+        return redirect()->route('dashboard.showVolunteersActivity', ['id' => $request->id]);
+
+    }
+
     public function uploadPreinscription(Request $request)
     {
         $request->validate([
@@ -64,7 +82,7 @@ class InscriptionController extends Controller
             $activity
         );   
         session()->flash('uploadPreinscription', 'Se ha subido un documento, espera a que un Administrador lo valide.');
-        return redirect()->route('dashboard.logged.showNotify');
+        return redirect()->route('dashboard.logged');
     }
 
     public function downloadPreinscription (Request $request)

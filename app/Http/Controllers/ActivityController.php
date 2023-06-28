@@ -26,13 +26,6 @@ class ActivityController extends Controller
         return view("dashboard.createActivity", compact("activityTypes"));
     }
 
-    public function showActivitiesGenially()
-    {
-
-        return view("dashboard.showActivitiesGenially");
-
-    }
-
     public function saveActivity(Request $request)
     {
         $request->validate([

@@ -166,6 +166,9 @@ Route::middleware(['isLogged'])->group(function () {
     /* Cancelar preinscripción */
     Route::post('/dashboard-unDoInscription', [InscriptionController::class, 'unDoInscription'])
         ->name('dashboard.unDoInscription');
+    /* Eliminar a un voluntario de una determinada actividad */
+    Route::post('/dashboard-unDoThisInscription/{id}', [InscriptionController::class, 'unDoThisInscription'])
+        ->name('dashboard.unDoThisInscription');
     /* Mostramos dashboard de notificaciones Logged */
     Route::get('/dashboard-logged-showNotify',[NotifyController::class, 'loggedShowNotify'])
         ->name('dashboard.logged.showNotify');
@@ -175,9 +178,6 @@ Route::middleware(['isLogged'])->group(function () {
     /*  UPLOAD  Preinscription PDF */
     Route::post('/uploadPreinscription',[InscriptionController::class,'uploadPreinscription'])
         ->name('dashboard.uploadPreinscription');
-    /* Show Calendar Activity */
-    Route::get('/dashboard-logged-showNotify',[NotifyController::class, 'loggedShowNotify'])
-        ->name('dashboard.logged.showNotify');
     /* Mostramos los datos de esa actividad */
     Route::get('/showThatActivity/{id}', [ActivityController::class, 'showThatActivity'])
         ->name('dashboard.showThatActivity');

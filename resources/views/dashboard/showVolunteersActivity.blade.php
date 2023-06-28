@@ -130,7 +130,7 @@
 
                         <div class="buttonAct">
                             <p> <strong>Eliminar de la actividad: </strong> </p>
-                            <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
+                            <form method="POST" action="{{ route('dashboard.unDoThisInscription', $volunteer->id) }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $activity->activity_id }}">
                                 <button type="submit" class="boton-delete-user" aria-label="Eliminar voluntario de la actividad"

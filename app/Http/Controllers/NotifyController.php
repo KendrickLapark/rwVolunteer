@@ -25,15 +25,6 @@ class NotifyController extends Controller
 
     }
 
-    public function loggedShowNotify()
-    {
-        $activityTypes = TypeActivity::all();
-        $inscription = Inscription::where('volunteer_id', Auth::user()->id)->get() ;
-       
-        return view("dashboard.showLoggedNotifications", compact("inscription","activityTypes"));
-
-    }
-
     public static function notifyTrigger()
     {
         $isNotCompleted=Document::select('volunteer_id', DB::raw('SUM(isContactModelVol)') , DB::raw('SUM(isInscripModelVol)')) 
@@ -59,23 +50,4 @@ class NotifyController extends Controller
         return false;
     }
 
-    public static function notifyLoggedTrigger()
-    {
-        /* Tenemos documentos que subir */
-
-        $activities=Volunteer::find(Auth::user()->id)->activities;
-
-        $noDocUploaded=0;
-        foreach ($activities as  $activity) {
-            if($activity->pivot->filenameIns==null){
-                $noDocUploaded++;
-            }
-        }
-
-        if ($noDocUploaded>0){
-            return true;
-        } 
-        
-        return false;
-    }
 }

@@ -1,5 +1,7 @@
 .mainTrayAdminNot{
-    width: 30%;
+    display:flex;
+    flex-direction: column;
+    width: 40%;
     padding: auto;
     margin-inline: auto;
     justify-content: center;
@@ -8,18 +10,17 @@
 }
 
 .mainDataAdminNot{
-    text-align: left;
-    justify-content: center;
-    padding: auto;
-    margin: auto;
-    padding: 2%;
+    width: 80%;
+    margin-inline: auto;
     line-height: 2em;
     column-gap: 2em;
+    margin-block: 8%;
 
 }
 
 .avatarAdminNot{
     margin-inline: auto !important;
+    margin-block: 2%;
 
 }
 
@@ -36,16 +37,16 @@
     padding-block: 1%;
     justify-content: center;
     text-align: left;
-    margin: auto;
-    border-bottom: 1px grey solid;
+    margin-top: 5%;
+    margin-inline: auto;
+    border: 1px grey solid;
+    padding: 2%;
 
 }
 
 .mainDataAdminNot .hiddenAdminNot{
-    margin-top: 2%;
     width: 100%;
     margin-inline: auto;
-    margin-block: 2%;
     padding: 2%;
     border: 1px solid grey;
     

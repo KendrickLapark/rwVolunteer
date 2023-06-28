@@ -38,14 +38,6 @@
                     <span class="links_name">Editar mi perfil</span>
                 </a>
             </li>
-            @if (App\Http\Controllers\NotifyController::notifyLoggedTrigger())
-                <li class="adminMenu" title="Notificaciones">
-                    <a href="{{ route('dashboard.logged.showNotify') }}">
-                        <i class='iconAlert bx bxs-bell-ring bx-tada '></i>
-                        <span class="textAlert links_name ">Notificaciones</span>
-                    </a>
-                </li>
-            @endif
         @endcan
         @can('isAdmin')
             <li class="adminMenu" title="Tablón">

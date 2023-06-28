@@ -152,7 +152,7 @@
         @endif
     </div>
 
-    <div class="mainTrayAdminNot">
+    <div class="mainTrayInscNot">
         <div class="sectionTitle" tabindex="0">
            <p> Preinscripciones sin aceptar: </p>
         </div>

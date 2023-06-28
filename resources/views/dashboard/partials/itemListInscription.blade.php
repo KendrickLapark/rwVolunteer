@@ -15,11 +15,20 @@
     @endif
         <div class="hidden_msg_Inscription" id="inscription-panel" aria-labelledby="accordion-inscription" role="region">
         <div class="inner_hidden_msg_Inscription" tabindex="0">
-                <div class="row_act_desc"> <strong> Descripción: </strong>{{ $inscription->activity->nameAct }}</div>
+                <div class="row_act_desc"> <strong> Descripción: </strong>{{ $inscription->activity->descAct }}</div>
+                <div class="row_act_direAct"> <strong> Dirección: </strong>{{ $inscription->activity->direAct }}</div>
+                <div class="row_act_cupoAct"> <strong> Cupo: </strong>{{ App\Http\Controllers\ActivityController::quotaCalculator(
+                                                                            $inscription->activity->quotasAct,
+                                                                            $inscription->activity->activity_id,
+                                                                        ) }} / {{ $inscription->activity->quotasAct }} Libres</div>
+                <div class="row_act_entityAct"> <strong> Entidad: </strong>{{ $inscription->activity->entityAct }}</div>
                 <div class="row_act_title"> <strong> Requisito previo: </strong> {{ $inscription->activity->requiPrevAct }}</div>
-                <div class="row_type_act"> <strong> Tipo de actividad: </strong> {{-- {{$inscription->activity->typeAct[0]->nameTypeAct}} --}} </div>
+                <div class="row_act_formaAct"> <strong> Formación requerida: </strong> {{ $inscription->activity->formaAct }}</div>
+                <div class="row_type_act"> <strong> Tipo de actividad: </strong> {{preg_replace('/[\d\.]+/', '', $inscription->activity->typeAct[0]->nameTypeAct)}} </div>
                 <div class="row_act_timeAct"> <strong> Formación deseada: </strong> {{ $inscription->activity->formaAct }} </div>
                 <div class="row_act_dateAct"> <strong> Fecha de la actividad: </strong>{{ date('d-m-Y', strtotime($inscription->activity->dateAct))}}</div>
+                <div class="row_act_timeAct"> <strong> Hora de inicio: </strong> {{ $inscription->activity->timeAct }}</div>
+                <div class="row_act_endTimeAct"> <strong> Hora de finalización: </strong> {{ $inscription->activity->endTimeAct }} </div>
                 <div class="row_act_status"> 
                     <strong> Estado de la inscripción: </strong>
                     @if ($inscription->isDoneIns)

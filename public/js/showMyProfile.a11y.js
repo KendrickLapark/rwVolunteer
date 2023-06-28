@@ -5,7 +5,12 @@ $(() => {
     var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
     var form_bc = getComputedStyle(document.querySelector('form')).backgroundColor;
     var h1_c = getComputedStyle(document.querySelector('h1')).color;
-    var adminMenu_bc = getComputedStyle(document.querySelector('.adminMenu')).backgroundColor;
+
+    if($('.adminMenu')[0]){
+        var adminMenu_bc = getComputedStyle(document.querySelector('.adminMenu')).backgroundColor;
+        var sidebar_c = getComputedStyle(document.querySelector('.sidebar .nav-links .adminMenu .links_name')).color;
+    }
+
     var i_c = getComputedStyle(document.querySelector('i')).color;
     var span_color = getComputedStyle(document.querySelector('span')).color;
     var toolbar_text_color = getComputedStyle(document.querySelector('.toolbar-text')).color;
@@ -18,7 +23,6 @@ $(() => {
     var sidebar_button_bc = getComputedStyle(document.querySelector('.sidebar-button')).backgroundColor;
     var dashboard_c = getComputedStyle(document.querySelector('.dashboard')).color;
     var nav_bc = getComputedStyle(document.querySelector('nav')).backgroundColor;
-    var sidebar_c = getComputedStyle(document.querySelector('.sidebar .nav-links .adminMenu .links_name')).color;
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
     var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     var a_c = getComputedStyle(document.querySelector('a')).color;
@@ -28,6 +32,7 @@ $(() => {
     var botonesControl_bc = getComputedStyle(document.querySelector('.botonesControl')).backgroundColor;
     var rowTitles_c = getComputedStyle(document.querySelector('.rowTitleMyDocs')).color;
     var accordion_panel_span_c = getComputedStyle(document.querySelector('.accordion-panel span')).color;
+    var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;
 
     function defaultColors(){
 
@@ -60,7 +65,6 @@ $(() => {
         $('.sidebar-button').css('background', sidebar_button_bc);
         $('.dashboard').css('color', dashboard_c);
         $('nav').css('background', nav_bc);
-        $('nav .sidebar-button i').css('color', sidebar_c);
         $('.sidebar').css('background', sidebar_bc);
         $('.sidebar li').css('background', sidebar_bc);
         $('.toolbar-inner').css('background', toolbar_inner_bc);      
@@ -69,8 +73,13 @@ $(() => {
         $('.toolbar-item svg').css('color', toolbar_text_color); 
         $('.toolbar-title').css('color', 'black');
         $('.toolbar-item').css('background', toolbar_item_bc);
-        $('.adminMenu').css('background', adminMenu_bc);
-        $('.adminMenu span, .adminMenu i').css('color', 'white')
+
+        if($('.adminMenu')[0]){
+            $('.adminMenu').css('background', adminMenu_bc);
+            $('.adminMenu span, .adminMenu i').css('color', 'white');
+            $('nav .sidebar-button i').css('color', sidebar_c);
+        }
+
         $('li:not(.adminMenu)').css('background', li_bc);
 
         $('p').css('color', 'black');
@@ -81,6 +90,7 @@ $(() => {
         $('.rowTitleMyDocs').css('color', rowTitles_c);
         $('.accordion-panel span').css('color', accordion_panel_span_c);
         $('.icon-overlay').css('background', icon_overlay_bc);
+        $('#icon-toolbar').css('color', icon_toolbar_c);
     }
 
     var grayscale = false;
