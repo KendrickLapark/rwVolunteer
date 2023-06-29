@@ -1,6 +1,30 @@
 $(() => { 
 
-    var button_i_c = getComputedStyle(document.querySelector('button i')).color;
+    if($('button')[0]){
+        var button_i_c = getComputedStyle(document.querySelector('button i')).color;
+        var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
+    }
+
+    if($('form')[0]){   
+        var form_bc = getComputedStyle(document.querySelector('form')).backgroundColor;
+    }
+
+    if($('.sectionIncomplete')[0]){  
+        var sectionIncomplete_bc = getComputedStyle(document.querySelector('.sectionIncomplete')).backgroundColor;
+    }
+
+    if($('.sectionTitleNoInscriptions')[0]){
+        var sectionTitleNoInscriptions_bc = getComputedStyle(document.querySelector('.sectionTitleNoInscriptions')).backgroundColor;
+    }
+
+    if($('.listTrayDashboard')[0]){
+        var listTrayDashboard_bc = getComputedStyle(document.querySelector('.listTrayDashboard')).backgroundColor;
+        var mainActivityDashboard_bc = getComputedStyle(document.querySelector('.mainActivityDashboard')).backgroundColor;
+        var msg_Inscription_bc = getComputedStyle(document.querySelector('.msg_Inscription')).backgroundColor;
+        var hidden_msg_Inscription_bc = getComputedStyle(document.querySelector('.hidden_msg_Inscription')).backgroundColor;
+        var inner_hidden_msg_Inscription_bc = getComputedStyle(document.querySelector('.inner_hidden_msg_Inscription')).backgroundColor;
+    }
+
     var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
 
     if($('.adminMenu')[0]){
@@ -22,23 +46,16 @@ $(() => {
     var dashboard_c = getComputedStyle(document.querySelector('.dashboard')).color;
     var nav_bc = getComputedStyle(document.querySelector('nav')).backgroundColor;
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
-    var form_bc = getComputedStyle(document.querySelector('form')).backgroundColor;
     var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     var a_c = getComputedStyle(document.querySelector('a')).color;
     var li_bc = getComputedStyle(document.querySelector('li')).backgroundColor;
     var mainTrayDashboard_bc = getComputedStyle(document.querySelector('.mainTrayDashboard')).backgroundColor;
     var notifyTrayIns_bc = getComputedStyle(document.querySelector('.notifyTrayIns')).backgroundColor;
-    var sectionIncomplete_bc = getComputedStyle(document.querySelector('.sectionIncomplete')).backgroundColor;
-    var msg_Inscription_bc = getComputedStyle(document.querySelector('.msg_Inscription')).backgroundColor;
-    var hidden_msg_Inscription_bc = getComputedStyle(document.querySelector('.hidden_msg_Inscription')).backgroundColor;
-    var inner_hidden_msg_Inscription_bc = getComputedStyle(document.querySelector('.inner_hidden_msg_Inscription')).backgroundColor;
-    var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
-    var listTrayDashboard_bc = getComputedStyle(document.querySelector('.listTrayDashboard')).backgroundColor;
-    var mainActivityDashboard_bc = getComputedStyle(document.querySelector('.mainActivityDashboard')).backgroundColor;
     var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
     var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;    
 
     function defaultColors(){
+        
         $('span').css('color', span_color);
         $('.toolbar-inner').css('color', toolbar_inner_color);
         $('.toolbar-text').css('color', toolbar_text_color);  
@@ -51,6 +68,10 @@ $(() => {
         $('.home-content').css('background', home_content_bc);
         $('.profile-details').css('background', profile_details_bc);
     
+        if($('.sectionTitleNoInscriptions')[0]){
+            $('.sectionTitleNoInscriptions').css('background', sectionTitleNoInscriptions_bc);
+        }
+
         $('.logo-details').css('background', logo_details_bc);
         $('.home-section').css('background', home_section_bc);
         $('.sectionTitle').css('background', sectionTitle_bc);

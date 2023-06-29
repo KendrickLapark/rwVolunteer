@@ -21,6 +21,8 @@ $(() => {
     var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     var a_c = getComputedStyle(document.querySelector('a')).color;
     var li_bc = getComputedStyle(document.querySelector('li')).backgroundColor;
+    var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
+    var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;
 
     function defaultColors(){
 
@@ -60,6 +62,8 @@ $(() => {
         $('.adminMenu').css('background', adminMenu_bc);
         $('.adminMenu span, .adminMenu i').css('color', 'white')
         $('li:not(.adminMenu)').css('background', li_bc);
+        $('.icon-overlay').css('background', icon_overlay_bc);
+        $('#icon-toolbar').css('color', icon_toolbar_c);
 
         $('p').css('color', 'black');  
 
@@ -160,8 +164,8 @@ $(() => {
                 high_contrast = true;           
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .icon-overlay svg, .toolbar-item svg, a').css('color', '#00FFFF');
                 
               }
 
@@ -182,8 +186,8 @@ $(() => {
                 negative_contrast = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .icon-overlay svg, .toolbar-item svg, a').css('color', 'yellow');
              }
 
         });
@@ -204,8 +208,8 @@ $(() => {
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('color', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .icon-overlay svg, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
              }
 
         });

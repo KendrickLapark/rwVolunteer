@@ -21,6 +21,7 @@
     padding-inline: 20px;
     padding-block: 10px;
     column-gap: 10px;
+    cursor: pointer;
 
 }
 
@@ -190,6 +191,7 @@
     padding-block: 5px;
     width: fit-content;
     font-size: 14px;
+    cursor: pointer;
 
 }
 
