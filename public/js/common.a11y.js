@@ -1,12 +1,8 @@
 $(() => { 
 
-    var mainTray_bc = getComputedStyle(document.querySelector('.mainTray')).backgroundColor;
-    
-    var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
-    var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;   
+    var containerDateAct_bc = getComputedStyle(document.querySelector('.mainContainerDateActivities')).backgroundColor;
     var spaceTopMenu_bc = getComputedStyle(document.querySelector('#spaceTopMenu')).backgroundColor;
     var h1_c = getComputedStyle(document.querySelector('h1')).color;
-    var adminMenu_bc = getComputedStyle(document.querySelector('.adminMenu')).backgroundColor;
     var i_c = getComputedStyle(document.querySelector('i')).color;
     var span_color = getComputedStyle(document.querySelector('span')).color;
     var toolbar_text_color = getComputedStyle(document.querySelector('.toolbar-text')).color;
@@ -19,43 +15,30 @@ $(() => {
     var sidebar_button_bc = getComputedStyle(document.querySelector('.sidebar-button')).backgroundColor;
     var dashboard_c = getComputedStyle(document.querySelector('.dashboard')).color;
     var nav_bc = getComputedStyle(document.querySelector('nav')).backgroundColor;
-    var sidebar_c = getComputedStyle(document.querySelector('.sidebar .nav-links .adminMenu .links_name')).color;
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
     var toolbar_item_bc = getComputedStyle(document.querySelector('.toolbar-item')).backgroundColor;
     var a_c = getComputedStyle(document.querySelector('a')).color;
     var li_bc = getComputedStyle(document.querySelector('li')).backgroundColor;
-    var excelDownload_bc = getComputedStyle(document.querySelector('#excelDownload')).backgroundColor;
-    var excelDownload_c = getComputedStyle(document.querySelector('#excelDownload')).color;
+    var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
+    var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;
 
-    if($('button')[0]){
-        var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;
-        var button_c = getComputedStyle(document.querySelector('button')).color;
+    if($('.adminMenu')[0]){
+        var adminMenu_bc = getComputedStyle(document.querySelector('.adminMenu')).backgroundColor;
+        var sidebar_c = getComputedStyle(document.querySelector('.sidebar .nav-links .adminMenu .links_name')).color;
     }
 
     function defaultColors(){
 
-        $('.mainTray').css('background', mainTray_bc);
-
-        $('.mainTray').find('div').each(function(){
-            $(this).css('background', mainTray_bc);
-            $(this).css('color', 'black');
-        })
+        $('h1').css('color', h1_c);
+        $('.fc-center').css('color', h1_c);
 
         $('#spaceTopMenu').css('background', spaceTopMenu_bc);
-
-        $('form').css('background', mainTray_bc);
-        $('button').css('background', button_bc);
-        $('button').css('color', button_c);
-        
-
-        $('h1').css('color', h1_c);
 
         $('span').css('color', span_color);
         $('.toolbar-inner').css('color', toolbar_inner_color);
         $('.toolbar-text').css('color', toolbar_text_color);  
         
         $('i').css('color', i_c);
-        $('button i').css('color', button_c);
         $('.sidebar').css('background', sidebar_bc);
         $('.home-content').css('background', home_content_bc);
         $('.profile-details').css('background', profile_details_bc);
@@ -71,6 +54,62 @@ $(() => {
         $('.toolbar-inner').css('background', toolbar_inner_bc);      
         $('a').css('color', a_c);
 
+        $('.fc-title').css('color', '#FFFFFF');
+
+        $('.calendario').find('button').each(function(){
+            $(this).css('background', '#F1F1F1');
+            $(this).css('color', '#000000');
+        });
+
+        if($('.mainContainerDateActivities')[0]){
+            $('.mainContainerDateActivities').css('background', containerDateAct_bc);
+
+            $('.mainContainerDateActivities').find('div').each(function(){
+                $(this).css('background', containerDateAct_bc);
+            });
+
+            $('.mainContainerDateActivities').find('span').each(function(){
+                $(this).css('color', '#000000');
+            });
+
+            $('.mainContainerDateActivities').find('span:not(.fc-title)').each(function(){
+                $(this).css('color', '#000000');
+            });
+
+            $('.fc-title').css('color', '#FFFFFF');
+
+            $('.calendario').find('button').each(function(){
+                $(this).css('background', '#F1F1F1');
+                $(this).css('color', '#000000');
+            });
+
+            $('.hiddenDaysActivities').find('.accordion').each(function(){
+                $(this).css('background', '#009fe3');
+                $(this).css('color', '#FFFFFF');
+            });
+
+            $('.hiddenDaysActivities').find('i').each(function(){
+                $(this).css('color', '#FFFFFF');
+            });
+
+            $('.titleDaysAct, .eachDayActTitle').css('color', '#014a99');
+            $('.accordion2').css('background', '#ffffff');
+            $('.accordion2, .accordion2 i').css('color', '#054d9b');  
+            $('.panel2').css('background', '#ffffff');
+            $('.panel2, .panel2 span').css('color', '#000000');
+            $('.panel2 a').css('background', '#009fe3');
+            $('.panel2 a').css('color', '#ffffff');
+            
+        }
+
+        if($('.adminMenu')[0]){
+            $('.adminMenu').css('background', adminMenu_bc);
+            $('.adminMenu span, .adminMenu i').css('color', 'white');
+            $('nav .sidebar-button i').css('color', sidebar_c);
+        }
+
+        $('.calendar-footer').css('color', 'black');
+
         $('.toolbar-item svg').css('color', toolbar_text_color); 
         $('.toolbar-title').css('color', 'black');
         $('.toolbar-item').css('background', toolbar_item_bc);
@@ -79,29 +118,9 @@ $(() => {
         $('li:not(.adminMenu)').css('background', li_bc);
 
         $('p').css('color', 'black');
-
-        $('#excelDownload').css('background', excelDownload_bc);
-        $('#excelDownload i').css('color', excelDownload_c);      
         $('.icon-overlay').css('background', icon_overlay_bc);
         $('#icon-toolbar').css('color', icon_toolbar_c);
-        $('.bx.bxs-down-arrow').css('color', 'black');
 
-        if($('.hidden')[0]){
-            $('.hidden').css('background', '#004998');
-            $('.hidden').find('div p').each(function(){
-                $(this).css('color', 'white');
-            })
-            $('.hidden').find('i').each(function(){
-                $(this).css('color', 'white');
-            })
-
-            $('.hidden').find('button').each(function(){
-                $(this).css('background', 'grey');
-            })
-        }
-
-        $('.accordionUsers').css('background', '#004998');
-        
     }
 
     var grayscale = false;
@@ -199,8 +218,8 @@ $(() => {
                 high_contrast = true;           
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .icon-overlay, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .icon-overlay, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, .icon-overlay svg, i, .toolbar-item svg, a').css('color', '#00FFFF');
                 
               }
 
@@ -221,8 +240,8 @@ $(() => {
                 negative_contrast = true; 
                 defaultColors();
                 $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .icon-overlay, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .icon-overlay, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, .icon-overlay svg, i, .toolbar-item svg, a').css('color', 'yellow');
              }
 
         });
@@ -241,8 +260,9 @@ $(() => {
                 negative_contrast = false;
                 white_background = true; 
                 defaultColors();
-                $('.notifyTrayIns, .icon-overlay, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .hidden, .divTime, #excelDownload, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, .icon-overlay svg, button, h1, i, .toolbar-item svg, a, #excelDownload, .boton-delete-user i').css('color', 'black');                
+                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
+                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .icon-overlay, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
+                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, .icon-overlay svg, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
              }
 
         });
