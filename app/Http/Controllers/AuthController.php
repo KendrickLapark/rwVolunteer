@@ -96,7 +96,7 @@ class AuthController extends Controller
                 'typeDocVol' => 'required',
 
                 'numDocVol' => [
-                    'unique:volunteer',
+                    'unique:Volunteer',
                     function ($attribute, $value, $fail) use ($request) {
                         $resultado = false;
                         $resultado = ($this->checkDNI($request['numDocVol']) || $this->checkNIF($request['numDocVol']) ? true : false);
@@ -109,7 +109,7 @@ class AuthController extends Controller
                 'telVol' => 'required',
                 'sexVol' => 'required',
                 'shirtSizeVol' => 'required',
-                'persMailVol' => 'required|email|unique:volunteer|regex:/(.+)@(.+)\.(.+)/i',
+                'persMailVol' => 'required|email|unique:Volunteer|regex:/(.+)@(.+)\.(.+)/i',
                 'persMailConfVol' => [
                     'required'
                 ],

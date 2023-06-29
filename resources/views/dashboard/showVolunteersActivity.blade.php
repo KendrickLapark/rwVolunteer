@@ -4,8 +4,8 @@
     MOSTRANDO VOLUNTARIOS APUNTADOS A LA ACTIVIDAD
 @endsection
 
-@section('headlibraries')  
-<script type="text/javascript" src="{{ URL::asset('js/showVolunteersActivity.a11y.js') }}"></script>
+@section('headlibraries') 
+    <script type="text/javascript" src="{{ URL::asset('js/showVolunteersActivity.a11y.js') }}"></script>
 
 @endsection
 

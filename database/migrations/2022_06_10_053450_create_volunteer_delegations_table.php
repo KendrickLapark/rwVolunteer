@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('vol_del_id');
             $table->integer('volunteer_id')->unsigned();
             $table->integer('delegation_id')->unsigned();
-            $table->foreign('volunteer_id')->references('id')->on('volunteer');
+            $table->foreign('volunteer_id')->references('id')->on('Volunteer');
             $table->foreign('delegation_id')->references('delegation_id')->on('delegations');
             $table->timestamps();
         });

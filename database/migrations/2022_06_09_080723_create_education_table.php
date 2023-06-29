@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('hoursEdu',5)->nullable(false);
             $table->date('endEdu')->nullable(false);
             $table->string('filenameEdu',100)->nullable(false);
-            $table->foreign('volunteer_id')->references('id')->on('volunteer')
+            $table->foreign('volunteer_id')->references('id')->on('Volunteer')
                 ->onDelete('cascade');
             $table->timestamps();
         });
