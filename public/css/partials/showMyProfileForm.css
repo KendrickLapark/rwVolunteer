@@ -4,6 +4,11 @@
     padding: 2%;
 }
 
+.centerCol{
+    text-align: center;
+    margin-block: auto;
+}
+
 #updateMyProfile{
     display: flex;
     justify-content: center;
@@ -32,6 +37,7 @@
     
     .centerCol{
         display: flex;
+        margin-block: 40px;
         width: 100%;
     }
 

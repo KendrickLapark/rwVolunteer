@@ -18,14 +18,12 @@
             <div class="containerMyProfile">
 
                 <div class="avatarContainer">
-                    <p>
                         @if (Auth::user()->imageVol == 0 || Auth::user()->imageVol == null)
                             <img class="avatarMyProfile" src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" tabindex="0" alt="imagen de perfil de {{ Auth::user()->nameVol }}">
                         @else
                             <img class="avatarMyProfile" src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . Auth::user()->imageVol)) }}" 
                             tabindex="0" alt="imagen de perfil de {{ Auth::user()->nameVol }}" id="avatarInTopBar" />
                         @endif
-                    </p>
                 </div>
 
                 <div class="containerProfileData">

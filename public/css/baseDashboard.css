@@ -83,6 +83,14 @@ button {
     color: #666666;
 }
 
+.input_avatar{
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    margin-inline: auto !important;
+    padding-inline: auto !important;
+}
+
 #spaceTopMenu {
     height: 80px;
     background: #ffffff;

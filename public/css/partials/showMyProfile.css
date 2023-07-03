@@ -1,6 +1,14 @@
+.avatarContainer{
+    margin: auto;
+    
+}
+
 .avatarMyProfile{
     border-radius: 50%;
-    transform: scale(0.5);
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 200px;
+    max-width: 200px; 
 }
 
 .containerMyProfile{
@@ -155,6 +163,13 @@
 }
 
 @media only screen and (max-width: 720px){
+
+    .avatarContainer{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+    }
+
     .containerMyProfile{
         flex-direction: column;
         margin-inline: auto;

@@ -29,7 +29,7 @@
                 enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{ Auth::user()->id }}">
-                <p><input type="file" name="file" accept="image/jpeg" required></p>
+                <p><input class="input_avatar" type="file" name="file" accept="image/jpeg" required></p>
                 <p><button type="submit" id="registerSubmitButton" class="botonesControl">SUSTITUIR AVATAR</button></p>
             </form>
 

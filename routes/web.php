@@ -169,9 +169,6 @@ Route::middleware(['isLogged'])->group(function () {
     /* Eliminar a un voluntario de una determinada actividad */
     Route::post('/dashboard-unDoThisInscription/{id}', [InscriptionController::class, 'unDoThisInscription'])
         ->name('dashboard.unDoThisInscription');
-    /* Mostramos dashboard de notificaciones Logged */
-    Route::get('/dashboard-logged-showNotify',[NotifyController::class, 'loggedShowNotify'])
-        ->name('dashboard.logged.showNotify');
     /* Generate Preinscription PDF */
     Route::post('/preinscription',[PDFController::class,'preinscription'])
         ->name('PDF.generatepreinscription');
