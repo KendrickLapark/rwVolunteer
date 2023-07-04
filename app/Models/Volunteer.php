@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Volunteer extends Authenticatable
 {
-    public $table="Volunteer";
+    public $table="volunteer";
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

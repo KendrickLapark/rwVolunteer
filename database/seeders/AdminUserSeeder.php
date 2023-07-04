@@ -16,6 +16,7 @@ class AdminUserSeeder extends Seeder
     public function run()
     {
         Volunteer::create([
+            'id' => 1,
             'nameVol' => 'Rocio',
             'surnameVol' => 'Ciero',
             'surname2Vol' => 'Reche',
@@ -25,7 +26,7 @@ class AdminUserSeeder extends Seeder
             'telVol' => '658831279',
             'sexVol' => 'Mujer',
             'shirtSizeVol' => 'S',
-            'password' => '$2y$10$v9zMvtc3nfnKl1Rg2lW7/enD6ka0UU45RpHs2hSS/W94T/.y/IztG',
+            'password' => '$2y$10$0JvUDUKI/97Q5FidGR8KBOuGBq38eG/biXvmhTaYJ80Bwt5zDCI2S',
             'persMailVol' => 'rocio.ciero@magtel.es',
             'typeViaVol' => 'Calle',
             'direcVol' => 'Gabriel Ramos Bejarano',
@@ -39,12 +40,13 @@ class AdminUserSeeder extends Seeder
             'organiVol' => false,
             /********/
             'isLoggeable' => 1,
-            'isAdminVol' => 1,
+            'isAdminVol' => 0,
             'isInternVol' => 0,
             'isRegisterComplete' => 1,
 
         ]);
         Volunteer::create([
+            'id' => 2,
             'nameVol' => 'Admin',
             'surnameVol' => 'Admin',
             'surname2Vol' => 'Admin',
@@ -54,7 +56,7 @@ class AdminUserSeeder extends Seeder
             'telVol' => '957123456',
             'sexVol' => 'Hombre',
             'shirtSizeVol' => 'M',
-            'password' => '$2y$10$rmooK2aT5wKFaGxiSsYfQ.5dLOqTQm/2.ToIeULV/FAixlSLcVSyO',
+            'password' => '$2y$10$0JvUDUKI/97Q5FidGR8KBOuGBq38eG/biXvmhTaYJ80Bwt5zDCI2S',
             'persMailVol' => 'antonio.lopezlopezNormal@magtel.es',
             'typeViaVol' => 'Autopista',
             'direcVol' => 'Admin',

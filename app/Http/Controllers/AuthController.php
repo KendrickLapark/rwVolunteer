@@ -32,7 +32,7 @@ class AuthController extends Controller
         $inscriptionsComp = Inscription::where('volunteer_id', Auth::user()->id)
             ->whereNotNull('fileNameIns')
             ->get();
-            
+
 
         return view('dashboard.dashboard', compact("inscriptions", "inscriptionsInc", "inscriptionsComp"));
     }
@@ -136,7 +136,7 @@ class AuthController extends Controller
 
     public function store(array $data)
     {
-        
+
 
         $pass = ($this->genPass());
 
