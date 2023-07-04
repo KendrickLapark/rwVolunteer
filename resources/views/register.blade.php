@@ -197,7 +197,7 @@
                     <div class="eachRegisterElement" style="display:none;">
                         &nbsp;
                     </div>
-                    <div class="eachRegisterElement" id="nextRegister">
+                    <div class="eachRegisterElement" id="nextRegister" tabindex="0">
                         <div class="nextRegisterText">Siguiente</div>
                         <img width="40" height="40" src="<?php echo asset('images/icons/next.png'); ?>" title="Siguiente"
                             id="nextRegisterFirst" alt="Siguiente" /> 
@@ -318,7 +318,7 @@
                     <button type="submit" id="registerSubmitButton">Enviar</button>
                 </div>
                 <div class="RegisterContainer">
-                    <div class="eachRegisterElement" id="backRegister">
+                    <div class="eachRegisterElement" id="backRegister" tabindex="0">
                         <img width="40" height="40" src="<?php echo asset('images/icons/back.png'); ?>" title="Volver"
                             id="backRegisterSecond" alt="Volver" />
                         <div class="backRegisterText">Volver</div>

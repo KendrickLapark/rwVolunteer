@@ -18,6 +18,19 @@ $(() => {
 
     });
 
+    $("#nextRegister").keypress(function(event) {
+        if (event.which === 13) { 
+            if (checkFirst()) {
+                $("#registerSheetOne").hide("slow");
+                $("#registerSheetTwo").show("slow");
+            }
+    
+            $("input").on("change", () => {
+                checkFirst();
+            })
+        }
+    });
+
     function checkFirst() {
         nameVol()
         surnameVol()
@@ -127,9 +140,16 @@ $(() => {
     })
 
 
-    $("#backRegisterSecond").on("click", () => {
+    $("#backRegister").on("click", () => {
         $("#registerSheetTwo").hide("slow");
         $("#registerSheetOne").show("slow");
+    });
+
+    $("#backRegister").keypress(function(event) {
+        if (event.which === 13) { 
+            $("#registerSheetTwo").hide("slow");
+            $("#registerSheetOne").show("slow");
+        }
     });
 
     $("#birthDateVol").on("blur change", () => {
