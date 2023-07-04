@@ -21,7 +21,7 @@ class InscriptionController extends Controller
                             ]
                         );
         session()->flash('doPreinscription', 'Te has preinscrito en una actividad.');
-        return redirect()->route('dashboard.logged.showNotify');
+        return redirect()->route('dashboard.logged');
     }
 
     public function unDoInscription(Request $request){
