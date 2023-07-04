@@ -28,7 +28,7 @@ class NotifyController extends Controller
     public static function notifyTrigger()
     {
         $isNotCompleted=Document::select('volunteer_id', DB::raw('SUM(isContactModelVol)') , DB::raw('SUM(isInscripModelVol)')) 
-                                ->join('Volunteer', 'documents.volunteer_id','=','Volunteer.id')
+                                ->join('volunteer', 'documents.volunteer_id','=','Volunteer.id')
                                 ->groupBy('volunteer_id')
                                 ->where('isAdminVol','=',0)
                                 ->where('isRegisterComplete','=',0)
