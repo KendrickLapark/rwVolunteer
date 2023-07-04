@@ -113,8 +113,8 @@
                             @if ($volunteer->imageVol == 0 || $volunteer == null)
                                 <img src="<?php echo asset('images/dashboard/noProfileImage.jpg'); ?>" alt="No hay imagen" class="avatarInShowAllUsers">
                             @else
-                                <img src="{{ asset('storage/avatar/' . $volunteer->imageVol) }}" alt="{{ $volunteer->nameVol }} avatar"
-                                    class="avatarInShowAllUsers">
+                                <img src="data:image/jpeg;base64,{{ base64_encode(Storage::get('avatar/' . $volunteer->imageVol)) }}"
+                                alt="{{ Auth::user()->nameVol }}" class="avatarInShowAllUsers" />
                             @endif
                         </div>
                         <div class="nameSurVol" tabindex="0">
