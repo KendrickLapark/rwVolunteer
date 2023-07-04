@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('filenameIns',100)->nullable(true);
             $table->boolean('isDoneIns')->nullable(false)->default(false);
 
-            $table->foreign('volunteer_id')->references('id')->on('Volunteer')
+            $table->foreign('volunteer_id')->references('id')->on('volunteer')
                 ->onDelete('cascade');
             $table->foreign('activity_id')->references('activity_id')->on('activities')
                 ->onDelete('cascade');

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('isContactModelVol')->default(false);
             $table->boolean('isInscripModelVol')->default(false);
             $table->timestamps();
-            $table->foreign('volunteer_id')->references('id')->on('Volunteer')
+            $table->foreign('volunteer_id')->references('id')->on('volunteer')
                 ->onDelete('cascade');
             
         });
