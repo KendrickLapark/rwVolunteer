@@ -37,8 +37,6 @@ button#loginSubmitButton,
 
 .redMark {
     color: red;
-    font-weight: bolder;
-    font-size: 20px;
 }
 
 .sectionTitle {
@@ -172,8 +170,8 @@ input[type='checkbox'] {
 
 .eachLongRegisterElement {
     width: 100%;
-    height: 100px;
     margin-bottom: 2%;
+    text-align: left;
 }
 
 #registerAuth.RegisterContainer {

@@ -17,6 +17,7 @@
 
 #mainMenu {
     width: 60%;
+    margin-block: auto;
 }
 
 div#mainMenu ul li {

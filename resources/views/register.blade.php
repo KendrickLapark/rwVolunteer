@@ -120,7 +120,6 @@
                             <option value="">Seleccione:</option>
                             <option value="hombre">Hombre</option>
                             <option value="mujer">Mujer</option>
-                            <option value="otro">Otro</option>
                         </select>
                         <br />
                         <p id="sexVolError" class="formError">El sexo es obligatorio.</p>
@@ -177,15 +176,16 @@
                     <div class="eachLongRegisterElement">
                         <input type="checkbox" name="offenseConf" id="offenseConf" required>
                         <label id="offenseConfLabel" class="formSections" for="offenseConf"><span
-                                class="redMark">*</span>Que la persona cuyos datos figuran como titular de la cuenta de
-                            usuario carece de antecedentes penales por cualquiera de los delitos a que hace referencia el
-                            apartado 5º del artículo 8 de la Ley 45/2015, de 14 de octubre, de Voluntariado, el cual señala
-                            textualmente que: "No podrán ser voluntarias las personas que tengan antecedentes penales no
-                            cancelados por delitos de violencia doméstica o de género, por atentar contra la vida, la
-                            integridad física, la libertad, la integridad moral o la libertad e indemnidad sexual del otro
-                            cónyuge o de los hijos, o por delitos de tráfico ilegal o inmigración clandestina de personas, o
-                            por delitos de terrorismo en programas cuyos destinatarios hayan sido o puedan ser víctimas de
-                            estos delitos". </label>
+                                class="redMark">*</span>
+                        Que la persona cuyos datos figuran como titular de la cuenta de
+                        usuario carece de antecedentes penales por cualquiera de los delitos a que hace referencia el
+                        apartado 5º del artículo 8 de la Ley 45/2015, de 14 de octubre, de Voluntariado, el cual señala
+                        textualmente que: "No podrán ser voluntarias las personas que tengan antecedentes penales no
+                        cancelados por delitos de violencia doméstica o de género, por atentar contra la vida, la
+                        integridad física, la libertad, la integridad moral o la libertad e indemnidad sexual del otro
+                        cónyuge o de los hijos, o por delitos de tráfico ilegal o inmigración clandestina de personas, o
+                        por delitos de terrorismo en programas cuyos destinatarios hayan sido o puedan ser víctimas de
+                        estos delitos". </label>
                         <br />
                         <p id="offenseConfError" class="formError">Debes de marcar esto.</p>
                     </div>

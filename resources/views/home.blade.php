@@ -47,7 +47,9 @@
     <div id="contentDiv">
         <div class="rowDiv">           
             <div class="eachCell">
-                <img src="<?php echo asset('images/imgHome/volunteering.png'); ?>" alt="Acción Social" class="eachHomeBoxImage" />
+                <a href="https://www.fundacionmagtel.es/accion-social">
+                    <img src="<?php echo asset('images/imgHome/volunteering.png'); ?>" alt="Acción Social" class="eachHomeBoxImage" />
+                </a>
             </div>
             <div class="eachCell withText">
                 <span class="header">Acción Social</span>
@@ -57,7 +59,9 @@
         </div>
         <div class="rowDiv">          
             <div class="eachCell">
-                <img src="<?php echo asset('images/imgHome/rocket.png'); ?>" alt="Empleabilidad" class="eachHomeBoxImage" />
+                <a href="https://www.fundacionmagtel.es/empleabilidad">
+                    <img src="<?php echo asset('images/imgHome/rocket.png'); ?>" alt="Empleabilidad" class="eachHomeBoxImage" />
+                </a>
             </div>
             <div class="eachCell withText">
                 <span class="header">Empleabilidad</span>
@@ -67,7 +71,9 @@
         </div>
         <div class="rowDiv">
             <div class="eachCell">
-                <img src="<?php echo asset('images/imgHome/employment.png'); ?>" alt="Innovación Social" class="eachHomeBoxImage" />
+                <a href="https://www.fundacionmagtel.es/innovacion-social">
+                    <img src="<?php echo asset('images/imgHome/employment.png'); ?>" alt="Innovación Social" class="eachHomeBoxImage" />
+                </a>
             </div>
             <div class="eachCell withText">
                 <span class="header">Innovación Social</span>
@@ -77,7 +83,9 @@
         </div>       
         <div class="rowDiv">
             <div class="eachCell">
-                <img src="<?php echo asset('images/imgHome/earth.png'); ?>" alt="Cooperación Internacional" class="eachHomeBoxImage" />
+                <a href="https://www.fundacionmagtel.es/cooperacion-internacional">
+                    <img src="<?php echo asset('images/imgHome/earth.png'); ?>" alt="Cooperación Internacional" class="eachHomeBoxImage" />
+                </a>
             </div>
             <div class="eachCell withText">
                 <span class="header">Cooperación Internacional</span>

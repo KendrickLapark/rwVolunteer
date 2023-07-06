@@ -109,6 +109,12 @@ Route::middleware(['isLogged'])->group(function () {
     /*RUTAS LOGGEADAS*/
     Route::get('/dashboard-logged', [AuthController::class, 'loggedDashboard'])
             ->name('dashboard.logged');
+    /*Cambiar contraseña*/
+    Route::get('/dashboard-changePasswordForm', [AuthController::class, 'changePasswordForm'])
+    ->name('dashboard.changePasswordForm');
+    /*Actualizar contraseña*/ 
+    Route::post('/dashboard-updatePassword', [AuthController::class, 'updatePassword'])
+    ->name('dashboard.updatePassword');
     /* Descarga mi documento */
     Route::post('/dashboard-downloadDocument', [DocumentController::class, 'downloadMyDocument'])
         ->name('dashboard.downloadDocument');        

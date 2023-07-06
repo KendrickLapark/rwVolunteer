@@ -10,9 +10,12 @@ use App\Models\Inscription;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EmailController;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AuthController extends Controller
 {
+    use AuthenticatesUsers;
+    
     /* Dashboard */
 
     public function userIncompleteDashboard()
@@ -47,24 +50,40 @@ class AuthController extends Controller
     /* Login */
     public function login(Request $request)
     {
-
         $request->validate([
-            'numDocVol' => 'required',
-            'password' => 'required',
+        'numDocVol' => 'required',
+        'password' => 'required',
         ]);
 
-        $credentials = $request->only('numDocVol', 'password');
-        try {
-            $volunteer = Volunteer::select('isLoggeable')->where('numDocVol', $request['numDocVol'])->firstOrFail();
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return Redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. El DNI o NIE es incorrecto');
+        $numDocVol = $request->input('numDocVol');
+        $password = $request->input('password');
+
+        $volunteers = Volunteer::where('numDocVol', $numDocVol)->get();
+
+        if ($volunteers->isEmpty()) {
+            // Si no se encontraron voluntarios con el número de documento proporcionado
+            return redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. El DNI o NIE es incorrecto.');
         }
 
-        if (Auth::attempt($credentials)) {
-            return $this->checkRole();
-        } else
-            return Redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. La contraseña es incorrecta');
+        $validCredentials = false;
+
+        foreach ($volunteers as $volunteer) {
+            if (Hash::check($password, $volunteer->password)) {
+                // Contraseña válida para este volunteer
+                Auth::login($volunteer);
+                $validCredentials = true;
+                break;
+            }
+        }
+
+        // Si no se encontró ninguna coincidencia con el número de documento y contraseñaif ($validCredentials) {
+            if ($validCredentials) {
+                return $this->checkRole();
+            } else {
+                return redirect()->route('vol.login')->with('errorLogin', 'No se ha podido realizar el login. La contraseña es incorrecta.');
+            }
     }
+
     /* End Login */
 
     public function checkRole()
@@ -138,9 +157,11 @@ class AuthController extends Controller
     {
 
 
-        $pass = ($this->genPass());
-
-        echo "La pass es $pass";
+        if (config('app.env') == 'local') {
+            $pass = "prueba";
+        } else {
+            $pass = ($this->genPass());
+        }
 
         EmailController::sendRegisterMail($data['persMailVol'], $pass);
         $pass = Hash::make($pass);
@@ -173,6 +194,31 @@ class AuthController extends Controller
 
     }
     /* End Register */
+
+    public function changePasswordForm(Request $request)
+    {
+        return view('dashboard.changePasswordForm');
+    }
+
+    public function updatePassword(Request $request)
+    {
+
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        if(!Hash::check($request->old_password, Auth::user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+        Volunteer::whereId(Auth::user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with("status", "Password changed successfully!");
+
+    }
 
     /* Recovery Pasword */
     public function recoveryPassword(Request $request)

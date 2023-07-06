@@ -8,10 +8,6 @@
             <p><a href="https://www.fundacionmagtel.es/conocenos/">Conócenos</a></p>
             <p><a href="https://www.magtel.es/trabaja-con-nosotros/">Trabaja con nosotros</a></p>
             <p><a href="https://www.fundacionmagtel.es/actualidad-magtel/">Actualidad</a></p>
-            <p><a href="https://www.fundacionmagtel.es/innovacion-social">Innovación social</a></p>
-            <p><a href="https://www.fundacionmagtel.es/empleabilidad">Empleabilidad</a></p>
-            <p><a href="https://www.fundacionmagtel.es/accion-social">Acción social</a></p>
-            <p><a href="https://www.fundacionmagtel.es/cooperacion-internacional">Cooperación internacional</a></p>
         </div>
         <div class="eachColFoot">
             <div class="titleFoot">CONTACTO</div>
@@ -26,7 +22,7 @@
             <p><a href="https://www.fundacionmagtel.es/politica-de-proteccion-de-datos/">Protección de datos</a></p>
             <p><a href="https://www.fundacionmagtel.es/politica-de-cookies/">Política de cookies</a></p>
             <p>© 2023 Fundación Magtel</p>
-            <p><a href="https://magtel.es/">magtel.es</a></p>
+            <p><a href="https://fundacionmagtel.es/">fundacionmagtel.es</a></p>
         </div>
     </div>
 </div>

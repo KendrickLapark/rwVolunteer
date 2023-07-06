@@ -352,6 +352,13 @@
 
         </form>
 
+        <form method="GET" action="{{ route('dashboard.changePasswordForm') }}" id="changePasswordForm" >
+        @csrf
+            <div class="divButtonMyProfile">              
+                <p><button type="submit" class="botonesControl" id="updateMyProfile">Cambiar contraseña</button></p>         
+            </div>
+        </form>
+
     </div>
 @endsection
 

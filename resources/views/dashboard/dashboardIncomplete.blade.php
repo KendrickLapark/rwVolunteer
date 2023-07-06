@@ -21,7 +21,7 @@
                 Bienvenidos a Voluntariado Magtel
             </div>
             <div class="mainData center">
-                <p>Para comenzar en el Voluntariado debes de descargar y rellenar un par de documentos</p>
+                <p>Para comenzar en el Voluntariado debes de descargar y rellenar los siguientes documentos. Será necesario para acceder al contenido completo de la web.</p>
                 <p>
                 <form method="POST" action="{{ route('PDF.generateContactModelVol') }}">
                     @csrf

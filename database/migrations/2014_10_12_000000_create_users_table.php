@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('typeDocVol', ['DNI', 'NIE', 'Pasaporte'])->nullable(false);
             $table->string('numDocVol',10)->nullable(false);
             $table->string('telVol',15)->nullable(false);
-            $table->enum('sexVol', ['Hombre', 'Mujer', 'Otro'])->nullable(false);
+            $table->enum('sexVol', ['Hombre', 'Mujer'])->nullable(false);
             $table->enum('shirtSizeVol', ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'])->nullable(false);
             $table->string('persMailVol',100)->nullable(false);
             $table->string('corpMailVol',100)->nullable(true);
