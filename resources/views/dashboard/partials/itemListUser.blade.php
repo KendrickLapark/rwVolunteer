@@ -195,6 +195,44 @@
                             @endif
                         </div>
                     </div>
+
+                    <div class="buttons_user">
+
+                    <div class="buttonAct">
+                        <p> <strong>Banear usuario: </strong> </p>
+                        <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $volunteer->volunteer_id  }}">
+                            <button type="submit" class="botonesControl" aria-label="Eliminar"
+                                onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
+                                    style="font-size:25px;"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="buttonAct">
+                        <p> <strong>Desbanear usuario: </strong> </p>
+                        <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $volunteer->volunteer_id }}">
+                            <button type="submit" class="botonesControl" aria-label="Eliminar"
+                                onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
+                                    style="font-size:25px;"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="buttonAct">
+                        <p> <strong>Eliminar usuario: </strong> </p>
+                        <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $volunteer->volunteer_id  }}">
+                            <button type="submit" class="botonesControl" aria-label="Eliminar"
+                                onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
+                                    style="font-size:25px;"></i></button>
+                        </form>
+                    </div>
+
+                    </div>
+
                     <div class="eachRow">
                         <div class="controlButton lessDetails">
                             <i class='bx bxs-up-arrow' role="button" tabindex="0" aria-expanded="true" style="font-size:20px"></i>

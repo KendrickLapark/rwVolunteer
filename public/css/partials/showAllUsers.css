@@ -89,6 +89,7 @@
 #search_list .hidden{
     display:flex;
     flex-direction: column;
+    text-align: left;
     line-height: 1.5em;
     padding-inline: 15px;
     padding-block: 15px;
@@ -142,6 +143,12 @@
     margin: auto;
     padding: auto;
     line-height: 20px;
+}
+
+.buttons_user{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
 }
 
 .mainData .row .controlButton:hover {
