@@ -2,7 +2,25 @@
 
 <div class="sidebar-button">
     <i class='bx bx-menu sidebarBtn'></i>
-    <span class="dashboard" id="title">Dashboard</span>
+
+    
+
+    @if (Auth::user()->isAdminVol) 
+        @if(Auth::user()->sexVol == 'Mujer')
+            <?php $adminSex = 'Administradora'?>
+        @else
+            <?php $adminSex = 'Administrador'?>
+        @endif      
+        <span class="dashboard" id="title">{{Auth::user()->nameVol.' '}} {{Auth::user()->surnameVol.' ('.$adminSex.')'}}</span>     
+    @else
+        @if(Auth::user()->sexVol == 'Mujer')
+            <?php $volSex = 'Voluntaria'?>
+        @else
+            <?php $volSex = 'Voluntario'?>
+        @endif
+        <span class="dashboard" id="title">{{Auth::user()->nameVol.' '}}.{{Auth::user()->surnameVol.' ('.$volSex.')'}}</span> 
+    @endif
+    
 </div>
 @if (Auth::user()->isAdminVol)
     

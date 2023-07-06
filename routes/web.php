@@ -34,6 +34,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+/* pruebasEmail */ 
+Route::post('/sendEmail', [AuthController::class, 'sendEmail'])
+    ->name('sendEmail');
+
 /* Auth */
 
 /* Vista Form Register */

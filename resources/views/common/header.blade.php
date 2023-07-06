@@ -6,6 +6,7 @@
     </div>
     <div id="mainMenu">
         <ul>
+            <li><a href="*" class="botones botonesAB">Send Mail</a></li>
             <li><a href="{{ route('vol.login') }}" class="botones botonesAB">Accede</a></li>
             <li><a href="{{ route('vol.create') }}" class="botones botonesAB">Hazte voluntario</a></li>
         </ul>
