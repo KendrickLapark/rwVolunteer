@@ -171,6 +171,16 @@ class UsersController extends Controller
         return redirect()->route('dashboard.showAllUsers');
     }
 
+    public function deleteUser(Request $request)
+    {
+        $volunteer = Volunteer::select('id')
+            ->where('id', $request['id'])
+            ->delete();
+        session()->flash('successUser', 'Se ha ELIMINADO al Usuario');
+        return redirect()->route('dashboard.showAllUsers');
+
+    }
+
     public function updateProfile(Request $request)
     {
         $request->validate([

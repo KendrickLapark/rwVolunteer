@@ -11,6 +11,12 @@
             <h1> MUESTRA TODOS LOS USUARIOS </h1>
         </div>
 
+        @if (session()->has('successUser'))
+            <div class="formSubmitSuccess center center">
+                {{ session('successUser') }}
+            </div>
+        @endif
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-3"></div>
@@ -56,7 +62,7 @@
                     success:function(data){
                         $('#search_list').html(data.html);
 
-                        $(".hidden").hide();
+                        $(".hidden").hide(); 
                             $(".row").on("click", function() {
                                 if($(this).next().is(':hidden'))
                                     $(this).next().show('slow');

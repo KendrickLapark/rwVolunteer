@@ -15,6 +15,7 @@
 @import "partials/showAllEducation.css";
 @import "partials/showVolunteersActivity.css";
 @import "partials/dashboardAdmin.css";
+@import "partials/changePasswordForm.css";
 
 body {
     background-color: #ffffff;

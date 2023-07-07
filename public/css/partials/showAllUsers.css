@@ -151,6 +151,34 @@
     max-width: 100%;
 }
 
+.row_buttons_user{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    text-align: center;
+    column-gap: 10px;
+}
+
+.card_btn_user{
+    max-width: 40%;
+    row-gap: 10px;
+
+}
+
+.btn_user{
+    width: fit-content;
+    justify-content: center;
+    padding-inline: 10px;
+    background-color: #009fe3;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none;
+}
+
+.btn_user i{
+    color: white;
+}
+
 .mainData .row .controlButton:hover {
     color: #2697FF;
 }

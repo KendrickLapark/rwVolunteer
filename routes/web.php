@@ -236,6 +236,9 @@ Route::middleware(['isAdmin'])->group(function () {
     /* Desloquear usuario */
     Route::post('/dashboard-unbanUser',[UsersController::class, 'unbanUser'])
         ->name('dashboard.unbanUser');
+    /* Eliminar usuario */
+    Route::post('/dashboard-deleteUser',[UsersController::class, 'deleteUser'])
+        ->name('dashboard.deleteUser');
     /* Mostrar Documentos de usuario */
     Route::post('/dashboard-showThatUserDocument',  [DocumentController::class, 'showThatUserDocuments'])
         ->name('dashboard.showThatUserDocument');

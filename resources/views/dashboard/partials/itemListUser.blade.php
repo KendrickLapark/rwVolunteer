@@ -196,40 +196,53 @@
                         </div>
                     </div>
 
-                    <div class="buttons_user">
+                    <div class="row_buttons_user">
 
-                    <div class="buttonAct">
-                        <p> <strong>Banear usuario: </strong> </p>
-                        <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $volunteer->volunteer_id  }}">
-                            <button type="submit" class="botonesControl" aria-label="Eliminar"
-                                onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
-                                    style="font-size:25px;"></i></button>
-                        </form>
-                    </div>
+                        @if(Auth::user()->id != $volunteer->id)
 
-                    <div class="buttonAct">
-                        <p> <strong>Desbanear usuario: </strong> </p>
-                        <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $volunteer->volunteer_id }}">
-                            <button type="submit" class="botonesControl" aria-label="Eliminar"
-                                onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
-                                    style="font-size:25px;"></i></button>
-                        </form>
-                    </div>
+                            @if($volunteer->isLoggeable == 0)
+                                <div class="card_btn_user">
+                                    <p> <strong>Desbloquear usuario: </strong> </p>
+                                    <form method="POST" action="{{ route('dashboard.unbanUser') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $volunteer->id }}">
+                                        <button type="submit" class="btn_user"  aria-label="Desbanear usuario"
+                                            onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
+                                                style="font-size:25px;"></i></button>
+                                    </form>
+                                
+                                </div>
+                            @else
 
-                    <div class="buttonAct">
-                        <p> <strong>Eliminar usuario: </strong> </p>
-                        <form method="POST" action="{{ route('dashboard.deleteActivity') }}">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $volunteer->volunteer_id  }}">
-                            <button type="submit" class="botonesControl" aria-label="Eliminar"
-                                onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
-                                    style="font-size:25px;"></i></button>
-                        </form>
-                    </div>
+                                <div class="card_btn_user">
+                                    <p> <strong>Bloquear usuario:</strong> </p>
+                                    <form method="POST" action="{{ route('dashboard.banUser') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $volunteer->id  }}">
+                                        
+                                        <button type="submit" class="btn_user"  aria-label="Banear usuario"
+                                            onclick="return confirm('¿Estas seguro/a?')"><i class='fa-solid fa-ban'
+                                                style="font-size:25px;"></i></button>
+                                    </form>
+                                </div>
+
+                            @endif
+
+                        @endif
+
+                        @if(Auth::user()->id != $volunteer->id)
+
+                            <div class="card_btn_user">
+                                <p> <strong>Eliminar usuario:</strong> </p>
+                                <form method="POST" action="{{ route('dashboard.deleteUser') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $volunteer->id  }}">
+                                    <button type="submit" class="btn_user" aria-label="Eliminar usuario"
+                                        onclick="return confirm('¿Estas seguro/a de que quieres eliminar al usuario {{$volunteer->nameVol}} {{$volunteer->surnameVol}} {{$volunteer->surname2Vol}}')"><i class='bx bx-trash'
+                                            style="font-size:25px;"></i></button>
+                                </form>
+                            </div>
+                        @endif
 
                     </div>
 

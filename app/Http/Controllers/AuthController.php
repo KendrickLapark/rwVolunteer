@@ -202,22 +202,22 @@ class AuthController extends Controller
 
     public function updatePassword(Request $request)
     {
-
         $request->validate([
             'old_password' => 'required',
             'new_password' => 'required|confirmed',
         ]);
 
         if(!Hash::check($request->old_password, Auth::user()->password)){
-            return back()->with("error", "Old Password Doesn't match!");
+            session()->flash('errorPaswordChange', 'Error, las contraseñas no coinciden.');
+            return redirect()->route('dashboard.changePasswordForm');
         }
 
         Volunteer::whereId(Auth::user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
 
-        return back()->with("status", "Password changed successfully!");
-
+        session()->flash('successPasswordChange', 'Contraseña cambiada con éxito.');
+        return redirect()->route('dashboard.changePasswordForm');
     }
 
     /* Recovery Pasword */
