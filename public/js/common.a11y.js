@@ -76,30 +76,56 @@ $(() => {
 
     }
 
-        $('#ti1').click(function(){
+    var tamañoLetra = localStorage.getItem('tamaño-fuente');
 
+    function ajustaFuente(fontSize){
+
+        var format_fontSize = parseInt(fontSize);
+
+        $('p:not(.toolbar-title)').css('font-size', format_fontSize);
+        $('h1').css('font-size', format_fontSize);
+        $('span:not(.icon-overlay)').css('font-size', format_fontSize);
+        $('button').css('font-size', format_fontSize);
+        $('label:not(#overlay1)').css('font-size', format_fontSize);
+        $('.toolbar-item').css('font-size', format_fontSize);
+    }
+
+    function aumentarTamaño(tamañoLetra){
+
+        if(tamañoLetra != null){
+            tamaño = tamañoLetra;
+        }else{
             tamaño = parseInt($('#ti1').css('font-size'));
+        }
 
-            curSize = parseInt($('#ti1').css('font-size')) + 10;
+        curSize = tamaño + 10;
 
-		    if (curSize <= 48){
-                $('p:not(.toolbar-title)').css('font-size', curSize);
-                $('h1').css('font-size', curSize);
-                $('span:not(.icon-overlay)').css('font-size', curSize);
-                $('button').css('font-size', curSize);
-                $('label:not(#overlay1)').css('font-size', curSize);
-                $('.toolbar-item').css('font-size', curSize);
-            }		
+        localStorage.setItem('tamaño-fuente', curSize);
 
-        });
+        if (curSize <= 48){
+            $('p:not(.toolbar-title)').css('font-size', curSize);
+            $('h1').css('font-size', curSize);
+            $('span:not(.icon-overlay)').css('font-size', curSize);
+            $('button').css('font-size', curSize);
+            $('label:not(#overlay1)').css('font-size', curSize);
+            $('.toolbar-item').css('font-size', curSize);
+        }
 
-        $('#ti2').click(function(){
+    }
 
-            tamaño = parseInt($('#ti1').css('font-size'));
+    function disminuirTamaño(tamañoLetra){
 
-            curSize = parseInt($('#ti1').css('font-size')) - 10;
+            if(tamañoLetra != null){
+                tamaño = tamañoLetra;
+            }else{
+                tamaño = parseInt($('#ti1').css('font-size'));
+            }
+
+            curSize = tamaño - 10;
+
+            localStorage.setItem('tamaño-fuente', curSize);
             
-		    if (curSize > 18){
+            if (curSize > 18){
                 $('p:not(.toolbar-title)').css('font-size', curSize);
                 $('h1').css('font-size', curSize);
                 $('span:not(.icon-overlay)').css('font-size', curSize);
@@ -113,21 +139,14 @@ $(() => {
                 $('button').css('font-size', curSize);
                 $('label:not(#overlay1)').css('font-size', curSize);
                 $('.toolbar-item').css('font-size', curSize);        
-                $('.links_name').css('font-size', sidebar_size);
-
-                $('.calendario').find('span').each(function(){
-                    $(this).css('font-size', sidebar_size);
-                });
+                $('.links_name').css('font-size', curSize);
 
             }
-			    
-        });
+    }
 
-        var htmlElement = document.querySelector("html");           
-
-        $('#ti3').click(function(){
-
+        function modoGris(){
             if(!grayscale){
+                localStorage.setItem('modo-a11y', 'modo-gris');
                 $(htmlElement).css('-moz-filter', 'grayscale(100%)');
                 $(htmlElement).css('-webkit-filter', 'grayscale(100%)');
                 $(htmlElement).css('filter', 'grayscale(100%)');              
@@ -140,11 +159,9 @@ $(() => {
             }else{
                 disable_greyScale();
             }
-            
-        });          
+        }
 
-        $('#ti4').click(function(){
-
+        function contrasteAlto(){
             if(high_contrast){
                 disable_greyScale();
                 negative_contrast = false;
@@ -163,10 +180,9 @@ $(() => {
                 
               }
 
-        });
+        }
 
-        $('#ti5').click(function(){
-
+        function contrasteNegativo(){
             if(negative_contrast){
                 negative_contrast = false;
                 disable_greyScale();
@@ -184,10 +200,9 @@ $(() => {
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, .icon-overlay svg, i, .toolbar-item svg, a').css('color', 'yellow');
              }
 
-        });
+        }
 
-        $('#ti6').click(function(){
-
+        function modoClaro(){
             if(white_background){
                 disable_greyScale();
                 negative_contrast = false;
@@ -204,14 +219,74 @@ $(() => {
                 $('.sidebar, .sidebar li, li, .icon-overlay, .home-section, nav, .toolbar-inner, button, .profile-details').css('background', 'white');
                 $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, .icon-overlay svg, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
              }
+        }
+
+        function ajustesPorDefecto(){
+            localStorage.removeItem('modo-a11y');
+            localStorage.removeItem('tamaño-fuente');
+            disable_greyScale();
+            defaultColors();
+            restoreFontSize();
+        }
+
+        $('#ti1').click(function(){
+
+            aumentarTamaño(tamañoLetra);	
+
+        });
+
+        $('#ti2').click(function(){
+
+            disminuirTamaño(tamañoLetra);
+			    
+        });
+
+        var htmlElement = document.querySelector("html");           
+
+        $('#ti3').click(function(){
+
+            modoGris();
+            
+        });          
+
+        $('#ti4').click(function(){
+            contrasteAlto();
+
+        });
+
+        $('#ti5').click(function(){
+            contrasteNegativo();
+
+        });
+
+        $('#ti6').click(function(){
+            modoClaro();
 
         });
 
         $('#ti7').click(function(){
-            disable_greyScale();
-            defaultColors();
-            restoreFontSize();
+            ajustesPorDefecto();
 
         });
+
+        if(localStorage.getItem('modo-a11y') === 'modo-gris'){
+            modoGris();
+        }
+
+        if(localStorage.getItem('modo-a11y') === 'contraste-alto'){
+            contrasteAlto();
+        }
+
+        if(localStorage.getItem('modo-a11y') === 'contraste-negativo'){
+            contrasteNegativo();
+        }
+
+        if(localStorage.getItem('modo-a11y') === 'modo-claro'){
+            modoClaro();
+        }
+
+        if(localStorage.getItem('tamaño-fuente') != null){
+            ajustaFuente(tamañoLetra);
+        } 
 
 })

@@ -263,7 +263,6 @@ $(() => {
     }    
 
     var sidebar_size = parseInt($('.links_name').css('font-size'));
-    var toolbar_text_size = parseInt($('.toolbar-text').css('font-size'));
 
     var toolbar_inner_bc = getComputedStyle(document.querySelector('.toolbar-inner')).backgroundColor;
     var div_bc = getComputedStyle(document.querySelector('div')).backgroundColor;
