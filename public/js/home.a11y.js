@@ -16,7 +16,6 @@ $(() => {
     var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
     var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;
 
-
     function defaultColors(){
 
         $('header').css('background', header_bc);

@@ -184,6 +184,9 @@ class UsersController extends Controller
     public function updateProfile(Request $request)
     {
         $request->validate([
+            'nameVol' => 'required',
+            'surnameVol' => 'required',
+            'surname2Vol' => 'required',
             'shirtSizeVol' => 'required',
             'organiVol' => 'required',
             'telVol' => 'required',
@@ -206,6 +209,9 @@ class UsersController extends Controller
 
         Auth::user()->update(
             [
+                'nameVol' => $request->nameVol,
+                'surnameVol' => $request->surnameVol,
+                'surname2Vol' => $request->surname2Vol,
                 'shirtSizeVol' => $request->shirtSizeVol,
                 'organiVol' => $request->organiVol,
                 'telVol' => $request->telVol,

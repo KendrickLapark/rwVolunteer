@@ -9,12 +9,37 @@
     margin-block: auto;
 }
 
-#updateMyProfile{
+.footer_MyProfileForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    column-gap: 30px;
+    margin-right: 200px;
+}
+
+#changePassword, #updateMyProfile{
     display: flex;
     justify-content: center;
     margin-inline: auto;
     padding: 20px;
+}
 
+#changePasswordB{
+    display: flex;
+    width: 200px;
+    text-align: center;
+    background-color: #009FE3;
+    color: white;
+    border-radius: 25px;
+    padding-block: 10px;
+    align-items: center;
+    margin-top: 150px;
+    margin-left: 140px;
+
+}
+
+#changePasswordB span{
+    margin: auto;
 }
 
 .leftColForm{
@@ -39,6 +64,11 @@
         display: flex;
         margin-block: 40px;
         width: 100%;
+    }
+
+    #changePasswordB{
+        margin-block: 10px;
+        margin-inline: auto;
     }
 
 }

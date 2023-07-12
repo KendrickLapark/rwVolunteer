@@ -24,6 +24,36 @@
 
                         <div class="eachCreateInfoExtraElement">
                             <p>
+                                <label id="labelNameVol" class="formSections" for="nameVol"><strong>Nombre:
+                                    </strong></label>
+                                <br />
+                                <input type="text" id="nameVol" name="nameVol" value="{{ $volunteer->nameVol }}"
+                                    required>
+                            </p>
+                        </div>
+
+                        <div class="eachCreateInfoExtraElement">
+                            <p>
+                                <label id="labelSurnameVol" class="formSections" for="surnameVol"><strong>Apellido:
+                                    </strong></label>
+                                <br />
+                                <input type="text" id="surnameVol" name="surnameVol" value="{{ $volunteer->surnameVol }}"
+                                    required>
+                            </p>
+                        </div>
+
+                        <div class="eachCreateInfoExtraElement">
+                            <p>
+                                <label id="labelSurnameVol" class="formSections" for="surname2Vol"><strong>Segundo apellido:
+                                    </strong></label>
+                                <br />
+                                <input type="text" id="surname2Vol" name="surname2Vol" value="{{ $volunteer->surname2Vol }}"
+                                    required>
+                            </p>
+                        </div>
+
+                        <div class="eachCreateInfoExtraElement">
+                            <p>
                                 <label id="labelShirtSizeVol" class="formSections form-label" for="shirtSizeVol"><strong>Talla de
                                         camiseta:
                                     </strong></label>
@@ -338,11 +368,19 @@
                                     </strong></label>
                                 <br />
                                 <input type="text" id="townVol" name="townVol" value="{{ $volunteer->townVol }}"
-                                    readonly>
+                                    required>
                             </p>
                         </div>
+
+                        <div class="container-changePass">
+
+                            <a href="{{ route('dashboard.changePasswordForm') }}" id="changePasswordB">
+                                <span class="links_name">Cambiar contraseña</span>
+                            </a>
+
+                        </div>
+
                     </div>
-                    
                 </div>
             </div>
 
@@ -350,13 +388,6 @@
                     <p><button type="submit" class="botonesControl" id="updateMyProfile">Actualizar</button></p>         
             </div>
 
-        </form>
-
-        <form method="GET" action="{{ route('dashboard.changePasswordForm') }}" id="changePasswordForm" >
-        @csrf
-            <div class="divButtonMyProfile">              
-                <p><button type="submit" class="botonesControl" id="updateMyProfile">Cambiar contraseña</button></p>         
-            </div>
         </form>
 
     </div>
