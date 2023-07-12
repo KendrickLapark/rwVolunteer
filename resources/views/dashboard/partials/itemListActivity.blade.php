@@ -277,6 +277,16 @@ $fechas = [];
 
         });
 
+        $('.dateAccordion').on("keypress", function(e){
+
+            var key = e.which;
+
+            if(key == 13){    
+                $(this).nextUntil('.dateAccordion', 'li').toggle('slow');
+            }
+
+        });
+
         $('.bx.bxs-down-arrow').click(function(){
     
             var x = this.getAttribute('aria-expanded');

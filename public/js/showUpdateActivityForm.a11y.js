@@ -103,141 +103,229 @@ $(() => {
 
     }
 
-        $('#ti1').click(function(){
+    var tamañoLetra = localStorage.getItem('tamaño-fuente');
 
+    function ajustaFuente(fontSize){
+
+        var format_fontSize = parseInt(fontSize);
+
+        $('p:not(.toolbar-title)').css('font-size', format_fontSize);
+        $('h1').css('font-size', format_fontSize);
+        $('span:not(.icon-overlay)').css('font-size', format_fontSize);
+        $('button').css('font-size', format_fontSize);
+        $('label:not(#overlay1)').css('font-size', format_fontSize);
+        $('.toolbar-item').css('font-size', format_fontSize);
+    }
+
+    function aumentarTamaño(tamañoLetra){
+
+        if(tamañoLetra != null){
+            tamaño = tamañoLetra;
+        }else{
             tamaño = parseInt($('#ti1').css('font-size'));
+        }
 
-            curSize = parseInt($('#ti1').css('font-size')) + 10;
+        curSize = tamaño + 10;
 
-		    if (curSize <= 48){
-                $('p:not(.toolbar-title)').css('font-size', curSize);
-                $('h1').css('font-size', curSize);
-                $('span:not(.icon-overlay)').css('font-size', curSize);
-                $('button').css('font-size', curSize);
-                $('label:not(#overlay1)').css('font-size', curSize);
-                $('.toolbar-item').css('font-size', curSize);
-            }		
+        localStorage.setItem('tamaño-fuente', curSize);
 
-        });
+        if (curSize <= 48){
+            $('p:not(.toolbar-title)').css('font-size', curSize);
+            $('h1').css('font-size', curSize);
+            $('span:not(.icon-overlay)').css('font-size', curSize);
+            $('button').css('font-size', curSize);
+            $('label:not(#overlay1)').css('font-size', curSize);
+            $('.toolbar-item').css('font-size', curSize);
+        }
 
-        $('#ti2').click(function(){
+    }
 
+    function disminuirTamaño(tamañoLetra){
+
+        if(tamañoLetra != null){
+            tamaño = tamañoLetra;
+        }else{
             tamaño = parseInt($('#ti1').css('font-size'));
+        }
 
-            curSize = parseInt($('#ti1').css('font-size')) - 10;
-            
-		    if (curSize > 18){
-                $('p:not(.toolbar-title)').css('font-size', curSize);
-                $('h1').css('font-size', curSize);
-                $('span:not(.icon-overlay)').css('font-size', curSize);
-                $('button').css('font-size', curSize);
-                $('label:not(#overlay1)').css('font-size', curSize);
-                $('.toolbar-item').css('font-size', curSize); 
-            }else if(curSize == 18){
-                $('p:not(.toolbar-title)').css('font-size', curSize);
-                $('h1').css('font-size', curSize);
-                $('span:not(.icon-overlay)').css('font-size', curSize);
-                $('button').css('font-size', curSize);
-                $('label:not(#overlay1)').css('font-size', curSize);
-                $('.toolbar-item').css('font-size', curSize);        
-                $('.links_name').css('font-size', sidebar_size);
+        curSize = tamaño - 10;
 
-                $('.calendario').find('span').each(function(){
-                    $(this).css('font-size', sidebar_size);
-                });
+        localStorage.setItem('tamaño-fuente', curSize);
+        
+        if (curSize > 18){
+            $('p:not(.toolbar-title)').css('font-size', curSize);
+            $('h1').css('font-size', curSize);
+            $('span:not(.icon-overlay)').css('font-size', curSize);
+            $('button').css('font-size', curSize);
+            $('label:not(#overlay1)').css('font-size', curSize);
+            $('.toolbar-item').css('font-size', curSize); 
+        }else if(curSize == 18){
+            $('p:not(.toolbar-title)').css('font-size', curSize);
+            $('h1').css('font-size', curSize);
+            $('span:not(.icon-overlay)').css('font-size', curSize);
+            $('button').css('font-size', curSize);
+            $('label:not(#overlay1)').css('font-size', curSize);
+            $('.toolbar-item').css('font-size', curSize);        
+            $('.links_name').css('font-size', curSize);
 
-            }
-			    
-        });
+        }
 
-        var htmlElement = document.querySelector("html");           
+    }
 
-        $('#ti3').click(function(){
-
-            if(!grayscale){
-                $(htmlElement).css('-moz-filter', 'grayscale(100%)');
-                $(htmlElement).css('-webkit-filter', 'grayscale(100%)');
-                $(htmlElement).css('filter', 'grayscale(100%)');              
-                $(htmlElement).css('filter', 'gray');
-                    defaultColors();
-                    grayscale = true;
-                    high_contrast = false;
-                    negative_contrast = false;
-                    white_background = false; 
-            }else{
-                disable_greyScale();
-            }
-            
-        });          
-
-        $('#ti4').click(function(){
-
-            if(high_contrast){
-                disable_greyScale();
-                negative_contrast = false;
-                white_background = false; 
-                high_contrast = false;
+    function modoGris(){
+        if(!grayscale){
+            localStorage.setItem('modo-a11y', 'modo-gris');
+            $(htmlElement).css('-moz-filter', 'grayscale(100%)');
+            $(htmlElement).css('-webkit-filter', 'grayscale(100%)');
+            $(htmlElement).css('filter', 'grayscale(100%)');              
+            $(htmlElement).css('filter', 'gray');
                 defaultColors();
-            }else{
-                disable_greyScale();
-                negative_contrast = false;
-                white_background = false; 
-                high_contrast = true;           
-                defaultColors();
-                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, input, select, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, input, select, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
-                
-              }
-
-        });
-
-        $('#ti5').click(function(){
-
-            if(negative_contrast){
-                negative_contrast = false;
-                disable_greyScale();
-                high_contrast = false;
-                white_background = false; 
-                defaultColors();
-            }else{
-                disable_greyScale();
-                high_contrast = false;
-                white_background = false; 
-                negative_contrast = true; 
-                defaultColors();
-                $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, input, select, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, input, select, .toolbar-item svg, a').css('color', 'yellow');
-             }
-
-        });
-
-        $('#ti6').click(function(){
-
-            if(white_background){
-                disable_greyScale();
-                negative_contrast = false;
-                high_contrast = false; 
-                white_background = false;
-                defaultColors();
-            }else{
-                disable_greyScale();
+                grayscale = true;
                 high_contrast = false;
                 negative_contrast = false;
-                white_background = true; 
-                defaultColors();
-                $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, input, select, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
-                $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, input, select, .boton-delete-user i').css('color', 'black');                
-             }
-
-        });
-
-        $('#ti7').click(function(){
+                white_background = false; 
+        }else{
             disable_greyScale();
-            defaultColors();
-            restoreFontSize();
+        }
+    }
 
-        });
+    function contrasteAlto(){
+
+        if(high_contrast){
+            localStorage.removeItem('modo-a11y');
+            disable_greyScale();
+            negative_contrast = false;
+            white_background = false; 
+            high_contrast = false;
+            defaultColors();
+        }else{
+            localStorage.setItem('modo-a11y', 'contraste-alto');
+            disable_greyScale();
+            negative_contrast = false;
+            white_background = false; 
+            high_contrast = true;           
+            defaultColors();
+            $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
+            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, input, select, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, input, select, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
+        }
+
+    }
+
+    function contrasteNegativo(){
+
+        if(negative_contrast){
+            localStorage.removeItem('modo-a11y');
+            negative_contrast = false;
+            disable_greyScale();
+            high_contrast = false;
+            white_background = false; 
+            defaultColors();
+        }else{
+            localStorage.setItem('modo-a11y', 'contraste-negativo');
+            disable_greyScale();
+            high_contrast = false;
+            white_background = false; 
+            negative_contrast = true; 
+            defaultColors();
+            $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
+            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, input, select, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, input, select, .toolbar-item svg, a').css('color', 'yellow');
+        }
+
+    }
+
+    function modoClaro(){
+        if(white_background){
+            localStorage.removeItem('modo-a11y')
+            disable_greyScale();
+            negative_contrast = false;
+            high_contrast = false; 
+            white_background = false;
+            defaultColors();
+        }else{
+            localStorage.setItem('modo-a11y', 'modo-claro');;
+            disable_greyScale();
+            high_contrast = false;
+            negative_contrast = false;
+            white_background = true; 
+            defaultColors();
+            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .mainData, .divTime, nav, input, select, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
+            $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, span, button, h1, i, .toolbar-item svg, a, input, select, .boton-delete-user i').css('color', 'black');                
+        }
+    }
+
+    function restoreFontSize(){
+        $('p:not(.toolbar-title)').css('font-size', 18);
+        $('h1').css('font-size', 18);
+        $('button').css('font-size', 18);
+        $('label:not(#overlay1)').css('font-size', 18);
+        $('.toolbar-item').css('font-size', 18);
+        $('.dashboard').css('font-size', 24);
+        $('.links_name, .admin_name').css('font-size', 18);
+        $('.toolbar-text').css('font-size', 18);
+
+    }
+
+    function ajustesPorDefecto(){
+        localStorage.removeItem('modo-a11y');
+        localStorage.removeItem('tamaño-fuente');
+        negative_contrast = false;
+        high_contrast = false; 
+        white_background = false;
+        disable_greyScale();
+        defaultColors();
+        restoreFontSize();
+    }
+
+    $('#ti1').click(function(){
+        aumentarTamaño(tamañoLetra);
+    });
+
+    $('#ti2').click(function(){
+        disminuirTamaño(tamañoLetra);
+    });
+
+    var htmlElement = document.querySelector("html");           
+
+    $('#ti3').click(function(){
+        modoGris();
+    });          
+
+    $('#ti4').click(function(){
+        contrasteAlto();
+    });
+
+    $('#ti5').click(function(){
+        contrasteNegativo();
+    });
+
+    $('#ti6').click(function(){
+        modoClaro();
+    });
+
+    $('#ti7').click(function(){
+        ajustesPorDefecto();
+    });
+
+    if(localStorage.getItem('modo-a11y') === 'modo-gris'){
+        modoGris();
+    }
+
+    if(localStorage.getItem('modo-a11y') === 'contraste-alto'){
+        contrasteAlto();
+    }
+
+    if(localStorage.getItem('modo-a11y') === 'contraste-negativo'){
+        contrasteNegativo();
+    }
+
+    if(localStorage.getItem('modo-a11y') === 'modo-claro'){
+        modoClaro();
+    }
+
+    if(localStorage.getItem('tamaño-fuente') != null){
+        ajustaFuente(tamañoLetra);
+    } 
 
 })

@@ -1,7 +1,5 @@
 $(() => { 
 
-    alert(localStorage.getItem('modo-a11y'));
-
     if($('button')[0]){
         var button_i_c = getComputedStyle(document.querySelector('button i')).color;
         var button_bc = getComputedStyle(document.querySelector('button')).backgroundColor;

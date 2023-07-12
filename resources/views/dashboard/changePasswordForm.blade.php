@@ -60,4 +60,9 @@
     </div>
 @endsection
 
+@section('headlibraries')
+
+<script type="text/javascript" src="{{ URL::asset('js/changePasswordForm.a11y.js') }}"></script>
+
+@endsection
 

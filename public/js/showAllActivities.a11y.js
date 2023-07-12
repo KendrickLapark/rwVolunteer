@@ -275,7 +275,7 @@ $(() => {
             high_contrast = true;           
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
             $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
         }
 
@@ -298,7 +298,7 @@ $(() => {
             negative_contrast = true; 
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
             $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
         }
 
@@ -320,7 +320,7 @@ $(() => {
             white_background = true; 
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
+            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
             $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
          }
     }
@@ -348,56 +348,54 @@ $(() => {
         restoreFontSize();
     }
 
-        $('#ti1').click(function(){	
-            aumentarTamaño(tamañoLetra);
-        });
+    $('#ti1').click(function(){	
+        aumentarTamaño(tamañoLetra);
+    });
 
-        $('#ti2').click(function(){
-            disminuirTamaño(tamañoLetra);  
-        });
+    $('#ti2').click(function(){
+        disminuirTamaño(tamañoLetra);  
+    });
 
-        var htmlElement = document.querySelector("html");           
+    var htmlElement = document.querySelector("html");           
 
-        $('#ti3').click(function(){
-            modoGris();
-        });          
+    $('#ti3').click(function(){
+        modoGris();
+    });          
 
-        $('#ti4').click(function(){
-            contrasteAlto();
-        });
+    $('#ti4').click(function(){
+        contrasteAlto();
+    });
 
-        $('#ti5').click(function(){
-            contrasteNegativo();
-        });
+    $('#ti5').click(function(){
+        contrasteNegativo();
+    });
 
-        $('#ti6').click(function(){
-            modoClaro();
-        });
+    $('#ti6').click(function(){
+        modoClaro();
+    });
 
-        $('#ti7').click(function(){
-            ajustesPorDefecto();
-        });
+    $('#ti7').click(function(){
+        ajustesPorDefecto();
+    });
 
-        if(localStorage.getItem('modo-a11y') === 'modo-gris'){
-            modoGris();
-        }
-    
-        if(localStorage.getItem('modo-a11y') === 'contraste-alto'){
-            contrasteAlto();
-        }
-    
-        if(localStorage.getItem('modo-a11y') === 'contraste-negativo'){
-            contrasteNegativo();
-        }
-    
-        if(localStorage.getItem('modo-a11y') === 'modo-claro'){
-            modoClaro();
-        }
-    
-        if(localStorage.getItem('tamaño-fuente') != null){
-            ajustaFuente(tamañoLetra);
-        } 
+    if(localStorage.getItem('modo-a11y') === 'modo-gris'){
+        modoGris();
+    }
 
+    if(localStorage.getItem('modo-a11y') === 'contraste-alto'){
+        contrasteAlto();
+    }
 
+    if(localStorage.getItem('modo-a11y') === 'contraste-negativo'){
+        contrasteNegativo();
+    }
+
+    if(localStorage.getItem('modo-a11y') === 'modo-claro'){
+        modoClaro();
+    }
+
+    if(localStorage.getItem('tamaño-fuente') != null){
+        ajustaFuente(tamañoLetra);
+    } 
 
 })
