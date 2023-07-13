@@ -326,5 +326,70 @@
                 }
 
             });
+
+        
+        var storedProperty = localStorage.getItem('modo-a11y');    
+        var mainData = document.getElementsByClassName('mainData');
+        var hidden = document.getElementsByClassName('hidden');
+        var accordionUsers = document.getElementsByClassName('accordionUsers');
+        var download_buttons = document.getElementsByClassName('downloadButton');
+        var row_text = document.getElementsByClassName('row');
+
+        switch (storedProperty){
+            case 'contraste-alto':
+
+                for (var i = 0; i < mainData.length; i++){
+                    mainData[i].style.backgroundColor = 'black';
+                    mainData[i].style.color = '#00FFFF';
+                    hidden[i].style.backgroundColor = 'black';
+                    hidden[i].style.color = '#00FFFF';
+                    accordionUsers[i].style.backgroundColor = 'black';
+                    accordionUsers[i].style.color = '#00FFFF';
+                    row_text[i].style.color = '#00FFFF';
+                }
+
+                for (var j = 0; j < accordionUsers.length; j++){
+                    accordionUsers[j].style.backgroundColor = 'black';
+                    accordionUsers[j].style.color = '#00FFFF';
+                    download_buttons[j].style.backgroundColor = 'black';
+                    download_buttons[j].style.color = '#00FFFF';
+                }
+
+            break;
+            case 'contraste-negativo': 
+
+                for (var i = 0; i < mainData.length; i++){
+                    mainData[i].style.backgroundColor = 'black';
+                    mainData[i].style.color = 'yellow';
+                    hidden[i].style.backgroundColor = 'black';
+                    hidden[i].style.color = 'yellow';
+                    accordionUsers[i].style.backgroundColor = 'black';
+                    accordionUsers[i].style.color = 'yellow';
+                    row_text[i].style.color = 'yellow';
+                }
+
+                for (var i = 0; i < accordionUsers.length; i++){
+                    accordionUsers[i].style.backgroundColor = 'black';
+                    accordionUsers[i].style.color = 'yellow';
+                }
+
+            break;
+            case 'modo-claro':
+
+                for (var i = 0; i < mainData.length; i++){
+                    mainData[i].style.backgroundColor = 'white';
+                    mainData[i].style.color = 'black';
+                    hidden[i].style.backgroundColor = 'white';
+                    hidden[i].style.color = 'black';
+                    row_text[i].style.color = 'black';
+                }
+
+                for (var i = 0; i < accordionUsers.length; i++){
+                    accordionUsers[i].style.backgroundColor = 'white';
+                    accordionUsers[i].style.color = 'black';
+                }
+
+            break;
+        }
         
         </script>

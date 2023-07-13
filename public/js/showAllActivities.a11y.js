@@ -31,6 +31,7 @@ $(() => {
     var eachColor_C_c = getComputedStyle(document.querySelector('#eachColor_C')).backgroundColor;
     var icon_overlay_bc = getComputedStyle(document.querySelector('.icon-overlay')).backgroundColor;
     var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;
+    var input_c = getComputedStyle(document.querySelector('input')).color;
 
     var coloresFondo = [];
     var coloresLetra = [];
@@ -156,6 +157,8 @@ $(() => {
                 $(this).css('background', 'grey');
             })
         }
+
+        $('input').css('color', input_c);
         
     }
 
@@ -275,8 +278,8 @@ $(() => {
             high_contrast = true;           
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-            $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
+            $('html, .notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('.sidebar span, .toolbar-inner, input, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
         }
 
     }
@@ -298,8 +301,8 @@ $(() => {
             negative_contrast = true; 
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
-            $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
+            $('html, .notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('.sidebar span, .toolbar-inner, input, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
         }
 
     }
@@ -320,8 +323,8 @@ $(() => {
             white_background = true; 
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'white');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
-            $('.sidebar span, .toolbar-inner, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
+            $('html, .notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, li, .dateAccordion, .home-section, .icon-overlay, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
+            $('.sidebar span, .toolbar-inner, input, .toolbar-text, p, div, .icon-overlay svg, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
          }
     }
 

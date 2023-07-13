@@ -31,6 +31,8 @@ $(() => {
     var select_bc = getComputedStyle(document.querySelector('select')).backgroundColor;
     var input_bc = getComputedStyle(document.querySelector('input')).backgroundColor;
     var icon_toolbar_c = getComputedStyle(document.querySelector('#icon-toolbar')).color;
+    var changePasword_bc = getComputedStyle(document.querySelector('#changePasswordB')).backgroundColor;
+    var changePasword_c = getComputedStyle(document.querySelector('#changePasswordB span')).color;
 
     function defaultColors(){
 
@@ -84,6 +86,8 @@ $(() => {
 
         $('p').css('color', 'black');
         
+        $('#changePasswordB').css('background', changePasword_bc);
+        $('#changePasswordB span').css('color', changePasword_c);
         $('select').css('background', select_bc);
         $('input').css('background', input_bc);
         $('select').css('color', 'black');
@@ -206,7 +210,7 @@ $(() => {
             high_contrast = true;           
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .icon-overlay, .sidebar li, li, select, input, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('html, #changePasswordB, .notifyTrayIns, .sectionIncomplete, .sidebar, .icon-overlay, .sidebar li, li, select, input, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
             $('.sidebar span, .toolbar-inner, .toolbar-text, p, .icon-overlay svg, select, input, div, span, button, h1, i, .toolbar-item svg, a').css('color', '#00FFFF');
         }
 
@@ -229,7 +233,7 @@ $(() => {
             negative_contrast = true; 
             defaultColors();
             $('div:not(.slide, .slider, .slides, #main, .navigation-auto').css('background', 'black');
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .icon-overlay, .sidebar li, li, select, input, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
+            $('html, #changePasswordB, .notifyTrayIns, .sectionIncomplete, .sidebar, .icon-overlay, .sidebar li, li, select, input, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'black');
             $('.sidebar span, .toolbar-inner, .toolbar-text, p, .icon-overlay svg, select, input, div, span, button, h1, i, .toolbar-item svg, a').css('color', 'yellow');
         }
 
@@ -250,7 +254,7 @@ $(() => {
             negative_contrast = false;
             white_background = true; 
             defaultColors();
-            $('.notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, .icon-overlay, li, select, input, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
+            $('html, #changePasswordB, .notifyTrayIns, .sectionIncomplete, .sidebar, .sidebar li, .icon-overlay, li, select, input, .home-section, .mainData, .divTime, nav, .toolbar-inner, form, button, .profile-details, .row').css('background', 'white');
             $('.sidebar span, .toolbar-inner, .toolbar-text, p, select, .icon-overlay svg, input, div, span, button, h1, i, .toolbar-item svg, a, .boton-delete-user i').css('color', 'black');                
         }
     }

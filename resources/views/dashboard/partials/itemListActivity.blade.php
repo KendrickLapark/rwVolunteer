@@ -341,4 +341,99 @@ $fechas = [];
 
         });
 
+        var storedProperty = localStorage.getItem('modo-a11y');
+        var dateAccordion = document.getElementsByClassName('dateAccordion');
+        var rows = document.getElementsByClassName('row');
+        var hiddens = document.getElementsByClassName('hidden');
+        var buttonsBars = document.getElementsByClassName('buttonsBar');
+        var downArrows = document.getElementsByClassName('bx-caret-down');
+        var buttons = document.getElementsByClassName('botonVis');
+        var botonesControl = document.getElementsByClassName('botonesControl');
+        var divTime = document.getElementsByClassName('divTime');
+
+        switch (storedProperty){
+            case 'contraste-alto':
+
+                for (var i = 0; i < dateAccordion.length; i++) {
+                    dateAccordion[i].style.backgroundColor = 'black';
+                    dateAccordion[i].style.color = '#00FFFF'; 
+                    downArrows[i].style.color = '#00FFFF'; 
+                }
+
+                for (var i = 0; i < rows.length; i++) {
+                    rows[i].style.backgroundColor = 'black';
+                    rows[i].style.color = '#00FFFF';
+                    hiddens[i].style.backgroundColor = 'black';
+                    hiddens[i].style.color = '#00FFFF';
+                    buttonsBars[i].style.backgroundColor = 'black';
+                    buttonsBars[i].style.color = '#00FFFF';
+                    buttons[i].style.backgroundColor = 'black'; 
+                    buttons[i].style.color = '#00FFFF';
+                    divTime[i].style.backgroundColor = 'black';
+                    divTime[i].style.color = '#00FFFF';
+
+                }
+
+                for (var j = 0; j < botonesControl.length; j++){
+                    botonesControl[j].style.backgroundColor = 'black'; 
+                    botonesControl[j].style.color = '#00FFFF';  
+                }
+
+            break;
+            case 'contraste-negativo':
+
+                for (var i = 0; i < dateAccordion.length; i++) {
+                    dateAccordion[i].style.backgroundColor = 'black';
+                    dateAccordion[i].style.color = 'yellow'; 
+                    downArrows[i].style.color = 'yellow';
+                }
+
+                for (var i = 0; i < rows.length; i++) {
+                    rows[i].style.backgroundColor = 'black';
+                    rows[i].style.color = 'yellow'; 
+                    hiddens[i].style.backgroundColor = 'black';
+                    hiddens[i].style.color = 'yellow';
+                    buttonsBars[i].style.backgroundColor = 'black';
+                    buttonsBars[i].style.color = 'yellow';
+                    buttons[i].style.backgroundColor = 'black'; 
+                    buttons[i].style.color = 'yellow';  
+                    divTime[i].style.backgroundColor = 'black';
+                    divTime[i].style.color = 'yellow';
+                }
+
+                for(var i = 0; i < botonesControl.length; i++){
+                    botonesControl[i].style.backgroundColor = 'black'; 
+                    botonesControl[i].style.color = 'yellow';  
+                }
+
+            break;
+            case 'modo-claro':
+
+                for (var i = 0; i < dateAccordion.length; i++) {
+                    dateAccordion[i].style.backgroundColor = 'white';
+                    dateAccordion[i].style.color = 'black'; 
+                    downArrows[i].style.color = 'black'; 
+                }
+
+                for (var i = 0; i < rows.length; i++) {
+                    rows[i].style.backgroundColor = 'white';
+                    rows[i].style.color = 'black'; 
+                    hiddens[i].style.backgroundColor = 'white';
+                    hiddens[i].style.color = 'black';
+                    buttonsBars[i].style.backgroundColor = 'white';
+                    buttonsBars[i].style.color = 'black';
+                    buttons[i].style.backgroundColor = 'black'; 
+                    buttons[i].style.color = 'white';   
+                    divTime[i].style.backgroundColor = 'white';
+                    divTime[i].style.color = 'black';
+                }
+
+                for(var i = 0; i < botonesControl.length; i++){
+                    botonesControl[i].style.backgroundColor = 'white'; 
+                    botonesControl[i].style.color = 'black';  
+                }
+
+            break;
+        }
+
 </script>

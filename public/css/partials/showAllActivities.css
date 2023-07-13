@@ -135,6 +135,7 @@
     padding-block: 5px;
     width: fit-content;
     font-size: min(5vw, 14px);
+    cursor: pointer;
 }
 
 #search_listAct .row .controlButton-moreDetails{
