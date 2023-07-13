@@ -181,6 +181,24 @@ class UsersController extends Controller
 
     }
 
+    public function giveAdmin(Request $request)
+    {
+        $volunteer = Volunteer::select('id')
+            ->where('id', $request['id'])
+            ->update(['isAdminVol' => 1]);
+        session()->flash('successUser', 'Se ha dado el rol de ADMINISTRADOR.');
+        return redirect()->route('dashboard.showAllUsers');
+    }
+
+    public function removeAdmin(Request $request)
+    {
+        $volunteer = Volunteer::select('id')
+            ->where('id', $request['id'])
+            ->update(['isAdminVol' => 0]);
+        session()->flash('successUser', 'Se ha quitado el rol de ADMINISTRADOR.');
+        return redirect()->route('dashboard.showAllUsers');
+    }
+
     public function updateProfile(Request $request)
     {
         $request->validate([

@@ -225,7 +225,7 @@ $fechas = [];
                     </div>
 
                 <div class="controlButton moreDetails">
-                    <i class='bx bxs-up-arrow' style="padding-top: 10px"></i>
+                    <i class='bx bxs-up-arrow' style="padding-top: 10px" tabindex="0"></i>
                 </div>
 
             </div>
@@ -302,6 +302,21 @@ $fechas = [];
             this.setAttribute('aria-expanded', x);
     
         });
+
+        $(".row").on("click", function() {
+            if($(this).siblings().is(':visible'))
+                 $(this).siblings().hide('slow');
+            else
+                $(this).siblings().show('slow');
+            
+        }); 
+
+         $(".hidden").on("click", function() {
+            if ($(this).is(':visible')) 
+                $(this).hide('slow');
+            else 
+                $(this).show('slow');       
+        }); 
 
         $(".row").on("keypress", function(e) {
 

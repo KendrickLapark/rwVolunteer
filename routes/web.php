@@ -82,7 +82,7 @@ Route::get('/endRecoveryPass', function () {
 /* Endpoint Usuario Baneado */
 Route::get('/accesobloqueado', function () {
     return view('endpoint.endLoginBanned');
-})->name('vol.banned');
+})->name('endpoint.endLoginBanned');
 
 /* Logout */
 Route::get('/logout',[AuthController::class,'logOut'])
@@ -239,6 +239,12 @@ Route::middleware(['isAdmin'])->group(function () {
     /* Eliminar usuario */
     Route::post('/dashboard-deleteUser',[UsersController::class, 'deleteUser'])
         ->name('dashboard.deleteUser');
+        /* Convertir en administrador */
+    Route::post('/dashboard-giveAdmin',[UsersController::class, 'giveAdmin'])
+        ->name('dashboard.giveAdmin');
+        /* Quitar administrador */
+    Route::post('/dashboard-removeAdmin',[UsersController::class, 'removeAdmin'])
+        ->name('dashboard.removeAdmin');
     /* Mostrar Documentos de usuario */
     Route::post('/dashboard-showThatUserDocument',  [DocumentController::class, 'showThatUserDocuments'])
         ->name('dashboard.showThatUserDocument');

@@ -100,7 +100,7 @@ class AuthController extends Controller
             return Redirect()->route('dashboard.logged');
         }
 
-        return Redirect()->view('endpoint.endLoginBanned');
+        return Redirect()->route('endpoint.endLoginBanned');
     }
 
     /* Register */

@@ -45,6 +45,7 @@ class Volunteer extends Authenticatable
         'organiVol',
         /********/
         'isLoggeable',
+        'isSuperAdminVol',
         'isAdminVol',
         'isInternVol',
         'isRegisterComplete',

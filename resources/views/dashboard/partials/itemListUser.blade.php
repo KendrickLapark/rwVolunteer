@@ -207,7 +207,7 @@
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $volunteer->id }}">
                                         <button type="submit" class="btn_user"  aria-label="Desbanear usuario"
-                                            onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-trash'
+                                            onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-lock-open-alt'
                                                 style="font-size:25px;"></i></button>
                                     </form>
                                 
@@ -221,7 +221,7 @@
                                         <input type="hidden" name="id" value="{{ $volunteer->id  }}">
                                         
                                         <button type="submit" class="btn_user"  aria-label="Banear usuario"
-                                            onclick="return confirm('¿Estas seguro/a?')"><i class='fa-solid fa-ban'
+                                            onclick="return confirm('¿Estas seguro/a?')"><i class='bx bx-lock-alt'
                                                 style="font-size:25px;"></i></button>
                                     </form>
                                 </div>
@@ -242,6 +242,36 @@
                                             style="font-size:25px;"></i></button>
                                 </form>
                             </div>
+                        @endif
+
+                        @if(Auth::user()->isSuperAdminVol)
+
+                            @if($volunteer->isAdminVol)
+                                @if(Auth::user()->id != $volunteer->id)
+                                    <div class="card_btn_user">
+                                        <p> <strong>Quitar administrador:</strong> </p>
+                                        <form method="POST" action="{{ route('dashboard.removeAdmin') }}">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $volunteer->id  }}">
+                                            <button type="submit" class="btn_user" aria-label="Quitar rol de administrador/a"
+                                                onclick="return confirm('¿Estas seguro/a de que quieres quitar la condición de administrador/a a {{$volunteer->nameVol}} {{$volunteer->surnameVol}} {{$volunteer->surname2Vol}}')"><i class='bx bx-trash'
+                                                    style="font-size:25px;"></i></button>
+                                        </form>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="card_btn_user">
+                                    <p> <strong>Dar administrador:</strong> </p>
+                                    <form method="POST" action="{{ route('dashboard.giveAdmin') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $volunteer->id  }}">
+                                        <button type="submit" class="btn_user" aria-label="Dar condición de administrador/a"
+                                            onclick="return confirm('¿Estas seguro/a de que quieres dar el rol de administrador/a al usuario {{$volunteer->nameVol}} {{$volunteer->surnameVol}} {{$volunteer->surname2Vol}}')"><i class='bx bxs-user-plus'
+                                                style="font-size:25px;"></i></button>
+                                    </form>
+                                </div>
+                            @endif
+
                         @endif
 
                     </div>

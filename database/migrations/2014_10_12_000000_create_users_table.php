@@ -41,6 +41,7 @@ return new class extends Migration
             $table->string('organiVol',20)->nullable(true)->default(false);
             /********/
             $table->boolean('isLoggeable')->default(true);
+            $table->boolean('isSuperAdminVol')->default(false);
             $table->boolean('isAdminVol')->default(false);
             $table->boolean('isInternVol')->default(false);
             $table->boolean('isRegisterComplete')->default(false);
